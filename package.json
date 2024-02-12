@@ -5,7 +5,7 @@
   "scripts": {
     "build": "yarn clear & yarn build-esbuild && yarn types",
     "dev": "node ./esbuild.config.dev.mjs",
-    "build-esbuild": "node ./prebuild.cjs --env=production && node esbuild.config.prod.mjs",
+    "build-esbuild": "node esbuild.config.prod.mjs",
     "types": "node --max_old_space_size=2048 ./node_modules/rollup/dist/bin/rollup -c rollup.config.types.js",
     "prettier": "prettier --config ./.prettierrc.json --write \"src/**/*{.js,.jsx,.ts,.tsx,.css}\"",
     "clear": "rimraf dist",

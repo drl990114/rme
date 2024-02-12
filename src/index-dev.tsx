@@ -1,8 +1,15 @@
-import React, { version } from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
+import React from "react"
+import { createRoot } from "react-dom/client"
 
-// eslint-disable-next-line no-console
-console.log('Parent folder loaded react version: ', version)
+import App from "./App"
 
-ReactDOM.render(<App />, document.getElementById('app'))
+const root = document.getElementById("root")
+if (!root) {
+    throw new Error("Root element not found")
+}
+
+createRoot(root).render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+)
