@@ -126,7 +126,6 @@ export const SlashMenu = () => {
           ref={setPopperElement}
           style={{
             ...styles.popper,
-            backgroundColor: '#1e1e1e',
             zIndex: 1000,
           }}
           {...attributes.popper}
