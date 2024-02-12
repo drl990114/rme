@@ -8,13 +8,14 @@ const ctx = await esbuild.context({
   outdir: 'build',
   treeShaking: true,
   logLevel: 'info',
+  loader: {
+    '.woff': 'dataurl',
+    '.woff2': 'dataurl',
+    '.ttf': 'dataurl',
+    '.svg': 'dataurl',
+    '.eot': 'dataurl',
+  },
   plugins: [
-    cssModulesPlugin({
-      v2: true,
-      v2CssModulesOption: {
-        pattern: `index__[local]_[hash]`,
-      },
-    }),
   ],
 })
 

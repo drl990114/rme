@@ -7,6 +7,7 @@ import useChangeCodeMirrorTheme from './playground/hooks/useChangeCodeMirrorThem
 import { DebugConsole } from './playground/components/DebugConsole'
 import { DebugButton } from './playground/components/DebugButton'
 import './App.css'
+import 'remixicon/fonts/remixicon.css'
 
 let themeEl: undefined | HTMLStyleElement
 const THEME_ID = 'mf-markdown-theme'
