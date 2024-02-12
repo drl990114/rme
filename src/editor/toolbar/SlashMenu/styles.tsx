@@ -10,6 +10,12 @@ type SlashMenuRootProps = {
   closeMenu: () => void
 }
 
+export enum ChildrenHandlerNext {
+  None,
+  ReturnLeftGroup,
+  Close
+}
+
 export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
   ({ rootRef, commands, closeMenu }) => {
     const componentRefMap = useRef<Record<string, any>>({})
@@ -117,8 +123,10 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
           if (componentRef?.handleKeyDown) {
             const next = componentRef.handleKeyDown(event)
 
-            if (next === false) {
+            if (next === ChildrenHandlerNext.Close) {
               closeMenu()
+              return
+            } else if (next === ChildrenHandlerNext.None) {
               return
             }
           }
@@ -133,6 +141,10 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
         } else if (event.key === 'ArrowLeft') {
           handleLeft()
         } else if (event.key === 'Enter') {
+          // Prevent paragraph insertion
+          event.preventDefault()
+          event.stopPropagation()
+
           if (activeItemId) {
             const item = currentMenuItem?.children?.find((child) => child.id === activeItemId)
             if (item?.handler) {

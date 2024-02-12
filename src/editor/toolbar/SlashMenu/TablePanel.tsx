@@ -2,6 +2,7 @@
 import { forwardRef, useState, useImperativeHandle, memo } from 'react'
 import type { AnyExtension, CommandsFromExtensions } from 'remirror'
 import styled from 'styled-components'
+import { ChildrenHandlerNext } from './styles'
 
 type TablePanelProps = {
   commands: CommandsFromExtensions<AnyExtension>
@@ -10,7 +11,7 @@ type TablePanelProps = {
 
 type TablePanelRef = {
   createTable: () => void
-  handleKeyDown: (e: KeyboardEvent) => boolean | void
+  handleKeyDown: (e: KeyboardEvent) => ChildrenHandlerNext | void
 }
 
 const TablePanelCell = styled.div.attrs<{ inScope: boolean }>((p) => p)`
@@ -30,18 +31,21 @@ const TablePanel = memo(
 
     useImperativeHandle(ref, () => ({
       createTable: () => {
-        commands.createTable({ rowsCount, columnsCount, withHeaderRow: false})
+        commands.createTable({ rowsCount, columnsCount, withHeaderRow: false })
       },
       handleKeyDown: (e) => {
         const handleRight = () => {
-          setColumnsCount((prev) => prev + 1)
+          if (e.metaKey || e.ctrlKey) {
+            setColumnsCount((prev) => prev + 1)
+            return ChildrenHandlerNext.None
+          }
         }
         const handleLeft = () => {
           if (e.metaKey || e.ctrlKey) {
-            return true
+            setColumnsCount((prev) => (prev - 1 < 1 ? 1 : prev - 1))
+            return ChildrenHandlerNext.None
           }
-          setColumnsCount((prev) => (prev - 1 < 1 ? 1 : prev - 1))
-          return false
+          return ChildrenHandlerNext.ReturnLeftGroup
         }
         const handleUp = () => {
           setRowsCount((prev) => (prev - 1 < 1 ? 1 : prev - 1))
@@ -51,7 +55,7 @@ const TablePanel = memo(
         }
         const handleEnter = () => {
           commands.createTable({ rowsCount, columnsCount })
-          return false
+          return ChildrenHandlerNext.Close
         }
 
         if (e.key === 'ArrowRight') {
@@ -73,6 +77,9 @@ const TablePanel = memo(
 
     return (
       <div>
+        <div>
+          Ctrl <kbd>left</kbd> <kbd>right</kbd> to change cols
+        </div>
         <span>
           Rows: {rowsCount} Cols: {columnsCount}
         </span>
@@ -90,7 +97,7 @@ const TablePanel = memo(
                       commands.createTable({
                         rowsCount: i,
                         columnsCount: j,
-                        withHeaderRow: false
+                        withHeaderRow: false,
                       })
                       closeMenu()
                     }}
