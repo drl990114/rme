@@ -19,6 +19,8 @@ const ctx = await esbuild.context({
   ],
 })
 
+fs.existsSync('./build') || fs.mkdirSync('./build')
+
 fs.copyFile('./public/index.html', './build/index.html', (err) => {
   if (err) throw err
 })
