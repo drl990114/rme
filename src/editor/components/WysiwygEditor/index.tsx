@@ -1,7 +1,7 @@
 import { Remirror } from '@remirror/react'
 import { type FC, createContext, memo, useMemo, useCallback } from 'react'
 import Text from '../Text'
-import Wrapper from '../Wrapper'
+import { ThemeWrapper } from '../../../editor/theme'
 import { createWysiwygDelegate } from './delegate'
 import TableToolbar from '../../toolbar/TableToolbar'
 import { ProsemirrorDevTools } from '@remirror/dev'
@@ -49,7 +49,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
 
   return (
     <ErrorBoundary>
-      <Wrapper>
+      <ThemeWrapper>
         <OffsetContext.Provider value={offset || { top: 0, left: 0 }}>
           <Remirror
             manager={editorDelegate.manager}
@@ -61,11 +61,11 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
             <TableToolbar />
             <SlashMenu />
             {wysiwygToolBar || null}
-            <Text className='w-full markdown-body' />
+            <Text />
             {isTesting ? <ProsemirrorDevTools /> : null}
           </Remirror>
         </OffsetContext.Provider>
-      </Wrapper>
+      </ThemeWrapper>
     </ErrorBoundary>
   )
 }

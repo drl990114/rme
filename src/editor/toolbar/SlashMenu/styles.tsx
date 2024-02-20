@@ -2,7 +2,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { AnyExtension, CommandsFromExtensions } from 'remirror'
 import styled, { css } from 'styled-components'
 import TablePanel from './TablePanel'
-import { darken } from '@markflowy/theme'
+import { darken } from '@/editor/theme/darken-colors'
 
 type SlashMenuRootProps = {
   rootRef: React.RefObject<HTMLDivElement>

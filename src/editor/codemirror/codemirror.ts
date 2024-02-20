@@ -12,7 +12,7 @@ import { assertGet, isPromise, replaceNodeAtPosition } from '@remirror/core'
 import type { EditorSchema, EditorView, ProsemirrorNode } from '@remirror/pm'
 import { exitCode } from '@remirror/pm/commands'
 import { Selection, TextSelection } from '@remirror/pm/state'
-import { lightTheme } from '@markflowy/theme'
+import { lightTheme } from '../../editor/theme'
 import type { LanguageDescription, LanguageSupport } from '@codemirror/language'
 import { languages } from '@codemirror/language-data'
 import { nanoid } from 'nanoid'
@@ -21,10 +21,11 @@ import { createTheme } from './theme'
 import type { CreateThemeOptions } from './theme'
 
 const cmInstanceMap = new Map<string, MfCodemirrorView>()
-const themeRef = { current: createTheme(lightTheme.codemirorTheme as CreateThemeOptions) }
+const themeRef = { current: createTheme(lightTheme.codemirrorTheme as CreateThemeOptions) }
 
 export const changeTheme = (theme: CreateThemeOptions): void => {
   themeRef.current = createTheme(theme)
+  console.log('themeRef.current', themeRef.current, cmInstanceMap)
   cmInstanceMap.forEach((mfCmView) => {
     mfCmView.cm.dispatch({
       effects: mfCmView.editorTheme.reconfigure(themeRef.current),

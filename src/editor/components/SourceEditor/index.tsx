@@ -44,7 +44,7 @@ const SourceCodeEditorCore = memo((props: { markdownToolBar?: React.ReactNode[],
         editable={editable}
         onChange={props.onChange}
       >
-        <Text className='h-full w-full overflow-auto px-0' style={{ padding: 0 }} />
+        <Text />
         {markdownToolBar || null}
         {isTesting ? <ProsemirrorDevTools /> : null}
       </Remirror>

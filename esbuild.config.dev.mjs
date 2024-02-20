@@ -1,5 +1,5 @@
 import * as esbuild from 'esbuild'
-import cssModulesPlugin from 'esbuild-css-modules-plugin'
+import alias from 'esbuild-plugin-alias'
 import fs from 'fs'
 
 const ctx = await esbuild.context({
@@ -16,6 +16,9 @@ const ctx = await esbuild.context({
     '.eot': 'dataurl',
   },
   plugins: [
+    alias({
+      '@': './src',
+    }),
   ],
 })
 

@@ -5,6 +5,7 @@ body {
   color-scheme: dark;
   color: #ffffffe6;
   background-color: #05010d;
+  padding: 12px;
 }
 
 #root {

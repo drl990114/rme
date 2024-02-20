@@ -34,8 +34,6 @@ import { TextSelection } from '@remirror/pm/state'
 import { CodeMirror6NodeView } from './codemirror-node-view'
 import type { CodeMirrorExtensionAttributes, CodeMirrorExtensionOptions } from './codemirror-types'
 import { arrowHandler } from './codemirror-utils'
-import type { CreateThemeOptions} from '@/editor/codemirror'
-import { changeTheme } from '@/editor/codemirror'
 import { languages } from '@codemirror/language-data'
 
 export const fakeIndentedLanguage = 'indent-code'
@@ -209,14 +207,6 @@ export class LineCodeMirrorExtension extends NodeExtension<CodeMirrorExtensionOp
         dispatch(tr)
       }
 
-      return true
-    }
-  }
-
-  @command()
-  changeCodeMirrorTheme(theme: CreateThemeOptions): CommandFunction {
-    return () => {
-      changeTheme(theme)
       return true
     }
   }
