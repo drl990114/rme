@@ -58,10 +58,10 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
             editable={editable}
             onChange={handleChange}
           >
+            <Text />
             <TableToolbar />
             <SlashMenu />
             {wysiwygToolBar || null}
-            <Text />
             {isTesting ? <ProsemirrorDevTools /> : null}
           </Remirror>
         </OffsetContext.Provider>

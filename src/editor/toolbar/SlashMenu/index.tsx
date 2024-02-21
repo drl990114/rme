@@ -27,6 +27,10 @@ export enum Placement {
 
 export const SlashMenu = () => {
   const { view: editorView, getState, commands } = useRemirrorContext({ autoUpdate: true })
+  if (!editorView) {
+    return
+  }
+
   const editorState = getState()
 
   const slashMenuExtension = useExtension(SlashMenuExtension)
