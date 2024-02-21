@@ -26,6 +26,8 @@ export class SlashMenuExtension extends PlainExtension {
         handleKeyDown(view, event) {
           const editorState = view.state
 
+          if (!editorState) return false
+
           const state = this.getState(editorState)
           if (!state) return false
           const slashCase = getCase(state, event, view, initialState.ignoredKeys)

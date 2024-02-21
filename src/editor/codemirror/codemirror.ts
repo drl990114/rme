@@ -193,7 +193,7 @@ class MfCodemirrorView {
   }
 
   private valueChanged(tr: CodeMirrorTransaction): void {
-    if (!this.cm) return
+    if (!this.cm || !this.view) return
 
     this.cm.update([tr])
 
