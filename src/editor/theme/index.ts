@@ -2,7 +2,8 @@ import { codemirrorLight, codemirrorDark } from './codemirror'
 import { styledDarkTheme } from './dark'
 import { styledLightTheme } from './light'
 
-export * from './ThemeWrapper'
+export * from './WysiwygThemeWrapper'
+export * from './SourceCodeThemeWrapper'
 
 export const common = {
   lineHeightBase: '1.6',

@@ -8,6 +8,7 @@ import { createSourceCodeDelegate } from './delegate'
 import ErrorBoundary from '../ErrorBoundary'
 import type { EditorProps } from '../Editor'
 import type { Extension, RemirrorEventListener } from 'remirror'
+import { SourceCodeThemeWrapper } from '../../theme'
 
 type Context = Props
 
@@ -23,34 +24,38 @@ const [SourceEditorProvider, useSourceCodeEditor] = createContextState<Context, 
   },
 )
 
-const SourceCodeEditorCore = memo((props: { markdownToolBar?: React.ReactNode[], onChange: RemirrorEventListener<Extension> }) => {
-  const { markdownToolBar } = props
-  const { content, markText, hooks, isTesting, editable } = useSourceCodeEditor()
+const SourceCodeEditorCore = memo(
+  (props: { markdownToolBar?: React.ReactNode[]; onChange: RemirrorEventListener<Extension> }) => {
+    const { markdownToolBar } = props
+    const { content, markText, hooks, isTesting, editable } = useSourceCodeEditor()
 
-  let initialCntent
+    let initialCntent
 
-  try {
-    initialCntent = markText.stringToDoc(content!)
-  } catch (error) {
-    return <ErrorBoundary hasError error={error} />
-  }
+    try {
+      initialCntent = markText.stringToDoc(content!)
+    } catch (error) {
+      return <ErrorBoundary hasError error={error} />
+    }
 
-  return (
-    <ErrorBoundary>
-      <Remirror
-        manager={markText.manager}
-        initialContent={initialCntent}
-        hooks={hooks}
-        editable={editable}
-        onChange={props.onChange}
-      >
-        <Text />
-        {markdownToolBar || null}
-        {isTesting ? <ProsemirrorDevTools /> : null}
-      </Remirror>
-    </ErrorBoundary>
-  )
-})
+    return (
+      <ErrorBoundary>
+        <SourceCodeThemeWrapper>
+          <Remirror
+            manager={markText.manager}
+            initialContent={initialCntent}
+            hooks={hooks}
+            editable={editable}
+            onChange={props.onChange}
+          >
+            <Text />
+            {markdownToolBar || null}
+            {isTesting ? <ProsemirrorDevTools /> : null}
+          </Remirror>
+        </SourceCodeThemeWrapper>
+      </ErrorBoundary>
+    )
+  },
+)
 
 /**
  * The editor which is used to create the annotation. Supports formatting.

@@ -22,7 +22,7 @@ export const styledLightTheme = {
 
   placeholderFontColor: '#6e7681',
 
-  kbdBgColor: '#f6f8fa',
+  kbdBgColor: '#e5e5e5',
   kbdBorderColor: '#afb8c133',
   kbdFontColor: '#24292f',
 

@@ -5,7 +5,7 @@ interface WarpperProps {
   dark?: boolean
 }
 
-export const ThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
+export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   width: 100%;
   position: relative;
   white-space: pre-wrap;
@@ -222,20 +222,6 @@ export const ThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & input[type='checkbox']:focus,
   & input[type='checkbox']:focus-visible {
     outline-offset: 0;
-  }
-
-  & kbd {
-    display: inline-block;
-    padding: 3px 5px;
-    font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
-    line-height: 10px;
-    color: #c9d1d9;
-    vertical-align: middle;
-    background-color: #161b22;
-    border: solid 1px rgba(110, 118, 129, 0.4);
-    border-bottom-color: rgba(110, 118, 129, 0.4);
-    border-radius: 6px;
-    box-shadow: inset 0 -1px 0 rgba(110, 118, 129, 0.4);
   }
 
   & h1,
@@ -769,13 +755,6 @@ export const ThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     vertical-align: middle;
     background-color: transparent;
   }
-
-  ${(props) =>
-    props.codeEditor &&
-    css`
-      padding: 0;
-      min-height: unset;
-    `}
 
   ${(props) =>
     props.dark &&
