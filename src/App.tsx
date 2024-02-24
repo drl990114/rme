@@ -5,6 +5,7 @@ import useContent from './playground/hooks/use-content'
 import { DebugConsole } from './playground/components/DebugConsole'
 import { FormControlLabel, FormGroup, Switch } from '@mui/material'
 import { DebugButton } from './playground/components/DebugButton'
+import { ThemeProvider as ZThemeProvider } from 'zens'
 import './App.css'
 import 'remixicon/fonts/remixicon.css'
 
@@ -64,57 +65,58 @@ function App() {
     )
   }
 
+  const themeData = {
+    mode: theme,
+  }
   return (
     <main>
-      <div>
-        <h1>
-          Markflowy - <small>WYSIWYG Markdown Editor</small>
-        </h1>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <select
-          onChange={(e) => {
-            const value = e.target.value
-            if (value === 'wysiwyg') {
-              editorRef.current?.toggleType('wysiwyg')
-            } else {
-              editorRef.current?.toggleType('sourceCode')
-            }
-          }}
-        >
-          <option value="wysiwyg">wysiwyg</option>
-          <option value="sourceCode">source code</option>
-        </select>
-        <FormGroup>
-          <FormControlLabel
-            control={<Switch defaultChecked />}
-            label={theme}
-            labelPlacement="start"
+      <ZThemeProvider theme={themeData}>
+        <div>
+          <h1>
+            Markflowy - <small>WYSIWYG Markdown Editor</small>
+          </h1>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <select
             onChange={(e) => {
-              if (e.target.checked) {
-                setTheme('dark')
+              const value = e.target.value
+              if (value === 'wysiwyg') {
+                editorRef.current?.toggleType('wysiwyg')
               } else {
-                setTheme('light')
+                editorRef.current?.toggleType('sourceCode')
               }
             }}
-          />
-        </FormGroup>
-      </div>
-      <ThemeProvider
-        theme={{
-          mode: theme,
-        }}
-      >
-        <DebugButton
-          enableDevTools={enableDevTools}
-          toggleEnableDevTools={() => setEnableDevTools(!enableDevTools)}
-        />
-        <div className="playground-box">
-          {editor}
-          {debugConsole}
+          >
+            <option value="wysiwyg">wysiwyg</option>
+            <option value="sourceCode">source code</option>
+          </select>
+          <FormGroup>
+            <FormControlLabel
+              control={<Switch defaultChecked />}
+              label={theme}
+              labelPlacement="start"
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setTheme('dark')
+                } else {
+                  setTheme('light')
+                }
+              }}
+            />
+          </FormGroup>
         </div>
-        <BlurHelper />
-      </ThemeProvider>
+        <ThemeProvider theme={themeData}>
+          <DebugButton
+            enableDevTools={enableDevTools}
+            toggleEnableDevTools={() => setEnableDevTools(!enableDevTools)}
+          />
+          <div className="playground-box">
+            {editor}
+            {debugConsole}
+          </div>
+          <BlurHelper />
+        </ThemeProvider>
+      </ZThemeProvider>
     </main>
   )
 }

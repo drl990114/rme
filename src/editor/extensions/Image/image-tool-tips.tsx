@@ -1,5 +1,5 @@
 import { useState, type FC } from 'react'
-import { Input, Space, Tooltip } from '@markflowy/components'
+import { Input, Space, Tooltip } from 'zens'
 import type { NodeViewComponentProps } from '@remirror/react'
 
 interface ImageToolTipsProps {

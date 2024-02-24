@@ -462,7 +462,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.22.5"
 
-"@babel/runtime@^7.10.1", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.13", "@babel/runtime@^7.21.0", "@babel/runtime@^7.21.5", "@babel/runtime@^7.22.3", "@babel/runtime@^7.23.8", "@babel/runtime@^7.23.9", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7", "@babel/runtime@^7.10.1", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.13", "@babel/runtime@^7.21.0", "@babel/runtime@^7.21.5", "@babel/runtime@^7.22.3", "@babel/runtime@^7.23.8", "@babel/runtime@^7.23.9", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
   version "7.23.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.9.tgz#47791a15e4603bb5f905bc0753801cf21d6345f7"
   integrity sha512-0CX6F+BI2s9dkUqr08KFrAIZgNFj75rdBU/DjCyYLIaV/quFjkk6T+EJ2LkZHyZTbEV4L5p97mNkUsHl2wLFAw==
@@ -1836,28 +1836,10 @@
     "@messageformat/parser" "^5.0.0"
     js-sha256 "^0.10.1"
 
-"@markflowy/components@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@markflowy/components/-/components-0.0.10.tgz#8851034bd96266d212169756b205b9ccb409f5c8"
-  integrity sha512-L0HR568dxKpD+MWXcSUbVGM0N2Q1kDwmFrIbYrMNNDTgt1cjQdrUZ/YY8ohuAPdonKN9aL19TNQlLSPgGjQmng==
-  dependencies:
-    "@ariakit/react" "^0.3.8"
-    "@floating-ui/dom" "^1.0.0"
-    "@markflowy/theme" "^0.0.8"
-    classnames "^2.3.0"
-    clsx "^2.0.0"
-    rc-image "^7.5.1"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-hot-toast "^2.4.1"
-    react-spinners "^0.13.8"
-    styled-components "^6.1.0"
-    stylis "^4.0.0"
-
-"@markflowy/theme@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@markflowy/theme/-/theme-0.0.8.tgz#3907b82267f2d055a802efe994016b72899e42e6"
-  integrity sha512-BO9yA+jy5tYECKavn4tqtS9nbqpKg7Abyf8ktL6oNVfQoqBaBeEhE/B1NHIOrjIuGGZcqFSxsStYeRX24TnM+A==
+"@markflowy/theme@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@markflowy/theme/-/theme-0.0.13.tgz#b326d3e303ec4a1c097920e86ff7dbb5d8a42b58"
+  integrity sha512-YlnRJunP4hc3cCZvuyLLfxzY0RCD/5Ka5kGC/C9EkvwD84qJupLEqVura230kwwSiUO6OMwoflGa7GXlJYqXYQ==
   dependencies:
     "@lezer/highlight" "^1.1.6"
     color "^4.2.3"
@@ -10733,6 +10715,11 @@ socks@^2.7.1:
     ip "^2.0.0"
     smart-buffer "^4.2.0"
 
+sonner@^1.4.0:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/sonner/-/sonner-1.4.1.tgz#51482aba9a18dd381283b30f607f092de2307354"
+  integrity sha512-KJcFbMF+z2OMSJ9H+N6mrk/ffnEzuyLFlHoza/HQvNyiACoY958VtFdC7xD9D74ttzA+kcS1YIJOsNwbKWDsHw==
+
 source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
@@ -12004,6 +11991,26 @@ yocto-queue@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
+
+zens@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.4.tgz#c871ec641775f26e058109930e3f56597e2d01ab"
+  integrity sha512-oYPP3CtdJJytFOSsh+DxXjlL8fMxh88qgKQSXK5h/jok3UWGHY4G9xBfDKjtiRvaOFUQO8lDWeyIFmINZPz/+g==
+  dependencies:
+    "@ariakit/react" "^0.3.8"
+    "@babel/runtime" "^7"
+    "@floating-ui/dom" "^1.0.0"
+    "@markflowy/theme" "^0.0.13"
+    classnames "^2.3.0"
+    clsx "^2.0.0"
+    rc-image "^7.5.1"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-hot-toast "^2.4.1"
+    react-spinners "^0.13.8"
+    sonner "^1.4.0"
+    styled-components "^6.1.0"
+    stylis "^4.0.0"
 
 zip-stream@^5.0.1:
   version "5.0.1"

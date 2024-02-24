@@ -1,5 +1,5 @@
 import type { NodeViewComponentProps } from '@remirror/react'
-import { Image, Popover } from '@markflowy/components'
+import { Image, Popover } from 'zens'
 import { ImageToolTips } from './image-tool-tips'
 import { Resizable } from '@/editor/components/Resizable'
 import { useEffect, useRef, useState } from 'react'

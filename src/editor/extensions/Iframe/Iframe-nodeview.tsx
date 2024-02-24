@@ -1,5 +1,5 @@
 import type { NodeViewComponentProps } from '@remirror/react'
-import { Popover } from '@markflowy/components'
+import { Popover } from 'zens'
 import { Resizable } from '@/editor/components/Resizable'
 import { useRef } from 'react'
 
