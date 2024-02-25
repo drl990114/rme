@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.0.29",
+  "version": "0.0.31",
   "type": "module",
   "scripts": {
     "build": "yarn clear & yarn build-esbuild && yarn types",
@@ -188,6 +188,6 @@
     "tether-drop": "^1.4.2",
     "void-elements": "^3.1.0",
     "yjs": "^13.6.6",
-    "zens": "0.0.4"
+    "zens": "0.0.6"
   }
 }

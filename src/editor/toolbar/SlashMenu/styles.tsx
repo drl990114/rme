@@ -253,14 +253,14 @@ const MenuItem = styled.li.attrs<{
   outline: none !important;
 
   &:hover {
-    background-color: ${(props) => props.theme.blue};
+    background-color: ${(props) => props.theme.contextMenuBgColorHover};
     color: hsl(204 20% 100%);
   }
 
   ${(p) => {
     if (p.selected) {
       return css`
-        background-color: ${(props) => props.theme.blue};
+        background-color: ${(props) => props.theme.contextMenuBgColorHover};
         color: hsl(204 20% 100%);
       `
     }

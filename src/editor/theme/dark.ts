@@ -39,5 +39,6 @@ export const styledDarkTheme = {
   preBgColor: '#161b22',
 
   // components
-  contextMenuBgColor: '#43414A',
+  contextMenuBgColor: '#1E1F20',
+  contextMenuBgColorHover: '#1552B3',
 }
