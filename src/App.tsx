@@ -105,7 +105,26 @@ function App() {
             />
           </FormGroup>
         </div>
-        <ThemeProvider theme={themeData}>
+        <ThemeProvider
+          theme={themeData}
+          i18n={{
+            locales: {
+              'zh-CN': {
+                translation: {
+                  table: {
+                    insertColumnAfter: '向后插入列',
+                    insertColumnBefore: '向前插入列',
+                    insertRowAfter: '向后插入行',
+                    insertRowBefore: '向前插入行',
+                    deleteColumn: '删除列',
+                    deleteRow: '删除行',
+                  },
+                },
+              },
+            },
+            language: 'zh-CN',
+          }}
+        >
           <DebugButton
             enableDevTools={enableDevTools}
             toggleEnableDevTools={() => setEnableDevTools(!enableDevTools)}

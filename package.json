@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.0.31",
+  "version": "0.0.34",
   "type": "module",
   "scripts": {
     "build": "yarn clear & yarn build-esbuild && yarn types",
@@ -161,6 +161,7 @@
     "create-context-state": "^2.0.0",
     "fuse.js": "^6.6.2",
     "html-parse-stringify": "^3.0.1",
+    "i18next": "^23.10.1",
     "jsx-dom-cjs": "^8.0.7",
     "linkify-it": "^4.0.1",
     "lodash": "^4.17.21",
@@ -178,6 +179,7 @@
     "punycode": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^14.1.0",
     "react-popper": "^2.3.0",
     "remirror": "^2.0.39",
     "remirror-extension-flat-list": "^0.2.0",

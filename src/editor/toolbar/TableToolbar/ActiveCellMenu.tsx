@@ -11,6 +11,7 @@ import {
 import { useCommands, type UseMultiPositionerReturn } from '@remirror/react'
 import styled from 'styled-components'
 import { OffsetContext } from '@/editor/components/WysiwygEditor'
+import { Trans, useTranslation } from 'react-i18next'
 
 const Container = styled.div`
   position: absolute;
@@ -26,29 +27,37 @@ const ActiveCellMenu = (props: ActiveCellMenuProps) => {
   const [open, setOpen] = useState(false)
   const anchorRef = useRef<HTMLDivElement>(null)
   const offset = useContext(OffsetContext)
+  const { t } = useTranslation()
+
   const options = [
     {
       label: 'insert column after',
+      i18nKey: 'table.insertColumnAfter',
       handler: commands.addTableColumnAfter,
     },
     {
       label: 'insert column before',
+      i18nKey: 'table.insertColumnBefore',
       handler: commands.addTableColumnBefore,
     },
     {
       label: 'insert row after',
+      i18nKey: 'table.insertRowAfter',
       handler: commands.addTableRowAfter,
     },
     {
       label: 'insert row before',
+      i18nKey: 'table.insertRowBefore',
       handler: commands.addTableRowBefore,
     },
     {
       label: 'delete column',
+      i18nKey: 'table.deleteColumn',
       handler: commands.deleteTableColumn,
     },
     {
       label: 'delete row',
+      i18nKey: 'table.deleteRow',
       handler: commands.deleteTableRow,
     },
   ]
@@ -79,7 +88,7 @@ const ActiveCellMenu = (props: ActiveCellMenuProps) => {
       }}
     >
       <div ref={anchorRef}>
-        <i className='ri-equalizer-line'></i>
+        <i className="ri-equalizer-line"></i>
       </div>
       <Popper
         sx={{
@@ -109,7 +118,7 @@ const ActiveCellMenu = (props: ActiveCellMenuProps) => {
                         setOpen(false)
                       }}
                     >
-                      <ListItemText>{option.label}</ListItemText>
+                      <ListItemText>{t(option.i18nKey)}</ListItemText>
                     </MenuItem>
                   ))}
                 </MenuList>

@@ -1,0 +1,10 @@
+{
+  "table": {
+    "insertColumnAfter": "insert column after",
+    "insertColumnBefore": "insert column before",
+    "insertRowAfter": "insert row after",
+    "insertRowBefore": "insert row before",
+    "deleteColumn": "delete column",
+    "deleteRow": "delete row"
+  }
+}
