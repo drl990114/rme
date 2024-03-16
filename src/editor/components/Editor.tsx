@@ -35,7 +35,8 @@ export const Editor = memo(
   }),
 )
 
-export type EditorChangeHandler = (params: RemirrorEventListenerProps<Extension>) => void
+export type EditorChangeEventParams = RemirrorEventListenerProps<Extension>
+export type EditorChangeHandler = (params: EditorChangeEventParams) => void
 
 export interface EditorProps {
   delegate?: EditorDelegate
