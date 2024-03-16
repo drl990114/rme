@@ -28,6 +28,10 @@ export const SourceCodeThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     font-size: ${(props) => props.theme.fontBase};
     font-family: ${(props) => props.theme.codemirrorFontFamily} !important;
 
+    &.cm-focused {
+      outline: none;
+    }
+
     .cm-line {
       padding: 2px 2px 2px 6px;
 
