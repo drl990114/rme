@@ -1,10 +1,9 @@
 import { useRemirrorContext } from '@remirror/react-core'
-import type { EditorContext } from '../editor'
 import { useEffect } from 'react'
+import { EditorContext } from '../types'
 
-export const useContextMounted = (onContextMounted?: (ctx: EditorContext) => void ) => {
+export const useContextMounted = (onContextMounted?: (ctx: EditorContext) => void) => {
   const remirrorContext = useRemirrorContext()
-
 
   useEffect(() => {
     if (onContextMounted) {

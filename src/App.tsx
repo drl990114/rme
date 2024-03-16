@@ -1,5 +1,5 @@
-import { Editor, ThemeProvider, EditorRef } from '.'
-import React, { FC, useLayoutEffect } from 'react'
+import { Editor, ThemeProvider, EditorRef, createWysiwygDelegate } from '.'
+import React, { FC, useLayoutEffect, useMemo } from 'react'
 import useDevTools from './playground/hooks/use-devtools'
 import useContent from './playground/hooks/use-content'
 import { DebugConsole } from './playground/components/DebugConsole'
@@ -26,6 +26,19 @@ function App() {
   const { contentId, content, hasUnsavedChanges, setContentId, setContent } = useContent()
   const { enableDevTools, setEnableDevTools } = useDevTools()
   const [theme, setTheme] = React.useState<'light' | 'dark'>('dark')
+  const editorDelegate = useMemo(() => createWysiwygDelegate(), [])
+
+  const debounce = (fn: (...args: any) => void, delay: number) => {
+    let timer: number
+    return (...args: any) => {
+      clearTimeout(timer)
+      timer = window.setTimeout(() => fn(...args), delay)
+    }
+  }
+
+  const debounceChange = debounce((params) => {
+    setContent(editorDelegate.docToString(params.state.doc) || '')
+  }, 300)
 
   const editor = (
     <div className="playground-self-scroll">
@@ -34,8 +47,8 @@ function App() {
         ref={editorRef}
         content={content}
         offset={{ top: 10, left: 16 }}
-        onChange={(_, content) => setContent(content)}
-        isTesting
+        onChange={debounceChange}
+        isTesting={false}
       />
     </div>
   )

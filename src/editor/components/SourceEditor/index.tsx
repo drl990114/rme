@@ -68,8 +68,8 @@ const SourceEditor: React.FC<EditorProps> = (props) => {
   const handleChange: RemirrorEventListener<Extension> = useCallback(
     (params) => {
       try {
-        const textContent = editorDelegate.docToString(params.state.doc)
-        props.onChange?.(params, textContent)
+        // const textContent = editorDelegate.docToString(params.state.doc)
+        props.onChange?.(params)
       } catch (error) {
         console.error(error)
       }
