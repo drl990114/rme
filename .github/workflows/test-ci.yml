@@ -1,0 +1,23 @@
+name: Test CI
+
+on: push
+
+permissions:
+  contents: write # to fetch code (actions/checkout)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3 # v3
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build workspaces
+        run: yarn build
+
+      - name: Run Test
+        run: yarn test
