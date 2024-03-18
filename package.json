@@ -55,7 +55,7 @@
     "@vitejs/plugin-react": "^4.0.1",
     "@vitest/browser": "^0.34.2",
     "@vitest/ui": "^0.34.3",
-    "css-loader": "6.7.3",
+    "css-loader": "6.10.0",
     "esbuild": "^0.20.2",
     "esbuild-css-modules-plugin": "^2.7.1",
     "esbuild-decorators": "^1.0.0",
