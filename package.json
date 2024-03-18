@@ -156,7 +156,7 @@
     "html-parse-stringify": "^3.0.1",
     "i18next": "^23.10.1",
     "jsx-dom-cjs": "^8.0.7",
-    "linkify-it": "^4.0.1",
+    "linkify-it": "^5.0.0",
     "lodash": "^4.17.21",
     "markdown-it": "^14.0.0",
     "mdast": "^3.0.0",
