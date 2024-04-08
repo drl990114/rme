@@ -175,7 +175,7 @@
     "react-i18next": "^14.1.0",
     "react-popper": "^2.3.0",
     "remirror": "^2.0.39",
-    "remirror-extension-flat-list": "^0.2.0",
+    "remirror-extension-flat-list": "^0.2.1",
     "remixicon": "^4.1.0",
     "styled-components": "^6.1.0",
     "stylis": "^4.0.0",
