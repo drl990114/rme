@@ -1,4 +1,3 @@
-import { OffsetContext } from '../../components/WysiwygEditor'
 import type { UseMultiPositionerReturn } from '@remirror/react'
 import { useCommands } from '@remirror/react'
 import { useContext } from 'react'
@@ -12,7 +11,6 @@ const Container = styled.div`
 function TableBar(props: TableBarProps) {
   const { positioner } = props
   const commands = useCommands()
-  const offset = useContext(OffsetContext)
   const { ref, key, x, y } = positioner
 
   return (
@@ -20,8 +18,8 @@ function TableBar(props: TableBarProps) {
       key={key}
       ref={ref}
       style={{
-        left: x + offset.left,
-        top: y + offset.top - 26,
+        left: x ,
+        top: y - 26,
         width: 20,
         height: 20,
       }}

@@ -11,15 +11,13 @@ import type { EditorProps } from '../Editor'
 import { SlashMenu } from '../../toolbar/SlashMenu'
 import type { DocToString, StringToDoc } from '../../types'
 
-export const OffsetContext = createContext({ top: 0, left: 0 })
-
 export const wysiwygTransformer: {
   stringToDoc: StringToDoc | null
   docToString: DocToString | null
 } = { stringToDoc: null, docToString: null }
 
 const WysiwygEditor: FC<EditorProps> = (props) => {
-  const { content, hooks, delegate, offset, wysiwygToolBar, isTesting, editable } = props
+  const { content, hooks, delegate, wysiwygToolBar, isTesting, editable } = props
 
   const editorDelegate = useMemo(() => delegate ?? createWysiwygDelegate(), [delegate])
 
@@ -50,21 +48,19 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
   return (
     <ErrorBoundary>
       <WysiwygThemeWrapper>
-        <OffsetContext.Provider value={offset || { top: 0, left: 0 }}>
-          <Remirror
-            manager={editorDelegate.manager}
-            initialContent={initialContent}
-            hooks={hooks}
-            editable={editable}
-            onChange={handleChange}
-          >
-            <Text />
-            <TableToolbar />
-            <SlashMenu />
-            {wysiwygToolBar || null}
-            {isTesting ? <ProsemirrorDevTools /> : null}
-          </Remirror>
-        </OffsetContext.Provider>
+        <Remirror
+          manager={editorDelegate.manager}
+          initialContent={initialContent}
+          hooks={hooks}
+          editable={editable}
+          onChange={handleChange}
+        >
+          <Text />
+          <TableToolbar />
+          <SlashMenu />
+          {wysiwygToolBar || null}
+          {isTesting ? <ProsemirrorDevTools /> : null}
+        </Remirror>
       </WysiwygThemeWrapper>
     </ErrorBoundary>
   )

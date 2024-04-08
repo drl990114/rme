@@ -10,7 +10,6 @@ import {
 } from '@mui/material'
 import { useCommands, type UseMultiPositionerReturn } from '@remirror/react'
 import styled from 'styled-components'
-import { OffsetContext } from '@/editor/components/WysiwygEditor'
 import { Trans, useTranslation } from 'react-i18next'
 
 const Container = styled.div`
@@ -26,7 +25,6 @@ const ActiveCellMenu = (props: ActiveCellMenuProps) => {
   const commands = useCommands()
   const [open, setOpen] = useState(false)
   const anchorRef = useRef<HTMLDivElement>(null)
-  const offset = useContext(OffsetContext)
   const { t } = useTranslation()
 
   const options = [
@@ -77,8 +75,8 @@ const ActiveCellMenu = (props: ActiveCellMenuProps) => {
       key={key}
       ref={ref}
       style={{
-        left: x + offset.left,
-        top: y + offset.top,
+        left: x,
+        top: y,
         width: 20,
         height: 20,
       }}

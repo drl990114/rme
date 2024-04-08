@@ -43,10 +43,6 @@ export interface EditorProps {
   content: string
   isTesting?: boolean
   editable?: boolean
-  offset?: {
-    top: number
-    left: number
-  }
   onChange?: EditorChangeHandler
   hooks?: (() => void)[]
   markdownToolBar?: React.ReactNode[]
