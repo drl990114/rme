@@ -17,6 +17,7 @@ const MultiPositionerIllustration = ({ positioner }: PositionerIllustrationProps
 
   const positionersRender = [TitleBar, ActiveCellMenu]
 
+  console.log('positioners', positioners)
   return (
     <>
       {positioners.map((pos, i) => {

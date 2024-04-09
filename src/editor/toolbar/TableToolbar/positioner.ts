@@ -100,7 +100,7 @@ export const activeCellColumnAndRowPositioner = Positioner.create<ActiveCellColu
     const columnTopRect = new DOMRect(rect.x, rect.y, width, height)
 
     return {
-      x: left,
+      x: left + 20, // padding: 0 20px
       y: top,
       width,
       height,

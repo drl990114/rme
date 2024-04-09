@@ -79,6 +79,7 @@ const ActiveCellMenu = (props: ActiveCellMenuProps) => {
         top: y,
         width: 20,
         height: 20,
+        zIndex: 1,
       }}
       onMouseDown={(e) => {
         e.preventDefault()

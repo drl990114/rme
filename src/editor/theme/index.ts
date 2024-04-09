@@ -5,6 +5,8 @@ import { styledLightTheme } from './light'
 export * from './WysiwygThemeWrapper'
 export * from './SourceCodeThemeWrapper'
 
+export const tableSelectorSize = 15
+
 export const common = {
   lineHeightBase: '1.6',
 

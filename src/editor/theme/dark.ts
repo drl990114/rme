@@ -33,6 +33,14 @@ export const styledDarkTheme = {
   tableTrBgColor: '#0f0f0f',
   tableTrDeepBgColor: '#161b22',
   tableTrBorderColor: '#21262d',
+  tableSelectorBgColor: '#333333',
+  tableSelectorBgHoverColor: '#555555',
+  tableSelectorBorderColor: '#555555',
+  tableSelectorHightColor: '#003366',
+  tableSelectorHightHoverColor: '#224466',
+  tableSelectorHightBorderColor: '#003366',
+  tableSelectorCellBgColor: '#224466',
+  tableSelectorCellBorderColor: '#003366',
 
   codeBgColor: '#6e768166',
 

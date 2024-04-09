@@ -33,6 +33,14 @@ export const styledLightTheme = {
   tableTrBgColor: '#ffffff',
   tableTrDeepBgColor: '#f6f8fa',
   tableTrBorderColor: '#d8dee4',
+  tableSelectorBgColor: '#e5e5e5',
+  tableSelectorBgHoverColor: '#c6c6c6',
+  tableSelectorBorderColor: '#c6c6c6',
+  tableSelectorHightColor: '#5ea5f6',
+  tableSelectorHightHoverColor: '#91bbe5',
+  tableSelectorHightBorderColor: '#1c7ed6',
+  tableSelectorCellBgColor: '#d7ecf9',
+  tableSelectorCellBorderColor: '#1c7ed6',
 
   codeBgColor: '#afb8c133',
 

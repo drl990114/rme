@@ -2,6 +2,7 @@ import type { UseMultiPositionerReturn } from '@remirror/react'
 import { useCommands } from '@remirror/react'
 import { useContext } from 'react'
 import styled from 'styled-components'
+import { Tooltip } from 'zens'
 
 const Container = styled.div`
   position: absolute;
@@ -18,8 +19,8 @@ function TableBar(props: TableBarProps) {
       key={key}
       ref={ref}
       style={{
-        left: x ,
-        top: y - 26,
+        left: x - 15 + positioner.width / 2, // selector left: -15px
+        top: y + positioner.height,
         width: 20,
         height: 20,
       }}
@@ -28,7 +29,9 @@ function TableBar(props: TableBarProps) {
         commands.deleteTable()
       }}
     >
-      <i className="ri-delete-bin-line" />
+      <Tooltip title="delete">
+        <i className="ri-delete-bin-line" />
+      </Tooltip>
     </Container>
   )
 }

@@ -9259,7 +9259,7 @@ resolve@^1.17.0, resolve@^1.19.0:
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
-resolve@^1.22.4:
+resolve@^1.22.1, resolve@^1.22.4:
   version "1.22.8"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.22.8.tgz#b6c87a9f2aa06dfab52e3d70ac8cde321fa5a48d"
   integrity sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==
@@ -10959,10 +10959,10 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zens@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.8.tgz#2a5da4ea3a1f343db450736031ae2510043bbc3f"
-  integrity sha512-6I9dYWR3V0CggT5DoGTsFDBWxJe/RHsr9yoNS3E4vNXgNfGHk9swmmQBbedBSAop2jKfNTkdxac7UWrZr24duQ==
+zens@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.9.tgz#4de68e94d7aab2f3c02f64ee7dc3f18bf0a00349"
+  integrity sha512-LUiUuLrM2lHRkeq4l3zyJuP1ty5biGfKFAZsbWqOO5F1tN7yE+49msiJUZTd3Ah+I1Ny7HxzpgM3lMmRPSyWUw==
   dependencies:
     "@ariakit/react" "^0.4.3"
     "@babel/runtime" "^7"

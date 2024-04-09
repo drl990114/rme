@@ -18,6 +18,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.primaryFontColor};
   word-wrap: break-word;
+  padding: 0 20px;
   padding-bottom: 1em;
   box-sizing: border-box;
   outline: none;
@@ -81,7 +82,14 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & kbd {
     display: inline-block;
     padding: 3px 5px;
-    font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font:
+      11px ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
     line-height: 10px;
     color: ${(props) => props.theme.kbdFontColor};
     vertical-align: middle;
@@ -97,6 +105,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
 
   & table th,
   & table td {
+    position: relative;
     border: 1px solid ${(props) => props.theme.tableTdBorderColor};
   }
 
@@ -172,6 +181,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   }
 
   & table {
+    position: relative;
     border-spacing: 0;
     border-collapse: collapse;
     display: block;
@@ -308,14 +318,28 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & tt,
   & code,
   & samp {
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
     font-size: 12px;
   }
 
   & pre {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
     font-size: 12px;
     word-wrap: normal;
   }
@@ -587,7 +611,8 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     overflow: auto;
     box-sizing: border-box;
     z-index: 100;
-    box-shadow: 0 1px 4px -2px ${(props) => props.theme.boxShadowColor},
+    box-shadow:
+      0 1px 4px -2px ${(props) => props.theme.boxShadowColor},
       0 2px 8px 0 ${(props) => props.theme.boxShadowColor},
       0 8px 16px 4px ${(props) => props.theme.boxShadowColor};
 
@@ -754,6 +779,68 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     width: 1em;
     vertical-align: middle;
     background-color: transparent;
+  }
+
+  & .ProseMirror th.selectedCell,
+  & .ProseMirror td.selectedCell {
+    border-style: double;
+    border-color: ${(props) => props.theme.tableSelectorCellBorderColor};
+    background-color: ${(props) => props.theme.tableSelectorCellBgColor};
+  }
+
+  & .ProseMirror .tableWrapper {
+    overflow: visible;
+  }
+
+  & .ProseMirror table {
+    overflow: visible;
+
+    .rme-table-selector {
+      cursor: pointer;
+
+      outline-color: ${(props) => props.theme.tableSelectorBorderColor};
+      outline-style: solid;
+      outline-width: 1px;
+
+      background-color: ${(props) => props.theme.tableSelectorBgColor};
+
+      &:hover {
+        background-color: ${(props) => props.theme.tableSelectorBgColor};
+      }
+    }
+
+    .rme-table-selector-highlight {
+      outline-color: ${(props) => props.theme.tableSelectorHightBorderColor};
+      background-color: ${(props) => props.theme.tableSelectorHightColor};
+
+      &:hover {
+        background-color: ${(props) => props.theme.tableSelectorHightHoverColor};
+      }
+    }
+
+    .rme-table-body-selector {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: -15px;
+      left: -15px;
+    }
+
+    .rme-table-row-selector {
+      position: absolute;
+      width: 14px;
+      top: 0;
+      bottom: 0;
+      left: -15px;
+    }
+
+    .rme-table-column-selector {
+      position: absolute;
+      height: 14px;
+      left: 0;
+      right: 0;
+      top: -15px;
+    }
   }
 
   ${(props) =>

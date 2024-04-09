@@ -17,6 +17,8 @@ import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import { buildBlockEnterKeymap } from '../../utils/build-block-enter-keymap'
 import { CellSelection } from '@remirror/pm/tables'
+import { TableSelectorExtension } from './table-selector-extension'
+import { selectCell } from './table-helpers'
 
 enum TABLE_ALIGEN {
   DEFAULT = 1,
@@ -206,14 +208,14 @@ export class LineTableCellExtension extends TableCellExtension {
   }
 
   createExtensions() {
-    return []
-  }
+    return [new TableSelectorExtension()]
+}
 
   createCommands() {
     return {
       selectTableCell: ({ pos }: { pos: number }): CommandFunction => {
         return ({ tr, dispatch }): boolean => {
-          if (tr.setSelection(CellSelection.create(tr.doc, pos))) {
+          if (selectCell(tr, pos)) {
             dispatch?.(tr)
             return true
           }
