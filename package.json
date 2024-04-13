@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.0.39",
+  "version": "0.0.41",
   "type": "module",
   "scripts": {
     "build": "yarn clear & yarn build-esbuild && yarn types",
@@ -149,7 +149,6 @@
     "@remirror/styles": "^2.0.5",
     "@remirror/theme": "^2.0.8",
     "@remirror/types": "^1.0.1",
-    "@uiw/codemirror-themes": "^4.21.24",
     "color": "^4.2.3",
     "create-context-state": "^2.0.0",
     "fuse.js": "^6.6.2",
@@ -183,6 +182,6 @@
     "tether-drop": "^1.4.2",
     "void-elements": "^3.1.0",
     "yjs": "^13.6.14",
-    "zens": "^0.0.10"
+    "zens": "^0.0.11"
   }
 }
