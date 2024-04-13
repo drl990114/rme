@@ -10762,10 +10762,10 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zens@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.9.tgz#4de68e94d7aab2f3c02f64ee7dc3f18bf0a00349"
-  integrity sha512-LUiUuLrM2lHRkeq4l3zyJuP1ty5biGfKFAZsbWqOO5F1tN7yE+49msiJUZTd3Ah+I1Ny7HxzpgM3lMmRPSyWUw==
+zens@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.10.tgz#5115fea98cca251707cc776ce78d51cf00aaf028"
+  integrity sha512-fGh4nsU8A8nv15AO1W3knCKFdn7bqUd/2dO8rB+lUY7Ql/V+p3aRYKJPldEASvDno8CgFQCkik9io9/t7ir3Sw==
   dependencies:
     "@ariakit/react" "^0.4.3"
     "@babel/runtime" "^7"
