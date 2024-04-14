@@ -1,5 +1,5 @@
-import type { CreateThemeOptions } from '@uiw/codemirror-themes'
-import { createTheme } from '@uiw/codemirror-themes'
+import type { CreateThemeOptions } from '@drl990114/codemirror-themes'
+import { createTheme } from '@drl990114/codemirror-themes'
 
 export { createTheme }
 export type { CreateThemeOptions }

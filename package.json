@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.0.41",
+  "version": "0.0.44",
   "type": "module",
   "scripts": {
     "build": "yarn clear & yarn build-esbuild && yarn types",
@@ -144,9 +144,6 @@
     "@remirror/react": "^2.0.32",
     "@remirror/react-components": "^2.1.13",
     "@remirror/react-core": "^2.0.18",
-    "@remirror/react-editors": "^1.0.41",
-    "@remirror/react-hooks": "^2.0.25",
-    "@remirror/styles": "^2.0.5",
     "@remirror/theme": "^2.0.8",
     "@remirror/types": "^1.0.1",
     "color": "^4.2.3",
