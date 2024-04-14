@@ -1,8 +1,8 @@
 import { languages } from '@codemirror/language-data'
 import type { EditorView, FindProsemirrorNodeResult } from 'remirror'
-import Drop from 'tether-drop'
 import { fakeIndentedLanguage } from './codemirror-extension'
 import Fuse from 'fuse.js'
+import { computePosition } from '@floating-ui/dom'
 
 interface CodeMirrorMenuDecorations {
   create: (view: EditorView, getPos: () => number | undefined) => HTMLElement
@@ -55,7 +55,7 @@ const updateLanguagesList = ({
 const createCodeMirrorMenuDecorations = (
   found: FindProsemirrorNodeResult,
 ): CodeMirrorMenuDecorations => {
-  let dropInstance: Drop | undefined
+  const destoryCallbacks: Function[] = []
 
   const handleBlurClick = (e: MouseEvent) => {
     const targetNode = e.target as HTMLElement
@@ -74,7 +74,7 @@ const createCodeMirrorMenuDecorations = (
 
     const setLanguage = (language: string) => {
       const pos = getPos()
-      if (pos) {
+      if (pos !== undefined) {
         view.dispatch(view.state.tr.setNodeMarkup(pos, undefined, { language }))
       }
     }
@@ -88,10 +88,15 @@ const createCodeMirrorMenuDecorations = (
     langInput.value = currentLanguage
 
     langInput.addEventListener('focus', () => {
-      dropInstance = new Drop({
-        target: langInput,
-        content: languagesList,
-        position: 'bottom left',
+      destoryCallbacks.push(() => {
+        reference.removeChild(languagesList)
+      })
+      reference.appendChild(languagesList)
+      computePosition(reference, languagesList, { placement: 'bottom-start' }).then(({ x, y }) => {
+        Object.assign(languagesList.style, {
+          left: `${x}px`,
+          top: `${y}px`,
+        })
       })
     })
 
@@ -116,8 +121,9 @@ const createCodeMirrorMenuDecorations = (
   }
 
   const destroy = () => {
-    dropInstance?.destroy()
-    dropInstance = undefined
+    destoryCallbacks.forEach((callback) => callback())
+    destoryCallbacks.length = 0
+
     document.removeEventListener('click', handleBlurClick)
   }
 

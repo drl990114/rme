@@ -2898,18 +2898,6 @@
   dependencies:
     "@types/estree" "*"
 
-"@types/tether-drop@^1.4.11":
-  version "1.4.11"
-  resolved "https://registry.yarnpkg.com/@types/tether-drop/-/tether-drop-1.4.11.tgz#b324e2dcca359e9516c32bc88db619f96d5080d9"
-  integrity sha512-vi1MDBpmmhS+jAKWHUm+oBIQTpW61KB2dnE912z0uY6HFSB3xsshLWWv8rMr7HddjAXLjv4IUGb6WYahvjyhJQ==
-  dependencies:
-    "@types/tether" "*"
-
-"@types/tether@*":
-  version "1.4.9"
-  resolved "https://registry.yarnpkg.com/@types/tether/-/tether-1.4.9.tgz#c35997f4cc50c3b3cd2da3926180f60ad3a38b3b"
-  integrity sha512-ugBFJlmykvwofTYZIci+5oixX2aqw/3lMqYN90v3NRupTgpVLa16StBgewjSXe/I5tWSiGrttlb66iBeDgPQgg==
-
 "@types/throttle-debounce@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@types/throttle-debounce/-/throttle-debounce-2.1.0.tgz#1c3df624bfc4b62f992d3012b84c56d41eab3776"
@@ -9431,18 +9419,6 @@ test-keyboard@2.0.6:
     "@remirror/core-helpers" "^3.0.0"
     "@remirror/core-types" "^2.0.5"
 
-tether-drop@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/tether-drop/-/tether-drop-1.4.2.tgz#28e240cce077f4ae1d8e5990a03b71e0cd6fbfec"
-  integrity sha512-qDxl70AY8xy0dsx+2QOuFxDpE3PbyzukF3LiOwv8IKnSD4lDMW0GohV/P9v+uy6L99/NSjCWNEel3xPPyUxzKQ==
-  dependencies:
-    tether "^1.1.0"
-
-tether@^1.1.0:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.7.tgz#d56a818590d8fe72e387f77a67f93ab96d8e1fb2"
-  integrity sha512-Z0J1aExjoFU8pybVkQAo/vD2wfSO63r+XOPfWQMC5qtf1bI7IWqNk4MiyBcgvvnY8kqnY06dVdvwTK2S3PU/Fw==
-
 text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
@@ -10103,6 +10079,7 @@ why-is-node-running@^2.2.2:
     stackback "0.0.2"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==

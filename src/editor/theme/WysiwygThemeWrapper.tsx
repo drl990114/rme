@@ -589,6 +589,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   }
 
   & .code-block__reference {
+    position: relative;
     padding: 4px 1em;
     font-size: 0.8em;
     border: 1px solid ${(props) => props.theme.borderColor};
@@ -600,7 +601,8 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   }
 
   & .code-block__languages {
-    font-size: 0.75em;
+    position: absolute;
+    font-size: 1em;
     max-height: 180px;
     list-style: none;
     padding: 0;
