@@ -33,7 +33,7 @@
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "15.2.3",
-    "@rollup/plugin-replace": "4.0.0",
+    "@rollup/plugin-replace": "5.0.5",
     "@rollup/plugin-typescript": "8.5.0",
     "@types/codemirror": "^5.60.9",
     "@types/color": "^3.0.6",
