@@ -10243,13 +10243,14 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zens@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.11.tgz#e33623e939233f8239a0ba3ae8e8b317e5fed144"
-  integrity sha512-TFajnYFTY1S3fGYalymOFh/fMF4WKNg0ZFdXmxWMFS+KdzDs6AI/hMZL4Whp71V3bNZirrFStcJ0kNfbuVAKhQ==
+zens@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.12.tgz#ad2fc3374dd11ef2b17412802805c3cd78826492"
+  integrity sha512-GS5W5ndjw2tn6d7WwcoSGsPhF5wM25ycDEBmGbk3vbQQ8MZ8ia8tdyukbRGI+p+h9tn68+MS5EEJUXM6PrDpfQ==
   dependencies:
     "@ariakit/react" "^0.4.3"
     "@babel/runtime" "^7"
+    "@emotion/is-prop-valid" "^1.2.2"
     "@floating-ui/dom" "^1.0.0"
     classnames "^2.3.0"
     clsx "^2.0.0"

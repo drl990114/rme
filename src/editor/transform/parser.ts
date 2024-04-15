@@ -251,7 +251,6 @@ export class MarkdownParser {
     const state = new MarkdownParseState(this.schema, this.tokenHandlers)
     let doc: Node
     const mdTokens: Token[] = this.tokenizer.parse(text, {})
-    console.log('tokens', mdTokens)
     state.parseTokens(mdTokens)
     do {
       doc = state.closeNode()

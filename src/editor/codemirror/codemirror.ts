@@ -25,7 +25,6 @@ const themeRef = { current: createTheme(lightTheme.codemirrorTheme as CreateThem
 
 export const changeTheme = (theme: CreateThemeOptions): void => {
   themeRef.current = createTheme(theme)
-  console.log('themeRef.current', themeRef.current, cmInstanceMap)
   cmInstanceMap.forEach((mfCmView) => {
     mfCmView.cm.dispatch({
       effects: mfCmView.editorTheme.reconfigure(themeRef.current),
