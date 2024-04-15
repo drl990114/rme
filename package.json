@@ -147,7 +147,7 @@
     "@remirror/types": "^1.0.1",
     "color": "^4.2.3",
     "create-context-state": "^2.0.0",
-    "fuse.js": "^6.6.2",
+    "fuse.js": "^7.0.0",
     "html-parse-stringify": "^3.0.1",
     "i18next": "^23.10.1",
     "jsx-dom-cjs": "^8.0.7",
