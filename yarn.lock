@@ -8060,18 +8060,6 @@ prosemirror-dropcursor@^1.8.1:
     prosemirror-transform "^1.1.0"
     prosemirror-view "^1.1.0"
 
-prosemirror-flat-list@^0.4.2:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/prosemirror-flat-list/-/prosemirror-flat-list-0.4.6.tgz#d65ef956dda029dee30edc697c253f82eed222c1"
-  integrity sha512-ffVygLOfKWrzvwZHNJI7oCk3qQVBUSKqAGRfkiVmSoegwWYDLMWUppGc2FkZ6YO+vRKqgmqr2CAI93vHPAzqgg==
-  dependencies:
-    prosemirror-commands "^1.5.2"
-    prosemirror-inputrules "^1.3.0"
-    prosemirror-model "^1.19.4"
-    prosemirror-state "^1.4.3"
-    prosemirror-transform "^1.8.0"
-    prosemirror-view "^1.32.7"
-
 prosemirror-flat-list@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/prosemirror-flat-list/-/prosemirror-flat-list-0.5.0.tgz#a2db55d47a3d3d1b65ace780d0c457acd35ebe3a"
@@ -8104,7 +8092,7 @@ prosemirror-history@^1.3.2:
     prosemirror-view "^1.31.0"
     rope-sequence "^1.3.0"
 
-prosemirror-inputrules@^1.2.1, prosemirror-inputrules@^1.3.0, prosemirror-inputrules@^1.4.0:
+prosemirror-inputrules@^1.2.1, prosemirror-inputrules@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/prosemirror-inputrules/-/prosemirror-inputrules-1.4.0.tgz#ef1519bb2cb0d1e0cec74bad1a97f1c1555068bb"
   integrity sha512-6ygpPRuTJ2lcOXs9JkefieMst63wVJBgHZGl5QOytN7oSZs3Co/BYbc3Yx9zm9H37Bxw8kVzCnDsihsVsL4yEg==
