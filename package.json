@@ -1,9 +1,9 @@
 {
   "name": "rme",
-  "version": "0.0.47",
+  "version": "0.0.51",
   "type": "module",
   "scripts": {
-    "build": "yarn clear & yarn build-esbuild && yarn types",
+    "build": "yarn clear && yarn build-esbuild && yarn types",
     "dev": "node ./esbuild.config.dev.mjs",
     "build-esbuild": "node esbuild.config.prod.mjs",
     "types": "node ./node_modules/rollup/dist/bin/rollup -c rollup.config.types.js",
@@ -177,6 +177,6 @@
     "svgmoji": "^3.2.0",
     "void-elements": "^3.1.0",
     "yjs": "^13.6.14",
-    "zens": "^0.0.12"
+    "zens": "^0.0.16"
   }
 }

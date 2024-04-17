@@ -1,11 +1,19 @@
-import { Editor, ThemeProvider, EditorRef, createWysiwygDelegate } from '.'
-import React, { FC, useLayoutEffect, useMemo } from 'react'
+import {
+  Editor,
+  ThemeProvider,
+  EditorRef,
+  createWysiwygDelegate,
+  WysiwygThemeWrapper,
+  Preview,
+} from '.'
+import React, { FC, useLayoutEffect, useMemo, useRef } from 'react'
 import useDevTools from './playground/hooks/use-devtools'
 import useContent from './playground/hooks/use-content'
 import { DebugConsole } from './playground/components/DebugConsole'
 import { FormControlLabel, FormGroup, Switch } from '@mui/material'
 import { DebugButton } from './playground/components/DebugButton'
 import { ThemeProvider as ZThemeProvider } from 'zens'
+import { Node } from '@remirror/pm/model'
 import './App.css'
 import 'remixicon/fonts/remixicon.css'
 
@@ -27,6 +35,8 @@ function App() {
   const { enableDevTools, setEnableDevTools } = useDevTools()
   const [theme, setTheme] = React.useState<'light' | 'dark'>('dark')
   const editorDelegate = useMemo(() => createWysiwygDelegate(), [])
+  const [previewMode, setPreviewMode] = React.useState(false)
+  const docRef = useRef<Node>()
 
   const debounce = (fn: (...args: any) => void, delay: number) => {
     let timer: number
@@ -37,6 +47,7 @@ function App() {
   }
 
   const debounceChange = debounce((params) => {
+    docRef.current = params.state.doc
     setContent(editorDelegate.docToString(params.state.doc) || '')
   }, 300)
 
@@ -46,7 +57,6 @@ function App() {
         key={contentId}
         ref={editorRef}
         content={content}
-        offset={{ top: 10, left: 16 }}
         onChange={debounceChange}
         isTesting={false}
       />
@@ -117,6 +127,16 @@ function App() {
               }}
             />
           </FormGroup>
+          <FormGroup>
+            <FormControlLabel
+              control={<Switch />}
+              label="Preview"
+              labelPlacement="start"
+              onChange={(e) => {
+                setPreviewMode(e.target.checked)
+              }}
+            />
+          </FormGroup>
         </div>
         <ThemeProvider
           theme={themeData}
@@ -143,7 +163,13 @@ function App() {
             toggleEnableDevTools={() => setEnableDevTools(!enableDevTools)}
           />
           <div className="playground-box">
-            {editor}
+            {previewMode ? (
+              <div className="playground-self-scroll">
+                <Preview doc={docRef.current}></Preview>
+              </div>
+            ) : (
+              editor
+            )}
             {debugConsole}
           </div>
           <BlurHelper />

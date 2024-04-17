@@ -8,7 +8,6 @@ import type { ParserRule, NodeSerializerSpecs } from '../../transform'
 import { MarkdownParser, MarkdownSerializer } from '../../transform'
 import type { StringToDoc, DocToString, EditorDelegate } from '../../types'
 import EditorExtensions from '../../extensions'
-import "prosemirror-flat-list/dist/style.css"
 import type { Node } from '@remirror/pm/model'
 
 function isMarkdownNodeExtension(extension: unknown): extension is MarkdownNodeExtension {

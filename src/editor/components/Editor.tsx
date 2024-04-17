@@ -5,6 +5,7 @@ import { forwardRef, memo, useImperativeHandle, useMemo, useState } from 'react'
 import type { EditorContext, EditorDelegate, EditorViewType } from '../..'
 import { useContextMounted } from './useContextMounted'
 import type { Extension, RemirrorEventListenerProps } from 'remirror'
+import "prosemirror-flat-list/dist/style.css"
 
 export type EditorRef = {
   toggleType: (targetType: EditorViewType) => void

@@ -5538,11 +5538,6 @@ globby@^11.1.0:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
-goober@^2.1.10:
-  version "2.1.14"
-  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.14.tgz#4a5c94fc34dc086a8e6035360ae1800005135acd"
-  integrity sha512-4UpC0NdGyAFqLNPnhCT2iHpza2q+RAY3GV85a/mRPdzyPQMsj0KmMMuetdIkzWRbJ+Hgau1EZztq8ImmiMGhsg==
-
 gopd@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.0.1.tgz#29ff76de69dac7489b7c0918a5788e56477c332c"
@@ -8394,13 +8389,6 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
 
-react-hot-toast@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/react-hot-toast/-/react-hot-toast-2.4.1.tgz#df04295eda8a7b12c4f968e54a61c8d36f4c0994"
-  integrity sha512-j8z+cQbWIM5LY37pR6uZR6D4LfseplqnuAO4co4u8917hBUvXlEqyP1ZzqVLcqoyUesZZv/ImreoCeHVDpE5pQ==
-  dependencies:
-    goober "^2.1.10"
-
 react-i18next@^14.1.0:
   version "14.1.0"
   resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-14.1.0.tgz#44da74fbffd416f5d0c5307ef31735cf10cc91d9"
@@ -9145,6 +9133,7 @@ string-hash@^1.1.1:
   integrity sha512-kJUvRUFK49aub+a7T1nNE66EJbZBMnBgoC1UbCZ5n6bsZKBRga4KgBRTMn/pFkeCZSYtNeSyMxPDM0AXWELk2A==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -10243,10 +10232,10 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zens@^0.0.12:
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.12.tgz#ad2fc3374dd11ef2b17412802805c3cd78826492"
-  integrity sha512-GS5W5ndjw2tn6d7WwcoSGsPhF5wM25ycDEBmGbk3vbQQ8MZ8ia8tdyukbRGI+p+h9tn68+MS5EEJUXM6PrDpfQ==
+zens@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.16.tgz#9a9b0228e5d18dcc7de2be772a13db0957ab0684"
+  integrity sha512-6agK3iO7lhHGgkI/CYGNvIr/lGxlV2msv4L10mXqbtcUOITqqp2uTBc0Q7w2MKQs8dnqHMYB0OFe5Q8TuWHBCA==
   dependencies:
     "@ariakit/react" "^0.4.3"
     "@babel/runtime" "^7"
@@ -10258,7 +10247,6 @@ zens@^0.0.12:
     rc-image "^7.5.1"
     react "^18.2.0"
     react-dom "^18.2.0"
-    react-hot-toast "^2.4.1"
     react-spinners "^0.13.8"
     sonner "^1.4.0"
     styled-components "^6.1.0"
