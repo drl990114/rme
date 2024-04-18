@@ -12,4 +12,7 @@ export default defineConfig(() => ({
     globals: true,
     setupFiles: ['./__test__/setup-vitest.ts'],
   },
+  coverage: {
+    reporter: ['text', 'json', 'html']
+  },
 }))

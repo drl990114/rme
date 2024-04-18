@@ -20,4 +20,16 @@ jobs:
         run: yarn build
 
       - name: Run Test
-        run: yarn test
+        run: yarn test:coverage
+
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: coverage/
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: drl990114/rme
