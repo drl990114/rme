@@ -3,7 +3,7 @@ import { MarkExtension, extension, keyBinding } from '@remirror/core'
 
 import { formatHref } from './format-href'
 import { toggleInlineMark } from './inline-mark-commands'
-import { LineHtmlInlineExtension } from '../HtmlNode'
+import { HtmlInlineMarks, HtmlMarksSpec } from '../HtmlNode/html-inline-marks'
 
 const commonAttrs = {
   depth: { default: 0 },
@@ -12,6 +12,7 @@ const endpointAttrs = {
   depth: { default: 0 },
   first: { default: false },
   last: { default: false },
+  class: { default: '' },
 }
 
 class MetaKey extends MarkExtension {
@@ -42,7 +43,7 @@ class PlainText extends MarkExtension {
   createMarkSpec(): MarkExtensionSpec {
     return {
       attrs: endpointAttrs,
-      toDOM: () => ['span', 0],
+      toDOM: (mark) => ['span', { class: mark.attrs.class }, 0],
     }
   }
 }
@@ -184,13 +185,17 @@ class ImgText extends MarkExtension {
   }
 }
 
-type MfImgOptions = {
+export interface MfImgOptions {
   handleViewImgSrcUrl?: (src: string) => Promise<string>
 }
+
 @extension<MfImgOptions>({
   defaultOptions: {
     handleViewImgSrcUrl: async (src: string) => src,
   },
+  staticKeys: [],
+  handlerKeys: [],
+  customHandlerKeys: []
 })
 class ImgUri extends MarkExtension<MfImgOptions> {
   static disableExtraAttributes = true
@@ -239,7 +244,7 @@ const autoHideMarks: Record<string, true> = {
   mdLinkUri: true,
   mdImgText: true,
   mdImgUri: true,
-  mdHtmlInline: true
+  mdHtmlInline: true,
 }
 
 export function isAutoHideMark(name: string): boolean {
@@ -265,9 +270,7 @@ export const markExtensions = (options: LineMarkExtensionOptions = {}) => [
   new ImgUri({
     handleViewImgSrcUrl: options.handleViewImgSrcUrl,
   }),
-  new LineHtmlInlineExtension({
-    handleViewImgSrcUrl: options.handleViewImgSrcUrl,
-  }),
+  new HtmlInlineMarks(),
 ]
 export type LineMarkExtension = ReturnType<typeof markExtensions>[number]
 export type LineMarkName = LineMarkExtension['name']
@@ -285,4 +288,14 @@ export type LineMarkAttrs = {
    * to fix same attrs node only render once
    */
   key?: string
+
+  /**
+   * class name
+   */
+  class?: string
+
+  /**
+   * mark: mdHtmlInline
+   */
+  htmlSpec?: HtmlMarksSpec[]
 }

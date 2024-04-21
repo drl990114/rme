@@ -6,12 +6,16 @@ import { Decoration, DecorationSet } from '@remirror/pm/view'
 
 import type { LineMarkAttrs } from './inline-mark-extensions'
 import { isAutoHideMark } from './inline-mark-extensions'
+import { excludeHtmlInlineNodes } from '@/editor/transform/markdown-it-html-inline'
 
 type TextAttrs = Partial<LineMarkAttrs & { isAutoHideMark?: boolean }>
 
 function getTextAttrs(textNode: ProsemirrorNode | undefined | null): TextAttrs {
   const attrs: TextAttrs = {}
   for (const mark of textNode?.marks || []) {
+    if (excludeHtmlInlineNodes.includes(textNode?.type.name || '')) {
+      break
+    }
     if (isAutoHideMark(mark.type.name)) {
       attrs.isAutoHideMark = true
     }

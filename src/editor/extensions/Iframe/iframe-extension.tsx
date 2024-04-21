@@ -46,6 +46,8 @@ export type IframeAttributes = ProsemirrorAttributes<{
     enableResizing: false,
   },
   staticKeys: ['defaultSource', 'class'],
+  handlerKeys: [],
+  customHandlerKeys: []
 })
 export class IframeExtension extends NodeExtension<IframeOptions> {
   get name() {

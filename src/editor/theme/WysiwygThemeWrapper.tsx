@@ -570,6 +570,16 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     color: ${(props) => props.theme.accentColor};
     font-size: 0;
   }
+
+  .html_tag {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    white-space: break-spaces;
+    background-color: ${(props) => props.theme.codeBgColor};
+    border-radius: 6px;
+  }
+
   .show {
     font-size: 16px;
   }

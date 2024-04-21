@@ -188,7 +188,7 @@ function mapFragment(
       mapped.push(child)
     }
 
-    offset += excludeHtmlInlineNodes.includes(child.type.name) ? 0 : child.nodeSize
+    offset += child.nodeSize
   }
   return Fragment.fromArray(mapped)
 }

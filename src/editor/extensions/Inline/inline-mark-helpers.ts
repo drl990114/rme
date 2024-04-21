@@ -7,21 +7,45 @@ import type { EditorView } from '@remirror/pm/view'
 import type { MarkChunk } from '../../steps/batch-mark-step'
 import { BatchSetMarkStep } from '../../steps/batch-mark-step'
 import { iterNode, iterNodeRange } from '../../utils/iter-node'
-import { fromInlineMarkdown } from './from-inline-markdown'
+import { fromInlineMarkdown, jsonStringify } from './from-inline-markdown'
 import { InlineDecorateType } from './inline-types'
+import { excludeHtmlInlineNodes } from '@/editor/transform/markdown-it-html-inline'
 
 function parseTextBlock(schema: Schema, node: Node, startPos: number, output: MarkChunk[]): void {
   if (!node.textContent) {
     return
   }
+
+  const offsetPoss = []
+  let pos = 0
+  for (let i = 0; i < node.childCount; i++) {
+    const child = node.child(i)
+    if (excludeHtmlInlineNodes.includes(child.type.name)) {
+      offsetPoss.push(pos)
+    }
+    pos += child.nodeSize
+  }
+  console.log('offsetPoss', offsetPoss)
   const tokens = fromInlineMarkdown(node.textContent)
 
-  for (const token of tokens) {
+  let totalOffset = 0
+  tokens.forEach((token, index) => {
     const expectedMarks = token.marks.map((markName) => {
       return schema.marks[markName].create(token.attrs)
     })
-    output.push([startPos + token.start, startPos + token.end, expectedMarks])
-  }
+
+    let start = token.start
+    let end = token.end
+
+    const offset = offsetPoss.filter((pos) => pos >= start && pos < end).length
+    console.log('offsetPoss', offset, token)
+    totalOffset += offset
+    output.push([
+      startPos + token.start + totalOffset - offset,
+      startPos + token.end + totalOffset,
+      expectedMarks,
+    ])
+  })
 }
 
 function parseNode(schema: EditorSchema, node: Node, startPos: number, output: MarkChunk[]): void {

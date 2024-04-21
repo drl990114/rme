@@ -50,11 +50,15 @@ const headingContent = `
 ###### Heading Level 6
 `
 
+const htmlContent = `
+<a href="https://www.google.com">Goo <mark>g <span style="color:red">le</span></mark><img></a>
+`
+
 export const contentMap: { [key: string]: string } = {
     default: defaultContent,
     "just-code": justCodeContent,
     long: longContent,
     table: tableContent,
-    heading: headingContent,
+    html: htmlContent,
     customize: "",
 }
