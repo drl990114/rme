@@ -18,12 +18,15 @@ export function ImageNodeView(props: ImageNodeViewProps) {
   const [src, setSrc] = useState<string>('')
   const initRef = useRef<() => void>()
   const popoverStore = useRef<PopoverStore>()
+  const [open, setOpen] = useState(selected)
 
   useEffect(() => {
     if (!selected) {
       popoverStore.current?.setOpen(false)
     }
+    setOpen(selected)
   }, [selected])
+
   useEffect(() => {
     if (handleViewImgSrcUrl) {
       handleViewImgSrcUrl(node.attrs.src).then((newSrc) => {
@@ -34,30 +37,36 @@ export function ImageNodeView(props: ImageNodeViewProps) {
     }
   }, [handleViewImgSrcUrl, node.attrs.src])
 
-  const handleStoreChange = (store: PopoverStore) => popoverStore.current = store
+  const handleStoreChange = (store: PopoverStore) => (popoverStore.current = store)
+
+  const Main = src ? (
+    <Resizable controlInit={(init) => (initRef.current = init)} {...props}>
+      <Image
+        fallback={warningFallBack}
+        onLoad={() => initRef.current?.()}
+        preview={false}
+        {...node.attrs}
+        src={src}
+      />
+    </Resizable>
+  ) : (
+    <Image src={warningFallBack} style={{ width: '80px', height: '80px' }} />
+  )
+
+  if (!open) {
+    return Main
+  }
 
   return (
     <Popover
-      customContent={
-        selected ? <ImageToolTips node={node} updateAttributes={updateAttributes} /> : undefined
-      }
+      customContent={<ImageToolTips node={node} updateAttributes={updateAttributes} />}
       placement="top-start"
+      onClose={() => {
+        setOpen(false)
+      }}
+      open={open}
       onStoreChange={handleStoreChange}
       toggleOnClick
-    >
-      {src ? (
-        <Resizable controlInit={(init) => (initRef.current = init)} {...props}>
-          <Image
-            fallback={warningFallBack}
-            onLoad={() => initRef.current?.()}
-            preview={false}
-            {...node.attrs}
-            src={src}
-          />
-        </Resizable>
-      ) : (
-        <Image src={warningFallBack} style={{ width: '80px', height: '80px' }} />
-      )}
-    </Popover>
+    >{Main}</Popover>
   )
 }

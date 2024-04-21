@@ -15,6 +15,9 @@ const ResizableContainer = styled.div`
   max-width: 100%;
   line-height: 0;
   user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Edge, IE */
   border-radius: 2px;
   transition: all 0.15s ease-out;
 `
