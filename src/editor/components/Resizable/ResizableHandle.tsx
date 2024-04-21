@@ -46,24 +46,40 @@ const ResizableHandleContainer = styled.span<ResizableHandleProps>`
         return css`
           left: -6px;
           bottom: -10px;
+          height: 6px;
+          width: 6px;
+          border-radius: 6px;
+          background-color: ${props.theme.accentColor};
           cursor: sw-resize;
         `
       case ResizableHandleType.BottomRight:
         return css`
           right: -6px;
           bottom: -10px;
+          height: 6px;
+          width: 6px;
+          border-radius: 6px;
+          background-color: ${props.theme.accentColor};
           cursor: se-resize;
         `
       case ResizableHandleType.TopLeft:
         return css`
           left: -6px;
           top: -6px;
+          height: 6px;
+          width: 6px;
+          border-radius: 6px;
+          background-color: ${props.theme.accentColor};
           cursor: nw-resize;
         `
       case ResizableHandleType.TopRight:
         return css`
           right: -6px;
           top: -6px;
+          height: 6px;
+          width: 6px;
+          border-radius: 6px;
+          background-color: ${props.theme.accentColor};
           cursor: ne-resize;
         `
       case ResizableHandleType.Left:

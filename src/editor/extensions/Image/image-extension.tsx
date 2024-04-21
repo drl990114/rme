@@ -100,6 +100,7 @@ type SetProgress = (progress: number) => void
     destroyPlaceholder: () => {},
     uploadHandler,
     preferPastedTextContent: true,
+    defaultInlineNode: 'div'
   },
 })
 export class HtmlImageExtension extends NodeExtension<ImageOptions> {
@@ -133,7 +134,7 @@ export class HtmlImageExtension extends NodeExtension<ImageOptions> {
         rotate: { default: null },
         src: { default: null },
         title: { default: '' },
-        fileName: { default: null },
+        "data-file-name": { default: null },
       },
       parseDOM: [
         {
@@ -325,7 +326,7 @@ export interface ImageExtensionAttributes {
   title?: string
 
   /** The file name used to create the image. */
-  fileName?: string
+  "data-file-name"?: string
 }
 
 /**
@@ -377,7 +378,7 @@ function getImageAttributes({
     src: element.getAttribute('src') ?? null,
     title: element.getAttribute('title') ?? '',
     width: Number.parseInt(width || '0', 10) || null,
-    fileName: element.getAttribute('data-file-name') ?? null,
+    "data-file-name": element.getAttribute('data-file-name') ?? null,
   }
 }
 
@@ -413,7 +414,7 @@ function uploadHandler(files: FileWithProgress[]): DelayedImage[] {
             (readerEvent) => {
               completed += 1
               progress(completed / files.length)
-              resolve({ src: readerEvent.target?.result as string, fileName: file.name })
+              resolve({ src: readerEvent.target?.result as string, "data-file-name": file.name })
             },
             { once: true },
           )

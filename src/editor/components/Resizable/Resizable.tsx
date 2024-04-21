@@ -209,22 +209,22 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
       <ResizableHandle
         visible={handleVisible}
         onResizing={handleResizing}
-        handleType={ResizableHandleType.Top}
+        handleType={ResizableHandleType.TopLeft}
       />
       <ResizableHandle
         visible={handleVisible}
         onResizing={handleResizing}
-        handleType={ResizableHandleType.Bottom}
+        handleType={ResizableHandleType.TopRight}
       />
       <ResizableHandle
         visible={handleVisible}
         onResizing={handleResizing}
-        handleType={ResizableHandleType.Left}
+        handleType={ResizableHandleType.BottomLeft}
       />
       <ResizableHandle
         visible={handleVisible}
         onResizing={handleResizing}
-        handleType={ResizableHandleType.Right}
+        handleType={ResizableHandleType.BottomRight}
       />
       {props.children}
     </ResizableContainer>

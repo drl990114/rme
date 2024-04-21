@@ -793,6 +793,19 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     background-color: transparent;
   }
 
+  & .html-image-node-view-wrapper {
+    display: inline-block;
+
+    &:hover {
+      outline: 2px solid #58a6ff;
+      transition: all 300ms ease-in 0s;
+    }
+  }
+
+  & .ProseMirror-selectednode {
+    outline: 2px solid #58a6ff;
+  }
+
   & .ProseMirror th.selectedCell,
   & .ProseMirror td.selectedCell {
     border-style: double;
