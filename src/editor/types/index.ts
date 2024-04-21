@@ -18,7 +18,7 @@ export interface Note {
     deleted: boolean
 }
 
-export type EditorViewType = 'wysiwyg' | 'sourceCode'
+export type EditorViewType = 'wysiwyg' | 'sourceCode' | 'preview'
 
 type BaseEditorState = {
     mode: EditorViewType

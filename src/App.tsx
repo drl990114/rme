@@ -5,8 +5,9 @@ import {
   createWysiwygDelegate,
   WysiwygThemeWrapper,
   Preview,
+  createSourceCodeDelegate,
 } from '.'
-import React, { FC, useLayoutEffect, useMemo, useRef } from 'react'
+import React, { FC, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import useDevTools from './playground/hooks/use-devtools'
 import useContent from './playground/hooks/use-content'
 import { DebugConsole } from './playground/components/DebugConsole'
@@ -34,9 +35,8 @@ function App() {
   const { contentId, content, hasUnsavedChanges, setContentId, setContent } = useContent()
   const { enableDevTools, setEnableDevTools } = useDevTools()
   const [theme, setTheme] = React.useState<'light' | 'dark'>('dark')
-  const editorDelegate = useMemo(() => createWysiwygDelegate(), [])
+  const [editorDelegate, setEditorDelegate] = useState(createWysiwygDelegate())
   const [previewMode, setPreviewMode] = React.useState(false)
-  const docRef = useRef<Node>()
 
   const debounce = (fn: (...args: any) => void, delay: number) => {
     let timer: number
@@ -47,13 +47,13 @@ function App() {
   }
 
   const debounceChange = debounce((params) => {
-    docRef.current = params.state.doc
     setContent(editorDelegate.docToString(params.state.doc) || '')
   }, 300)
 
   const editor = (
     <div className="playground-self-scroll">
       <Editor
+        initialType="wysiwyg"
         key={contentId}
         ref={editorRef}
         content={content}
@@ -104,14 +104,19 @@ function App() {
             onChange={(e) => {
               const value = e.target.value
               if (value === 'wysiwyg') {
+                setEditorDelegate(createWysiwygDelegate())
                 editorRef.current?.toggleType('wysiwyg')
-              } else {
+              } else if (value === 'sourceCode') {
+                setEditorDelegate(createSourceCodeDelegate())
                 editorRef.current?.toggleType('sourceCode')
+              } else {
+                editorRef.current?.toggleType('preview')
               }
             }}
           >
             <option value="wysiwyg">wysiwyg</option>
             <option value="sourceCode">source code</option>
+            <option value="preview">preview</option>
           </select>
           <FormGroup>
             <FormControlLabel
@@ -124,16 +129,6 @@ function App() {
                 } else {
                   setTheme('light')
                 }
-              }}
-            />
-          </FormGroup>
-          <FormGroup>
-            <FormControlLabel
-              control={<Switch />}
-              label="Preview"
-              labelPlacement="start"
-              onChange={(e) => {
-                setPreviewMode(e.target.checked)
               }}
             />
           </FormGroup>
@@ -163,13 +158,7 @@ function App() {
             toggleEnableDevTools={() => setEnableDevTools(!enableDevTools)}
           />
           <div className="playground-box">
-            {previewMode ? (
-              <div className="playground-self-scroll">
-                <Preview doc={docRef.current}></Preview>
-              </div>
-            ) : (
-              editor
-            )}
+            {editor}
             {debugConsole}
           </div>
           <BlurHelper />

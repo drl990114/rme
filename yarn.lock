@@ -34,7 +34,7 @@
     "@floating-ui/dom" "^1.0.0"
     use-sync-external-store "^1.2.0"
 
-"@ariakit/react@^0.4.3":
+"@ariakit/react@^0.4.5":
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.5.tgz#f6e356665cc45fa317c10fa041009acbb290d92f"
   integrity sha512-GUHxaOY1JZrJUHkuV20IY4NWcgknhqTQM0qCQcVZDCi+pJiWchUjTG+UyIr/Of02hU569qnQ7yovskCf+V3tNg==
@@ -10322,12 +10322,12 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zens@^0.0.20:
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.20.tgz#8b6595a2a9ba4a5837723f6f58b3b246f8dea708"
-  integrity sha512-vcnMK7O/x1p5HT8CTN43PeQ8oTPxub1cBdpLejoJ9sMLMOp3hEowqTNsRiGYRC/A5eXLsio2Z0WpzpiJSDVbZg==
+zens@^0.0.21:
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.21.tgz#bbe42a1fb46bee023c5e6125c4cad314430b332f"
+  integrity sha512-K5bFEHMn2w2EzFR+dshUT5f8l/Uc31VNoO/XDfZjOh4TGfHq0bMJ92I8q+al1+L/ooIYOXqImkwEmGmcB3H2+Q==
   dependencies:
-    "@ariakit/react" "^0.4.3"
+    "@ariakit/react" "^0.4.5"
     "@babel/runtime" "^7"
     "@emotion/is-prop-valid" "^1.2.2"
     "@floating-ui/dom" "^1.0.0"

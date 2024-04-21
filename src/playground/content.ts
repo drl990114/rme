@@ -12,6 +12,9 @@ const defaultContent = [
     `
 # hello world!
 
+![img](https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg)
+
+a
 `.trim(),
 ].join("\n")
 

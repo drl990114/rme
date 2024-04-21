@@ -189,6 +189,8 @@ export interface MfImgOptions {
   handleViewImgSrcUrl?: (src: string) => Promise<string>
 }
 
+const globalImageHrefCache: Map<string, string> = new Map()
+
 @extension<MfImgOptions>({
   defaultOptions: {
     handleViewImgSrcUrl: async (src: string) => src,
@@ -214,8 +216,10 @@ class ImgUri extends MarkExtension<MfImgOptions> {
           default: '',
         },
       },
+      toDOM: (mark) => ['img', { src: globalImageHrefCache.get(mark.attrs.href) || mark.attrs.href }, 0]
     }
   }
+
   createNodeViews = (): NodeViewMethod => {
     return (mark): NodeView => {
       const innerContainer = document.createElement('span')
@@ -224,6 +228,7 @@ class ImgUri extends MarkExtension<MfImgOptions> {
       if (this.options.handleViewImgSrcUrl) {
         this.options.handleViewImgSrcUrl(mark.attrs.href).then((newHref) => {
           img.setAttribute('src', formatHref(newHref))
+          globalImageHrefCache.set(mark.attrs.href, newHref)
         })
       } else {
         img.setAttribute('src', formatHref(mark.attrs.href))

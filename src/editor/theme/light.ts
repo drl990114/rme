@@ -1,7 +1,7 @@
 export const styledLightTheme = {
   primaryFontColor: '#000000',
   labelFontColor: '#9ca3af',
-  accentColor: '#0369a1',
+  accentColor: '#007acc',
   borderColor: '#d7d7dc',
   bgColor: '#fdfdfd',
   hoverColor: '#d7d7dc',
