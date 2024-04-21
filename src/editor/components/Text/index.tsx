@@ -13,7 +13,7 @@ const Text: FC<ITextProps> = ({ children, ...props }) => {
   const { getRootProps } = useRemirrorContext()
 
   return (
-    <div {...props} {...getRootProps()}>
+    <div {...props} {...getRootProps()} spellCheck={false} >
       {children}
     </div>
   )
