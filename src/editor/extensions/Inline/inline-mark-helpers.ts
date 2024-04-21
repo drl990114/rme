@@ -7,7 +7,7 @@ import type { EditorView } from '@remirror/pm/view'
 import type { MarkChunk } from '../../steps/batch-mark-step'
 import { BatchSetMarkStep } from '../../steps/batch-mark-step'
 import { iterNode, iterNodeRange } from '../../utils/iter-node'
-import { fromInlineMarkdown, jsonStringify } from './from-inline-markdown'
+import { fromInlineMarkdown } from './from-inline-markdown'
 import { InlineDecorateType } from './inline-types'
 import { excludeHtmlInlineNodes } from '@/editor/transform/markdown-it-html-inline'
 
@@ -16,7 +16,7 @@ function parseTextBlock(schema: Schema, node: Node, startPos: number, output: Ma
     return
   }
 
-  const offsetPoss = []
+  const offsetPoss: number[] = []
   let pos = 0
   for (let i = 0; i < node.childCount; i++) {
     const child = node.child(i)
@@ -25,7 +25,6 @@ function parseTextBlock(schema: Schema, node: Node, startPos: number, output: Ma
     }
     pos += child.nodeSize
   }
-  console.log('offsetPoss', offsetPoss)
   const tokens = fromInlineMarkdown(node.textContent)
 
   let totalOffset = 0
@@ -38,7 +37,7 @@ function parseTextBlock(schema: Schema, node: Node, startPos: number, output: Ma
     let end = token.end
 
     const offset = offsetPoss.filter((pos) => pos >= start && pos < end).length
-    console.log('offsetPoss', offset, token)
+
     totalOffset += offset
     output.push([
       startPos + token.start + totalOffset - offset,
