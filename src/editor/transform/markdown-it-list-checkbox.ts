@@ -1,7 +1,6 @@
 import type MarkdownIt from "markdown-it"
-import type Core from "markdown-it/lib/parser_core"
-import type StateCore from "markdown-it/lib/rules_core/state_core"
-import Token from "markdown-it/lib/token"
+import type { Core, StateCore } from 'markdown-it'
+import Token from 'markdown-it/lib/token.mjs'
 
 function isBulletListItemToken(t: Token) {
     return t.type === "list_item_open" && ["*", "-"].includes(t.markup)

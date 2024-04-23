@@ -54,10 +54,7 @@ const headingContent = `
 `
 
 const htmlContent = `
-<a href="https://www.google.com">Goo <mark>g <span style="color:red">le</span></mark><img></a>.
-
-This is a img inline node: <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" >.
-
+[version-badge]: https://img.shields.io/github/v/release/drl990114/MarkFlowy?label=version&style=flat-square
 `
 
 export const contentMap: { [key: string]: string } = {

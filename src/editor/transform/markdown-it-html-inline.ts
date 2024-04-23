@@ -1,8 +1,7 @@
 import type MarkdownIt from 'markdown-it'
-import type Core from 'markdown-it/lib/parser_core'
-import type StateCore from 'markdown-it/lib/rules_core/state_core'
-import Token from 'markdown-it/lib/token'
+import type { Core, StateCore } from 'markdown-it'
 import { getAttrsBySignalHtmlContent, getTagName, isClosingTag, isSingleNode } from '@/editor/utils/html'
+import Token from 'markdown-it/lib/token.mjs'
 
 export const needSplitInlineHtmlTokenTags = ['img', 'iframe']
 
@@ -65,6 +64,7 @@ const rule: Core.RuleCore = (state: StateCore) => {
   const edited = false
   const tokens = state.tokens
   const tokensLength = tokens.length
+
   for (let i = tokensLength - 1; i >= 0; i--) {
     const curToken = tokens[i]
 

@@ -1,5 +1,4 @@
-import type Token from 'markdown-it/lib/token'
-
+import type { Token } from 'markdown-it'
 import type { TokenHandler } from './parser'
 
 type MarkdownItToken = string

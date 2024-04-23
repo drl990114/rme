@@ -30,21 +30,20 @@ export function loadThemeCss(url: string) {
   document.head.appendChild(themeEl)
 }
 
+const debounce = (fn: (...args: any) => void, delay: number) => {
+  let timer: number
+  return (...args: any) => {
+    clearTimeout(timer)
+    timer = window.setTimeout(() => fn(...args), delay)
+  }
+}
+
 function App() {
   const editorRef = React.useRef<EditorRef>(null)
   const { contentId, content, hasUnsavedChanges, setContentId, setContent } = useContent()
   const { enableDevTools, setEnableDevTools } = useDevTools()
   const [theme, setTheme] = React.useState<'light' | 'dark'>('dark')
   const [editorDelegate, setEditorDelegate] = useState(createWysiwygDelegate())
-  const [previewMode, setPreviewMode] = React.useState(false)
-
-  const debounce = (fn: (...args: any) => void, delay: number) => {
-    let timer: number
-    return (...args: any) => {
-      clearTimeout(timer)
-      timer = window.setTimeout(() => fn(...args), delay)
-    }
-  }
 
   const debounceChange = debounce((params) => {
     setContent(editorDelegate.docToString(params.state.doc) || '')
