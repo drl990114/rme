@@ -59,6 +59,7 @@ export class LineCodeMirrorExtension extends NodeExtension<CodeMirrorExtensionOp
       defining: true,
       ...override,
       code: true,
+      selectable: true,
       attrs: {
         ...extra.defaults(),
         language: { default: '' },

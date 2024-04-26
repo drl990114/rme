@@ -14,7 +14,10 @@ const defaultContent = [
 
 ![img](https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg)
 
-a
+\`\`\`js
+console.log('Hello MarkFlowy')
+\`\`\`
+
 `.trim(),
 ].join("\n")
 
@@ -54,7 +57,10 @@ const headingContent = `
 `
 
 const htmlContent = `
-[version-badge]: https://img.shields.io/github/v/release/drl990114/MarkFlowy?label=version&style=flat-square
+
+<mark>Mark Tag</mark>.
+
+this is a img inline <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" />.
 `
 
 export const contentMap: { [key: string]: string } = {

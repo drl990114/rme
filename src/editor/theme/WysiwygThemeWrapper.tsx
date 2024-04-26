@@ -586,7 +586,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
 
   & .cm-editor {
     height: auto;
-    padding: 8px 12px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
@@ -733,6 +732,9 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     }
     .cm-lineNumbers .cm-gutterElement {
       margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: ${(props) => props.theme.bgColor};
     }
 

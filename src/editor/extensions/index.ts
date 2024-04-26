@@ -45,6 +45,7 @@ import { IframeExtension } from './Iframe'
 import { SlashMenuExtension } from './SlashMenu'
 import { PlaceholderExtension } from './Placeholder'
 import { ClipboardExtension } from './Clipboard'
+import { minimalSetup } from './CodeMirror/setup'
 
 // import { TableExtension } from './ReactTables';
 
@@ -76,7 +77,9 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
     new LineBlockquoteExtension(),
     new LineHeadingExtension({}),
     new LineListExtension(),
-    new LineCodeMirrorExtension({}),
+    new LineCodeMirrorExtension({
+      extensions: [minimalSetup]
+    }),
     new LineTableExtension({ resizable: false }),
     new LineTableRowExtension(),
     new LineTableCellExtension(),

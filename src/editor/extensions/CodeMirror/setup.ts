@@ -3,7 +3,6 @@
 import {
   keymap,
   highlightSpecialChars,
-  drawSelection,
   highlightActiveLine,
   dropCursor,
   rectangularSelection,
@@ -111,11 +110,17 @@ export const basicSetup: Extension = (() => [
 /// style](#language.defaultHighlightStyle).
 export const minimalSetup: Extension = (() => [
   dropCursor(),
+
+  lineNumbers(),
   highlightSpecialChars(),
   history(),
-  drawSelection(),
-  rectangularSelection(),
+  indentOnInput(),
   syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
+  bracketMatching(),
+  closeBrackets(),
+  autocompletion(),
+  crosshairCursor(),
+  highlightSelectionMatches(),
   keymap.of([
     ...closeBracketsKeymap,
     ...defaultKeymap,

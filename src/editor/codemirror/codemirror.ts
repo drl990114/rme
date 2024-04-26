@@ -313,6 +313,11 @@ class MfCodemirrorView {
       const targetPos = this.getPos() + (dir < 0 ? 0 : this.node.nodeSize)
       const selection = Selection.near(this.view.state.doc.resolve(targetPos), dir)
 
+      if (dir === 1 && exitCode(this.view.state, this.view.dispatch)) {
+        this.view.focus()
+        return true
+      }
+
       this.view.dispatch(this.view.state.tr.setSelection(selection).scrollIntoView())
       this.view.focus()
       return true
