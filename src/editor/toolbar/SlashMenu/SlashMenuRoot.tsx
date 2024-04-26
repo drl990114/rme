@@ -13,7 +13,7 @@ type SlashMenuRootProps = {
 export enum ChildrenHandlerNext {
   None,
   ReturnLeftGroup,
-  Close
+  Close,
 }
 
 export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
@@ -23,8 +23,8 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
     const menuItems = useMemo(() => {
       const headingItems = Array.from({ length: 6 }).map((_, i) => {
         return {
-          title: `heading ${i + 1}`,
-          id: `heading${i + 1}`,
+          title: `Heading ${i + 1}`,
+          id: `Heading${i + 1}`,
           handler: () => {
             commands.toggleHeading({ level: i + 1 })
           },
@@ -176,7 +176,7 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
 
     return (
       <div ref={rootRef} style={{ display: 'flex' }}>
-        <MenuPanel active location='left'>
+        <MenuPanel active location="left">
           {menuItems.map((item) => {
             const selected = item.id === activeGroupId
             return (
@@ -186,7 +186,7 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
             )
           })}
         </MenuPanel>
-        <MenuPanel active={!!activeItemId} location='right'>
+        <MenuPanel active={!!activeItemId} location="right">
           {currentMenuItem?.Renderer
             ? currentMenuItem.Renderer.Component
             : currentMenuItem?.children?.map((item) => {
@@ -217,6 +217,12 @@ type MenuPanelProps = {
   active: boolean
 }
 
+const DividingLine = styled.div`
+  flex: 1;
+  width: 1px;
+  background-color: ${(props) => props.theme.primaryFontColor};
+`
+
 const MenuPanel = styled.div.attrs<MenuPanelProps>((p) => p)`
   display: flex;
   min-width: 130px;
@@ -227,12 +233,8 @@ const MenuPanel = styled.div.attrs<MenuPanelProps>((p) => p)`
       ? `${props.theme.smallBorderRadius} 0 0
     ${props.theme.smallBorderRadius}`
       : `0 ${props.theme.smallBorderRadius} ${props.theme.smallBorderRadius} 0`};
-  border-width: 1px;
-  border-style: solid;
-  border-right: none;
-  border-color: ${(props) => props.theme.borderColor};
   background-color: ${(props) =>
-    props.active ? darken(props.theme.contextMenuBgColor, 0.2) : props.theme.contextMenuBgColor};
+    props.active ? darken(props.theme.contextMenuBgColor, 0.4) : props.theme.contextMenuBgColor};
   padding: ${(props) => props.theme.spaceXs};
   color: ${(props) => props.theme.primaryFontColor};
   font-size: ${(props) => props.theme.fontXs};

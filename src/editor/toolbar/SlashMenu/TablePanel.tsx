@@ -2,7 +2,7 @@
 import { forwardRef, useState, useImperativeHandle, memo } from 'react'
 import type { AnyExtension, CommandsFromExtensions } from 'remirror'
 import styled from 'styled-components'
-import { ChildrenHandlerNext } from './styles'
+import { ChildrenHandlerNext } from './SlashMenuRoot'
 
 type TablePanelProps = {
   commands: CommandsFromExtensions<AnyExtension>
@@ -35,17 +35,16 @@ const TablePanel = memo(
       },
       handleKeyDown: (e) => {
         const handleRight = () => {
-          if (e.metaKey || e.ctrlKey) {
-            setColumnsCount((prev) => prev + 1)
-            return ChildrenHandlerNext.None
-          }
+          setColumnsCount((prev) => prev + 1)
+          return ChildrenHandlerNext.None
         }
         const handleLeft = () => {
           if (e.metaKey || e.ctrlKey) {
-            setColumnsCount((prev) => (prev - 1 < 1 ? 1 : prev - 1))
-            return ChildrenHandlerNext.None
+            return ChildrenHandlerNext.ReturnLeftGroup
           }
-          return ChildrenHandlerNext.ReturnLeftGroup
+
+          setColumnsCount((prev) => (prev - 1 < 1 ? 1 : prev - 1))
+          return ChildrenHandlerNext.None
         }
         const handleUp = () => {
           setRowsCount((prev) => (prev - 1 < 1 ? 1 : prev - 1))
@@ -73,13 +72,10 @@ const TablePanel = memo(
     }))
 
     const displayRows = 10
-    const displayCols = 6
+    const displayCols = 8
 
     return (
       <div>
-        <div>
-          Ctrl <kbd>left</kbd> <kbd>right</kbd> to change cols
-        </div>
         <span>
           Rows: {rowsCount} Cols: {columnsCount}
         </span>

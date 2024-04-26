@@ -5,7 +5,7 @@ import { usePopper } from 'react-popper'
 import { dispatchWithMeta } from '@/editor/extensions/SlashMenu/utils'
 import type { SlashMenuState} from '@/editor/extensions/SlashMenu/type'
 import { SlashMetaTypes } from '@/editor/extensions/SlashMenu/type'
-import { SlashMenuRoot } from './styles'
+import { SlashMenuRoot } from './SlashMenuRoot'
 
 export enum Placement {
   auto = 'auto',
