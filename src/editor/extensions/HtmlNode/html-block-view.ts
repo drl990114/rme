@@ -27,6 +27,7 @@ export class HtmlNodeView implements NodeView {
   private readonly schema: EditorSchema
   private readonly languageConf: Compartment
   mfCodemirrorView?: MfCodemirrorView
+  destroying = false
 
   constructor(node: ProseNode, view: EditorView, getPos: () => number) {
     // store arguments
@@ -166,13 +167,13 @@ export class HtmlNodeView implements NodeView {
       node: this._node,
       getPos: this._getPos,
       languageName: 'html',
-      createParams: {
-        parent: this._htmlSrcElt!,
+      extensions: [minimalSetup, htmlLang],
+      options: {
+        useProsemirrorHistoryKey: true,
+        codemirrorEditorViewConfig: {
+          parent: this._htmlSrcElt!,
+        },
       },
-      extensions: [
-        minimalSetup,
-        htmlLang
-      ]
     })
 
     this._htmlSrcElt!.classList.remove('node-hide')
@@ -186,6 +187,7 @@ export class HtmlNodeView implements NodeView {
     this._innerView.focus()
 
     this._innerView.contentDOM.addEventListener('blur', () => {
+      if (this.destroying) return
       this.closeEditor(true)
     })
 
@@ -193,6 +195,7 @@ export class HtmlNodeView implements NodeView {
   }
 
   destroy() {
+    this.destroying = true
     // close the inner editor without rendering
     this.closeEditor(false)
     // clean up dom elements

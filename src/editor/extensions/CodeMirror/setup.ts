@@ -113,8 +113,6 @@ export const minimalSetup: Extension = (() => [
 
   lineNumbers(),
   highlightSpecialChars(),
-  history(),
-  indentOnInput(),
   syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
   bracketMatching(),
   closeBrackets(),
@@ -122,13 +120,7 @@ export const minimalSetup: Extension = (() => [
   crosshairCursor(),
   highlightSelectionMatches(),
   keymap.of([
-    ...closeBracketsKeymap,
     ...defaultKeymap,
-    ...searchKeymap,
-    ...historyKeymap,
-    ...foldKeymap,
-    ...completionKeymap,
-    ...lintKeymap,
   ]),
 ])()
 

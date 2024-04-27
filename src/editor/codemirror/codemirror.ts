@@ -6,6 +6,7 @@ import { Compartment, EditorState as CodeMirrorEditorState } from '@codemirror/s
 import type {
   Command as CodeMirrorCommand,
   KeyBinding as CodeMirrorKeyBinding,
+  EditorViewConfig as CodeMirrorEditorViewConfig,
 } from '@codemirror/view'
 import { EditorView as CodeMirrorEditorView, keymap } from '@codemirror/view'
 import { assertGet, isPromise, replaceNodeAtPosition } from '@remirror/core'
@@ -19,6 +20,7 @@ import { nanoid } from 'nanoid'
 import type { LoadLanguage } from '../extensions/CodeMirror/codemirror-node-view'
 import { createTheme } from './theme'
 import type { CreateThemeOptions } from './theme'
+import { redo, undo } from '@remirror/pm/history'
 
 const cmInstanceMap = new Map<string, MfCodemirrorView>()
 const themeRef = { current: createTheme(lightTheme.codemirrorTheme as CreateThemeOptions) }
@@ -30,6 +32,15 @@ export const changeTheme = (theme: CreateThemeOptions): void => {
       effects: mfCmView.editorTheme.reconfigure(themeRef.current),
     })
   })
+}
+
+export type CreateCodemirrorOptions = {
+  /**
+   * when it is true, undo and redo will use prosemirror view.
+   */
+  useProsemirrorHistoryKey?: boolean
+
+  codemirrorEditorViewConfig?: CodeMirrorEditorViewConfig
 }
 
 class MfCodemirrorView {
@@ -59,20 +70,22 @@ class MfCodemirrorView {
 
   loadLanguage: LoadLanguage
 
+  options?: CreateCodemirrorOptions
+
   constructor({
     view,
     getPos,
     node,
     extensions = [],
     languageName,
-    createParams = {},
+    options = {},
   }: {
     node: ProsemirrorNode
     view: EditorView
     getPos: () => number
     extensions?: CodeMirrorExtension[] | null
     languageName: string
-    createParams?: Record<string, any>
+    options?: CreateCodemirrorOptions
   }) {
     this.view = view
     this.getPos = getPos
@@ -82,6 +95,7 @@ class MfCodemirrorView {
     this.schema = node.type.schema
     this.languageName = languageName
     this.loadLanguage = loadLanguage
+    this.options = options
 
     this.content = this.node.textContent
     const changeFilter = CodeMirrorEditorState.changeFilter.of((tr: CodeMirrorTransaction) => {
@@ -107,7 +121,7 @@ class MfCodemirrorView {
     this.cm = new CodeMirrorEditorView({
       state: startState,
       dispatch: this.valueChanged.bind(this),
-      ...createParams,
+      ...(this.options.codemirrorEditorViewConfig || {}),
     })
 
     cmInstanceMap.set(this.id, this)
@@ -220,7 +234,7 @@ class MfCodemirrorView {
   }
 
   private codeMirrorKeymap(): CodeMirrorKeyBinding[] {
-    return [
+    const keymaps: CodeMirrorKeyBinding[] = [
       {
         key: 'ArrowUp',
         run: this.maybeEscape('line', -1),
@@ -287,6 +301,40 @@ class MfCodemirrorView {
         },
       },
     ]
+
+    if (this.options?.useProsemirrorHistoryKey) {
+      keymaps.push(
+        {
+          key: 'Mod-z',
+          run: () => {
+            undo(this.view.state, this.view.dispatch)
+            this.view.focus()
+            return false
+          },
+        },
+        {
+          key: 'Mod-y',
+          mac: 'Mod-Shift-z',
+          run: () => {
+            redo(this.view.state, this.view.dispatch)
+            this.view.focus()
+            return false
+          },
+          preventDefault: true,
+        },
+        {
+          linux: 'Ctrl-Shift-z',
+          run: () => {
+            redo(this.view.state, this.view.dispatch)
+            this.view.focus()
+            return false
+          },
+          preventDefault: true,
+        },
+      )
+    }
+
+    return keymaps
   }
 
   private maybeEscape(unit: 'line' | 'char', dir: 1 | -1): CodeMirrorCommand {

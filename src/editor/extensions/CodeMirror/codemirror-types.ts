@@ -28,6 +28,11 @@ export interface CodeMirrorExtensionOptions {
    * @defaultValue "paragraph"
    */
   toggleName?: string;
+
+  /**
+   * @defaultValue false
+   */
+  useProsemirrorHistoryKey?: boolean
 }
 
 export interface CodeMirrorExtensionAttributes extends ProsemirrorAttributes {

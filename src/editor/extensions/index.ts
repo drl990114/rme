@@ -78,7 +78,8 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
     new LineHeadingExtension({}),
     new LineListExtension(),
     new LineCodeMirrorExtension({
-      extensions: [minimalSetup]
+      extensions: [minimalSetup],
+      useProsemirrorHistoryKey: true
     }),
     new LineTableExtension({ resizable: false }),
     new LineTableRowExtension(),
