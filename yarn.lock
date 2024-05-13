@@ -4788,10 +4788,10 @@ esbuild-decorators@^1.0.0:
   resolved "https://registry.yarnpkg.com/esbuild-decorators/-/esbuild-decorators-1.0.0.tgz#ead1141507455b45a393f56b42197c5d83443a44"
   integrity sha512-D8Z0tiurpW3FgI8xGToi59v8mHrGWONvLTUOP6hSvHgKNHP1627TW+GfsMKNLLiiNcG7rzIuggeThJYcD1ob1g==
 
-esbuild-node-externals@^1.13.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/esbuild-node-externals/-/esbuild-node-externals-1.13.0.tgz#adad097c1d45a373cc2226b76408ba095a5c1c62"
-  integrity sha512-EAd32LMfUajIbLZphERyDVltTn/jir55B40xND5ro6VpCiv5/pum+s51cQf3LBFSVgEFznVJYMJtfVCJiSb32w==
+esbuild-node-externals@^1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/esbuild-node-externals/-/esbuild-node-externals-1.13.1.tgz#0e3d46f03019c8c1a745023028639630c4806d0e"
+  integrity sha512-ho4Lokc6iMB1lWbb2tWJ6otien+3Kfoaxe0fy7NUNgVuLnfmlW+GRINftTVUGtTVY/dapuwUu/CvFylYNwzkMA==
   dependencies:
     find-up "^5.0.0"
     tslib "^2.4.1"
