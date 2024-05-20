@@ -126,7 +126,7 @@
     "@emotion/styled": "^11.11.0",
     "@floating-ui/react": "^0.26.11",
     "@lezer/highlight": "^1.2.0",
-    "@mui/material": "5.15.15",
+    "@mui/material": "5.15.18",
     "@remirror/core": "^2.0.17",
     "@remirror/core-utils": "^2.0.12",
     "@remirror/dev": "^2.0.18",
