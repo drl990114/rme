@@ -3,13 +3,14 @@ import type { Core, StateCore } from 'markdown-it'
 import { getAttrsBySignalHtmlContent, getTagName, isClosingTag, isSingleNode } from '@/editor/utils/html'
 import Token from 'markdown-it/lib/token.mjs'
 
-export const needSplitInlineHtmlTokenTags = ['img', 'iframe']
+export const needSplitInlineHtmlTokenTags = ['img', 'iframe', 'br']
 
-export const excludeHtmlInlineNodes = ['html_image', 'iframe_inline']
+export const excludeHtmlInlineNodes = ['html_image', 'iframe_inline', 'html_br']
 
 const typeMap: Record<string, string> = {
   img: 'html_image',
   iframe: 'iframe_inline',
+  br: 'html_br'
 }
 
 function splitHtmlInlineTokens(t: Token) {

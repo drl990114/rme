@@ -35,7 +35,7 @@ export class LineHardBreakExtension extends HardBreakExtension {
         const schema = state.schema
 
         if (needUseBrNodeNames.includes(nodeName)) {
-          dispatch?.(tr.replaceRangeWith(from, to, schema.text('<br/>\n')))
+          dispatch?.(tr.replaceRangeWith(from, to, schema.nodes['html_br'].create()))
         } else {
           dispatch?.(tr.replaceRangeWith(from, to, schema.text('\n')))
         }

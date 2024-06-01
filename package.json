@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.0.59",
+  "version": "0.0.61",
   "type": "module",
   "scripts": {
     "build": "yarn clear && yarn build-esbuild && yarn types",
@@ -172,11 +172,11 @@
     "remirror": "^2.0.39",
     "remirror-extension-flat-list": "^0.2.0",
     "remixicon": "^4.1.0",
-    "styled-components": "^6.1.0",
+    "styled-components": "^6.1.11",
     "stylis": "^4.0.0",
     "svgmoji": "^3.2.0",
     "void-elements": "^3.1.0",
     "yjs": "^13.6.14",
-    "zens": "^0.0.22"
+    "zens": "^0.0.24"
   }
 }

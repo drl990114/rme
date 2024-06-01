@@ -89,7 +89,16 @@ export class LineTableExtension extends TableExtension {
     node.forEach((rowNode, _, rowIndex) => {
       const row: string[] = []
       rowNode.forEach((cellNode, __, colIndex) => {
-        row.push(replaceNewLines(cellNode.textContent.trim()))
+        let cellText = ''
+        for(let i = 0; i < cellNode.childCount; i++) {
+          let child = cellNode.child(i)
+          if (child.textContent) {
+            cellText += child.textContent
+          } else if (child.type.name === 'html_br') {
+            cellText += '<br/>'
+          }
+        }
+        row.push(replaceNewLines(cellText.trim()))
         if (rowIndex === 0) {
           colAligns[colIndex] = TABLE_ALIGEN.DEFAULT
         }

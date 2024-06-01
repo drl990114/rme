@@ -29,7 +29,7 @@ const tableContent = `
 | First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Content Cell  | Content <br/>Cell|
 
 # A larger table
 

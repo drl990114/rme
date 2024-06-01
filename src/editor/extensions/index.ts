@@ -46,6 +46,7 @@ import { SlashMenuExtension } from './SlashMenu'
 import { PlaceholderExtension } from './Placeholder'
 import { ClipboardExtension } from './Clipboard'
 import { minimalSetup } from './CodeMirror/setup'
+import { HtmlBrExtension } from './HtmlBr/br-extension'
 
 // import { TableExtension } from './ReactTables';
 
@@ -65,6 +66,7 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
     new HtmlImageExtension({
       handleViewImgSrcUrl,
     }),
+    new HtmlBrExtension(),
     new IframeExtension({
       enableResizing: true,
     }),
