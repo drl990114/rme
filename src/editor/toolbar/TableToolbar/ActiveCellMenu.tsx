@@ -29,24 +29,24 @@ const ActiveCellMenu = (props: ActiveCellMenuProps) => {
 
   const options = [
     {
-      label: 'insert column after',
-      i18nKey: 'table.insertColumnAfter',
-      handler: commands.addTableColumnAfter,
-    },
-    {
       label: 'insert column before',
       i18nKey: 'table.insertColumnBefore',
       handler: commands.addTableColumnBefore,
     },
     {
-      label: 'insert row after',
-      i18nKey: 'table.insertRowAfter',
-      handler: commands.addTableRowAfter,
+      label: 'insert column after',
+      i18nKey: 'table.insertColumnAfter',
+      handler: commands.addTableColumnAfter,
     },
     {
       label: 'insert row before',
       i18nKey: 'table.insertRowBefore',
       handler: commands.addTableRowBefore,
+    },
+    {
+      label: 'insert row after',
+      i18nKey: 'table.insertRowAfter',
+      handler: commands.addTableRowAfter,
     },
     {
       label: 'delete column',
