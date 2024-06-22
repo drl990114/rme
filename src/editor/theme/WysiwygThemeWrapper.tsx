@@ -240,43 +240,44 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & h4,
   & h5,
   & h6 {
+    position: relative;
     margin: 0;
     line-height: 1;
   }
 
   & h1 {
     font-weight: 600;
-    padding: 10px 0 20px 0;
+    margin: 10px 0 20px 0;
     font-size: ${(props) => props.theme.fontH1};
   }
 
   & h2 {
     font-weight: 600;
-    padding: 10px 0 20px 0;
+    margin: 10px 0 20px 0;
     font-size: ${(props) => props.theme.fontH2};
   }
 
   & h3 {
     font-weight: 600;
-    padding: 10px 0 20px 0;
+    margin: 10px 0 20px 0;
     font-size: ${(props) => props.theme.fontH3};
   }
 
   & h4 {
     font-weight: 600;
-    padding: 10px 0 20px 0;
+    margin: 10px 0 20px 0;
     font-size: ${(props) => props.theme.fontH4};
   }
 
   & h5 {
     font-weight: 600;
-    padding: 6px 0 16px 0;
+    margin: 6px 0 16px 0;
     font-size: ${(props) => props.theme.fontH5};
   }
 
   & h6 {
     font-weight: 600;
-    padding: 6px 0 16px 0;
+    margin: 6px 0 16px 0;
     font-size: ${(props) => props.theme.fontH6};
   }
 
@@ -875,4 +876,55 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
     css`
       color-scheme: dark;
     `}
+
+  ${(props) => {
+    const style = css`
+      position: absolute;
+      left: -20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: normal;
+      color: ${props.theme.primaryFontColor};
+    `
+    return css`
+      & h1 {
+        &:hover::before {
+          content: 'h1';
+          ${style}
+        }
+      }
+      & h2 {
+        &:hover::before {
+          content: 'h2';
+          ${style}
+        }
+      }
+      & h3 {
+        &:hover::before {
+          content: 'h3';
+          ${style}
+        }
+      }
+      & h4 {
+        &:hover::before {
+          content: 'h4';
+          ${style}
+        }
+      }
+      & h5 {
+        &:hover::before {
+          content: 'h5';
+          ${style}
+        }
+      }
+      & h6 {
+        &:hover::before {
+          content: 'h6';
+          ${style}
+        }
+      }
+    `
+  }}
 `
