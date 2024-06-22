@@ -197,7 +197,7 @@ const globalImageHrefCache: Map<string, string> = new Map()
   },
   staticKeys: [],
   handlerKeys: [],
-  customHandlerKeys: []
+  customHandlerKeys: [],
 })
 class ImgUri extends MarkExtension<MfImgOptions> {
   static disableExtraAttributes = true
@@ -216,7 +216,11 @@ class ImgUri extends MarkExtension<MfImgOptions> {
           default: '',
         },
       },
-      toDOM: (mark) => ['img', { src: globalImageHrefCache.get(mark.attrs.href) || mark.attrs.href }, 0]
+      toDOM: (mark) => [
+        'img',
+        { src: mark.attrs.href },
+        0,
+      ],
     }
   }
 
