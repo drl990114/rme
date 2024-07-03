@@ -13,12 +13,6 @@ export const common = {
   titleBarHeight: '30px',
   titleBarControlBtnWidth: '50px',
 
-  fontH1: '28px',
-  fontH2: '26px',
-  fontH3: '24px',
-  fontH4: '22px',
-  fontH5: '20px',
-  fontH6: '18px',
   fontBase: '15px',
   fontSm: '14px',
   fontXs: '12px',

@@ -27,7 +27,7 @@ export const ImageToolTips: FC<ImageToolTipsProps> = (props) => {
     <Input
       placeholder="Image URL [Enter]"
       value={srcVal}
-      style={{ fontSize: '14px' }}
+      style={{ fontSize: '14px', width: '300px' }}
       onInput={handleSrcInput}
       onPressEnter={updateSrc}
     />

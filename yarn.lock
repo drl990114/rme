@@ -10295,10 +10295,10 @@ yocto-queue@^1.0.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
   integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
 
-zens@^0.0.25:
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.25.tgz#958134c776a4e52399747316124b7677e863af15"
-  integrity sha512-7cjRP6Xp0rNNVTtIxspetI9yFU6GUDTSVEoGGvs3e94Z77ocGSfMbkbfoX624Ub7XGn5tg5UJsot8t6h4N4A+w==
+zens@^0.0.26:
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.26.tgz#b809861a72b52fa8ae50f59216228b400dac4b86"
+  integrity sha512-FW/TIgBhlddmqDQhU/wXj9/2rjiEWFVpO3prdkoGkTmNnWXf6zCzLgaQIPZdfEyhmc0Y/SNRvdJCm5Z0dBypAQ==
   dependencies:
     "@ant-design/icons" "^5.3.7"
     "@ariakit/react" "^0.4.5"

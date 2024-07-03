@@ -7,7 +7,7 @@ import TableToolbar from '../../toolbar/TableToolbar'
 import { ProsemirrorDevTools } from '@remirror/dev'
 import ErrorBoundary from '../ErrorBoundary'
 import type { Extension, RemirrorEventListener } from '@remirror/core'
-import type { EditorProps } from '../Editor'
+import { defaultStyleToken, type EditorProps } from '../Editor'
 import { SlashMenu } from '../../toolbar/SlashMenu'
 import type { DocToString, StringToDoc } from '../../types'
 
@@ -17,7 +17,15 @@ export const wysiwygTransformer: {
 } = { stringToDoc: null, docToString: null }
 
 const WysiwygEditor: FC<EditorProps> = (props) => {
-  const { content, hooks, delegate, wysiwygToolBar, isTesting, editable } = props
+  const {
+    content,
+    hooks,
+    delegate,
+    wysiwygToolBar,
+    isTesting,
+    editable = true,
+    styleToken = defaultStyleToken,
+  } = props
 
   const editorDelegate = useMemo(() => delegate ?? createWysiwygDelegate(), [delegate])
 
@@ -47,7 +55,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
 
   return (
     <ErrorBoundary>
-      <WysiwygThemeWrapper>
+      <WysiwygThemeWrapper {...styleToken}>
         <Remirror
           manager={editorDelegate.manager}
           initialContent={initialContent}
@@ -64,10 +72,6 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
       </WysiwygThemeWrapper>
     </ErrorBoundary>
   )
-}
-
-WysiwygEditor.defaultProps = {
-  editable: true,
 }
 
 export default memo(WysiwygEditor)

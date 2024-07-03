@@ -3,9 +3,21 @@ import styled, { css } from 'styled-components'
 interface WarpperProps {
   codeEditor?: boolean
   dark?: boolean
+  /**
+   * @default 15px
+   */
+  rootFontSize?: string
+  /**
+   * @default 1.6
+   */
+  rootLineHeight?: string
 }
 
-export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
+export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
+  rootFontSize: '15px',
+  rootLineHeight: '1.6',
+  ...p,
+}))`
   width: 100%;
   position: relative;
   white-space: pre-wrap;
@@ -13,8 +25,8 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   -webkit-text-size-adjust: 100%;
   margin: 0;
   font-family: ${(props) => props.theme.fontFamily};
-  font-size: ${(props) => props.theme.fontBase};
-  line-height: ${(props) => props.theme.lineHeightBase};
+  font-size: ${(props) => props.rootFontSize};
+  line-height: ${(props) => props.rootLineHeight};
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.primaryFontColor};
   word-wrap: break-word;
@@ -48,12 +60,12 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   }
 
   & small {
-    font-size: 90%;
+    font-size: 0.9em;
   }
 
   & sub,
   & sup {
-    font-size: 75%;
+    font-size: 0.75em;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
@@ -122,14 +134,10 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & tt {
     padding: 0.2em 0.4em;
     margin: 0;
-    font-size: 85%;
+    font-size: 0.85em;
     white-space: break-spaces;
     background-color: ${(props) => props.theme.codeBgColor};
     border-radius: 6px;
-  }
-
-  & pre {
-    background-color: ${(props) => props.theme.preBgColor};
   }
 
   & code,
@@ -248,37 +256,37 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & h1 {
     font-weight: 600;
     margin: 10px 0 20px 0;
-    font-size: ${(props) => props.theme.fontH1};
+    font-size: 1.87em;
   }
 
   & h2 {
     font-weight: 600;
     margin: 10px 0 20px 0;
-    font-size: ${(props) => props.theme.fontH2};
+    font-size: 1.75em;
   }
 
   & h3 {
     font-weight: 600;
     margin: 10px 0 20px 0;
-    font-size: ${(props) => props.theme.fontH3};
+    font-size: 1.6em;
   }
 
   & h4 {
     font-weight: 600;
     margin: 10px 0 20px 0;
-    font-size: ${(props) => props.theme.fontH4};
+    font-size: 1.46em;
   }
 
   & h5 {
     font-weight: 600;
     margin: 6px 0 16px 0;
-    font-size: ${(props) => props.theme.fontH5};
+    font-size: 1.3em;
   }
 
   & h6 {
     font-weight: 600;
     margin: 6px 0 16px 0;
-    font-size: ${(props) => props.theme.fontH6};
+    font-size: 1.2em;
   }
 
   & p {
@@ -327,7 +335,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
       Consolas,
       Liberation Mono,
       monospace;
-    font-size: 12px;
+    font-size: 0.8em;
   }
 
   & pre {
@@ -341,7 +349,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
       Consolas,
       Liberation Mono,
       monospace;
-    font-size: 12px;
+    font-size: 0.8em;
     word-wrap: normal;
   }
 
@@ -463,7 +471,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & tt {
     padding: 0.2em 0.4em;
     margin: 0;
-    font-size: 85%;
+    font-size: 0.85em;
     white-space: break-spaces;
     background-color: rgba(110, 118, 129, 0.4);
     border-radius: 6px;
@@ -479,11 +487,11 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   }
 
   & samp {
-    font-size: 85%;
+    font-size: 0.85em;
   }
 
   & pre code {
-    font-size: 100%;
+    font-size: 1em;
   }
 
   & pre > code {
@@ -498,9 +506,9 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   & pre {
     padding: 16px;
     overflow: auto;
-    font-size: 85%;
+    font-size: 0.85em;
     line-height: 1.45;
-    background-color: #161b22;
+    background-color: ${(props) => props.theme.preBgColor};
     border-radius: 6px;
   }
 
@@ -575,20 +583,20 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   .html_tag {
     padding: 0.2em 0.4em;
     margin: 0;
-    font-size: 85%;
+    font-size: 0.85em;
     white-space: break-spaces;
     background-color: ${(props) => props.theme.codeBgColor};
     border-radius: 6px;
   }
 
   .show {
-    font-size: 16px;
+    font-size: ${props => props.rootFontSize};
   }
 
   & .cm-editor {
     height: auto;
     overflow: auto;
-    font-size: 85%;
+    font-size: 0.85em;
     line-height: 1.45;
     background-color: ${(props) => props.theme.bgColor};
     border: 1px solid ${(props) => props.theme.borderColor};
@@ -713,15 +721,15 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
 
   .cm-editor {
     margin-bottom: 1em;
-    line-height: ${(props) => props.theme.lineHeightBase};
-    font-size: ${(props) => props.theme.fontBase};
+    line-height: ${(props) => props.rootLineHeight};
+    font-size: ${(props) => props.rootFontSize};
     font-family: ${(props) => props.theme.codemirrorFontFamily} !important;
 
     .cm-line {
       padding: 2px 2px 2px 6px;
 
       span {
-        line-height: ${(props) => props.theme.lineHeightBase};
+        line-height: ${(props) => props.rootLineHeight};
       }
     }
 
@@ -869,6 +877,108 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
       right: 0;
       top: -15px;
     }
+  }
+
+  .prosemirror-flat-list {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 32px;
+    margin-bottom: 0;
+    position: relative;
+    display: list-item;
+    list-style: none;
+  }
+  .prosemirror-flat-list.ProseMirror-selectednode {
+    outline: none;
+  }
+  .prosemirror-flat-list.ProseMirror-selectednode:after {
+    content: '';
+    position: absolute;
+    left: -32px;
+    right: -2px;
+    top: -2px;
+    bottom: -2px;
+    border: 2px solid #8cf;
+    pointer-events: none;
+  }
+  .prosemirror-flat-list[data-list-kind='bullet'] {
+    list-style: disc;
+  }
+  .prosemirror-flat-list[data-list-kind='ordered'] {
+    counter-increment: prosemirror-flat-list-counter;
+  }
+  .prosemirror-flat-list[data-list-kind='ordered'] > * {
+    contain: style;
+  }
+  .prosemirror-flat-list[data-list-kind='ordered']::before {
+    position: absolute;
+    right: 100%;
+    font-variant-numeric: tabular-nums;
+    content: counter(prosemirror-flat-list-counter, decimal) '. ';
+  }
+  .prosemirror-flat-list[data-list-kind='ordered']:first-child,
+  :not(.prosemirror-flat-list[data-list-kind='ordered'])
+    + .prosemirror-flat-list[data-list-kind='ordered'] {
+    counter-reset: prosemirror-flat-list-counter;
+  }
+
+  @supports (counter-set: prosemirror-flat-list-counter 1) {
+    [data-list-order]:is(
+        .prosemirror-flat-list[data-list-kind='ordered']:first-child,
+        :not(.prosemirror-flat-list[data-list-kind='ordered'])
+          + .prosemirror-flat-list[data-list-kind='ordered']
+      ) {
+      counter-set: prosemirror-flat-list-counter var(--prosemirror-flat-list-order);
+    }
+  }
+  @supports not (counter-set: prosemirror-flat-list-counter 1) {
+    [data-list-order]:is(
+        .prosemirror-flat-list[data-list-kind='ordered']:first-child,
+        :not(.prosemirror-flat-list[data-list-kind='ordered'])
+          + .prosemirror-flat-list[data-list-kind='ordered']
+      ) {
+      counter-increment: prosemirror-flat-list-counter var(--prosemirror-flat-list-order);
+    }
+  }
+
+  .prosemirror-flat-list[data-list-kind='task'] > .list-marker {
+    position: absolute;
+    right: 100%;
+    text-align: center;
+    width: 1.5em;
+    width: 1lh;
+  }
+  .prosemirror-flat-list[data-list-kind='task'] > .list-marker,
+  .prosemirror-flat-list[data-list-kind='task'] > .list-marker * {
+    cursor: pointer;
+  }
+  .prosemirror-flat-list[data-list-kind='toggle'] > .list-marker {
+    position: absolute;
+    right: 100%;
+    text-align: center;
+    width: 1.5em;
+    width: 1lh;
+  }
+
+  .prosemirror-flat-list[data-list-kind='toggle'] > .list-marker::before {
+    content: '\\23f7';
+  }
+  .prosemirror-flat-list[data-list-kind='toggle'][data-list-collapsable][data-list-collapsed]
+    > .list-marker::before {
+    content: '\\23f5';
+  }
+  .prosemirror-flat-list[data-list-kind='toggle'][data-list-collapsable] > .list-marker {
+    cursor: pointer;
+  }
+  .prosemirror-flat-list[data-list-kind='toggle']:not([data-list-collapsable]) > .list-marker {
+    opacity: 40%;
+    pointer-events: none;
+  }
+  .prosemirror-flat-list[data-list-kind='toggle'][data-list-collapsable][data-list-collapsed]
+    > .list-content
+    > *:nth-child(n + 2) {
+    display: none;
   }
 
   ${(props) =>

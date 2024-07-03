@@ -3,9 +3,21 @@ import styled, { css } from 'styled-components'
 interface WarpperProps {
   codeEditor?: boolean
   dark?: boolean
+  /**
+   * @default 15px
+   */
+  rootFontSize?: string
+  /**
+   * @default 1.6
+   */
+  rootLineHeight?: string
 }
 
-export const SourceCodeThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
+export const SourceCodeThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
+  rootFontSize: '15px',
+  rootLineHeight: '1.6',
+  ...p,
+}))`
   width: 100%;
   position: relative;
   white-space: pre-wrap;
@@ -13,8 +25,8 @@ export const SourceCodeThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
   -webkit-text-size-adjust: 100%;
   margin: 0;
   font-family: ${(props) => props.theme.fontFamily};
-  font-size: ${(props) => props.theme.fontBase};
-  line-height: ${(props) => props.theme.lineHeightBase};
+  font-size: ${(props) => props.rootFontSize};
+  line-height: ${(props) => props.rootLineHeight};
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.primaryFontColor};
   word-wrap: break-word;
@@ -24,8 +36,8 @@ export const SourceCodeThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
 
   .cm-editor {
     margin-bottom: 1em;
-    line-height: ${(props) => props.theme.lineHeightBase};
-    font-size: ${(props) => props.theme.fontBase};
+    line-height: ${(props) => props.rootLineHeight};
+    font-size: ${(props) => props.rootFontSize};
     font-family: ${(props) => props.theme.codemirrorFontFamily} !important;
 
     &.cm-focused {
@@ -36,7 +48,7 @@ export const SourceCodeThemeWrapper = styled.div.attrs<WarpperProps>((p) => p)`
       padding: 2px 2px 2px 6px;
 
       span {
-        line-height: ${(props) => props.theme.lineHeightBase};
+        line-height: ${(props) => props.rootLineHeight};
       }
     }
 

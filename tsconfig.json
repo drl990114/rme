@@ -1,6 +1,6 @@
 {
   "include": ["./global.d.ts", "./src/**/*.ts", "./src/**/*.js", "./src/**/*.tsx"],
-  "exclude": ["src/test/**/*"],
+  "exclude": ["src/test/**/*", "node_modules", "build", "coverage", "dist"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 

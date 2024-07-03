@@ -6,7 +6,7 @@ import type { EditorDelegate } from '../../types'
 import { ProsemirrorDevTools } from '@remirror/dev'
 import { createSourceCodeDelegate } from './delegate'
 import ErrorBoundary from '../ErrorBoundary'
-import type { EditorProps } from '../Editor'
+import { defaultStyleToken, type EditorProps } from '../Editor'
 import type { Extension, RemirrorEventListener } from 'remirror'
 import { SourceCodeThemeWrapper } from '../../theme'
 
@@ -25,8 +25,12 @@ const [SourceEditorProvider, useSourceCodeEditor] = createContextState<Context, 
 )
 
 const SourceCodeEditorCore = memo(
-  (props: { markdownToolBar?: React.ReactNode[]; onChange: RemirrorEventListener<Extension> }) => {
-    const { markdownToolBar } = props
+  (props: {
+    styleToken?: EditorProps['styleToken']
+    markdownToolBar?: React.ReactNode[]
+    onChange: RemirrorEventListener<Extension>
+  }) => {
+    const { markdownToolBar, styleToken } = props
     const { content, markText, hooks, isTesting, editable } = useSourceCodeEditor()
 
     let initialCntent
@@ -39,7 +43,7 @@ const SourceCodeEditorCore = memo(
 
     return (
       <ErrorBoundary>
-        <SourceCodeThemeWrapper>
+        <SourceCodeThemeWrapper {...styleToken}>
           <Remirror
             manager={markText.manager}
             initialContent={initialCntent}
@@ -61,7 +65,14 @@ const SourceCodeEditorCore = memo(
  * The editor which is used to create the annotation. Supports formatting.
  */
 const SourceEditor: React.FC<EditorProps> = (props) => {
-  const { content, delegate, isTesting, hooks, markdownToolBar } = props
+  const {
+    content,
+    delegate,
+    isTesting,
+    hooks,
+    markdownToolBar,
+    styleToken = defaultStyleToken,
+  } = props
 
   const editorDelegate = useMemo(() => delegate ?? createSourceCodeDelegate(), [delegate])
 
@@ -84,7 +95,11 @@ const SourceEditor: React.FC<EditorProps> = (props) => {
       markText={editorDelegate}
       hooks={hooks}
     >
-      <SourceCodeEditorCore markdownToolBar={markdownToolBar} onChange={handleChange} />
+      <SourceCodeEditorCore
+        styleToken={styleToken}
+        markdownToolBar={markdownToolBar}
+        onChange={handleChange}
+      />
     </SourceEditorProvider>
   )
 }

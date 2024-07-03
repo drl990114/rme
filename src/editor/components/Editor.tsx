@@ -11,16 +11,10 @@ import {
 } from '../..'
 import { useContextMounted } from './useContextMounted'
 import type { Extension, RemirrorEventListenerProps } from 'remirror'
-import 'prosemirror-flat-list/dist/style.css'
 
 export const Editor = memo(
   forwardRef<EditorRef, EditorProps>((props, ref) => {
-    const {
-      initialType = 'wysiwyg',
-      hooks = [],
-      onContextMounted,
-      ...otherProps
-    } = props
+    const { initialType = 'wysiwyg', hooks = [], onContextMounted, ...otherProps } = props
     const [type, setType] = useState<EditorViewType>(initialType)
 
     useImperativeHandle(ref, () => ({
@@ -54,9 +48,24 @@ export type EditorRef = {
   getType: () => EditorViewType
 }
 
+export const defaultStyleToken = {
+  rootFontSize: '15px',
+  rootLineHeight: '1.6'
+}
+
 export interface EditorProps {
   initialType?: EditorViewType
   delegate?: EditorDelegate
+  styleToken?: {
+    /**
+     * @default 15px
+     */
+    rootFontSize?: string
+    /**
+     * @default 1.6
+     */
+    rootLineHeight?: string
+  }
   content: string
   isTesting?: boolean
   editable?: boolean
