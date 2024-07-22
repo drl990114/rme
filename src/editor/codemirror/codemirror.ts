@@ -14,13 +14,14 @@ import type { EditorSchema, EditorView, ProsemirrorNode } from '@remirror/pm'
 import { exitCode } from '@remirror/pm/commands'
 import { Selection, TextSelection } from '@remirror/pm/state'
 import { lightTheme } from '../../editor/theme'
-import type { LanguageDescription, LanguageSupport } from '@codemirror/language'
+import { ensureSyntaxTree, type LanguageDescription, type LanguageSupport } from '@codemirror/language'
 import { languages } from '@codemirror/language-data'
 import { nanoid } from 'nanoid'
 import type { LoadLanguage } from '../extensions/CodeMirror/codemirror-node-view'
 import { createTheme } from './theme'
 import type { CreateThemeOptions } from './theme'
 import { redo, undo } from '@remirror/pm/history'
+import { Tree, SyntaxNodeRef } from '@lezer/common'
 
 const cmInstanceMap = new Map<string, MfCodemirrorView>()
 const themeRef = { current: createTheme(lightTheme.codemirrorTheme as CreateThemeOptions) }
@@ -34,6 +35,22 @@ export const changeTheme = (theme: CreateThemeOptions): void => {
   })
 }
 
+export const extractMatches = (view: CodeMirrorEditorView) => {
+  const tree: Tree | null = ensureSyntaxTree(view.state, view.state.doc.length);
+  const matches: any[] = [];
+  tree?.iterate({
+    from: 0,
+    to: view.state.doc.length,
+    enter: ({ type, from, to }: SyntaxNodeRef) => {
+      if (type.name.startsWith('ATXHeading')) {
+        matches.push({ from, to, value: view.state.doc.sliceString(from, to), type: type.name });
+      }
+    }
+  });
+
+  return matches
+}
+
 export type CreateCodemirrorOptions = {
   /**
    * when it is true, undo and redo will use prosemirror view.
@@ -43,7 +60,7 @@ export type CreateCodemirrorOptions = {
   codemirrorEditorViewConfig?: CodeMirrorEditorViewConfig
 }
 
-class MfCodemirrorView {
+export class MfCodemirrorView {
   private readonly view: EditorView
 
   private readonly getPos: () => number
@@ -429,5 +446,3 @@ export function computeChange(
 
   return { from: start, to: oldEnd, text: newVal.slice(start, newEnd) }
 }
-
-export default MfCodemirrorView

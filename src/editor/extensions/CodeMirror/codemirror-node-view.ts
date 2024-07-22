@@ -2,7 +2,7 @@ import type { LanguageSupport } from '@codemirror/language'
 import type { Extension as CodeMirrorExtension } from '@codemirror/state'
 import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
 import type { EditorView, NodeView, ProsemirrorNode } from '@remirror/pm'
-import MfCodemirrorView, { CreateCodemirrorOptions } from '../../codemirror/codemirror'
+import { CreateCodemirrorOptions, MfCodemirrorView } from '../../codemirror/codemirror'
 
 export type LoadLanguage = (lang: string) => Promise<LanguageSupport> | LanguageSupport | void
 
@@ -20,14 +20,16 @@ export class CodeMirror6NodeView implements NodeView {
     view,
     getPos,
     extensions,
-    options
+    options,
+    onCodemirrorViewLoad
   }: {
     node: ProsemirrorNode
     view: EditorView
     getPos: () => number
     extensions: CodeMirrorExtension[] | null
     options?: CreateCodemirrorOptions
-    toggleName: string
+    toggleName: string,
+    onCodemirrorViewLoad: (cm: MfCodemirrorView) => void
   }) {
     this.node = node
     this.view = view
@@ -42,6 +44,10 @@ export class CodeMirror6NodeView implements NodeView {
       languageName: this.languageName,
       options
     })
+
+    if (onCodemirrorViewLoad) {
+      onCodemirrorViewLoad(this.mfCodemirrorView)
+    }
     // Create a CodeMirror instance
     this.cm = this.mfCodemirrorView.cm
 

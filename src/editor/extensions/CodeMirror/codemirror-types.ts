@@ -1,3 +1,4 @@
+import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
 import type { Extension as CodeMirrorExtension } from '@codemirror/state'
 import type { ProsemirrorAttributes } from '@remirror/core'
 
@@ -7,7 +8,7 @@ export interface CodeMirrorExtensionOptions {
    *
    * @defaultValue false
    */
-  hideDecoration?: boolean;
+  hideDecoration?: boolean
   /**
    * The CodeMirror extensions to use.
    *
@@ -20,19 +21,23 @@ export interface CodeMirrorExtensionOptions {
    *
    * @defaultValue null
    */
-  extensions?: CodeMirrorExtension[] | null;
+  extensions?: CodeMirrorExtension[] | null
 
   /**
    * The name of the node that the codeMirror block should toggle back and forth from.
    *
    * @defaultValue "paragraph"
    */
-  toggleName?: string;
+  toggleName?: string
 
   /**
    * @defaultValue false
    */
   useProsemirrorHistoryKey?: boolean
+  /**
+   * This will return the codemirror node view instance, which is very useful in source code mode
+   */
+  onCodemirrorViewLoad?: (cm: MfCodemirrorView) => void
 }
 
 export interface CodeMirrorExtensionAttributes extends ProsemirrorAttributes {
@@ -42,5 +47,5 @@ export interface CodeMirrorExtensionAttributes extends ProsemirrorAttributes {
    *
    * @defaultValue ''
    */
-  language?: string;
+  language?: string
 }

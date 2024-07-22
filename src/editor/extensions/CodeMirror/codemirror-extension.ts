@@ -43,7 +43,8 @@ export const fakeIndentedLanguage = 'indent-code'
     hideDecoration: false,
     extensions: null,
     toggleName: 'paragraph',
-    useProsemirrorHistoryKey: false
+    useProsemirrorHistoryKey: false,
+    onCodemirrorViewLoad: () => {}
   },
   staticKeys: [],
   handlerKeys: [],
@@ -51,6 +52,7 @@ export const fakeIndentedLanguage = 'indent-code'
 })
 export class LineCodeMirrorExtension extends NodeExtension<CodeMirrorExtensionOptions> {
   private nodeview: CodeMirror6NodeView | undefined
+
   get name() {
     return 'codeMirror' as const
   }
@@ -92,7 +94,8 @@ export class LineCodeMirrorExtension extends NodeExtension<CodeMirrorExtensionOp
         toggleName: this.options.toggleName,
         options: {
           useProsemirrorHistoryKey: this.options.useProsemirrorHistoryKey
-        }
+        },
+        onCodemirrorViewLoad: this.options.onCodemirrorViewLoad
       })
 
       return this.nodeview

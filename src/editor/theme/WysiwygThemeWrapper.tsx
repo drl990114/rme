@@ -1000,37 +1000,37 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     `
     return css`
       & h1 {
-        &:hover::before {
+        &::before {
           content: 'h1';
           ${style}
         }
       }
       & h2 {
-        &:hover::before {
+        &::before {
           content: 'h2';
           ${style}
         }
       }
       & h3 {
-        &:hover::before {
+        &::before {
           content: 'h3';
           ${style}
         }
       }
       & h4 {
-        &:hover::before {
+        &::before {
           content: 'h4';
           ${style}
         }
       }
       & h5 {
-        &:hover::before {
+        &::before {
           content: 'h5';
           ${style}
         }
       }
       & h6 {
-        &:hover::before {
+        &::before {
           content: 'h6';
           ${style}
         }

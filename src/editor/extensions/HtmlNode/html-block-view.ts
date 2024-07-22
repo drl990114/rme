@@ -5,7 +5,7 @@ import type { ProsemirrorNode } from 'remirror'
 import { type EditorSchema } from 'remirror'
 import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
 import { Compartment } from '@codemirror/state'
-import MfCodemirrorView from '@/editor/codemirror/codemirror'
+import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
 import { minimalSetup } from '../CodeMirror/setup'
 import { html } from '@codemirror/lang-html'
 

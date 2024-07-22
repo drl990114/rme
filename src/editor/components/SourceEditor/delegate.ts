@@ -6,20 +6,29 @@ import { LineCodeMirrorExtension } from '../../extensions/CodeMirror/codemirror-
 import { markdown } from '@codemirror/lang-markdown'
 import { basicSetup } from '../../extensions/CodeMirror/setup'
 import { CountExtension } from '@remirror/extension-count'
+import { MfCodemirrorView } from '../../codemirror/codemirror'
 
-export function createSourceCodeManager(): RemirrorManager<any> {
+type CreateSourceCodeManagerOptions = {
+  onCodemirrorViewLoad: (cm: MfCodemirrorView) => void
+}
+export function createSourceCodeManager(
+  options?: CreateSourceCodeManagerOptions,
+): RemirrorManager<any> {
   return createReactManager(() => [
     new CountExtension({}),
     new DocExtension({ content: 'codeMirror' }),
     new LineCodeMirrorExtension({
       hideDecoration: true,
       extensions: [basicSetup, markdown()],
+      onCodemirrorViewLoad: options?.onCodemirrorViewLoad,
     }),
   ])
 }
 
-export const createSourceCodeDelegate = (): EditorDelegate<any> => {
-  const manager = createSourceCodeManager()
+export const createSourceCodeDelegate = (
+  options?: CreateSourceCodeManagerOptions,
+): EditorDelegate<any> => {
+  const manager = createSourceCodeManager(options)
 
   const stringToDoc: StringToDoc = (content: string) => {
     const schema = manager.schema

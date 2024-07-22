@@ -6,8 +6,9 @@ import {
   WysiwygThemeWrapper,
   Preview,
   createSourceCodeDelegate,
+  extractMatches,
 } from '.'
-import React, { FC, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import React, { FC, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import useDevTools from './playground/hooks/use-devtools'
 import useContent from './playground/hooks/use-content'
 import { DebugConsole } from './playground/components/DebugConsole'
@@ -54,6 +55,7 @@ function App() {
       <Editor
         initialType="wysiwyg"
         key={contentId}
+        delegate={editorDelegate}
         ref={editorRef}
         content={content}
         onChange={debounceChange}
@@ -106,7 +108,12 @@ function App() {
                 setEditorDelegate(createWysiwygDelegate())
                 editorRef.current?.toggleType('wysiwyg')
               } else if (value === 'sourceCode') {
-                setEditorDelegate(createSourceCodeDelegate())
+                setEditorDelegate(createSourceCodeDelegate({
+                  onCodemirrorViewLoad: (cmNodeView) => {
+                    extractMatches(cmNodeView.cm)
+                    console.log('cmNodeView', cmNodeView)
+                  }
+                }))
                 editorRef.current?.toggleType('sourceCode')
               } else {
                 editorRef.current?.toggleType('preview')
