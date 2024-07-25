@@ -204,8 +204,57 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     padding: 0;
   }
 
+
   & input[type='checkbox'] {
-    accent-color: #58a6ff;
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* Not removed via appearance */
+    margin: 0;
+
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    transform: translateY(0.25em);
+
+    display: grid;
+    place-content: center;
+  }
+
+  & input[type='checkbox']:checked {
+    background-color: ${props => props.theme.accentColor};
+  }
+
+  & input[type='checkbox']:checked::before {
+    transform: scale(1);
+  }
+
+  & input[type='checkbox']::before {
+    content: '';
+    width: 0.75em;
+    height: 0.75em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+
+  & input[type='checkbox']:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
+
+  & input[type='checkbox']:disabled {
+    --form-control-color: #eee;
+
+    color: #eee;
+    cursor: not-allowed;
   }
 
   & a:focus,
