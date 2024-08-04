@@ -1,5 +1,5 @@
 import type { NodeViewComponentProps } from '@remirror/react'
-import { Image, Popover } from 'zens'
+import { Image as ZensImage, Popover } from 'zens'
 import type { PopoverStore } from 'zens'
 import { ImageToolTips } from './image-tool-tips'
 import { Resizable } from '@/editor/components/Resizable'
@@ -15,7 +15,6 @@ const warningFallBack =
 
 export function ImageNodeView(props: ImageNodeViewProps) {
   const { node, selected, updateAttributes, handleViewImgSrcUrl } = props
-  const [src, setSrc] = useState<string>('')
   const initRef = useRef<() => void>()
   const popoverStore = useRef<PopoverStore>()
   const [open, setOpen] = useState(selected)
@@ -27,30 +26,37 @@ export function ImageNodeView(props: ImageNodeViewProps) {
     setOpen(selected)
   }, [selected])
 
-  useEffect(() => {
-    if (handleViewImgSrcUrl) {
-      handleViewImgSrcUrl(node.attrs.src).then((newSrc) => {
-        setSrc(newSrc)
-      })
-    } else {
-      setSrc(node.attrs.src)
-    }
-  }, [handleViewImgSrcUrl, node.attrs.src])
-
   const handleStoreChange = (store: PopoverStore) => (popoverStore.current = store)
 
-  const Main = src ? (
+  const Main = (
     <Resizable controlInit={(init) => (initRef.current = init)} {...props}>
-      <Image
-        fallback={warningFallBack}
+      <ZensImage
         onLoad={() => initRef.current?.()}
-        preview={false}
+        src={node.attrs.src}
+        imgPromise={(src) => {
+          return new Promise((resolve, reject) => {
+            const makeImageLoad = (targetSrc: string) => {
+              const img = new Image()
+              img.src = targetSrc
+              img.onload = () => {
+                resolve(targetSrc)
+              }
+              img.onerror = () => {
+                reject(warningFallBack)
+              }
+            }
+            if (handleViewImgSrcUrl) {
+              handleViewImgSrcUrl(node.attrs.src).then((newSrc) => {
+                makeImageLoad(newSrc)
+              })
+            } else {
+              makeImageLoad(node.attrs.src)
+            }
+          })
+        }}
         {...node.attrs}
-        src={src}
       />
     </Resizable>
-  ) : (
-    <Image src={warningFallBack} style={{ width: '80px', height: '80px' }} />
   )
 
   if (!open) {
@@ -67,6 +73,8 @@ export function ImageNodeView(props: ImageNodeViewProps) {
       open={open}
       onStoreChange={handleStoreChange}
       toggleOnClick
-    >{Main}</Popover>
+    >
+      {Main}
+    </Popover>
   )
 }

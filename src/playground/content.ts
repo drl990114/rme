@@ -22,6 +22,10 @@ The world is almost ruined. None of the remaining  <img src="https://www.gstatic
 console.log('Hello MarkFlowy')
 \`\`\`
 
+- [ ] task 1
+- [ ] task 2
+- [x] task 3
+
 `.trim(),
 ].join("\n")
 
