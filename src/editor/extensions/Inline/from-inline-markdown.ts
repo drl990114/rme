@@ -12,6 +12,7 @@ import type { InlineToken } from './inline-types'
 import { getAttrsBySignalHtmlContent, getTagName, isClosingTag } from '../../utils/html'
 import { needSplitInlineHtmlTokenTags } from '@/editor/transform/markdown-it-html-inline'
 import { HtmlMarksSpec } from '../HtmlNode/html-inline-marks'
+import { cloneDeep } from 'lodash'
 
 gfmAutolinkLiteralFromMarkdown.transforms = []
 
@@ -349,78 +350,78 @@ function parseMdInline(phrasingContents: mdast.PhrasingContent[], depth = 1) {
   return inlineTokens
 }
 
-// function mergePhrasingContents(
-//   phrasingContents: mdast.HTML[],
-//   startIndex: number,
-//   endIndex: number,
-// ): MdAstHtml[] {
-//   const merged = cloneDeep(phrasingContents[startIndex]) as MdAstHtml
+function mergePhrasingContents(
+  phrasingContents: mdast.HTML[],
+  startIndex: number,
+  endIndex: number,
+): MdAstHtml[] {
+  const merged = cloneDeep(phrasingContents[startIndex]) as MdAstHtml
 
-//   for (let i = startIndex + 1; i <= endIndex; i++) {
-//     merged.value += phrasingContents[i].value || ''
-//     merged.position!.end = phrasingContents[i].position!.end
-//     merged.complete = true
-//   }
+  for (let i = startIndex + 1; i <= endIndex; i++) {
+    merged.value += phrasingContents[i].value || ''
+    merged.position!.end = phrasingContents[i].position!.end
+    merged.complete = true
+  }
 
-//   phrasingContents.splice(startIndex, endIndex - startIndex + 1, merged)
-//   return phrasingContents as MdAstHtml[]
-// }
+  phrasingContents.splice(startIndex, endIndex - startIndex + 1, merged)
+  return phrasingContents as MdAstHtml[]
+}
 
-// function getMergeArr(phrasingContents: MdAstHtml[]) {
-//   const unCloseedHtmlStack: HTMLNode[] = []
-//   const mergeArr: HTMLNode[][] = []
-//   for (let i = 0; i < phrasingContents.length; i++) {
-//     const phrasingContent = phrasingContents[i]
-//     if (phrasingContent.type === 'html') {
-//       const tagName = getTagName(phrasingContent.value)
-//       const htmlNode = {
-//         tag: tagName,
-//         voidElement: !!voidElements[tagName],
-//         isClosingTag: isClosingTag(phrasingContent.value),
-//         index: i,
-//       }
+function getMergeArr(phrasingContents: MdAstHtml[]) {
+  const unCloseedHtmlStack: HTMLNode[] = []
+  const mergeArr: HTMLNode[][] = []
+  for (let i = 0; i < phrasingContents.length; i++) {
+    const phrasingContent = phrasingContents[i]
+    if (phrasingContent.type === 'html') {
+      const tagName = getTagName(phrasingContent.value)
+      const htmlNode = {
+        tag: tagName,
+        voidElement: !!voidElements[tagName],
+        isClosingTag: isClosingTag(phrasingContent.value),
+        index: i,
+      }
 
-//       if (!htmlNode.voidElement) {
-//         if (!htmlNode.isClosingTag) {
-//           unCloseedHtmlStack.push(htmlNode)
-//         } else if (unCloseedHtmlStack[unCloseedHtmlStack.length - 1]?.tag === htmlNode.tag) {
-//           if (unCloseedHtmlStack.length >= 1) {
-//             mergeArr.push([unCloseedHtmlStack.pop()!, htmlNode])
-//             phrasingContent.complete = true
-//           }
-//         }
-//       } else {
-//         phrasingContent.complete = true
-//       }
-//     }
-//   }
+      if (!htmlNode.voidElement) {
+        if (!htmlNode.isClosingTag) {
+          unCloseedHtmlStack.push(htmlNode)
+        } else if (unCloseedHtmlStack[unCloseedHtmlStack.length - 1]?.tag === htmlNode.tag) {
+          if (unCloseedHtmlStack.length >= 1) {
+            mergeArr.push([unCloseedHtmlStack.pop()!, htmlNode])
+            phrasingContent.complete = true
+          }
+        }
+      } else {
+        phrasingContent.complete = true
+      }
+    }
+  }
 
-//   for (let i = 0; i < mergeArr.length; i++) {
-//     const merge = mergeArr[i]
-//     const startIndex = merge[0].index
-//     const endIndex = merge[1].index
-//     const parentNode = mergeArr.findIndex(
-//       (item) => item[0].index < startIndex && item[1].index > endIndex,
-//     )
-//     if (parentNode >= 0) {
-//       mergeArr.splice(i, 1)
-//       i--
-//     }
-//   }
+  for (let i = 0; i < mergeArr.length; i++) {
+    const merge = mergeArr[i]
+    const startIndex = merge[0].index
+    const endIndex = merge[1].index
+    const parentNode = mergeArr.findIndex(
+      (item) => item[0].index < startIndex && item[1].index > endIndex,
+    )
+    if (parentNode >= 0) {
+      mergeArr.splice(i, 1)
+      i--
+    }
+  }
 
-//   return mergeArr
-// }
+  return mergeArr
+}
 
-// function mergeHtmlPhrasingContents(phrasingContents: MdAstHtml[]) {
-//   const mergeArr = getMergeArr(phrasingContents)
-//   let offset = 0
-//   mergeArr.forEach((merge) => {
-//     const startIndex = merge[0].index + offset
-//     const endIndex = merge[1].index + offset
-//     mergePhrasingContents(phrasingContents, startIndex, endIndex)
-//     offset += startIndex - endIndex
-//   })
-// }
+function mergeHtmlPhrasingContents(phrasingContents: MdAstHtml[]) {
+  const mergeArr = getMergeArr(phrasingContents)
+  let offset = 0
+  mergeArr.forEach((merge) => {
+    const startIndex = merge[0].index + offset
+    const endIndex = merge[1].index + offset
+    mergePhrasingContents(phrasingContents, startIndex, endIndex)
+    offset += startIndex - endIndex
+  })
+}
 
 export const splitHtmlTokens = (tokens: mdast.PhrasingContent[]) => {
   let splitArr = []
@@ -555,17 +556,52 @@ function hasHtmlToken(mdastToken: mdast.PhrasingContent[]) {
   return false
 }
 
+function flatHTMLInlineCode(phrasingContents: MdAstHtml[], depth = 1) {
+  mergeHtmlPhrasingContents(phrasingContents)
+
+  const inlineTokens: InlineToken[] = []
+  phrasingContents.forEach((phrascontent) => {
+    if (phrascontent.type === 'html') {
+      if (phrascontent.complete) {
+        inlineTokens.push({
+          marks: ['mdHtmlInline'],
+          attrs: {
+            depth: 1,
+            htmlText: phrascontent.value,
+            key: nanoid(),
+            first: true,
+            last: true,
+          },
+          start: phrascontent.position!.start.offset!,
+          end: phrascontent.position!.end.offset!,
+        })
+      } else {
+        inlineTokens.push({
+          marks: ['mdText'],
+          attrs: { depth, first: true, last: true },
+          start: phrascontent.position!.start.offset!,
+          end: phrascontent.position!.end.offset!,
+        })
+      }
+    } else {
+      const tokens = flatPhrasingContent(phrascontent, depth)
+      inlineTokens.push(...fixTokensMarkNames(tokens))
+    }
+  })
+
+  return inlineTokens
+}
+
 export function fromInlineMarkdown(text: string): InlineToken[] {
   const phrasingContents = parseInlineMarkdown(text)
 
   if (hasHtmlToken(phrasingContents)) {
-    const nodes = flatHTMLInlineToken(phrasingContents as MdAstHtml[])
-    return nodes
+    return flatHTMLInlineCode(phrasingContents as MdAstHtml[])
   }
 
-  const tokens = parseMdInline(phrasingContents)
-  return tokens
+  return parseMdInline(phrasingContents)
 }
+
 
 type HtmlToken = {
   depth?: number

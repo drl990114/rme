@@ -279,7 +279,7 @@ export const markExtensions = (options: LineMarkExtensionOptions = {}) => [
   new ImgUri({
     handleViewImgSrcUrl: options.handleViewImgSrcUrl,
   }),
-  new HtmlInlineMarks(),
+  // new HtmlInlineMarks(),
 ]
 export type LineMarkExtension = ReturnType<typeof markExtensions>[number]
 export type LineMarkName = LineMarkExtension['name']

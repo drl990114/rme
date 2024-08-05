@@ -47,6 +47,7 @@ import { PlaceholderExtension } from './Placeholder'
 import { ClipboardExtension } from './Clipboard'
 import { minimalSetup } from './CodeMirror/setup'
 import { HtmlBrExtension } from './HtmlBr/br-extension'
+import { LineHtmlInlineExtension } from './HtmlNode/html-inline-extension'
 
 // import { TableExtension } from './ReactTables';
 
@@ -69,6 +70,9 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
     new HtmlBrExtension(),
     new IframeExtension({
       enableResizing: true,
+    }),
+    new LineHtmlInlineExtension({
+      handleViewImgSrcUrl,
     }),
 
     new PlaceholderExtension({ placeholder: 'Type \'/\' for commands' }),
