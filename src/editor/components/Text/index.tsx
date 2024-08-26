@@ -1,6 +1,6 @@
 import { useRemirrorContext } from '@remirror/react'
 import type { CSSProperties, FC } from 'react'
-import React from 'react'
+import React, { memo } from 'react'
 
 interface ITextProps {
   children?: React.ReactNode
@@ -9,14 +9,16 @@ interface ITextProps {
   codeEditor?: boolean
 }
 
-const Text: FC<ITextProps> = ({ children, ...props }) => {
+const Text: FC<ITextProps> = memo(({ children, ...props }) => {
   const { getRootProps } = useRemirrorContext()
 
+  const { key, ...rootProps} = getRootProps()
+
   return (
-    <div {...props} {...getRootProps()} spellCheck={false} >
+    <div {...props} {...rootProps} spellCheck={false} >
       {children}
     </div>
   )
-}
+})
 
 export default Text

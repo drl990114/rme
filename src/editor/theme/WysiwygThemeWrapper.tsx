@@ -204,7 +204,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     padding: 0;
   }
 
-
   & input[type='checkbox'] {
     /* Add if not using autoprefixer */
     -webkit-appearance: none;
@@ -226,7 +225,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   }
 
   & input[type='checkbox']:checked {
-    background-color: ${props => props.theme.accentColor};
+    background-color: ${(props) => props.theme.accentColor};
   }
 
   & input[type='checkbox']:checked::before {
@@ -241,8 +240,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     transform: scale(0);
     transform-origin: bottom left;
     transition: 120ms transform ease-in-out;
-    /* Windows High Contrast Mode */
-    background-color: CanvasText;
+    background-color: ${(props) => props.theme.bgColor};
   }
 
   & input[type='checkbox']:focus {
@@ -516,16 +514,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     padding-right: 20px;
   }
 
-  & code,
-  & tt {
-    padding: 0.2em 0.4em;
-    margin: 0;
-    font-size: 0.85em;
-    white-space: break-spaces;
-    background-color: rgba(110, 118, 129, 0.4);
-    border-radius: 6px;
-  }
-
   & code br,
   & tt br {
     display: none;
@@ -639,7 +627,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   }
 
   .show {
-    font-size: ${props => props.rootFontSize};
+    font-size: ${(props) => props.rootFontSize};
   }
 
   & .cm-editor {
@@ -725,6 +713,39 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     transition: all 0.3s;
   }
 
+  .inline-node-show {
+    display: inline-block;
+  }
+
+  .inline-html {
+    position: relative;
+  }
+
+  .inline-html-src {
+    display: inline;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    background-color: ${(props) => props.theme.codeBgColor};
+    border-radius: 6px;
+  }
+
+  .inline-html-preview {
+    position: absolute;
+    top: calc(100% + 0.5em);
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    padding: 0.5em 1em;
+    max-width: 400px;
+    border-radius: 0.2em;
+    background-color: ${(props) => props.theme.bgColor};
+    z-index: 1;
+  }
+
+  .inline-html-render {
+    display: inline-block;
+  }
+
   .html-node {
     position: relative;
     min-height: 40px;
@@ -740,7 +761,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   }
 
   & .ProseMirror-focused {
-    outline: 2px solid ${(props) => props.theme.accentColor};
+    outline: none;
   }
 
   .img-input__container {

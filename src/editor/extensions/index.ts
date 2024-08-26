@@ -48,6 +48,7 @@ import { ClipboardExtension } from './Clipboard'
 import { minimalSetup } from './CodeMirror/setup'
 import { HtmlBrExtension } from './HtmlBr/br-extension'
 import { LineHtmlInlineExtension } from './HtmlNode/html-inline-extension'
+import { HtmlInlineNodeExtension } from './HtmlNode/html-inline-node'
 
 // import { TableExtension } from './ReactTables';
 
@@ -71,9 +72,9 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
     new IframeExtension({
       enableResizing: true,
     }),
-    new LineHtmlInlineExtension({
-      handleViewImgSrcUrl,
-    }),
+    // new LineHtmlInlineExtension({
+    //   handleViewImgSrcUrl,
+    // }),
 
     new PlaceholderExtension({ placeholder: 'Type \'/\' for commands' }),
     new LineHorizontalRuleExtension({}),
@@ -96,6 +97,9 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
       activeDecoration: { style: 'background-color: orange; color: black' },
     }),
     new LineHtmlBlockExtension(),
+    new HtmlInlineNodeExtension({
+      handleViewImgSrcUrl,
+    }),
     new ClipboardExtension(),
 
     new ReactComponentExtension({}),
