@@ -16,14 +16,15 @@ function parseTextBlock(schema: Schema, node: Node, startPos: number, output: Ma
     return
   }
 
-  const offsetPoss: number[] = []
+  let offsetPoss: number[] = []
   let pos = 0
   for (let i = 0; i < node.childCount; i++) {
     const child = node.child(i)
+    pos += child.nodeSize
+
     if (excludeHtmlInlineNodes.includes(child.type.name)) {
       offsetPoss.push(pos)
     }
-    pos += child.nodeSize
   }
   const tokens = fromInlineMarkdown(node.textContent)
 
@@ -33,14 +34,26 @@ function parseTextBlock(schema: Schema, node: Node, startPos: number, output: Ma
       return schema.marks[markName].create(token.attrs)
     })
 
-    let start = token.start
-    let end = token.end
+    let start = token.start + totalOffset
+    let end = token.end + totalOffset
 
-    const offset = offsetPoss.filter((pos) => pos >= start && pos < end).length
+    const offsetPos = offsetPoss.filter((pos) => pos >= start && pos < end)
+    const offset = offsetPos.length
 
     totalOffset += offset
+
+    // TODO refactor this
+    // test case: *mark*<span>`qwe`
+    if (output[output.length - 1]?.[1] - 1 === offsetPos[0] && offsetPos.length > 0) {
+      output[output.length - 1] = [
+        output[output.length - 1][0] + 1,
+        output[output.length - 1][1] + 1,
+        output[output.length - 1][2],
+      ]
+    }
+
     output.push([
-      startPos + token.start + totalOffset - offset,
+      startPos + token.start + totalOffset,
       startPos + token.end + totalOffset,
       expectedMarks,
     ])

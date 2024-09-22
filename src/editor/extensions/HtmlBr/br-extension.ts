@@ -1,5 +1,10 @@
-import type { ApplySchemaAttributes, NodeExtensionSpec, NodeSpecOverride } from '@remirror/core'
-import { extension, ExtensionTag, NodeExtension } from '@remirror/core'
+import type {
+  ApplySchemaAttributes,
+  InputRule,
+  NodeExtensionSpec,
+  NodeSpecOverride,
+} from '@remirror/core'
+import { extension, ExtensionTag, NodeExtension, nodeInputRule } from '@remirror/core'
 import type { NodeSerializerOptions } from '@/editor/transform'
 import { ParserRuleType } from '@/editor/transform'
 
@@ -35,6 +40,17 @@ export class HtmlBrExtension extends NodeExtension<HtmlBrOptions> {
         return ['br']
       },
     }
+  }
+
+  createInputRules(): InputRule[] {
+    const rules: InputRule[] = [
+      nodeInputRule({
+        regexp: new RegExp('<br/>'),
+        type: this.type,
+      }),
+    ]
+
+    return rules
   }
 
   public fromMarkdown() {

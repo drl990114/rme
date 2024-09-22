@@ -292,6 +292,7 @@ const fromMarkdownOptions: FromMarkdownOptions = {
           'definition',
           'headingAtx',
           'htmlFlow',
+          'htmlText',
           'list',
           'thematicBreak',
         ],
@@ -549,7 +550,7 @@ function flatHTMLInlineToken(mdastToken: mdast.PhrasingContent[]) {
 
 function hasHtmlToken(mdastToken: mdast.PhrasingContent[]) {
   for (const token of mdastToken) {
-    if (token.type === 'html' && !needSplitInlineHtmlTokenTags.includes(getTagName(token.value))) {
+    if (token.type === 'html') {
       return true
     }
   }
@@ -560,34 +561,46 @@ function flatHTMLInlineCode(phrasingContents: MdAstHtml[], depth = 1) {
   mergeHtmlPhrasingContents(phrasingContents)
 
   const inlineTokens: InlineToken[] = []
-  phrasingContents.forEach((phrascontent) => {
+  let offset = 0
+  let lastNoHtmlTokenIndex = false
+  phrasingContents.forEach((phrascontent, index) => {
     if (phrascontent.type === 'html') {
-      if (phrascontent.complete) {
-        inlineTokens.push({
-          marks: ['mdHtmlInline'],
-          attrs: {
-            depth: 1,
-            htmlText: phrascontent.value,
-            key: nanoid(),
-            first: true,
-            last: true,
-          },
-          start: phrascontent.position!.start.offset!,
-          end: phrascontent.position!.end.offset!,
-        })
-      } else {
-        inlineTokens.push({
-          marks: ['mdText'],
-          attrs: { depth, first: true, last: true },
-          start: phrascontent.position!.start.offset!,
-          end: phrascontent.position!.end.offset!,
-        })
+      offset += 2
+
+      if (index === phrasingContents.length - 1) {
+        lastNoHtmlTokenIndex = true
       }
+      // if (phrascontent.complete) {
+      //   inlineTokens.push({
+      //     marks: ['mdHtmlInline'],
+      //     attrs: {
+      //       depth: 1,
+      //       htmlText: phrascontent.value,
+      //       key: nanoid(),
+      //       first: true,
+      //       last: true,
+      //     },
+      //     start: phrascontent.position!.start.offset!,
+      //     end: phrascontent.position!.end.offset!,
+      //   })
+      // } else {
+      //   inlineTokens.push({
+      //     marks: ['mdText'],
+      //     attrs: { depth, first: true, last: true },
+      //     start: phrascontent.position!.start.offset!,
+      //     end: phrascontent.position!.end.offset!,
+      //   })
+      // }
     } else {
       const tokens = flatPhrasingContent(phrascontent, depth)
       inlineTokens.push(...fixTokensMarkNames(tokens))
     }
   })
+
+  console.log('lastNoHtmlTokenIndex', lastNoHtmlTokenIndex)
+  // if (!lastNoHtmlTokenIndex) {
+    // inlineTokens[inlineTokens.length - 1].end += offset
+  // }
 
   return inlineTokens
 }
@@ -595,13 +608,13 @@ function flatHTMLInlineCode(phrasingContents: MdAstHtml[], depth = 1) {
 export function fromInlineMarkdown(text: string): InlineToken[] {
   const phrasingContents = parseInlineMarkdown(text)
 
-  if (hasHtmlToken(phrasingContents)) {
-    return flatHTMLInlineCode(phrasingContents as MdAstHtml[])
-  }
+  // if (hasHtmlToken(phrasingContents)) {
+  //   return flatHTMLInlineCode(phrasingContents as MdAstHtml[])
+  // }
 
-  return parseMdInline(phrasingContents)
+  const res = parseMdInline(phrasingContents)
+  return res
 }
-
 
 type HtmlToken = {
   depth?: number
@@ -616,7 +629,7 @@ type MdAstHtml = {
   value: string
 } & mdast.HTML
 
-type HTMLNode = {
+export type HTMLNode = {
   tag: string
   voidElement: boolean
   isClosingTag: boolean

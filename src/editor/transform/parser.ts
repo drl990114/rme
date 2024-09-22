@@ -187,7 +187,14 @@ function buildInlineNodeHandler(
     throw new RangeError(`Can't find inline type '${parserRule.token}'`)
   }
   handlers[parserRule.token] = (state: MarkdownParseState, tok: Token) => {
-    const attrs = tok.attrs || null
+    const attrs = (tok.attrs as Record<string, any>) || null
+
+    // let content = undefined
+    // if (attrs?.htmlText) {
+    //   content =  schema.text(attrs?.htmlText)
+    // } else if (tok.content) {
+    //   content =  schema.text(tok.content)
+    // }
     const inlinNode = schema.nodes[tok.type]?.createAndFill(attrs)
     if (inlinNode) {
       state.push(inlinNode)
@@ -239,10 +246,12 @@ export class MarkdownParser {
   public constructor(schema: Schema, parserRules: ParserRule[]) {
     this.schema = schema
     this.tokenizer = MarkdownIt('commonmark', { html: true })
-      .disable(['emphasis', 'autolink', 'backticks', 'entity', 'reference'])
+      .disable(['emphasis', 'autolink', 'backticks', 'entity', 'reference', 'image',
+        'link'
+      ])
       .enable(['table'])
-      .use(markdownItListCheckbox)
       .use(MarkdownItHtmlInline)
+      .use(markdownItListCheckbox)
 
     this.tokenHandlers = buildTokenHandlers(schema, parserRules)
   }

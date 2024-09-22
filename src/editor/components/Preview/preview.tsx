@@ -7,7 +7,7 @@ import { createWysiwygDelegate } from '../WysiwygEditor'
 import HTML from 'html-parse-stringify'
 import { useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
-import { Loading3QuartersOutlined } from 'zens/esm/Icons'
+import { Icon } from 'zens'
 
 interface PreviewProps {
   doc: Node | string
@@ -82,7 +82,7 @@ export const Preview: React.FC<PreviewProps> = (props) => {
           alignItems: 'center',
         }}
       >
-        <Loading3QuartersOutlined spin size={40} />
+        <Icon.Loading3QuartersOutlined spin size={40} />
       </div>
     )
   }
