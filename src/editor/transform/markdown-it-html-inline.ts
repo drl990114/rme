@@ -7,7 +7,6 @@ import {
   isSingleNode,
 } from '@/editor/utils/html'
 import Token from 'markdown-it/lib/token.mjs'
-import { cloneDeep } from 'lodash'
 import { HTMLNode } from '../extensions/Inline/from-inline-markdown'
 import voidElements from 'void-elements'
 
@@ -92,7 +91,7 @@ function mergePhrasingContents(
   startIndex: number,
   endIndex: number,
 ): Token[] {
-  const merged = new Token('html_inline_node', '', 0)
+  const merged = new Token('html_inline_node', '', 0) as Record<string, any>
 
   for (let i = startIndex; i <= endIndex; i++) {
     merged.content += phrasingContents[i].content || ''
@@ -116,15 +115,28 @@ function mergeHtmlPhrasingContents(phrasingContents: Token[]) {
     mergePhrasingContents(phrasingContents, startIndex, endIndex)
     offset += startIndex - endIndex
   })
+
   phrasingContents.forEach((phrasingContent, index) => {
     if (isHtmlInlineToken(phrasingContent)) {
-      const newToken = new Token('html_inline_node', '', 0)
-      newToken.content = phrasingContent.content
+      const tagName = getTagName(phrasingContent.content)
+      if (typeMap[tagName]) {
+        const newToken = new Token(typeMap[tagName], '', 0)
+        newToken.content = phrasingContent.content
 
-      newToken.attrs = {
-        htmlText: newToken.content,
+        newToken.attrs = getAttrsBySignalHtmlContent(phrasingContent.content)
+        newToken.attrs!.htmlText = newToken.content
+
+        phrasingContents.splice(index, 1, newToken)
+      } else {
+        const newToken = new Token('html_inline_node', '', 0)
+        newToken.content = phrasingContent.content
+
+        newToken.attrs = {
+          htmlText: newToken.content,
+        }
+        phrasingContents.splice(index, 1, newToken)
       }
-      phrasingContents.splice(index, 1, newToken)
+
     }
   })
 }
@@ -159,8 +171,7 @@ function isHtmlBlockToken(t: Token) {
 const rule: Core.RuleCore = (state: StateCore) => {
   const edited = false
   const tokens = state.tokens
-  const tokensLength = tokens.length
-  console.log('tokens', JSON.stringify(tokens))
+  let tokensLength = tokens.length
 
   for (let i = 0; i <= tokensLength - 1; i++) {
     const curToken = tokens[i]
@@ -171,9 +182,8 @@ const rule: Core.RuleCore = (state: StateCore) => {
       }
       const newTokens = []
       let childs: Token[] = []
-      console.log('newChildren', JSON.stringify(newChildren))
+
       newChildren?.forEach((child, index) => {
-        console.log('indexindex', index, child.type, childs.length)
         if (excludeHtmlInlineNodes.includes(child.type)) {
           if (childs.length > 0) {
             const newToken = new Token('inline', '', 0)
@@ -185,7 +195,6 @@ const rule: Core.RuleCore = (state: StateCore) => {
           newTokens.push(child)
         } else {
           childs.push(child)
-          console.log('indexindex1', childs.length)
         }
       })
 
@@ -197,8 +206,11 @@ const rule: Core.RuleCore = (state: StateCore) => {
         childs = []
       }
 
-      console.log('newTokens', newTokens)
-      tokens.splice(i, 1, ...newTokens)
+      if (curToken.children && newTokens.length > 0) {
+        tokens.splice(i, 1, ...newTokens)
+
+        tokensLength += newTokens.length - 1
+      }
     } else if (isHtmlBlockToken(curToken)) {
       const tag = getTagName(curToken.content)
 
@@ -214,7 +226,6 @@ const rule: Core.RuleCore = (state: StateCore) => {
       }
     }
   }
-  console.log('tokens1', JSON.stringify(tokens))
 
   return edited
 }

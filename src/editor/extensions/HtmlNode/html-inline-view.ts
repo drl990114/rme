@@ -11,16 +11,8 @@ import {
 import { NodeView, EditorView, Decoration } from '@remirror/pm/view'
 import { StepMap } from '@remirror/pm/transform'
 import { keymap } from '@remirror/pm/keymap'
-import { newlineInCode, chainCommands, deleteSelection } from '@remirror/pm/commands'
-import { HistoryExtension } from 'remirror/extensions'
 import { history, redo, redoDepth, undo, undoDepth } from '@remirror/pm/history'
 import { isImageElement } from '@/editor/utils/html'
-import {
-  findInlineNodes,
-  findNodeAtPosition,
-  findParentNodeOfType,
-  findSelectedNodeOfType,
-} from 'remirror'
 import { ExtensionsOptions } from '..'
 
 /**
@@ -185,7 +177,6 @@ export class HTMLInlineView implements NodeView {
   // == Events ===================================== //
 
   selectNode() {
-    console.log('selectNode')
     if (!this._outerView.editable) {
       return
     }
@@ -196,7 +187,6 @@ export class HTMLInlineView implements NodeView {
   }
 
   deselectNode() {
-    console.log('deselectNode')
     if (this._isEditing) {
       this.closeEditor()
     }
@@ -225,15 +215,6 @@ export class HTMLInlineView implements NodeView {
     let content = this._innerView?.state.doc.textContent || this._node.attrs?.htmlText || ''
     let texString = content.trim()
 
-    if (texString.length < 1) {
-      while (this._htmlRenderElt.firstChild) {
-        this._htmlRenderElt.firstChild.remove()
-      }
-      return
-    } else {
-    }
-
-    // render katex, but fail gracefully
     try {
       while (this._htmlRenderElt.firstChild) {
         this._htmlRenderElt.firstChild.remove()
@@ -265,13 +246,10 @@ export class HTMLInlineView implements NodeView {
       if (this._htmlRenderElt) {
         this.dom.append(this._htmlRenderElt)
 
-        this._htmlRenderElt.classList.remove('node-hide')
-        this._htmlRenderElt.classList.add('inline-node-show')
         if (preview) {
           this._htmlRenderElt.classList.add('inline-html-preview')
         }
 
-        this._htmlRenderElt.innerHTML = texString
       }
     } catch (err) {
       console.error(err)

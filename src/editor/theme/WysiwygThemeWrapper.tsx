@@ -743,7 +743,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   }
 
   .inline-html-render {
-    display: inline-block;
   }
 
   .html-node {
