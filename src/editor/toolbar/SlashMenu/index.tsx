@@ -3,9 +3,10 @@ import { SlashMenuExtension } from '@/editor/extensions/SlashMenu'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { usePopper } from 'react-popper'
 import { dispatchWithMeta } from '@/editor/extensions/SlashMenu/utils'
-import type { SlashMenuState} from '@/editor/extensions/SlashMenu/type'
+import type { SlashMenuState } from '@/editor/extensions/SlashMenu/type'
 import { SlashMetaTypes } from '@/editor/extensions/SlashMenu/type'
 import { SlashMenuRoot } from './SlashMenuRoot'
+import styled from 'styled-components'
 
 export enum Placement {
   auto = 'auto',
@@ -125,18 +126,23 @@ export const SlashMenu = () => {
   return (
     <>
       {menuState.open ? (
-        <div
+        <Container
           // @ts-ignore
           ref={setPopperElement}
           style={{
             ...styles.popper,
-            zIndex: 1000,
           }}
           {...attributes.popper}
         >
           <SlashMenuRoot rootRef={rootRef} commands={commands} closeMenu={closeMenu} />
-        </div>
+        </Container>
       ) : null}
     </>
   )
 }
+
+const Container = styled.div`
+  border-radius: 4px;
+  border: 1px solid ${(props) => props.theme.slashMenuBorderColor };
+  z-index: 1000;
+`

@@ -14,7 +14,7 @@ interface PreviewProps {
   delegateOptions?: EditorProps['delegateOptions']
 }
 
-type HTMLAstNode = {
+export type HTMLAstNode = {
   attrs: Record<string, any>
   name: string
   type: string

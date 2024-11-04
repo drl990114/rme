@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import WysiwygEditor from './WysiwygEditor'
+import WysiwygEditor, { createWysiwygDelegate } from './WysiwygEditor'
 import SourceEditor from './SourceEditor'
 import { forwardRef, memo, useImperativeHandle, useMemo, useState } from 'react'
 import {
+  HTMLAstNode,
   Preview,
   type CreateWysiwygDelegateOptions,
   type EditorContext,
@@ -10,7 +11,11 @@ import {
   type EditorViewType,
 } from '../..'
 import { useContextMounted } from './useContextMounted'
-import type { Extension, RemirrorEventListenerProps } from 'remirror'
+import { prosemirrorNodeToHtml, type Extension, type RemirrorEventListenerProps } from 'remirror'
+import { type Node } from '@remirror/pm/model'
+// @ts-ignore
+import HTML from 'html-parse-stringify'
+import { nanoid } from 'nanoid'
 
 export const Editor = memo(
   forwardRef<EditorRef, EditorProps>((props, ref) => {
@@ -21,6 +26,60 @@ export const Editor = memo(
       getType: () => type,
       toggleType: (targetType: EditorViewType) => {
         setType(targetType)
+      },
+      exportHtml: async () => {
+        return new Promise<string>((resolve) => {
+          let targetDoc: Node | string = otherProps.content
+
+          if (typeof targetDoc === 'string') {
+            targetDoc = createWysiwygDelegate(otherProps.delegateOptions).stringToDoc(targetDoc)
+          }
+
+          const html = prosemirrorNodeToHtml(targetDoc)
+
+          const fullAst = HTML.parse(html)
+
+          const imageLoadTasks: Promise<void>[] = []
+          const handleHtmlText = async (ast: HTMLAstNode[]) => {
+            const handleNode = (node: HTMLAstNode) => {
+              if (!node) {
+                return
+              }
+
+              if (
+                node.name === 'img' &&
+                node.attrs?.src &&
+                otherProps.delegateOptions?.handleViewImgSrcUrl
+              ) {
+                imageLoadTasks.push(
+                  (async () => {
+                    node.attrs.src = await otherProps.delegateOptions?.handleViewImgSrcUrl?.(
+                      node.attrs.src,
+                    )
+                    node.attrs.key = nanoid()
+                  })(),
+                )
+              }
+
+              if (node.children) {
+                handleHtmlText(node.children)
+              }
+            }
+
+            for (let i = 0; i < ast.length; i++) {
+              handleNode(ast[i])
+            }
+          }
+
+          handleHtmlText(fullAst)
+          Promise.all(imageLoadTasks)
+            .then((res) => {
+              resolve(HTML.stringify(fullAst))
+            })
+            .catch(() => {
+              resolve(html)
+            })
+        })
       },
     }))
 
@@ -46,11 +105,12 @@ export type EditorChangeHandler = (params: EditorChangeEventParams) => void
 export type EditorRef = {
   toggleType: (targetType: EditorViewType) => void
   getType: () => EditorViewType
+  exportHtml: () => Promise<string>
 }
 
 export const defaultStyleToken = {
   rootFontSize: '15px',
-  rootLineHeight: '1.6'
+  rootLineHeight: '1.6',
 }
 
 export interface EditorProps {

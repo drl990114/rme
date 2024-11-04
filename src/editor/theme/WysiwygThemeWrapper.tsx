@@ -20,7 +20,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
 }))`
   width: 100%;
   position: relative;
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
