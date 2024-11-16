@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.1.0-beta.5",
+  "version": "0.1.0-beta.6",
   "type": "module",
   "scripts": {
     "build": "yarn clear && yarn build-esbuild && yarn types",
@@ -175,6 +175,6 @@
     "svgmoji": "^3.2.0",
     "void-elements": "^3.1.0",
     "yjs": "^13.6.20",
-    "zens": "^0.0.39"
+    "zens": "^0.0.41"
   }
 }

@@ -24,7 +24,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
     wysiwygToolBar,
     isTesting,
     editable = true,
-    styleToken = defaultStyleToken,
+    styleToken = defaultStyleToken
   } = props
 
   const editorDelegate = useMemo(() => delegate ?? createWysiwygDelegate(), [delegate])
