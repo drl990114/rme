@@ -630,25 +630,22 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     font-size: ${(props) => props.rootFontSize};
   }
 
-  & .cm-editor {
-    height: auto;
-    overflow: auto;
-    font-size: 0.85em;
-    line-height: 1.45;
-    background-color: ${(props) => props.theme.bgColor};
-    border: 1px solid ${(props) => props.theme.borderColor};
-  }
-
   .cm-editor.cm-focused {
     outline: none; // override the default outline
   }
 
-  & .code-block__reference {
+  & .code-block__menu {
     position: relative;
-    padding: 4px 1em;
+    z-index: 1;
+  }
+  & .code-block__reference {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding: 0 1em;
     font-size: 0.8em;
-    border: 1px solid ${(props) => props.theme.borderColor};
-    background-color: ${(props) => props.theme.tipsBgColor};
+    background-color: transparent;
+    box-sizing: border-box;
 
     &--active {
       border-bottom: none;
@@ -789,10 +786,15 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   }
 
   .cm-editor {
+    height: auto;
+    padding: 12px 0;
     margin-bottom: 1em;
     line-height: ${(props) => props.rootLineHeight};
     font-size: ${(props) => props.rootFontSize};
     font-family: ${(props) => props.theme.codemirrorFontFamily} !important;
+    border-radius: ${props => props.theme.smallBorderRadius};
+    background-color: ${(props) => props.theme.preBgColor};
+    overflow: auto;
 
     .cm-line {
       padding: 2px 2px 2px 6px;
@@ -803,17 +805,17 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     }
 
     .cm-content {
-      background-color: ${(props) => props.theme.bgColor};
+      background-color: ${(props) => props.theme.preBgColor};
     }
     .cm-scroller .cm-gutters {
-      background-color: ${(props) => props.theme.bgColor};
+      background-color: ${(props) => props.theme.preBgColor};
     }
     .cm-lineNumbers .cm-gutterElement {
       margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: ${(props) => props.theme.bgColor};
+      background-color: ${(props) => props.theme.preBgColor};
     }
 
     .cm-gutters {

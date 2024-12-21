@@ -6,5 +6,8 @@
     "insertRowBefore": "insert row before",
     "deleteColumn": "delete column",
     "deleteRow": "delete row"
+  },
+  "codemirror": {
+    "searchInputPlaceholder": "Input language"
   }
 }

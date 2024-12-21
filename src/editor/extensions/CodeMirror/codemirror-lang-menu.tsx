@@ -3,6 +3,7 @@ import type { EditorView, FindProsemirrorNodeResult } from 'remirror'
 import { fakeIndentedLanguage } from './codemirror-extension'
 import Fuse from 'fuse.js'
 import { computePosition } from '@floating-ui/dom'
+import { t } from 'i18next'
 
 interface CodeMirrorMenuDecorations {
   create: (view: EditorView, getPos: () => number | undefined) => HTMLElement
@@ -84,6 +85,8 @@ const createCodeMirrorMenuDecorations = (
     reference.classList.add('code-block__reference', 'code-block__reference--active')
     langInput.classList.add('code-block__languages__input')
 
+    langInput.placeholder = t('codemirror.searchInputPlaceholder')
+
     reference.appendChild(langInput)
     langInput.value = currentLanguage
 
@@ -117,7 +120,12 @@ const createCodeMirrorMenuDecorations = (
     })
 
     updateLanguagesList({ keyword: currentLanguage, currentLanguage, languagesList })
-    return reference
+
+    const container = document.createElement('div')
+    container.classList.add('code-block__menu')
+    container.appendChild(reference)
+
+    return container
   }
 
   const destroy = () => {
