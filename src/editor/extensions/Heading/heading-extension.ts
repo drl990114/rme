@@ -17,7 +17,6 @@ export class LineHeadingExtension extends HeadingExtension {
   createNodeSpec(extra: ApplySchemaAttributes, override: NodeSpecOverride): NodeExtensionSpec {
     return {
       ...super.createNodeSpec(extra, override),
-      content: 'text*', // Disallow hard breaks in headings
     }
   }
 

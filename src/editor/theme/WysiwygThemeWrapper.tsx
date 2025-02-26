@@ -102,7 +102,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
       Consolas,
       Liberation Mono,
       monospace;
-    line-height: 10px;
     color: ${(props) => props.theme.kbdFontColor};
     vertical-align: middle;
     background-color: ${(props) => props.theme.kbdBgColor};
@@ -736,10 +735,12 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     max-width: 400px;
     border-radius: 0.2em;
     background-color: ${(props) => props.theme.bgColor};
+    line-height: normal;
     z-index: 1;
   }
 
   .inline-html-render {
+    line-height: normal;
   }
 
   .html-node {
