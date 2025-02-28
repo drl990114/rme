@@ -3,13 +3,22 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Title = styled.h1`
-    color: ${({ theme }) => theme.dangerColor};
+  color: ${({ theme }) => theme.dangerColor};
 `
 
-interface ErrorBoundaryProps {
+export interface ErrorBoundaryProps {
   hasError?: boolean
   error?: unknown
+  fallback?: React.ComponentType<{ error: Error }>
+  onError?: (params: { error: Error }) => void
 }
+
+const DefaultFallback = (props: { error: Error }) => (
+  <>
+    <Title>Sorry, something went wrong!</Title>
+    <p>{String(props.error)}</p>
+  </>
+)
 
 class ErrorBoundary extends React.Component<
   PropsWithChildren<ErrorBoundaryProps>,
@@ -20,8 +29,8 @@ class ErrorBoundary extends React.Component<
     this.state = { hasError: this.props.hasError ?? false }
   }
 
-  static getDerivedStateFromError() {
-    return { hasError: true }
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error }
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
@@ -29,14 +38,15 @@ class ErrorBoundary extends React.Component<
   }
 
   render() {
+    const Fallback = this.props.fallback ?? DefaultFallback
+
     if (this.state.hasError) {
-      console.error(this.props.error)
-      return (
-        <>
-          <Title data-testid='editor_error'>Sorry, something went wrong!</Title>
-          <p>{String(this.props.error)}</p>
-        </>
-      )
+      const error = this.props.error as Error
+      this.props.onError?.({
+        error
+      })
+
+      return <Fallback error={error} />
     }
 
     return this.props.children

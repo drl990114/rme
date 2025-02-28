@@ -16,6 +16,7 @@ import { type Node } from '@remirror/pm/model'
 // @ts-ignore
 import HTML from 'html-parse-stringify'
 import { nanoid } from 'nanoid'
+import { ErrorBoundaryProps } from './ErrorBoundary'
 
 export const Editor = memo(
   forwardRef<EditorRef, EditorProps>((props, ref) => {
@@ -135,4 +136,5 @@ export interface EditorProps {
   markdownToolBar?: React.ReactNode[]
   wysiwygToolBar?: React.ReactNode[]
   onContextMounted?: (context: EditorContext) => void
+  errorHandler?: Pick<ErrorBoundaryProps, 'onError' | 'fallback'>
 }

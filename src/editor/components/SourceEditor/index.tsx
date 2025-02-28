@@ -29,6 +29,7 @@ const SourceCodeEditorCore = memo(
     styleToken?: EditorProps['styleToken']
     markdownToolBar?: React.ReactNode[]
     onChange: RemirrorEventListener<Extension>
+    errorHandler?: EditorProps['errorHandler']
   }) => {
     const { markdownToolBar, styleToken } = props
     const { content, markText, hooks, isTesting, editable } = useSourceCodeEditor()
@@ -38,11 +39,11 @@ const SourceCodeEditorCore = memo(
     try {
       initialCntent = markText.stringToDoc(content!)
     } catch (error) {
-      return <ErrorBoundary hasError error={error} />
+      return <ErrorBoundary hasError error={error} {...(props.errorHandler || {})}/>
     }
 
     return (
-      <ErrorBoundary>
+      <ErrorBoundary {...(props.errorHandler || {})}>
         <SourceCodeThemeWrapper {...styleToken}>
           <Remirror
             manager={markText.manager}
@@ -99,6 +100,7 @@ const SourceEditor: React.FC<EditorProps> = (props) => {
         styleToken={styleToken}
         markdownToolBar={markdownToolBar}
         onChange={handleChange}
+        errorHandler={props.errorHandler}
       />
     </SourceEditorProvider>
   )

@@ -50,11 +50,11 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
   try {
     initialContent = editorDelegate.stringToDoc(content)
   } catch (error) {
-    return <ErrorBoundary hasError error={error} />
+    return <ErrorBoundary hasError error={error} {...(props.errorHandler || {})}/>
   }
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary {...(props.errorHandler || {})}>
       <WysiwygThemeWrapper {...styleToken}>
         <Remirror
           manager={editorDelegate.manager}
