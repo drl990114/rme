@@ -7,13 +7,15 @@ import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
 import { Compartment } from '@codemirror/state'
 import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
 import { minimalSetup } from '../CodeMirror/setup'
-import { html } from '@codemirror/lang-html'
+import mermaid from 'mermaid'
+import { eventBus } from '@/editor/utils/eventbus'
 
-function removeNewlines(str: string) {
-  return str.replace(/\n+|\t/g, '')
-}
+/**
+ * 确保每个视图都有一个唯一的ID
+ */
+export const renderCount = { count: 0 }
 
-export class HtmlNodeView implements NodeView {
+export class MermaidNodeView implements NodeView {
   // nodeview params
   private _node: ProseNode
   private _outerView: EditorView
@@ -29,6 +31,8 @@ export class HtmlNodeView implements NodeView {
   mfCodemirrorView?: MfCodemirrorView
   destroying = false
 
+  renderViewId: string | null = null
+
   constructor(node: ProseNode, view: EditorView, getPos: () => number) {
     // store arguments
     this._node = node
@@ -38,14 +42,14 @@ export class HtmlNodeView implements NodeView {
 
     // create dom representation of nodeview
     this.dom = document.createElement('div')
-    this.dom.classList.add('html-node')
+    this.dom.classList.add('mermaid-node')
 
     this._htmlRenderElt = document.createElement('p')
     this._htmlRenderElt.textContent = ''
     this._htmlRenderElt.classList.add('html-node-render')
 
     const label = document.createElement('span')
-    label.innerHTML = `<i class="ri-expand-left-right-line"></i> HTML`
+    label.innerHTML = `<i class="ri-expand-left-right-line"></i> mermaid`
     label.classList.add('html-node-label')
 
     this.dom.appendChild(label)
@@ -53,23 +57,22 @@ export class HtmlNodeView implements NodeView {
     this.dom.appendChild(this._htmlRenderElt)
 
     this._htmlSrcElt = document.createElement('span')
-    this._htmlSrcElt.classList.add('html-src', 'node-hide')
+    this._htmlSrcElt.classList.add('mermaid-src', 'node-hide')
 
     this.languageConf = new Compartment()
 
     this.dom.appendChild(this._htmlSrcElt)
 
     label.addEventListener('click', () => this.ensureFocus())
+    // this.dom.addEventListener('click', () => this.ensureFocus())
+    label.addEventListener('click', () => this.ensureFocus())
     this.dom.addEventListener('mouseenter', this.handleMouseEnter)
     this.dom.addEventListener('mouseleave', this.handleMouseLeave)
 
     this.renderHtml()
+    eventBus.on('change-theme', this.changeTheme)
   }
 
-  /**
-   * Ensure focus on the inner editor whenever this node has focus.
-   * This helps to prevent accidental deletions of html blocks.
-   */
   ensureFocus() {
     if (this._outerView.hasFocus()) {
       if (this._innerView) {
@@ -114,34 +117,38 @@ export class HtmlNodeView implements NodeView {
   }
 
   // == Rendering ===================================== //
+  changeTheme = () => {
+    console.log('change theme')
+    this.renderHtml()
+  }
 
   renderHtml() {
+    console.log('render', this._node)
     if (!this._htmlRenderElt) {
       return
     }
 
     // get tex string to render
-    const content = removeNewlines(this.mfCodemirrorView?.content || this._node.textContent)
-    const texString = content.trim()
-
-    if (texString.length < 1) {
-      while (this._htmlRenderElt.firstChild) {
-        this._htmlRenderElt.firstChild.remove()
-      }
-      return
-    } else {
-      // ignore
-    }
+    const content = this.mfCodemirrorView?.content || this._node.textContent
 
     try {
-      while (this._htmlRenderElt.firstChild) {
-        this._htmlRenderElt.firstChild.remove()
-      }
-
+      this._htmlRenderElt.innerHTML = ''
       this._htmlRenderElt.classList.remove('node-hide')
       this._htmlRenderElt.classList.add('node-show')
+      renderCount.count++
 
-      this._htmlRenderElt.innerHTML = texString
+      mermaid
+        .render(`mermaid-${Date.now()}_${renderCount.count}`, content)
+        .then(({ svg, bindFunctions }) => {
+          if (!this._htmlRenderElt) {
+            return
+          }
+          this._htmlRenderElt.innerHTML = svg
+          bindFunctions?.(this._htmlRenderElt)
+        })
+        .catch((err) => {
+          console.error('渲染失败:', content, err)
+        })
     } catch (err) {}
   }
 
@@ -160,18 +167,17 @@ export class HtmlNodeView implements NodeView {
       throw Error('inner view should not exist!')
     }
 
-    const htmlLang = html()
     this.mfCodemirrorView = new MfCodemirrorView({
       view: this._outerView,
       node: this._node,
       getPos: this._getPos,
-      languageName: 'html',
-      extensions: [minimalSetup, htmlLang],
+      languageName: 'mermaid',
+      extensions: [minimalSetup],
       options: {
         useProsemirrorHistoryKey: true,
         codemirrorEditorViewConfig: {
           parent: this._htmlSrcElt!,
-        },
+        }
       },
     })
 
@@ -210,14 +216,10 @@ export class HtmlNodeView implements NodeView {
     this.dom.removeEventListener('mouseenter', this.handleMouseEnter)
     this.dom.removeEventListener('mouseleave', this.handleMouseLeave)
     this.dom.remove()
+
+    eventBus.detach('change-theme', this.changeTheme)
   }
 
-  /**
-   * Called when the inner ProseMirror editor should close.
-   *
-   * @param render Optionally update the rendered html after closing. (which
-   *    is generally what we want to do, since the user is done editing!)
-   */
   closeEditor(render: boolean = true) {
     if (this._innerView) {
       this._innerView.destroy()

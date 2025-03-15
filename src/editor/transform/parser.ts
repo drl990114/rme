@@ -3,7 +3,7 @@ import { Mark } from '@remirror/pm/model'
 import MarkdownIt from 'markdown-it'
 import type { Token } from 'markdown-it'
 
-import markdownItListCheckbox from './markdown-it-list-checkbox'
+import MarkdownItListCheckbox from './markdown-it-list-checkbox'
 
 import type {
   BlockParserRule,
@@ -15,6 +15,7 @@ import type {
 } from './parser-type'
 import { ParserRuleType } from './parser-type'
 import MarkdownItHtmlInline from './markdown-it-html-inline'
+import MarkdownItMermaid from './markdown-it-mermaid'
 
 interface StackItem {
   type: NodeType
@@ -246,12 +247,11 @@ export class MarkdownParser {
   public constructor(schema: Schema, parserRules: ParserRule[]) {
     this.schema = schema
     this.tokenizer = MarkdownIt('commonmark', { html: true })
-      .disable(['emphasis', 'autolink', 'backticks', 'entity', 'reference', 'image',
-        'link'
-      ])
+      .disable(['emphasis', 'autolink', 'backticks', 'entity', 'reference', 'image', 'link'])
       .enable(['table'])
       .use(MarkdownItHtmlInline)
-      .use(markdownItListCheckbox)
+      .use(MarkdownItListCheckbox)
+      .use(MarkdownItMermaid)
 
     this.tokenHandlers = buildTokenHandlers(schema, parserRules)
   }

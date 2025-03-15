@@ -49,6 +49,7 @@ import { minimalSetup } from './CodeMirror/setup'
 import { HtmlBrExtension } from './HtmlBr/br-extension'
 import { LineHtmlInlineExtension } from './HtmlNode/html-inline-extension'
 import { HtmlInlineNodeExtension } from './HtmlNode/html-inline-node'
+import { MermaidBlockExtension } from './Mermaid'
 
 // import { TableExtension } from './ReactTables';
 
@@ -108,6 +109,8 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
     new SlashMenuExtension(),
     new LineInlineMarkExtension(),
     new LineInlineDecorationExtension(),
+
+    new MermaidBlockExtension({})
   ]
 }
 

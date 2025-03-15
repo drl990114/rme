@@ -14,7 +14,11 @@ import type { EditorSchema, EditorView, ProsemirrorNode } from '@remirror/pm'
 import { exitCode } from '@remirror/pm/commands'
 import { Selection, TextSelection } from '@remirror/pm/state'
 import { lightTheme } from '../../editor/theme'
-import { ensureSyntaxTree, type LanguageDescription, type LanguageSupport } from '@codemirror/language'
+import {
+  ensureSyntaxTree,
+  type LanguageDescription,
+  type LanguageSupport,
+} from '@codemirror/language'
 import { languages } from '@codemirror/language-data'
 import { nanoid } from 'nanoid'
 import type { LoadLanguage } from '../extensions/CodeMirror/codemirror-node-view'
@@ -36,17 +40,17 @@ export const changeTheme = (theme: CreateThemeOptions): void => {
 }
 
 export const extractMatches = (view: CodeMirrorEditorView) => {
-  const tree: Tree | null = ensureSyntaxTree(view.state, view.state.doc.length);
-  const matches: any[] = [];
+  const tree: Tree | null = ensureSyntaxTree(view.state, view.state.doc.length)
+  const matches: any[] = []
   tree?.iterate({
     from: 0,
     to: view.state.doc.length,
     enter: ({ type, from, to }: SyntaxNodeRef) => {
       if (type.name.startsWith('ATXHeading')) {
-        matches.push({ from, to, value: view.state.doc.sliceString(from, to), type: type.name });
+        matches.push({ from, to, value: view.state.doc.sliceString(from, to), type: type.name })
       }
-    }
-  });
+    },
+  })
 
   return matches
 }
@@ -58,6 +62,8 @@ export type CreateCodemirrorOptions = {
   useProsemirrorHistoryKey?: boolean
 
   codemirrorEditorViewConfig?: CodeMirrorEditorViewConfig
+
+  onValueChange?: (value: string) => void
 }
 
 export class MfCodemirrorView {
@@ -241,6 +247,8 @@ export class MfCodemirrorView {
         change.text ? this.schema.text(change.text) : [],
       )
       this.view.dispatch(transaction)
+
+      this.options?.onValueChange?.(tr.state.doc.toString())
     }
   }
 

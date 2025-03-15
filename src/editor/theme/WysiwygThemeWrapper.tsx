@@ -757,6 +757,21 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     outline: none;
   }
 
+  .mermaid-node {
+    position: relative;
+    min-height: 40px;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.tipsBgColor};
+    }
+  }
+
+  .mermaid-src {
+    outline: none;
+  }
+
+
   & .ProseMirror-focused {
     outline: none;
   }
@@ -767,12 +782,18 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
 
   .html-node-label {
     position: absolute;
-    right: 0;
+    top: 6px;
+    right: 6px;
+    padding: 4px 8px;
     opacity: 0;
     transition: all 0.3s;
     font-size: small;
     cursor: pointer;
     color: ${(props) => props.theme.labelFontColor};
+
+    &:hover {
+      background-color: ${(props) => props.theme.hoverColor};
+    }
   }
 
   .node-enter {
@@ -782,7 +803,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
 
     & .html-node-label {
       opacity: 1;
-      background-color: ${({ theme }) => theme.tipsBgColor};
     }
   }
 

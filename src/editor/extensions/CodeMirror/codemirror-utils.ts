@@ -27,7 +27,8 @@ export function arrowHandler(dir: 'left' | 'right' | 'up' | 'down'): CommandFunc
     if (
       nextPos.$head &&
       (nextPos.$head.parent.type.name === 'codeMirror' ||
-        nextPos.$head.parent.type.name === 'html_block')
+        nextPos.$head.parent.type.name === 'html_block' ||
+        nextPos.$head.parent.type.name === 'mermaid_node')
     ) {
       dispatch?.(tr.setSelection(nextPos))
       return true

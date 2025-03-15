@@ -1,17 +1,15 @@
 import { WysiwygThemeWrapper } from '../../theme'
-import { prosemirrorNodeToHtml } from 'remirror'
 import { DOMSerializer, type Node } from '@remirror/pm/model'
 import { EditorProps } from '../Editor'
 import { createWysiwygDelegate } from '../WysiwygEditor'
-// @ts-ignore
-import HTML from 'html-parse-stringify'
 import { useEffect, useState } from 'react'
-import { nanoid } from 'nanoid'
 import { Icon } from 'zens'
+import { rmeProsemirrorNodeToHtml } from '@/editor/utils/prosemirrorNodeToHtml'
 
 interface PreviewProps {
   doc: Node | string
   delegateOptions?: EditorProps['delegateOptions']
+  onError?: (e: Error) => void
 }
 
 export type HTMLAstNode = {
@@ -19,6 +17,7 @@ export type HTMLAstNode = {
   name: string
   type: string
   children?: HTMLAstNode[]
+  content?: string
 }
 
 export const Preview: React.FC<PreviewProps> = (props) => {
@@ -30,46 +29,16 @@ export const Preview: React.FC<PreviewProps> = (props) => {
     targetDoc = createWysiwygDelegate(delegateOptions).stringToDoc(targetDoc)
   }
 
-  const html = prosemirrorNodeToHtml(targetDoc)
-
   useEffect(() => {
-    const fullAst = HTML.parse(html)
-
-    const imageLoadTasks: Promise<void>[] = []
-    const handleHtmlText = async (ast: HTMLAstNode[]) => {
-      const handleNode = (node: HTMLAstNode) => {
-        if (!node) {
-          return
-        }
-
-        if (node.name === 'img' && node.attrs?.src && delegateOptions?.handleViewImgSrcUrl) {
-          imageLoadTasks.push(
-            (async () => {
-              node.attrs.src = await delegateOptions?.handleViewImgSrcUrl?.(node.attrs.src)
-              node.attrs.key = nanoid()
-            })(),
-          )
-        }
-
-        if (node.children) {
-          handleHtmlText(node.children)
-        }
-      }
-
-      for (let i = 0; i < ast.length; i++) {
-        handleNode(ast[i])
-      }
-    }
-
-    handleHtmlText(fullAst)
-    Promise.all(imageLoadTasks)
-      .then((res) => {
-        setProcessedHtml(HTML.stringify(fullAst))
-      })
-      .catch(() => {
+    rmeProsemirrorNodeToHtml(targetDoc, delegateOptions)
+      .then((html) => {
         setProcessedHtml(html)
       })
-  }, [html])
+      .catch((e) => {
+        props.onError?.(e)
+        console.error(e)
+      })
+  }, [props.onError])
 
   if (!processedHtml) {
     return (

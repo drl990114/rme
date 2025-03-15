@@ -116,7 +116,7 @@ export class LineCodeMirrorExtension extends NodeExtension<CodeMirrorExtensionOp
    * when typing triple back tick followed by a space.
    */
   createInputRules(): InputRule[] {
-    const regexp = /^```(\S+) $/
+    const regexp = /^```(?!mermaid)(\S*) $/
 
     const getAttributes: GetAttributes = (match) => {
       const language = match[1] ?? ''
