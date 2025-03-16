@@ -31,7 +31,7 @@ export const styledLightTheme = {
 
   tableTdBorderColor: '#d0d7de',
   tableTrBgColor: '#ffffff',
-  tableTrDeepBgColor: '#f6f8fa',
+  tableTrDeepBgColor: '#f6f6f6',
   tableTrBorderColor: '#d8dee4',
   tableSelectorBgColor: '#e5e5e5',
   tableSelectorBgHoverColor: '#c6c6c6',
@@ -44,7 +44,7 @@ export const styledLightTheme = {
 
   codeBgColor: '#afb8c133',
 
-  preBgColor: '#f6f8fa',
+  preBgColor: '#f6f6f6',
 
   // components
   contextMenuBgColor: '#f6f7f9',
