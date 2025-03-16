@@ -3,7 +3,7 @@ import { MarkExtension, extension, keyBinding } from '@remirror/core'
 
 import { formatHref } from './format-href'
 import { toggleInlineMark } from './inline-mark-commands'
-import { HtmlInlineMarks, HtmlMarksSpec } from '../HtmlNode/html-inline-marks'
+import { HtmlMarksSpec } from '../HtmlNode/html-inline-marks'
 
 const commonAttrs = {
   depth: { default: 0 },

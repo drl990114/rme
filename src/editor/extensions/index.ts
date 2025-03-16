@@ -47,7 +47,6 @@ import { PlaceholderExtension } from './Placeholder'
 import { ClipboardExtension } from './Clipboard'
 import { minimalSetup } from './CodeMirror/setup'
 import { HtmlBrExtension } from './HtmlBr/br-extension'
-import { LineHtmlInlineExtension } from './HtmlNode/html-inline-extension'
 import { HtmlInlineNodeExtension } from './HtmlNode/html-inline-node'
 import { MermaidBlockExtension } from './Mermaid'
 
