@@ -136,7 +136,6 @@ function mergeHtmlPhrasingContents(phrasingContents: Token[]) {
         }
         phrasingContents.splice(index, 1, newToken)
       }
-
     }
   })
 }
@@ -180,6 +179,7 @@ const rule: Core.RuleCore = (state: StateCore) => {
       if (newChildren) {
         mergeHtmlPhrasingContents(newChildren)
       }
+
       const newTokens = []
       let childs: Token[] = []
 
@@ -189,7 +189,8 @@ const rule: Core.RuleCore = (state: StateCore) => {
             const newToken = new Token('inline', '', 0)
             newToken.children = [...childs]
             newTokens.push(newToken)
-            childs.length = 0
+            newToken.content = childs.map((child) => child.content).join('')
+            childs = []
           }
 
           newTokens.push(child)
