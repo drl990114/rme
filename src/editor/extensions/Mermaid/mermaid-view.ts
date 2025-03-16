@@ -137,8 +137,9 @@ export class MermaidNodeView implements NodeView {
       this._htmlRenderElt.classList.add('node-show')
       renderCount.count++
 
+      const id = `mermaid-${renderCount.count}`
       mermaid
-        .render(`mermaid-${Date.now()}_${renderCount.count}`, content)
+        .render(id, content)
         .then(({ svg, bindFunctions }) => {
           if (!this._htmlRenderElt) {
             return
@@ -147,7 +148,8 @@ export class MermaidNodeView implements NodeView {
           bindFunctions?.(this._htmlRenderElt)
         })
         .catch((err) => {
-          console.error('渲染失败:', content, err)
+          document.getElementById('d' + id)?.remove()
+          console.error('渲染失败:', id, err)
         })
     } catch (err) {}
   }
@@ -177,7 +179,7 @@ export class MermaidNodeView implements NodeView {
         useProsemirrorHistoryKey: true,
         codemirrorEditorViewConfig: {
           parent: this._htmlSrcElt!,
-        }
+        },
       },
     })
 
