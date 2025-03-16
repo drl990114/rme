@@ -2,7 +2,7 @@ import { wysiwygTransformer } from '@/editor/components/WysiwygEditor'
 import type { CreateExtensionPlugin } from '@remirror/core'
 import { PlainExtension } from '@remirror/core'
 import type { Slice, Node } from '@remirror/pm/model'
-import { DOMSerializer, DOMParser } from '@remirror/pm/model'
+import { DOMParser } from '@remirror/pm/model'
 
 type UnknownRecord = Record<string, unknown>
 function isPureText(content: UnknownRecord | UnknownRecord[] | undefined | null): boolean {
@@ -57,11 +57,12 @@ export class ClipboardExtension extends PlainExtension {
 
           const domParser = DOMParser.fromSchema(schema)
           let dom
-          if (html.length === 0) {
+          if (text) {
             const slice = parser?.(text)
             if (!slice || typeof slice === 'string') return false
 
-            dom = DOMSerializer.fromSchema(schema).serializeFragment(slice.content)
+            view.dispatch(view.state.tr.replaceSelectionWith(slice, true))
+            return true
           } else {
             const template = document.createElement('template')
             template.innerHTML = html

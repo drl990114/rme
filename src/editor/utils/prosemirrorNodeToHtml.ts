@@ -92,7 +92,7 @@ export const rmeProsemirrorNodeToHtml = async (
 
   try {
     await Promise.all(imageLoadTasks)
-    return HTML.stringify(fullAst)
+    return HTML.stringify(fullAst) as string
   } catch (error) {
     return html
   }
