@@ -1,7 +1,7 @@
 import { wysiwygTransformer } from '@/editor/components/WysiwygEditor'
 import type { CreateExtensionPlugin } from '@remirror/core'
 import { PlainExtension } from '@remirror/core'
-import type { Slice, Node } from '@remirror/pm/model'
+import { Slice, Node } from '@remirror/pm/model'
 import { DOMParser } from '@remirror/pm/model'
 
 type UnknownRecord = Record<string, unknown>
@@ -59,9 +59,22 @@ export class ClipboardExtension extends PlainExtension {
           let dom
           if (text) {
             const slice = parser?.(text)
+
             if (!slice || typeof slice === 'string') return false
 
-            view.dispatch(view.state.tr.replaceSelectionWith(slice, true))
+            const res: Node[] = []
+            slice.content.forEach((node, index) => {
+              if (node.type.name === 'paragraph' && index === 0) {
+                node.content.forEach((child) => {
+                  res.push(child)
+                })
+              } else {
+                res.push(node)
+              }
+            })
+
+            view.dispatch(view.state.tr.replaceSelectionWith(res, false))
+
             return true
           } else {
             const template = document.createElement('template')

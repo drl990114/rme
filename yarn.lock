@@ -12245,10 +12245,10 @@ yoctocolors-cjs@^2.1.2:
   resolved "https://registry.yarnpkg.com/yoctocolors-cjs/-/yoctocolors-cjs-2.1.2.tgz#f4b905a840a37506813a7acaa28febe97767a242"
   integrity sha512-cYVsTjKl8b+FrnidjibDWskAv7UKOfcwaVZdp/it9n1s9fU3IkgDbhdIRKCW4JDsAlECJY0ytoVPT3sK6kideA==
 
-zens@^0.0.42:
-  version "0.0.42"
-  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.42.tgz#5055a514570be42c07e52fe497c512914cb14a8f"
-  integrity sha512-VI4l2UyiJ2YKszYJ326i+hMmH0yLALog8vxbeEfK8cv5CTRoHAZVQdpkOejVrBOJ8smwcOILfIQbI8rKSAJGxw==
+zens@^0.0.44:
+  version "0.0.44"
+  resolved "https://registry.yarnpkg.com/zens/-/zens-0.0.44.tgz#2775861b92a540cb129aa3dbd9f9d2711d924dc6"
+  integrity sha512-oLagbb+KARL8Ky3w6At779FvAQi2GqvRQUpSrwFlWCv4SkRnedHLxE7j+dFIm1fcyaAn+kceytB4R+9Zch9/yw==
   dependencies:
     "@ant-design/icons" "^5.5.1"
     "@ariakit/react" "^0.4.13"
