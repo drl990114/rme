@@ -15,7 +15,6 @@
     "prepublishOnly": "yarn build"
   },
   "license": "MIT",
-  "private": false,
   "keywords": [
     "react",
     "react-component"
@@ -178,5 +177,6 @@
     "void-elements": "^3.1.0",
     "yjs": "^13.6.20",
     "zens": "^0.0.44"
-  }
+  },
+  "packageManager": "yarn@4.8.0"
 }
