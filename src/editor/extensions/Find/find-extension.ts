@@ -18,8 +18,8 @@ import { Decoration, DecorationAttrs, DecorationSet } from '@remirror/pm/view'
 import { FindAndReplaceAllProps, FindAndReplaceProps, FindProps, FindResult } from './find-types'
 import { rotateIndex } from './find-utils'
 import { excludeHtmlInlineNodes } from '@/editor/transform/markdown-it-html-inline'
-import { wysiwygTransformer } from '@/editor/components/WysiwygEditor'
 import { Doc } from '@remirror/react'
+import { getTransformerByView } from '../Transformer/utils'
 
 export interface FindOptions {
   /**
@@ -226,7 +226,7 @@ export class FindExtension extends PlainExtension<FindOptions> {
       for (let i = 0; i < node.childCount; i++) {
         const child = node.child(i)
         if (excludeHtmlInlineNodes.includes(child.type.name)) {
-          const nodeText = wysiwygTransformer.docToString?.(child) || ''
+          const nodeText = getTransformerByView(this.store.view)?.docToString?.(child) || ''
           for (const match of matchAll(nodeText, re)) {
             const from = start
             const to = from

@@ -49,16 +49,22 @@ import { minimalSetup } from './CodeMirror/setup'
 import { HtmlBrExtension } from './HtmlBr/br-extension'
 import { HtmlInlineNodeExtension } from './HtmlNode/html-inline-node'
 import { MermaidBlockExtension } from './Mermaid'
+import { ShortcutsExtension } from './Shortcuts/shortcuts-extension'
+import { TransformerExtension } from './Transformer/transformer-extension'
 
 // import { TableExtension } from './ReactTables';
 
 export * from './List'
 
 export type ExtensionsOptions = {
+  disableAllBuildInShortcuts?: boolean
+
   handleViewImgSrcUrl?: (src: string) => Promise<string>
 }
 
-function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
+function extensions(options: ExtensionsOptions): any[] {
+  const { handleViewImgSrcUrl } = options
+
   return [
     ...corePreset({ excludeExtensions: ['paragraph', 'text'] }),
     ...markExtensions({
@@ -109,7 +115,13 @@ function extensions({ handleViewImgSrcUrl }: ExtensionsOptions): any[] {
     new LineInlineMarkExtension(),
     new LineInlineDecorationExtension(),
 
-    new MermaidBlockExtension({})
+    new MermaidBlockExtension({}),
+
+    new ShortcutsExtension({
+      disableAllBuildInShortcuts: options.disableAllBuildInShortcuts,
+    }),
+
+    new TransformerExtension({})
   ]
 }
 

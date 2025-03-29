@@ -1,9 +1,13 @@
-import type { KeyBindingProps, MarkExtensionSpec, NodeView, NodeViewMethod } from '@remirror/core'
-import { MarkExtension, extension, keyBinding } from '@remirror/core'
+import type {
+  ExtensionCommandReturn,
+  MarkExtensionSpec,
+  NodeView,
+  NodeViewMethod,
+} from '@remirror/core'
+import { MarkExtension, extension } from '@remirror/core'
 
 import { formatHref } from './format-href'
 import { toggleInlineMark } from './inline-mark-commands'
-import { HtmlMarksSpec } from '../HtmlNode/html-inline-marks'
 
 const commonAttrs = {
   depth: { default: 0 },
@@ -60,9 +64,10 @@ class Emphasis extends MarkExtension {
     }
   }
 
-  @keyBinding({ shortcut: 'mod-i', command: 'toggleEmphasis' })
-  shortcut(props: KeyBindingProps): boolean {
-    return toggleInlineMark(this.name)(props)
+  createCommands(): ExtensionCommandReturn {
+    return {
+      toggleEmphasis: () => (props) => toggleInlineMark(this.name)(props),
+    }
   }
 }
 
@@ -78,9 +83,10 @@ class Strong extends MarkExtension {
     }
   }
 
-  @keyBinding({ shortcut: 'mod-b', command: 'toggleStrong' })
-  shortcut(props: KeyBindingProps): boolean {
-    return toggleInlineMark(this.name)(props)
+  createCommands(): ExtensionCommandReturn {
+    return {
+      toggleStrong: () => (props) => toggleInlineMark(this.name)(props),
+    }
   }
 }
 
@@ -96,9 +102,10 @@ class CodeText extends MarkExtension {
     }
   }
 
-  @keyBinding({ shortcut: 'mod-e', command: 'toggleCodeText' })
-  shortcut(props: KeyBindingProps): boolean {
-    return toggleInlineMark(this.name)(props)
+  createCommands(): ExtensionCommandReturn {
+    return {
+      toggleCodeText: () => (props) => toggleInlineMark(this.name)(props),
+    }
   }
 }
 
@@ -127,9 +134,10 @@ class Delete extends MarkExtension {
     }
   }
 
-  @keyBinding({ shortcut: 'mod-shift-s', command: 'toggleDelete' })
-  shortcut(props: KeyBindingProps): boolean {
-    return toggleInlineMark(this.name)(props)
+  createCommands(): ExtensionCommandReturn {
+    return {
+      toggleDelete: () => (props) => toggleInlineMark(this.name)(props),
+    }
   }
 }
 
@@ -216,11 +224,7 @@ class ImgUri extends MarkExtension<MfImgOptions> {
           default: '',
         },
       },
-      toDOM: (mark) => [
-        'img',
-        { src: mark.attrs.href },
-        0,
-      ],
+      toDOM: (mark) => ['img', { src: mark.attrs.href }, 0],
     }
   }
 
@@ -302,9 +306,4 @@ export type LineMarkAttrs = {
    * class name
    */
   class?: string
-
-  /**
-   * mark: mdHtmlInline
-   */
-  htmlSpec?: HtmlMarksSpec[]
 }

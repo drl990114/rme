@@ -134,7 +134,6 @@ export class HTMLInlineView implements NodeView {
     } else {
       this.renderHtml()
     }
-    console.log('this._node.attrs', this._node.attrs)
   }
 
   destroy() {

@@ -11,7 +11,6 @@ import type { LineMarkName } from './inline-mark-extensions'
 import type { InlineToken } from './inline-types'
 import { getAttrsBySignalHtmlContent, getTagName, isClosingTag } from '../../utils/html'
 import { needSplitInlineHtmlTokenTags } from '@/editor/transform/markdown-it-html-inline'
-import { HtmlMarksSpec } from '../HtmlNode/html-inline-marks'
 import { cloneDeep } from 'lodash'
 
 gfmAutolinkLiteralFromMarkdown.transforms = []
@@ -457,96 +456,96 @@ export const splitHtmlTokens = (tokens: mdast.PhrasingContent[]) => {
   return splitArr
 }
 
-function flatHTMLInlineToken(mdastToken: mdast.PhrasingContent[]) {
-  const allTokens: HtmlToken[] = [...mdastToken]
+// function flatHTMLInlineToken(mdastToken: mdast.PhrasingContent[]) {
+//   const allTokens: HtmlToken[] = [...mdastToken]
 
-  const markHtmlTokens = (tokens: HtmlToken[], depth: number) => {
-    const splitArr = splitHtmlTokens(tokens)
+//   const markHtmlTokens = (tokens: HtmlToken[], depth: number) => {
+//     const splitArr = splitHtmlTokens(tokens)
 
-    if (splitArr.length === 0) {
-      return
-    }
+//     if (splitArr.length === 0) {
+//       return
+//     }
 
-    splitArr.forEach((arr) => {
-      tokens[arr.scope[0]].start = true
-      tokens[arr.scope[0]].complete = true
-      tokens[arr.scope[1]].end = true
-      tokens[arr.scope[1]].complete = true
+//     splitArr.forEach((arr) => {
+//       tokens[arr.scope[0]].start = true
+//       tokens[arr.scope[0]].complete = true
+//       tokens[arr.scope[1]].end = true
+//       tokens[arr.scope[1]].complete = true
 
-      const start = arr.scope[0] + 1
-      const end = arr.scope[1]
+//       const start = arr.scope[0] + 1
+//       const end = arr.scope[1]
 
-      if (start === end) {
-        return
-      }
-      const scopeTokens = tokens.slice(start, end)
+//       if (start === end) {
+//         return
+//       }
+//       const scopeTokens = tokens.slice(start, end)
 
-      scopeTokens.forEach((token) => {
-        token.depth = depth + 1
+//       scopeTokens.forEach((token) => {
+//         token.depth = depth + 1
 
-        if (token.htmlSpec) {
-          token.htmlSpec.push({
-            tagName: arr.tagName,
-            attrs: arr.attrs,
-          })
-        } else {
-          token.htmlSpec = [
-            {
-              tagName: arr.tagName,
-              attrs: arr.attrs,
-            },
-          ]
-        }
-      })
+//         if (token.htmlSpec) {
+//           token.htmlSpec.push({
+//             tagName: arr.tagName,
+//             attrs: arr.attrs,
+//           })
+//         } else {
+//           token.htmlSpec = [
+//             {
+//               tagName: arr.tagName,
+//               attrs: arr.attrs,
+//             },
+//           ]
+//         }
+//       })
 
-      markHtmlTokens(scopeTokens, depth + 1)
-    })
-  }
+//       markHtmlTokens(scopeTokens, depth + 1)
+//     })
+//   }
 
-  markHtmlTokens(allTokens, 1)
+//   markHtmlTokens(allTokens, 1)
 
-  const res: InlineToken[] = []
+//   const res: InlineToken[] = []
 
-  allTokens.forEach((token) => {
-    if (token.type === 'html') {
-      if (token.complete) {
-        res.push({
-          marks: ['mdMark'],
-          attrs: {
-            depth: token.depth || 1,
-            first: !!token.start,
-            last: !!token.end,
-          },
-          start: token.position?.start?.offset!,
-          end: token.position?.end?.offset!,
-        })
-      } else {
-        res.push({
-          marks: ['mdText'],
-          attrs: {
-            depth: token.depth || 1,
-            first: true,
-            last: true,
-            class: 'html_tag',
-          },
-          start: token.position?.start?.offset!,
-          end: token.position?.end?.offset!,
-        })
-      }
-    } else {
-      const nodes = flatPhrasingContent(token, token.depth || 1)
-      if (token.htmlSpec && nodes.length > 0) {
-        for (const node of nodes) {
-          node.marks.push('mdHtmlInline')
-          node.attrs.htmlSpec = token.htmlSpec
-        }
-      }
-      res.push(...nodes)
-    }
-  })
+//   allTokens.forEach((token) => {
+//     if (token.type === 'html') {
+//       if (token.complete) {
+//         res.push({
+//           marks: ['mdMark'],
+//           attrs: {
+//             depth: token.depth || 1,
+//             first: !!token.start,
+//             last: !!token.end,
+//           },
+//           start: token.position?.start?.offset!,
+//           end: token.position?.end?.offset!,
+//         })
+//       } else {
+//         res.push({
+//           marks: ['mdText'],
+//           attrs: {
+//             depth: token.depth || 1,
+//             first: true,
+//             last: true,
+//             class: 'html_tag',
+//           },
+//           start: token.position?.start?.offset!,
+//           end: token.position?.end?.offset!,
+//         })
+//       }
+//     } else {
+//       const nodes = flatPhrasingContent(token, token.depth || 1)
+//       if (token.htmlSpec && nodes.length > 0) {
+//         for (const node of nodes) {
+//           node.marks.push('mdHtmlInline')
+//           node.attrs.htmlSpec = token.htmlSpec
+//         }
+//       }
+//       res.push(...nodes)
+//     }
+//   })
 
-  return res
-}
+//   return res
+// }
 
 function hasHtmlToken(mdastToken: mdast.PhrasingContent[]) {
   for (const token of mdastToken) {
@@ -616,13 +615,13 @@ export function fromInlineMarkdown(text: string): InlineToken[] {
   return res
 }
 
-type HtmlToken = {
-  depth?: number
-  start?: boolean
-  complete?: boolean
-  end?: boolean
-  htmlSpec?: HtmlMarksSpec[]
-} & mdast.PhrasingContent
+// type HtmlToken = {
+//   depth?: number
+//   start?: boolean
+//   complete?: boolean
+//   end?: boolean
+//   htmlSpec?: HtmlMarksSpec[]
+// } & mdast.PhrasingContent
 
 type MdAstHtml = {
   complete?: boolean

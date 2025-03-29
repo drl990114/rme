@@ -1,8 +1,8 @@
-import { wysiwygTransformer } from '@/editor/components/WysiwygEditor'
-import type { CreateExtensionPlugin } from '@remirror/core'
+import type { CreateExtensionPlugin, ExtensionCommandReturn } from '@remirror/core'
 import { PlainExtension } from '@remirror/core'
 import { Slice, Node } from '@remirror/pm/model'
 import { DOMParser } from '@remirror/pm/model'
+import { getTransformerByView } from '../Transformer/utils'
 
 type UnknownRecord = Record<string, unknown>
 function isPureText(content: UnknownRecord | UnknownRecord[] | undefined | null): boolean {
@@ -41,7 +41,9 @@ export class ClipboardExtension extends PlainExtension {
     return {
       props: {
         handlePaste: (view, event) => {
-          const parser = wysiwygTransformer.stringToDoc
+          const transformer = getTransformerByView(view)
+
+          const parser = transformer.stringToDoc
           const schema = view.state.schema
           const editable = view.props.editable?.(view.state)
           const { clipboardData } = event
@@ -95,7 +97,8 @@ export class ClipboardExtension extends PlainExtension {
         },
         clipboardTextSerializer: (slice, view) => {
           const schema = view.state.schema
-          const serializer = wysiwygTransformer.docToString
+          const transformer = getTransformerByView(view)
+          const serializer = transformer.docToString
           const isText = isPureText(slice.content.toJSON())
           if (isText)
             return (slice.content as unknown as Node).textBetween(0, slice.content.size, '\n\n')

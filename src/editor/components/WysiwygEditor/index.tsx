@@ -1,5 +1,5 @@
 import { Remirror } from '@remirror/react'
-import { type FC, createContext, memo, useMemo, useCallback } from 'react'
+import { type FC, createContext, memo, useMemo, useCallback, useEffect } from 'react'
 import Text from '../Text'
 import { WysiwygThemeWrapper } from '../../../editor/theme'
 import { createWysiwygDelegate } from './delegate'
@@ -9,12 +9,7 @@ import ErrorBoundary from '../ErrorBoundary'
 import type { Extension, RemirrorEventListener } from '@remirror/core'
 import { defaultStyleToken, type EditorProps } from '../Editor'
 import { SlashMenu } from '../../toolbar/SlashMenu'
-import type { DocToString, StringToDoc } from '../../types'
-
-export const wysiwygTransformer: {
-  stringToDoc: StringToDoc | null
-  docToString: DocToString | null
-} = { stringToDoc: null, docToString: null }
+import { TransformerExtension } from '../../extensions/Transformer/transformer-extension'
 
 const WysiwygEditor: FC<EditorProps> = (props) => {
   const {
@@ -24,7 +19,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
     wysiwygToolBar,
     isTesting,
     editable = true,
-    styleToken = defaultStyleToken
+    styleToken = defaultStyleToken,
   } = props
 
   const editorDelegate = useMemo(() => delegate ?? createWysiwygDelegate(), [delegate])
@@ -41,16 +36,22 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
     [editorDelegate, props],
   )
 
-  if (wysiwygTransformer.stringToDoc === null) {
-    wysiwygTransformer.stringToDoc = editorDelegate.stringToDoc
-    wysiwygTransformer.docToString = editorDelegate.docToString
-  }
+  useEffect(() => {
+    const ext = editorDelegate.manager.getExtension(TransformerExtension)
+
+    editorDelegate.manager.view.dispatch(
+      editorDelegate.manager.view.state.tr.setMeta(ext.pluginKey, {
+        stringToDoc: editorDelegate.stringToDoc,
+        docToString: editorDelegate.docToString,
+      }),
+    )
+  }, [editorDelegate])
 
   let initialContent
   try {
     initialContent = editorDelegate.stringToDoc(content)
   } catch (error) {
-    return <ErrorBoundary hasError error={error} {...(props.errorHandler || {})}/>
+    return <ErrorBoundary hasError error={error} {...(props.errorHandler || {})} />
   }
 
   return (
