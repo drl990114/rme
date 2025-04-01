@@ -3105,6 +3105,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remirror/core-types@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@remirror/core-types@npm:3.0.0"
+  dependencies:
+    "@remirror/core-constants": "npm:3.0.0"
+    "@remirror/types": "npm:2.0.0"
+  peerDependencies:
+    "@remirror/pm": ^3.0.0
+  checksum: 10c0/3361bfc2ce6821e0fbe23f5f53a9aa8aff4fab5aaed20815d5c724670b8a9b7f0b733e965c7bb7a78ad92e76fce7d982c054f87723e2edc10cd4c2c5e0df316b
+  languageName: node
+  linkType: hard
+
 "@remirror/core-types@npm:^2.0.5":
   version: 2.0.5
   resolution: "@remirror/core-types@npm:2.0.5"
@@ -4373,6 +4385,19 @@ __metadata:
     color2k: "npm:^2.0.2"
     csstype: "npm:^3.1.2"
   checksum: 10c0/fecacfb2f6760564b955954d3ac8f2b40527dedadfc4419df6c2df1f92235922ef9ade3021aa400f142c31dfabb504a73f854b77750f100dbe1ddf5f34d5ea6a
+  languageName: node
+  linkType: hard
+
+"@remirror/theme@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@remirror/theme@npm:3.0.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.22.3"
+    "@linaria/core": "npm:4.2.10"
+    "@remirror/core-types": "npm:3.0.0"
+    color2k: "npm:^2.0.2"
+    csstype: "npm:^3.1.2"
+  checksum: 10c0/55ceb386457a431fdc70111fd5ed0f37e37bf88ecf830b71fb3932b66f3a5f9671d131be3ace1c10ef9cf2f4ee0d2c794c474031e8757ee8c2044854bc1350da
   languageName: node
   linkType: hard
 
@@ -14868,7 +14893,7 @@ __metadata:
     "@remirror/react": "npm:^2.0.32"
     "@remirror/react-components": "npm:^2.1.13"
     "@remirror/react-core": "npm:^2.0.18"
-    "@remirror/theme": "npm:^2.0.8"
+    "@remirror/theme": "npm:^3.0.0"
     "@remirror/types": "npm:^1.0.1"
     "@rollup/plugin-alias": "npm:^5.1.1"
     "@rollup/plugin-commonjs": "npm:28.0.1"

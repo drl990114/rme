@@ -140,7 +140,7 @@
     "@remirror/react": "^2.0.32",
     "@remirror/react-components": "^2.1.13",
     "@remirror/react-core": "^2.0.18",
-    "@remirror/theme": "^2.0.8",
+    "@remirror/theme": "^3.0.0",
     "@remirror/types": "^1.0.1",
     "@uiw/react-codemirror": "^4.23.6",
     "color": "^4.2.3",
