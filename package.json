@@ -129,7 +129,7 @@
     "@remirror/extension-codemirror6": "^1.0.13",
     "@remirror/extension-count": "^2.0.13",
     "@remirror/extension-hard-break": "2.0.13",
-    "@remirror/extension-heading": "^2.0.14",
+    "@remirror/extension-heading": "^3.0.1",
     "@remirror/extension-list": "^2.0.15",
     "@remirror/extension-positioner": "^2.1.8",
     "@remirror/extension-react-tables": "^2.2.19",
