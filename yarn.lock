@@ -11357,16 +11357,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lib0@npm:^0.2.98":
-  version: 0.2.98
-  resolution: "lib0@npm:0.2.98"
+"lib0@npm:^0.2.99":
+  version: 0.2.101
+  resolution: "lib0@npm:0.2.101"
   dependencies:
     isomorphic.js: "npm:^0.2.4"
   bin:
     0ecdsa-generate-keypair: bin/0ecdsa-generate-keypair.js
     0gentesthtml: bin/gentesthtml.js
     0serve: bin/0serve.js
-  checksum: 10c0/074097bcb90a002449cfddaa11552f11d088e38233f0a20a3358b08d7d1952b2f5a491fb63e63ccf66a8ec037e16d82d40a27601bbacf5ded0d2ec810bdf550e
+  checksum: 10c0/190ae19c444f18a68f1707b75584aa1f4fbe1f886207568d15108bdf66c90be09b11836455488130e7f3d0dc74fcc9d56032fe86b634d9322acf71953083c94f
   languageName: node
   linkType: hard
 
@@ -14963,7 +14963,7 @@ __metadata:
     vitest: "npm:^2.1.4"
     void-elements: "npm:^3.1.0"
     webdriverio: "npm:^9.2.8"
-    yjs: "npm:^13.6.20"
+    yjs: "npm:^13.6.24"
     zens: "npm:^0.0.44"
   peerDependencies:
     react: ">=16.14.0"
@@ -17443,12 +17443,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yjs@npm:^13.6.20":
-  version: 13.6.20
-  resolution: "yjs@npm:13.6.20"
+"yjs@npm:^13.6.24":
+  version: 13.6.24
+  resolution: "yjs@npm:13.6.24"
   dependencies:
-    lib0: "npm:^0.2.98"
-  checksum: 10c0/d71a3ea265e566a603f1e55aac052c1e5cc2feb863430901e4d3990e55911cfa55667be1008a82f9d95669998bacb0a470806fbbacd2337c996716ffbf45d0a0
+    lib0: "npm:^0.2.99"
+  checksum: 10c0/50b83ab72f0418cd531f57e0bb19c809c51e10f5abb0cec0e8cd1d87cd3cbbe0de6d3fe3426c7b143c201aaca03283e21b90a8ed818be14fbcb6ffb18538a52b
   languageName: node
   linkType: hard
 

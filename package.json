@@ -175,7 +175,7 @@
     "stylis": "^4.3.4",
     "svgmoji": "^3.2.0",
     "void-elements": "^3.1.0",
-    "yjs": "^13.6.20",
+    "yjs": "^13.6.24",
     "zens": "^0.0.44"
   },
   "packageManager": "yarn@4.8.0"
