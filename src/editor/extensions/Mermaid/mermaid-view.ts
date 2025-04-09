@@ -118,12 +118,10 @@ export class MermaidNodeView implements NodeView {
 
   // == Rendering ===================================== //
   changeTheme = () => {
-    console.log('change theme')
     this.renderHtml()
   }
 
   renderHtml() {
-    console.log('render', this._node)
     if (!this._htmlRenderElt) {
       return
     }

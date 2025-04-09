@@ -44,7 +44,7 @@ export const styledLightTheme = {
 
   codeBgColor: '#afb8c133',
 
-  preBgColor: '#f6f6f6',
+  preBgColor: '#e7e7e7',
 
   // components
   contextMenuBgColor: '#f6f7f9',
