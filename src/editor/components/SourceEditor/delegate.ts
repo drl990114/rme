@@ -9,6 +9,7 @@ import { CountExtension } from '@remirror/extension-count'
 import { MfCodemirrorView } from '../../codemirror/codemirror'
 
 type CreateSourceCodeManagerOptions = {
+  language?: string
   onCodemirrorViewLoad: (cm: MfCodemirrorView) => void
 }
 export function createSourceCodeManager(
@@ -32,7 +33,7 @@ export const createSourceCodeDelegate = (
 
   const stringToDoc: StringToDoc = (content: string) => {
     const schema = manager.schema
-    const attrs = { language: 'markdown' }
+    const attrs = { language: options?.language || 'markdown' }
     const child = content ? schema.text(content) : undefined
     return schema.nodes.doc.create({}, schema.nodes.codeMirror.create(attrs, child))
   }

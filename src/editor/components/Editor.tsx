@@ -3,12 +3,12 @@ import WysiwygEditor, { createWysiwygDelegate } from './WysiwygEditor'
 import SourceEditor from './SourceEditor'
 import { forwardRef, memo, useImperativeHandle, useMemo, useState } from 'react'
 import {
+  EditorViewType,
   HTMLAstNode,
   Preview,
   type CreateWysiwygDelegateOptions,
   type EditorContext,
   type EditorDelegate,
-  type EditorViewType,
 } from '../..'
 import { useContextMounted } from './useContextMounted'
 import { prosemirrorNodeToHtml, type Extension, type RemirrorEventListenerProps } from 'remirror'
@@ -20,7 +20,12 @@ import { ErrorBoundaryProps } from './ErrorBoundary'
 
 export const Editor = memo(
   forwardRef<EditorRef, EditorProps>((props, ref) => {
-    const { initialType = 'wysiwyg', hooks = [], onContextMounted, ...otherProps } = props
+    const {
+      initialType = EditorViewType.WYSIWYG,
+      hooks = [],
+      onContextMounted,
+      ...otherProps
+    } = props
     const [type, setType] = useState<EditorViewType>(initialType)
 
     useImperativeHandle(ref, () => ({
