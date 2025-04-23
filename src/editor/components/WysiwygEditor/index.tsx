@@ -39,12 +39,15 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
   useEffect(() => {
     const ext = editorDelegate.manager.getExtension(TransformerExtension)
 
-    editorDelegate.manager.view.dispatch(
-      editorDelegate.manager.view.state.tr.setMeta(ext.pluginKey, {
-        stringToDoc: editorDelegate.stringToDoc,
-        docToString: editorDelegate.docToString,
-      }),
-    )
+    if (ext) {
+      editorDelegate?.manager?.view?.dispatch(
+        editorDelegate.manager.view.state.tr.setMeta(ext.pluginKey, {
+          stringToDoc: editorDelegate.stringToDoc,
+          docToString: editorDelegate.docToString,
+        }),
+      )
+    }
+
   }, [editorDelegate])
 
   let initialContent

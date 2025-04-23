@@ -139,11 +139,12 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     border-radius: 6px;
   }
 
+  & tt,
   & code,
   & kbd,
   & pre,
   & samp {
-    font-family: monospace;
+    font-family: ${(props) => props.theme.codemirrorFontFamily};
     font-size: 1em;
   }
 
@@ -370,31 +371,10 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     margin-left: 0;
   }
 
-  & tt,
-  & code,
-  & samp {
-    font-family:
-      ui-monospace,
-      SFMono-Regular,
-      SF Mono,
-      Menlo,
-      Consolas,
-      Liberation Mono,
-      monospace;
-    font-size: 0.8em;
-  }
-
   & pre {
     margin-top: 0;
     margin-bottom: 0;
-    font-family:
-      ui-monospace,
-      SFMono-Regular,
-      SF Mono,
-      Menlo,
-      Consolas,
-      Liberation Mono,
-      monospace;
+    font-family: ${(props) => props.theme.codemirrorFontFamily};
     font-size: 0.8em;
     word-wrap: normal;
   }
@@ -829,6 +809,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
       background-color: ${(props) => props.theme.preBgColor};
     }
     .cm-scroller .cm-gutters {
+      font-family: inherit;
       background-color: ${(props) => props.theme.preBgColor};
     }
     .cm-lineNumbers .cm-gutterElement {

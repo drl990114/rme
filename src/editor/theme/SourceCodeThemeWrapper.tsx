@@ -63,6 +63,9 @@ export const SourceCodeThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
       background-color: ${(props) => props.theme.bgColor};
     }
 
+    .cm-scroller {
+      font-family: inherit;
+    }
     .cm-gutters {
       border: none;
     }
