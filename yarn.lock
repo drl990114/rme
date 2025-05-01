@@ -1097,6 +1097,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@codemirror/state@npm:^6.5.0":
+  version: 6.5.2
+  resolution: "@codemirror/state@npm:6.5.2"
+  dependencies:
+    "@marijn/find-cluster-break": "npm:^1.0.0"
+  checksum: 10c0/1ef773394e32c077a8cfc1ec6d881aefb1918876f82161748e505c38d143aa1c6893c314cfec91097d28f704ec07b2a6c6b75abd435086208974256dee997282
+  languageName: node
+  linkType: hard
+
 "@codemirror/theme-one-dark@npm:^6.0.0":
   version: 6.1.2
   resolution: "@codemirror/theme-one-dark@npm:6.1.2"
@@ -1109,7 +1118,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/view@npm:^6.0.0, @codemirror/view@npm:^6.10.0, @codemirror/view@npm:^6.14.0, @codemirror/view@npm:^6.17.0, @codemirror/view@npm:^6.23.0":
+"@codemirror/view@npm:^6.0.0, @codemirror/view@npm:^6.10.0, @codemirror/view@npm:^6.17.0, @codemirror/view@npm:^6.23.0":
   version: 6.26.3
   resolution: "@codemirror/view@npm:6.26.3"
   dependencies:
@@ -1128,6 +1137,17 @@ __metadata:
     style-mod: "npm:^4.1.0"
     w3c-keyname: "npm:^2.2.4"
   checksum: 10c0/32552a83db050f2b33823db3e282adc2c6a8936aed78bf471bcae63880b9ba05bdc385094cfb45085083bf04ee78fddaf3e19fac5ccf6bb01b51f68fc474e5a1
+  languageName: node
+  linkType: hard
+
+"@codemirror/view@npm:^6.36.6":
+  version: 6.36.6
+  resolution: "@codemirror/view@npm:6.36.6"
+  dependencies:
+    "@codemirror/state": "npm:^6.5.0"
+    style-mod: "npm:^4.1.0"
+    w3c-keyname: "npm:^2.2.4"
+  checksum: 10c0/c9fe37517683ca04bb1590b8ab7adf6101f8970dda3dda457b9b2922cd5291e46f6b82be8d431b4247974d4cd8d1886aead30848707005f1d186b2b146a357b0
   languageName: node
   linkType: hard
 
@@ -2561,6 +2581,13 @@ __metadata:
     "@messageformat/parser": "npm:^5.0.0"
     js-sha256: "npm:^0.10.1"
   checksum: 10c0/4dd18f94ddd545081aa9abe3d146b1b71e0793d96b326039cf2bad0760fff8bc3bd58cfe200eba016e4b20279c858cbaadaaba6b63908d0858a60f105845b3e0
+  languageName: node
+  linkType: hard
+
+"@marijn/find-cluster-break@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "@marijn/find-cluster-break@npm:1.0.2"
+  checksum: 10c0/1a17a60b16083cc5f7ce89d7b7d8aa87ce4099723e3e9e34e229ef2cd8a980e69d481ca8ee90ffedfec5119af1aed581642fb60ed0365e7e90634c81ea6b630f
   languageName: node
   linkType: hard
 
@@ -14841,7 +14868,7 @@ __metadata:
     "@codemirror/lint": "npm:^6.4.2"
     "@codemirror/search": "npm:^6.5.1"
     "@codemirror/state": "npm:^6.2.1"
-    "@codemirror/view": "npm:^6.14.0"
+    "@codemirror/view": "npm:^6.36.6"
     "@drl990114/codemirror-themes": "npm:^0.0.1"
     "@emotion/css": "npm:^11.11.0"
     "@emotion/react": "npm:^11.11.4"
