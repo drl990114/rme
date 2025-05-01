@@ -1,8 +1,8 @@
-import type { Transaction } from '@remirror/pm/state'
+import { TextSelection, type Transaction } from '@remirror/pm/state'
 import type { EditorView } from '@remirror/pm/view'
 
-import { applySelectionMarks } from './inline-mark-helpers'
 import { PlainExtension } from 'remirror'
+import { applySelectionMarks } from './inline-mark-helpers'
 
 export class LineInlineMarkExtension extends PlainExtension {
   get name() {
@@ -18,16 +18,18 @@ export class LineInlineMarkExtension extends PlainExtension {
       }
       timeoutId = setTimeout(() => {
         applySelectionMarks(view)
+
+        const { $head } = view.state.selection
+        view.dispatch(view.state.tr.setSelection(new TextSelection($head)))
+
         timeoutId = null
-      }, 100)
+      }, 10)
     }
 
     let view: EditorView | null = null
 
     return {
-      appendTransaction: (
-        transactions: readonly Transaction[],
-      ): Transaction | null | undefined => {
+      appendTransaction: (transactions: readonly Transaction[]): Transaction | null | undefined => {
         let shouldUpdate = false
 
         for (const tr of transactions) {
@@ -40,9 +42,9 @@ export class LineInlineMarkExtension extends PlainExtension {
         if (shouldUpdate && view && !view.isDestroyed) {
           debounceApplyMarks(view)
         }
-        return 
+        return
       },
-      
+
       view: (editorView: EditorView | null) => {
         view = editorView
         return {}
