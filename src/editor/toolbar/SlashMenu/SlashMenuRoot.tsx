@@ -1,8 +1,8 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { AnyExtension, CommandsFromExtensions } from 'remirror'
 import styled, { css } from 'styled-components'
+import { darken } from '../../theme/darken-colors'
 import TablePanel from './TablePanel'
-import { darken } from '@/editor/theme/darken-colors'
 
 type SlashMenuRootProps = {
   rootRef: React.RefObject<HTMLDivElement>
@@ -31,7 +31,20 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
         }
       })
 
-      return [
+      const res: {
+        title: string
+        id: string
+        handler?: () => void
+        Renderer?: {
+          id: string
+          Component: React.ReactNode
+        }
+        children?: {
+          title: string
+          id: string
+          handler?: () => void
+        }[]
+      }[] = [
         {
           title: 'Text',
           id: 'text',
@@ -55,6 +68,17 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
           },
         },
       ]
+
+      if (commands.createAiBlock) {
+        res.unshift({
+          title: 'ai',
+          id: 'ai',
+          handler: () => {
+            commands.createAiBlock({})
+          },
+        })
+      }
+      return res
     }, [closeMenu, commands])
 
     const [activeGroupId, setActiveGroupId] = useState(menuItems[0].id)
@@ -186,27 +210,29 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
             )
           })}
         </MenuPanel>
-        <MenuPanel active={!!activeItemId} location="right">
-          {currentMenuItem?.Renderer
-            ? currentMenuItem.Renderer.Component
-            : currentMenuItem?.children?.map((item) => {
-                const selected = item.id === activeItemId
+        {currentMenuItem?.children || currentMenuItem?.Renderer?.Component ? (
+          <MenuPanel active={!!activeItemId} location="right">
+            {currentMenuItem?.Renderer
+              ? currentMenuItem.Renderer.Component
+              : currentMenuItem?.children?.map((item) => {
+                  const selected = item.id === activeItemId
 
-                return (
-                  <MenuItem
-                    key={item.id}
-                    selected={selected}
-                    onClick={() => {
-                      setActiveItemId(item.id)
-                      item.handler?.()
-                      closeMenu()
-                    }}
-                  >
-                    {item.title}
-                  </MenuItem>
-                )
-              })}
-        </MenuPanel>
+                  return (
+                    <MenuItem
+                      key={item.id}
+                      selected={selected}
+                      onClick={() => {
+                        setActiveItemId(item.id)
+                        item.handler?.()
+                        closeMenu()
+                      }}
+                    >
+                      {item.title}
+                    </MenuItem>
+                  )
+                })}
+          </MenuPanel>
+        ) : null}
       </div>
     )
   },
@@ -216,12 +242,6 @@ type MenuPanelProps = {
   location: 'left' | 'right'
   active: boolean
 }
-
-const DividingLine = styled.div`
-  flex: 1;
-  width: 1px;
-  background-color: ${(props) => props.theme.primaryFontColor};
-`
 
 const MenuPanel = styled.div.attrs<MenuPanelProps>((p) => p)`
   display: flex;
@@ -234,7 +254,7 @@ const MenuPanel = styled.div.attrs<MenuPanelProps>((p) => p)`
     ${props.theme.smallBorderRadius}`
       : `0 ${props.theme.smallBorderRadius} ${props.theme.smallBorderRadius} 0`};
   background-color: ${(props) =>
-    props.active ? darken(props.theme.contextMenuBgColor, 0.4) : props.theme.contextMenuBgColor};
+    props.active ? darken(props.theme.contextMenuBgColorHover, 0.2) : props.theme.contextMenuBgColorHover};
   padding: ${(props) => props.theme.spaceXs};
   color: ${(props) => props.theme.primaryFontColor};
   font-size: ${(props) => props.theme.fontXs};
@@ -256,14 +276,12 @@ const MenuItem = styled.li.attrs<{
 
   &:hover {
     background-color: ${(props) => props.theme.contextMenuBgColorHover};
-    color: hsl(204 20% 100%);
   }
 
   ${(p) => {
     if (p.selected) {
       return css`
         background-color: ${(props) => props.theme.contextMenuBgColorHover};
-        color: hsl(204 20% 100%);
       `
     }
   }}

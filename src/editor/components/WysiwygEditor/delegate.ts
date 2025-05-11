@@ -1,14 +1,14 @@
-import { createReactManager } from '@remirror/react'
-import { initDocMarks } from '../../extensions/Inline'
-import type { AnyExtension } from 'remirror'
 import type { RemirrorManager } from '@remirror/core'
 import { isExtension } from '@remirror/core'
-import type { ExtensionsOptions, MarkdownNodeExtension } from '../../extensions'
-import type { ParserRule, NodeSerializerSpecs } from '../../transform'
-import { MarkdownParser, MarkdownSerializer } from '../../transform'
-import type { StringToDoc, DocToString, EditorDelegate } from '../../types'
-import EditorExtensions from '../../extensions'
 import type { Node } from '@remirror/pm/model'
+import { createReactManager } from '@remirror/react'
+import type { AnyExtension } from 'remirror'
+import type { ExtensionsOptions, MarkdownNodeExtension } from '../../extensions'
+import EditorExtensions from '../../extensions'
+import { initDocMarks } from '../../extensions/Inline'
+import type { NodeSerializerSpecs, ParserRule } from '../../transform'
+import { MarkdownParser, MarkdownSerializer } from '../../transform'
+import type { DocToString, EditorDelegate, StringToDoc } from '../../types'
 
 function isMarkdownNodeExtension(extension: unknown): extension is MarkdownNodeExtension {
   return !!(
@@ -42,16 +42,12 @@ export function buildMarkdownSerializer<Extension extends AnyExtension>(
   return new MarkdownSerializer(specs)
 }
 
-export type CreateWysiwygDelegateOptions = {
-  handleViewImgSrcUrl?: ExtensionsOptions['handleViewImgSrcUrl']
-}
+export type CreateWysiwygDelegateOptions = ExtensionsOptions
 
-export const createWysiwygDelegate = ({
-  handleViewImgSrcUrl,
-}: CreateWysiwygDelegateOptions = {}): EditorDelegate<any>=> {
+export const createWysiwygDelegate = (options: CreateWysiwygDelegateOptions = {}): EditorDelegate<any>=> {
   const manager = createReactManager(() => {
     return [
-      ...EditorExtensions({ handleViewImgSrcUrl }),
+      ...EditorExtensions(options),
     ]
   })
 

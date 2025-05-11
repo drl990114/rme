@@ -1,4 +1,8 @@
 {
+  "common": {
+    "loading": "Loading",
+    "accept": "Accept"
+  },
   "table": {
     "insertColumnAfter": "insert column after",
     "insertColumnBefore": "insert column before",
@@ -9,5 +13,14 @@
   },
   "codemirror": {
     "searchInputPlaceholder": "Input language"
+  },
+  "ai": {
+    "generate": "Generate Text",
+    "stop": "Stop",
+    "retry": "Retry",
+    "regenerate": "Regenerate",
+    "preview": "Preview",
+    "error": "Error occurred",
+    "prompt": "Prompt"
   }
 }

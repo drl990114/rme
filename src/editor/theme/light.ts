@@ -48,7 +48,7 @@ export const styledLightTheme = {
 
   // components
   contextMenuBgColor: '#f6f7f9',
-  contextMenuBgColorHover: '#1552B3',
+  contextMenuBgColorHover: '#E8E8EC',
 
   slashMenuBorderColor: 'rgb(229 229 229 / 1)',
 }
