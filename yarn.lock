@@ -1079,7 +1079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/search@npm:^6.0.0, @codemirror/search@npm:^6.5.1":
+"@codemirror/search@npm:^6.0.0":
   version: 6.5.6
   resolution: "@codemirror/search@npm:6.5.6"
   dependencies:
@@ -1087,6 +1087,17 @@ __metadata:
     "@codemirror/view": "npm:^6.0.0"
     crelt: "npm:^1.0.5"
   checksum: 10c0/4bb8ca46d105e4b7eb5830c65abc61302f5cc86f0118c5ad3f0fe72d2a7f7309a7394eba8c784a8ac152569e16003f6edf3d69a7da6dac0c7abe96fe5395ed9b
+  languageName: node
+  linkType: hard
+
+"@codemirror/search@npm:^6.5.11":
+  version: 6.5.11
+  resolution: "@codemirror/search@npm:6.5.11"
+  dependencies:
+    "@codemirror/state": "npm:^6.0.0"
+    "@codemirror/view": "npm:^6.0.0"
+    crelt: "npm:^1.0.5"
+  checksum: 10c0/8f25647ceb9a255a6e5797c20ec787587537e8496f651d8815d3f8f6c9fc5bf586b6552dadfcc7ad24364c659fcd12315c5fa235a098ba15840bb76bed35cc09
   languageName: node
   linkType: hard
 
@@ -14882,7 +14893,7 @@ __metadata:
     "@codemirror/language": "npm:^6.8.0"
     "@codemirror/language-data": "npm:^6.3.1"
     "@codemirror/lint": "npm:^6.4.2"
-    "@codemirror/search": "npm:^6.5.1"
+    "@codemirror/search": "npm:^6.5.11"
     "@codemirror/state": "npm:^6.2.1"
     "@codemirror/view": "npm:^6.14.0"
     "@drl990114/codemirror-themes": "npm:^0.0.1"
