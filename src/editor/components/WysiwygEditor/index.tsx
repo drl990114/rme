@@ -1,15 +1,16 @@
-import { Remirror } from '@remirror/react'
-import { type FC, createContext, memo, useMemo, useCallback, useEffect } from 'react'
-import Text from '../Text'
-import { WysiwygThemeWrapper } from '../../../editor/theme'
-import { createWysiwygDelegate } from './delegate'
-import TableToolbar from '../../toolbar/TableToolbar'
-import { ProsemirrorDevTools } from '@remirror/dev'
-import ErrorBoundary from '../ErrorBoundary'
 import type { Extension, RemirrorEventListener } from '@remirror/core'
-import { defaultStyleToken, type EditorProps } from '../Editor'
-import { SlashMenu } from '../../toolbar/SlashMenu'
+import { ProsemirrorDevTools } from '@remirror/dev'
+import { Remirror } from '@remirror/react'
+import { memo, useCallback, useEffect, useMemo, type FC } from 'react'
+import { WysiwygThemeWrapper } from '../../../editor/theme'
 import { TransformerExtension } from '../../extensions/Transformer/transformer-extension'
+import { SlashMenu } from '../../toolbar/SlashMenu'
+import TableToolbar from '../../toolbar/TableToolbar'
+import { WysiwygToolbar } from '../../toolbar/toolbar'
+import { defaultStyleToken, type EditorProps } from '../Editor'
+import ErrorBoundary from '../ErrorBoundary'
+import Text from '../Text'
+import { createWysiwygDelegate } from './delegate'
 
 const WysiwygEditor: FC<EditorProps> = (props) => {
   const {
@@ -19,6 +20,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
     wysiwygToolBar,
     isTesting,
     editable = true,
+    wysiwygToolBarOptions,
     styleToken = defaultStyleToken,
   } = props
 
@@ -67,6 +69,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
           editable={editable}
           onChange={handleChange}
         >
+          {wysiwygToolBarOptions?.enable ? <WysiwygToolbar {...wysiwygToolBarOptions?.compProps} /> : null}
           <Text />
           <TableToolbar />
           <SlashMenu />

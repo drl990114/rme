@@ -22,5 +22,19 @@
     "preview": "Preview",
     "error": "Error occurred",
     "prompt": "Prompt"
+  },
+  "toolbar": {
+    "undo": "Undo",
+    "redo": "Redo",
+    "separator": "Insert Separator",
+    "blockquote": "Blockquote",
+    "bold": "Bold",
+    "italic": "Italic",
+    "codeText": "Code Text",
+    "codeBlock": "Code Block",
+    "heading": "Heading",
+    "bulletList": "Bullet List",
+    "orderedList": "Ordered List",
+    "taskList": "Task List"
   }
 }

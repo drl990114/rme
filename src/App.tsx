@@ -1,23 +1,20 @@
+import { FormControlLabel, FormGroup, Switch } from '@mui/material'
+import React, { FC, useState } from 'react'
+import 'remixicon/fonts/remixicon.css'
+import { ThemeProvider as ZThemeProvider } from 'zens'
 import {
   Editor,
-  ThemeProvider,
   EditorRef,
-  createWysiwygDelegate,
-  WysiwygThemeWrapper,
-  Preview,
+  ThemeProvider,
   createSourceCodeDelegate,
+  createWysiwygDelegate,
   extractMatches,
 } from '.'
-import React, { FC, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import useDevTools from './playground/hooks/use-devtools'
-import useContent from './playground/hooks/use-content'
-import { DebugConsole } from './playground/components/DebugConsole'
-import { FormControlLabel, FormGroup, Switch } from '@mui/material'
-import { DebugButton } from './playground/components/DebugButton'
-import { ThemeProvider as ZThemeProvider } from 'zens'
-import { Node } from '@remirror/pm/model'
 import './App.css'
-import 'remixicon/fonts/remixicon.css'
+import { DebugButton } from './playground/components/DebugButton'
+import { DebugConsole } from './playground/components/DebugConsole'
+import useContent from './playground/hooks/use-content'
+import useDevTools from './playground/hooks/use-devtools'
 
 let themeEl: undefined | HTMLStyleElement
 const THEME_ID = 'mf-markdown-theme'
@@ -39,12 +36,35 @@ const debounce = (fn: (...args: any) => void, delay: number) => {
   }
 }
 
+const createAppWysiwygDelegate = () =>
+  createWysiwygDelegate({
+    ai: {
+      defaultSelectProvider: 'deepseek',
+      supportProviderInfosMap: {
+        openai: {
+          models: ['gpt-3.5-turbo', 'gpt-4'],
+        },
+        deepseek: {
+          models: ['deepseek-r1', 'deepseek-r2'],
+        },
+      },
+      generateText: (params) => {
+        console.log('params', params)
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve('hello world')
+          }, 5000)
+        })
+      },
+    },
+  })
+
 function App() {
   const editorRef = React.useRef<EditorRef>(null)
   const { contentId, content, hasUnsavedChanges, setContentId, setContent } = useContent()
   const { enableDevTools, setEnableDevTools } = useDevTools()
   const [theme, setTheme] = React.useState<'light' | 'dark'>('dark')
-  const [editorDelegate, setEditorDelegate] = useState(createWysiwygDelegate())
+  const [editorDelegate, setEditorDelegate] = useState(createAppWysiwygDelegate())
 
   const debounceChange = debounce((params) => {
     setContent(editorDelegate.docToString(params.state.doc) || '')
@@ -60,6 +80,9 @@ function App() {
         content={content}
         onChange={debounceChange}
         isTesting={false}
+        wysiwygToolBarOptions={{
+          enable: true
+        }}
       />
     </div>
   )
@@ -105,15 +128,17 @@ function App() {
             onChange={(e) => {
               const value = e.target.value
               if (value === 'wysiwyg') {
-                setEditorDelegate(createWysiwygDelegate())
+                setEditorDelegate(createAppWysiwygDelegate())
                 editorRef.current?.toggleType('wysiwyg')
               } else if (value === 'sourceCode') {
-                setEditorDelegate(createSourceCodeDelegate({
-                  onCodemirrorViewLoad: (cmNodeView) => {
-                    extractMatches(cmNodeView.cm)
-                    console.log('cmNodeView', cmNodeView)
-                  }
-                }))
+                setEditorDelegate(
+                  createSourceCodeDelegate({
+                    onCodemirrorViewLoad: (cmNodeView) => {
+                      extractMatches(cmNodeView.cm)
+                      console.log('cmNodeView', cmNodeView)
+                    },
+                  }),
+                )
                 editorRef.current?.toggleType('sourceCode')
               } else {
                 editorRef.current?.toggleType('preview')

@@ -1,18 +1,19 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import WysiwygEditor, { createWysiwygDelegate } from './WysiwygEditor'
-import SourceEditor from './SourceEditor'
+import { type Node } from '@remirror/pm/model'
 import { forwardRef, memo, useImperativeHandle, useMemo, useState } from 'react'
+import { prosemirrorNodeToHtml, type Extension, type RemirrorEventListenerProps } from 'remirror'
 import {
   EditorViewType,
   HTMLAstNode,
   Preview,
+  WysiwygToolbarProps,
   type CreateWysiwygDelegateOptions,
   type EditorContext,
   type EditorDelegate,
 } from '../..'
+import SourceEditor from './SourceEditor'
 import { useContextMounted } from './useContextMounted'
-import { prosemirrorNodeToHtml, type Extension, type RemirrorEventListenerProps } from 'remirror'
-import { type Node } from '@remirror/pm/model'
+import WysiwygEditor, { createWysiwygDelegate } from './WysiwygEditor'
 // @ts-ignore
 import HTML from 'html-parse-stringify'
 import { nanoid } from 'nanoid'
@@ -140,6 +141,10 @@ export interface EditorProps {
   hooks?: (() => void)[]
   markdownToolBar?: React.ReactNode[]
   wysiwygToolBar?: React.ReactNode[]
+  wysiwygToolBarOptions?: {
+    enable?: boolean
+    compProps?: WysiwygToolbarProps
+  }
   onContextMounted?: (context: EditorContext) => void
   errorHandler?: Pick<ErrorBoundaryProps, 'onError' | 'fallback'>
 }

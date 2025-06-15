@@ -51,4 +51,6 @@ export const styledLightTheme = {
   contextMenuBgColorHover: '#E8E8EC',
 
   slashMenuBorderColor: 'rgb(229 229 229 / 1)',
+
+  editorToolbarBgColor: '#EBEBEC'
 }

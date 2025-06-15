@@ -3,9 +3,8 @@ import { isString } from '@remirror/core'
 import type { Token } from 'markdown-it'
 import type { ListAttributes } from 'remirror-extension-flat-list'
 import { ListExtension } from 'remirror-extension-flat-list'
-import type { MarkdownParseState, NodeSerializerOptions } from '../../transform'
+import type { MarkdownParseState, NodeSerializerOptions, NodeSerializerSpec, ParserRule } from '../../transform'
 import { ParserRuleType } from '../../transform'
-import type { NodeSerializerSpec, ParserRule } from '../../transform'
 
 export abstract class MarkdownNodeExtension {
   abstract fromMarkdown: () => readonly ParserRule[]
