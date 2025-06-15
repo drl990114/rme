@@ -131,7 +131,7 @@
     "@remirror/extension-hard-break": "2.0.13",
     "@remirror/extension-heading": "^2.0.14",
     "@remirror/extension-list": "^2.0.15",
-    "@remirror/extension-positioner": "^2.1.8",
+    "@remirror/extension-positioner": "^3.0.1",
     "@remirror/extension-react-tables": "^2.2.19",
     "@remirror/extension-tables": "^2.4.1",
     "@remirror/icons": "^2.0.2",
