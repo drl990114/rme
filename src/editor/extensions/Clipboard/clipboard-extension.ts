@@ -1,7 +1,6 @@
-import type { CreateExtensionPlugin, ExtensionCommandReturn } from '@remirror/core'
+import type { CreateExtensionPlugin } from '@remirror/core'
 import { PlainExtension } from '@remirror/core'
-import { Slice, Node } from '@remirror/pm/model'
-import { DOMParser } from '@remirror/pm/model'
+import { DOMParser, Node, Slice } from '@remirror/pm/model'
 import { getTransformerByView } from '../Transformer/utils'
 
 type UnknownRecord = Record<string, unknown>
@@ -59,7 +58,8 @@ export class ClipboardExtension extends PlainExtension {
 
           const domParser = DOMParser.fromSchema(schema)
           let dom
-          if (text) {
+
+          if (html.length === 0) {
             const slice = parser?.(text)
 
             if (!slice || typeof slice === 'string') return false

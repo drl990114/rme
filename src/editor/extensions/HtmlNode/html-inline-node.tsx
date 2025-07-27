@@ -1,34 +1,21 @@
 import { NodeSerializerOptions, ParserRuleType } from '@/editor/transform'
-import { getAttrsBySignalHtmlContent, getTagName, isImageElement } from '@/editor/utils/html'
-import { EditorState, PluginKey, TextSelection } from '@remirror/pm/state'
-import { EditorView } from '@remirror/pm/view'
-import { NodeViewComponentProps } from '@remirror/react'
-import ReactCodeMirror from '@uiw/react-codemirror'
-import { ComponentType, useEffect, useRef, useState } from 'react'
+import {
+  needSplitInlineHtmlTokenTags
+} from '@/editor/transform/markdown-it-html-inline'
+import { getTagName } from '@/editor/utils/html'
+import block_names from 'markdown-it/lib/common/html_blocks.mjs'
 import type {
-  ApplySchemaAttributes,
-  CreateExtensionPlugin,
   InputRule,
-  MarkExtensionSpec,
   NodeExtensionSpec,
-  NodeSpecOverride,
-  NodeViewMethod,
+  NodeViewMethod
 } from 'remirror'
 import {
   ExtensionTag,
-  MarkExtension,
   NodeExtension,
   extension,
-  nodeInputRule,
-  plainInputRule,
-  prosemirrorNodeToDom,
+  nodeInputRule
 } from 'remirror'
 import { HTMLInlineView } from './html-inline-view'
-import {
-  excludeHtmlInlineNodes,
-  needSplitInlineHtmlTokenTags,
-} from '@/editor/transform/markdown-it-html-inline'
-import block_names from 'markdown-it/lib/common/html_blocks.mjs'
 
 const attr_name = '[a-zA-Z_:][a-zA-Z0-9:._-]*'
 
@@ -83,7 +70,7 @@ export class HtmlInlineNodeExtension extends NodeExtension<LineHtmlInlineExtensi
         },
       },
       toDOM: (node) => {
-        const dom = document.createElement('div')
+        const dom = document.createElement('span')
 
         dom.classList.add('inline-html-render')
         dom.innerHTML = node.attrs.htmlText
