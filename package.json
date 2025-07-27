@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "type": "module",
   "scripts": {
     "build": "yarn clear && yarn build-esbuild && yarn types",
