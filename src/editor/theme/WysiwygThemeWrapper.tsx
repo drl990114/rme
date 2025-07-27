@@ -144,8 +144,8 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   & kbd,
   & pre,
   & samp {
+    font-size: 0.85em;
     font-family: ${(props) => props.theme.codemirrorFontFamily};
-    font-size: 1em;
   }
 
   & figure {
@@ -800,6 +800,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
 
     .cm-line {
       padding: 2px 2px 2px 6px;
+      font-family: ${(props) => props.theme.codemirrorFontFamily};
 
       span {
         line-height: ${(props) => props.rootLineHeight};
