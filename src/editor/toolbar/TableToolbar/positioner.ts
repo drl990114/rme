@@ -1,9 +1,9 @@
-import type { FindProsemirrorNodeResult, Shape } from 'remirror'
-import { findParentNodeOfType, isElementDomNode } from 'remirror'
 import type { ResolvedPos, Selection } from '@remirror/core-types'
 import type { PositionerPosition } from '@remirror/extension-positioner'
 import { Positioner, hasStateChanged, isPositionVisible } from '@remirror/extension-positioner'
 import type { ActiveCellColumnPositionerData } from '@remirror/extension-tables'
+import type { FindProsemirrorNodeResult, Shape } from 'remirror'
+import { findParentNodeOfType, isElementDomNode } from 'remirror'
 
 export interface PositionerIllustrationProps {
   positioner: Positioner
@@ -100,7 +100,7 @@ export const activeCellColumnAndRowPositioner = Positioner.create<ActiveCellColu
     const columnTopRect = new DOMRect(rect.x, rect.y, width, height)
 
     return {
-      x: left + 20, // padding: 0 20px
+      x: left, // padding: 0 20px
       y: top,
       width,
       height,

@@ -14,8 +14,15 @@ const Text: FC<ITextProps> = memo(({ children, ...props }) => {
 
   const { key, ...rootProps} = getRootProps()
 
+  const style = Object.assign(
+    {
+      position: 'relative',
+    },
+    props.style,
+  )
+
   return (
-    <div {...props} {...rootProps} spellCheck={false} >
+    <div {...props} {...rootProps} style={style} spellCheck={false} >
       {children}
     </div>
   )
