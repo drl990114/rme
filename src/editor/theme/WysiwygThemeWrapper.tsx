@@ -800,6 +800,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
 
     .cm-line {
       padding: 2px 2px 2px 6px;
+      font-size: 0.85em;
       font-family: ${(props) => props.theme.codemirrorFontFamily};
 
       span {
