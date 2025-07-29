@@ -6,18 +6,22 @@ import {
   isEqual,
   isFunction,
   isString,
-  ProsemirrorAttributes
-} from '@remirror/core';
+  ProsemirrorAttributes,
+} from '@remirror/core'
+import { t } from 'i18next'
 
+export interface RmeCommandDecoratorMessageProps extends CommandDecoratorMessageProps {
+  t: typeof t
+}
 /**
  * Get the value from the option passed into the command.
  */
 
 export function getCommandOptionValue<Type>(
   value: CommandDecoratorValue<Type> | undefined,
-  commandProps: CommandDecoratorMessageProps,
+  commandProps: RmeCommandDecoratorMessageProps,
 ): Type | undefined {
-  return isFunction(value) ? value(commandProps) : value;
+  return isFunction(value) ? value(commandProps) : value
 }
 
 /**
@@ -25,7 +29,7 @@ export function getCommandOptionValue<Type>(
  * whole array is a string array.
  */
 function isStringArray(array: unknown[]): array is string[] {
-  return isString(array[0]);
+  return isString(array[0])
 }
 /**
  * Get the string value from the available UI Shortcut.
@@ -36,18 +40,18 @@ export function getUiShortcutString(
   attrs: ProsemirrorAttributes,
 ): string {
   if (isString(uiShortcut)) {
-    return uiShortcut;
+    return uiShortcut
   }
 
   if (!isArray(uiShortcut)) {
-    return uiShortcut.shortcut;
+    return uiShortcut.shortcut
   }
 
   if (isStringArray(uiShortcut)) {
-    return uiShortcut[0] ?? '';
+    return uiShortcut[0] ?? ''
   }
 
   return (
     (uiShortcut.find((shortcut) => isEqual(shortcut.attrs, attrs)) ?? uiShortcut[0])?.shortcut ?? ''
-  );
+  )
 }

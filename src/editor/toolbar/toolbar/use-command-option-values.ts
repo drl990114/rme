@@ -4,7 +4,7 @@ import { useHelpers } from '@remirror/react-core'
 import { useMemo } from 'react'
 
 import { t } from 'i18next'
-import { getCommandOptionValue } from './react-component-utils'
+import { getCommandOptionValue, RmeCommandDecoratorMessageProps } from './react-component-utils'
 
 export interface UseCommandOptionValuesParams extends Omit<CommandDecoratorMessageProps, 't'> {
   commandName: string
@@ -27,7 +27,7 @@ export const useCommandOptionValues = ({
   const options = getCommandOptions(commandName)
 
   const { description, label, icon, shortcut } = options || {}
-  const commandProps: CommandDecoratorMessageProps = useMemo(
+  const commandProps: RmeCommandDecoratorMessageProps = useMemo(
     () => ({ active, attrs, enabled, t }),
     [active, attrs, enabled],
   )
