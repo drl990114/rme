@@ -12,10 +12,15 @@ function isInlineToken(t: Token) {
     return t.type === "inline"
 }
 
+function isTdOpenToken(t: Token) {
+    return t.type === "td_open"
+}
+
 const rule: Core.RuleCore = (state: StateCore) => {
     let edited = false
     const tokens = state.tokens
     const tokensLength = tokens.length
+    console.log('tokens', tokens)
     for (let i = tokensLength - 3; i >= 0; i--) {
         if (isBulletListItemToken(tokens[i]) && isParagraphOpenToken(tokens[i + 1]) && isInlineToken(tokens[i + 2])) {
             const inlineToken = tokens[i + 2]
