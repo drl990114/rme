@@ -1,9 +1,11 @@
 import type {
   ApplySchemaAttributes,
   CommandFunction,
+  Fragment,
   KeyBindings,
   NodeSpecOverride,
 } from '@remirror/core'
+import { findParentNodeOfType } from '@remirror/core'
 import type { TableSchemaSpec } from '@remirror/extension-tables'
 import {
   TableCellExtension,
@@ -13,12 +15,13 @@ import {
 } from '@remirror/extension-tables'
 import { TextSelection } from '@remirror/pm/state'
 
+import { TableMap } from '@remirror/pm/tables'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import { buildBlockEnterKeymap } from '../../utils/build-block-enter-keymap'
-import { CellSelection } from '@remirror/pm/tables'
-import { TableSelectorExtension } from './table-selector-extension'
 import { selectCell } from './table-helpers'
+import { TableSelectorExtension } from './table-selector-extension'
+import { findTable } from './table-utils'
 
 enum TABLE_ALIGEN {
   DEFAULT = 1,
@@ -90,7 +93,7 @@ export class LineTableExtension extends TableExtension {
       const row: string[] = []
       rowNode.forEach((cellNode, __, colIndex) => {
         let cellText = ''
-        for(let i = 0; i < cellNode.childCount; i++) {
+        for (let i = 0; i < cellNode.childCount; i++) {
           let child = cellNode.child(i)
           if (child.textContent) {
             cellText += child.textContent
@@ -216,9 +219,127 @@ export class LineTableCellExtension extends TableCellExtension {
     }
   }
 
+  createKeymap = (): KeyBindings => {
+    return {
+      ArrowUp: ({ state, dispatch }) => {
+        const { selection } = state
+        const { $head } = selection
+        // 检查是否在表格单元格内
+        const cell = findParentNodeOfType({ selection: $head, types: 'tableCell' })
+        if (!cell) return false
+
+        // 检查光标是否在单元格内容的第一行
+        // 获取光标在当前节点中的相对位置
+        const cellNode = cell.node
+        const cellContent = cellNode.content
+        const posInCell = $head.pos - cell.pos - 1 // -1 是因为需要考虑节点的开始标记
+
+        const nodePositions = getNodePositionByCellContent(cellContent)
+
+        // 检查光标是否在第一行
+        let isAtFirstLine = posInCell <= nodePositions[0].end
+        // 如果不是在第一行 ，让默认行为处理（在单元格内上移）
+        if (!isAtFirstLine) return false
+
+        // 获取表格信息
+        const table = findTable(selection)
+        if (!table) return false
+
+        const map = TableMap.get(table.node)
+        const cellPos = cell.pos
+        const cellIndex = cellPos - table.start
+
+        // 计算当前单元格在表格中的位置
+        // 在 TableMap 中，单元格按行优先顺序存储在 map 数组中
+        // 我们需要找出当前单元格在哪一行哪一列
+        let cellRow = -1
+        let cellCol = -1
+        for (let row = 0; row < map.height; row++) {
+          for (let col = 0; col < map.width; col++) {
+            const index = row * map.width + col
+            if (map.map[index] === cellIndex) {
+              cellRow = row
+              cellCol = col
+              break
+            }
+          }
+          if (cellRow !== -1) break
+        }
+
+        // 如果找不到单元格位置或已经在第一行，则不处理
+        if (cellRow === -1 || cellRow === 0) return false
+
+        // 获取上一行相同列的单元格
+        const targetCellIndex = map.map[(cellRow - 1) * map.width + cellCol]
+        if (targetCellIndex === undefined) return false
+
+        const targetPos = table.start + targetCellIndex
+        const tr = state.tr.setSelection(TextSelection.near(state.doc.resolve(targetPos + 1)))
+        if (dispatch) dispatch(tr)
+        return true
+      },
+      ArrowDown: ({ state, dispatch }) => {
+        const { selection } = state
+        const { $head } = selection
+        // 检查是否在表格单元格内
+        const cell = findParentNodeOfType({ selection: $head, types: 'tableCell' })
+        if (!cell) return false
+
+        // 检查光标是否在单元格内容的最后一行
+        // 获取光标在当前节点中的相对位置
+        const cellNode = cell.node
+        const cellContent = cellNode.content
+        const posInCell = $head.pos - cell.pos - 1 // -1 是因为需要考虑节点的开始标记
+        const nodePositions = getNodePositionByCellContent(cellContent)
+
+        // 检查光标是否在第一行
+        let isAtLastLine = posInCell >= nodePositions[nodePositions.length - 1].start
+        // 如果不是最后一行，让默认行为处理（在单元格内下移）
+        if (!isAtLastLine) return false
+
+        // 获取表格信息
+        const table = findTable(selection)
+        if (!table) return false
+
+        const map = TableMap.get(table.node)
+        const cellPos = cell.pos
+        const cellIndex = cellPos - table.start
+
+        // 计算当前单元格在表格中的位置
+        // 在 TableMap 中，单元格按行优先顺序存储在 map 数组中
+        // 我们需要找出当前单元格在哪一行哪一列
+        let cellRow = -1
+        let cellCol = -1
+        for (let row = 0; row < map.height; row++) {
+          for (let col = 0; col < map.width; col++) {
+            const index = row * map.width + col
+            if (map.map[index] === cellIndex) {
+              cellRow = row
+              cellCol = col
+              break
+            }
+          }
+          if (cellRow !== -1) break
+        }
+
+        // 如果找不到单元格位置或已经在最后一行，则不处理
+        if (cellRow === -1 || cellRow === map.height - 1) return false
+
+        // 获取下一行相同列的单元格
+        const targetCellIndex = map.map[(cellRow + 1) * map.width + cellCol]
+        if (targetCellIndex === undefined) return false
+
+        const targetPos = table.start + targetCellIndex
+        const tr = state.tr.setSelection(TextSelection.near(state.doc.resolve(targetPos + 1)))
+        if (dispatch) dispatch(tr)
+        return true
+      },
+    }
+  }
+
   createExtensions() {
     return [new TableSelectorExtension()]
-}
+  }
 
   createCommands() {
     return {
@@ -255,6 +376,39 @@ export class LineTableCellExtension extends TableCellExtension {
 }
 
 export function replaceNewLines(str: string) {
-  const replacedStr = str.replace(/\n/g, "")
+  const replacedStr = str.replace(/\n/g, '')
   return replacedStr
+}
+
+/**
+ * 对于给定的子节点数组合并 text 类型，再返回它们在父节点中的位置。
+ * @param childs
+ */
+export function getNodePositionByCellContent(cellContent: Fragment) {
+  const nodePositions = [
+    {
+      start: 0,
+      end: cellContent.firstChild?.nodeSize || 0,
+      isText: cellContent.firstChild?.isText || false,
+    },
+  ]
+  let prev = nodePositions[0]
+
+  // 首先收集所有文本节点及其位置信息
+  for (let i = 1; i < cellContent.childCount; i++) {
+    const child = cellContent.child(i)
+    if (child.isText && prev?.isText) {
+      prev.end += child.nodeSize
+    } else {
+      const start = prev.end
+      nodePositions.push({
+        start,
+        end: start + child.nodeSize,
+        isText: child.isText,
+      })
+      prev = nodePositions[nodePositions.length - 1]
+    }
+  }
+
+  return nodePositions
 }
