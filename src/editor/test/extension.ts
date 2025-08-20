@@ -13,7 +13,7 @@ import {
   createListSpec,
   listInputRules,
   listKeymap,
-} from "../extensions/List/core"
+} from "../extensions/List/input-rule"
 
 export class ListExtension extends NodeExtension {
   static disableExtraAttributes = true

@@ -14487,6 +14487,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prosemirror-commands@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "prosemirror-commands@npm:1.7.1"
+  dependencies:
+    prosemirror-model: "npm:^1.0.0"
+    prosemirror-state: "npm:^1.0.0"
+    prosemirror-transform: "npm:^1.10.2"
+  checksum: 10c0/4884ea7a66b79b51e72bb2ef358284d70e9a071deb4cbfab3dd8ee3449e9a0e34cb391d92f487c013d3716b823fc5568ad5e409a9444b3630ae0b87617c2fca1
+  languageName: node
+  linkType: hard
+
 "prosemirror-dev-toolkit@npm:^1.1.4":
   version: 1.1.6
   resolution: "prosemirror-dev-toolkit@npm:1.1.6"
@@ -14506,6 +14517,36 @@ __metadata:
     prosemirror-transform: "npm:^1.1.0"
     prosemirror-view: "npm:^1.1.0"
   checksum: 10c0/2948cac48efb32757b212bd7cc5a50697ea6c3f6e4cd7752a2696c56b758fa0a16a5a6e288174a649544a0260a6b70d29e0fcb8839a05926c1c3a02f8de03aed
+  languageName: node
+  linkType: hard
+
+"prosemirror-flat-list@npm:0.5.4":
+  version: 0.5.4
+  resolution: "prosemirror-flat-list@npm:0.5.4"
+  dependencies:
+    prosemirror-commands: "npm:^1.5.2"
+    prosemirror-inputrules: "npm:^1.4.0"
+    prosemirror-model: "npm:^1.22.2"
+    prosemirror-safari-ime-span: "npm:^1.0.2"
+    prosemirror-state: "npm:^1.4.3"
+    prosemirror-transform: "npm:^1.9.0"
+    prosemirror-view: "npm:^1.33.9"
+  checksum: 10c0/0dcd8289741b33441384bc364b94fafb81c1fccb653fdb1d80b4b99628c211cb06e13765f938b5d67fd2926bc6724367bd42fadbad2b698e67f0b493f89b78fb
+  languageName: node
+  linkType: hard
+
+"prosemirror-flat-list@npm:^0.5.0":
+  version: 0.5.5
+  resolution: "prosemirror-flat-list@npm:0.5.5"
+  dependencies:
+    prosemirror-commands: "npm:^1.7.1"
+    prosemirror-inputrules: "npm:^1.5.0"
+    prosemirror-model: "npm:^1.25.1"
+    prosemirror-safari-ime-span: "npm:^1.0.2"
+    prosemirror-state: "npm:^1.4.3"
+    prosemirror-transform: "npm:^1.10.4"
+    prosemirror-view: "npm:^1.39.2"
+  checksum: 10c0/b29a47a0a69fa1dbe17d94aca566e7b47f91988fdef1f3ee14f0b84e58ecd1e9aea4068582d3b7feb08b4be648245abeb481e747da9b3201fc853433f7f92a85
   languageName: node
   linkType: hard
 
@@ -14543,6 +14584,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prosemirror-inputrules@npm:^1.4.0, prosemirror-inputrules@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "prosemirror-inputrules@npm:1.5.0"
+  dependencies:
+    prosemirror-state: "npm:^1.0.0"
+    prosemirror-transform: "npm:^1.0.0"
+  checksum: 10c0/5d69b8b148c530ddcf5b99d448e8e8fd60c088da2de222838d2a0b63c7c92476ad09a434859e42b96291130f6fda48fa9a0824534c9b6fc6d15bb302f6359730
+  languageName: node
+  linkType: hard
+
 "prosemirror-keymap@npm:^1.0.0, prosemirror-keymap@npm:^1.1.2, prosemirror-keymap@npm:^1.2.2":
   version: 1.2.2
   resolution: "prosemirror-keymap@npm:1.2.2"
@@ -14559,6 +14610,15 @@ __metadata:
   dependencies:
     orderedmap: "npm:^2.0.0"
   checksum: 10c0/18fa7a7da6d10f6212c351ea7291e2ea750681fd04a608aee54ef2775c113f4a76b4ba9969925a8615c5345d3e50bbab48bc4ac142abfeeaf92883ada503ee30
+  languageName: node
+  linkType: hard
+
+"prosemirror-model@npm:^1.21.0, prosemirror-model@npm:^1.22.2, prosemirror-model@npm:^1.25.1":
+  version: 1.25.3
+  resolution: "prosemirror-model@npm:1.25.3"
+  dependencies:
+    orderedmap: "npm:^2.0.0"
+  checksum: 10c0/459810fb36b470b6344858b8ae5c9c2983b16a2a966a45792ba72efd9bbbfae9035a37ce14e74883c97e4a9d42a21b93f6d0fb56aa999e0c58f5f24070f65c40
   languageName: node
   linkType: hard
 
@@ -14712,6 +14772,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prosemirror-transform@npm:^1.10.2, prosemirror-transform@npm:^1.10.4, prosemirror-transform@npm:^1.9.0":
+  version: 1.10.4
+  resolution: "prosemirror-transform@npm:1.10.4"
+  dependencies:
+    prosemirror-model: "npm:^1.21.0"
+  checksum: 10c0/01a7b79d8e2bf61b3414f60f8790a19f2cebb85a2050f64594cbff54f62d5c5f56160a66bbfa089462239189b4667952ede738e68b9e154a3505845720230a1c
+  languageName: node
+  linkType: hard
+
 "prosemirror-view@npm:^1.0.0, prosemirror-view@npm:^1.1.0, prosemirror-view@npm:^1.13.3, prosemirror-view@npm:^1.27.0, prosemirror-view@npm:^1.31.0, prosemirror-view@npm:^1.31.7":
   version: 1.33.4
   resolution: "prosemirror-view@npm:1.33.4"
@@ -14723,7 +14792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prosemirror-view@npm:^1.33.8":
+"prosemirror-view@npm:^1.33.8, prosemirror-view@npm:^1.33.9, prosemirror-view@npm:^1.39.2":
   version: 1.40.1
   resolution: "prosemirror-view@npm:1.40.1"
   dependencies:
@@ -15194,6 +15263,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"remirror-extension-flat-list@npm:0.2.1":
+  version: 0.2.1
+  resolution: "remirror-extension-flat-list@npm:0.2.1"
+  dependencies:
+    "@remirror/core": "npm:^2.0.19"
+    prosemirror-flat-list: "npm:^0.5.0"
+  peerDependencies:
+    "@remirror/pm": ^2.0.5
+  checksum: 10c0/47ebe7d862d2bc17bbdd21102017d28a40c938e2673b4f80a6b6d8685b922ee304292962fc0c559b6806f14f1cc6afa9255b9a929f55962c32e5076c1319294a
+  languageName: node
+  linkType: hard
+
 "remirror@npm:^2.0.39":
   version: 2.0.39
   resolution: "remirror@npm:2.0.39"
@@ -15554,6 +15635,7 @@ __metadata:
     postcss: "npm:8.4.47"
     prettier: "npm:3.3.3"
     process: "npm:^0.11.10"
+    prosemirror-flat-list: "npm:0.5.4"
     prosemirror-paste-rules: "npm:^3.0.0"
     prosemirror-safari-ime-span: "npm:^1.0.2"
     react: "npm:^18.3.1"
@@ -15565,6 +15647,7 @@ __metadata:
     remark-parse: "npm:^11.0.0"
     remark-rehype: "npm:^11.1.2"
     remirror: "npm:^2.0.39"
+    remirror-extension-flat-list: "npm:0.2.1"
     remixicon: "npm:^4.5.0"
     rimraf: "npm:^6.0.1"
     rollup: "npm:^4.24.4"

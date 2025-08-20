@@ -38,37 +38,152 @@ export class LineTableExtension extends TableExtension {
   createKeymap = (): KeyBindings => {
     const schema = this.store.schema
 
-    return buildBlockEnterKeymap(
-      /^\|((?:[^\|]+\|){2,})\s*$/,
-      ({ match }) => {
-        const texts = match[1]
-          .split('|')
-          .slice(0, -1) // Remove the empty string at the end
-          .map((text) => {
-            text = text.trim()
-            if (!text) text = ' ' // Prosemirror text doesn't allow empty text
-            return schema.text(text)
-          })
+    return {
+      ...buildBlockEnterKeymap(
+        /^\|((?:[^\|]+\|){2,})\s*$/,
+        ({ match }) => {
+          const texts = match[1]
+            .split('|')
+            .slice(0, -1) // Remove the empty string at the end
+            .map((text) => {
+              text = text.trim()
+              if (!text) text = ' ' // Prosemirror text doesn't allow empty text
+              return schema.text(text)
+            })
 
-        const cells1 = texts.map((text) => schema.nodes.tableCell.create(null, text)) // first row
-        const cells2 = texts.map(() => schema.nodes.tableCell.create(null)) // second row
-        const row1 = schema.nodes.tableRow.create(null, cells1)
-        const row2 = schema.nodes.tableRow.create(null, cells2)
-        const table = schema.nodes.table.create(null, [row1, row2])
-        return table
-      },
-      ({ tr }) => {
-        const $cursor = (tr.selection as TextSelection)?.$cursor
-        if (!$cursor) {
-          return tr
-        } else {
-          const depth = $cursor.depth - 1
-          const pos = $cursor.posAtIndex($cursor.index(depth) - 1, depth)
-          const $pos = tr.doc.resolve(pos)
-          return tr.setSelection(TextSelection.near($pos))
+          const cells1 = texts.map((text) => schema.nodes.tableCell.create(null, text)) // first row
+          const cells2 = texts.map(() => schema.nodes.tableCell.create(null)) // second row
+          const row1 = schema.nodes.tableRow.create(null, cells1)
+          const row2 = schema.nodes.tableRow.create(null, cells2)
+          const table = schema.nodes.table.create(null, [row1, row2])
+          return table
+        },
+        ({ tr }) => {
+          const $cursor = (tr.selection as TextSelection)?.$cursor
+          if (!$cursor) {
+            return tr
+          } else {
+            const depth = $cursor.depth - 1
+            const pos = $cursor.posAtIndex($cursor.index(depth) - 1, depth)
+            const $pos = tr.doc.resolve(pos)
+            return tr.setSelection(TextSelection.near($pos))
+          }
+        },
+      ),
+      ArrowUp: ({ state, dispatch }) => {
+        const { selection } = state
+        const { $head } = selection
+        // 检查是否在表格单元格内
+        const cell = findParentNodeOfType({ selection: $head, types: 'tableCell' })
+        if (!cell) return false
+
+        // 检查光标是否在单元格内容的第一行
+        // 获取光标在当前节点中的相对位置
+        const cellNode = cell.node
+        const cellContent = cellNode.content
+        const posInCell = $head.pos - cell.pos - 1 // -1 是因为需要考虑节点的开始标记
+
+        const nodePositions = getNodePositionByCellContent(cellContent)
+
+        // 检查光标是否在第一行
+        let isAtFirstLine = posInCell <= nodePositions[0].end
+        // 如果不是在第一行 ，让默认行为处理（在单元格内上移）
+        if (!isAtFirstLine) return false
+
+        // 获取表格信息
+        const table = findTable(selection)
+        if (!table) return false
+
+        const map = TableMap.get(table.node)
+        const cellPos = cell.pos
+        const cellIndex = cellPos - table.start
+
+        // 计算当前单元格在表格中的位置
+        // 在 TableMap 中，单元格按行优先顺序存储在 map 数组中
+        // 我们需要找出当前单元格在哪一行哪一列
+        let cellRow = -1
+        let cellCol = -1
+        for (let row = 0; row < map.height; row++) {
+          for (let col = 0; col < map.width; col++) {
+            const index = row * map.width + col
+            if (map.map[index] === cellIndex) {
+              cellRow = row
+              cellCol = col
+              break
+            }
+          }
+          if (cellRow !== -1) break
         }
+
+        // 如果找不到单元格位置或已经在第一行，则不处理
+        if (cellRow === -1 || cellRow === 0) return false
+
+        // 获取上一行相同列的单元格
+        const targetCellIndex = map.map[(cellRow - 1) * map.width + cellCol]
+        if (targetCellIndex === undefined) return false
+
+        const targetPos = table.start + targetCellIndex
+        const tr = state.tr.setSelection(TextSelection.near(state.doc.resolve(targetPos + 1)))
+        if (dispatch) dispatch(tr)
+        return true
       },
-    )
+      ArrowDown: ({ state, dispatch }) => {
+        const { selection } = state
+        const { $head } = selection
+        // 检查是否在表格单元格内
+        const cell = findParentNodeOfType({ selection: $head, types: 'tableCell' })
+        if (!cell) return false
+
+        // 检查光标是否在单元格内容的最后一行
+        // 获取光标在当前节点中的相对位置
+        const cellNode = cell.node
+        const cellContent = cellNode.content
+        const posInCell = $head.pos - cell.pos - 1 // -1 是因为需要考虑节点的开始标记
+        const nodePositions = getNodePositionByCellContent(cellContent)
+
+        // 检查光标是否在第一行
+        let isAtLastLine = posInCell >= nodePositions[nodePositions.length - 1].start
+        // 如果不是最后一行，让默认行为处理（在单元格内下移）
+        if (!isAtLastLine) return false
+
+        // 获取表格信息
+        const table = findTable(selection)
+        if (!table) return false
+
+        const map = TableMap.get(table.node)
+        const cellPos = cell.pos
+        const cellIndex = cellPos - table.start
+
+        // 计算当前单元格在表格中的位置
+        // 在 TableMap 中，单元格按行优先顺序存储在 map 数组中
+        // 我们需要找出当前单元格在哪一行哪一列
+        let cellRow = -1
+        let cellCol = -1
+        for (let row = 0; row < map.height; row++) {
+          for (let col = 0; col < map.width; col++) {
+            const index = row * map.width + col
+            if (map.map[index] === cellIndex) {
+              cellRow = row
+              cellCol = col
+              break
+            }
+          }
+          if (cellRow !== -1) break
+        }
+
+        // 如果找不到单元格位置或已经在最后一行，则不处理
+        if (cellRow === -1 || cellRow === map.height - 1) return false
+
+        // 获取下一行相同列的单元格
+        const targetCellIndex = map.map[(cellRow + 1) * map.width + cellCol]
+        if (targetCellIndex === undefined) return false
+
+        const targetPos = table.start + targetCellIndex
+        const tr = state.tr.setSelection(TextSelection.near(state.doc.resolve(targetPos + 1)))
+        if (dispatch) dispatch(tr)
+        return true
+      },
+    }
   }
 
   public fromMarkdown() {
@@ -216,124 +331,6 @@ export class LineTableCellExtension extends TableCellExtension {
     return {
       ...super.createNodeSpec(extra, override),
       content: 'inline*',
-    }
-  }
-
-  createKeymap = (): KeyBindings => {
-    return {
-      ArrowUp: ({ state, dispatch }) => {
-        const { selection } = state
-        const { $head } = selection
-        // 检查是否在表格单元格内
-        const cell = findParentNodeOfType({ selection: $head, types: 'tableCell' })
-        if (!cell) return false
-
-        // 检查光标是否在单元格内容的第一行
-        // 获取光标在当前节点中的相对位置
-        const cellNode = cell.node
-        const cellContent = cellNode.content
-        const posInCell = $head.pos - cell.pos - 1 // -1 是因为需要考虑节点的开始标记
-
-        const nodePositions = getNodePositionByCellContent(cellContent)
-
-        // 检查光标是否在第一行
-        let isAtFirstLine = posInCell <= nodePositions[0].end
-        // 如果不是在第一行 ，让默认行为处理（在单元格内上移）
-        if (!isAtFirstLine) return false
-
-        // 获取表格信息
-        const table = findTable(selection)
-        if (!table) return false
-
-        const map = TableMap.get(table.node)
-        const cellPos = cell.pos
-        const cellIndex = cellPos - table.start
-
-        // 计算当前单元格在表格中的位置
-        // 在 TableMap 中，单元格按行优先顺序存储在 map 数组中
-        // 我们需要找出当前单元格在哪一行哪一列
-        let cellRow = -1
-        let cellCol = -1
-        for (let row = 0; row < map.height; row++) {
-          for (let col = 0; col < map.width; col++) {
-            const index = row * map.width + col
-            if (map.map[index] === cellIndex) {
-              cellRow = row
-              cellCol = col
-              break
-            }
-          }
-          if (cellRow !== -1) break
-        }
-
-        // 如果找不到单元格位置或已经在第一行，则不处理
-        if (cellRow === -1 || cellRow === 0) return false
-
-        // 获取上一行相同列的单元格
-        const targetCellIndex = map.map[(cellRow - 1) * map.width + cellCol]
-        if (targetCellIndex === undefined) return false
-
-        const targetPos = table.start + targetCellIndex
-        const tr = state.tr.setSelection(TextSelection.near(state.doc.resolve(targetPos + 1)))
-        if (dispatch) dispatch(tr)
-        return true
-      },
-      ArrowDown: ({ state, dispatch }) => {
-        const { selection } = state
-        const { $head } = selection
-        // 检查是否在表格单元格内
-        const cell = findParentNodeOfType({ selection: $head, types: 'tableCell' })
-        if (!cell) return false
-
-        // 检查光标是否在单元格内容的最后一行
-        // 获取光标在当前节点中的相对位置
-        const cellNode = cell.node
-        const cellContent = cellNode.content
-        const posInCell = $head.pos - cell.pos - 1 // -1 是因为需要考虑节点的开始标记
-        const nodePositions = getNodePositionByCellContent(cellContent)
-
-        // 检查光标是否在第一行
-        let isAtLastLine = posInCell >= nodePositions[nodePositions.length - 1].start
-        // 如果不是最后一行，让默认行为处理（在单元格内下移）
-        if (!isAtLastLine) return false
-
-        // 获取表格信息
-        const table = findTable(selection)
-        if (!table) return false
-
-        const map = TableMap.get(table.node)
-        const cellPos = cell.pos
-        const cellIndex = cellPos - table.start
-
-        // 计算当前单元格在表格中的位置
-        // 在 TableMap 中，单元格按行优先顺序存储在 map 数组中
-        // 我们需要找出当前单元格在哪一行哪一列
-        let cellRow = -1
-        let cellCol = -1
-        for (let row = 0; row < map.height; row++) {
-          for (let col = 0; col < map.width; col++) {
-            const index = row * map.width + col
-            if (map.map[index] === cellIndex) {
-              cellRow = row
-              cellCol = col
-              break
-            }
-          }
-          if (cellRow !== -1) break
-        }
-
-        // 如果找不到单元格位置或已经在最后一行，则不处理
-        if (cellRow === -1 || cellRow === map.height - 1) return false
-
-        // 获取下一行相同列的单元格
-        const targetCellIndex = map.map[(cellRow + 1) * map.width + cellCol]
-        if (targetCellIndex === undefined) return false
-
-        const targetPos = table.start + targetCellIndex
-        const tr = state.tr.setSelection(TextSelection.near(state.doc.resolve(targetPos + 1)))
-        if (dispatch) dispatch(tr)
-        return true
-      },
     }
   }
 

@@ -10,7 +10,7 @@ import type { Command } from 'prosemirror-state'
 import { expect } from 'vitest'
 
 
-import { ListAttributes } from '../extensions/List/core'
+import { ListAttributes } from '../extensions/List/input-rule'
 import { ListExtension } from './extension'
 import { markdownToTaggedDoc } from './markdown'
 

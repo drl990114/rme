@@ -1,10 +1,16 @@
-import type { ProsemirrorNode } from '@remirror/core'
+import type { InputRule, ProsemirrorNode } from '@remirror/core'
 import { isString } from '@remirror/core'
 import type { Token } from 'markdown-it'
-import type { MarkdownParseState, NodeSerializerOptions, NodeSerializerSpec, ParserRule } from '../../transform'
+import type { ListAttributes } from 'remirror-extension-flat-list'
+import { ListExtension } from 'remirror-extension-flat-list'
+import type {
+  MarkdownParseState,
+  NodeSerializerOptions,
+  NodeSerializerSpec,
+  ParserRule,
+} from '../../transform'
 import { ParserRuleType } from '../../transform'
-import type { ListAttributes } from './remirror-extension'
-import { ListExtension } from './remirror-extension'
+import { listInputRules } from './input-rule'
 
 export abstract class MarkdownNodeExtension {
   abstract fromMarkdown: () => readonly ParserRule[]
@@ -12,6 +18,10 @@ export abstract class MarkdownNodeExtension {
 }
 
 export class LineListExtension extends ListExtension implements MarkdownNodeExtension {
+  createInputRules(): InputRule[] {
+    return listInputRules
+  }
+
   public fromMarkdown() {
     return [
       {
