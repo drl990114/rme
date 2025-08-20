@@ -80,36 +80,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ariakit/core@npm:0.4.12":
-  version: 0.4.12
-  resolution: "@ariakit/core@npm:0.4.12"
-  checksum: 10c0/9935d233a7c073141e672a2405c43283dfb55c086ab313b91e4f29070de0d8e054d47919c33046baf80a9e4288c8115e297820bc08334cd8e3ae6d35909b8329
+"@ariakit/core@npm:0.4.15":
+  version: 0.4.15
+  resolution: "@ariakit/core@npm:0.4.15"
+  checksum: 10c0/2d437d65e1ccadfdedb6b181447abf5a0af49a6b5380188163c80db18da7673172e2c8aa54bf2877fef534716b1755c5098ee11efa3372ee525d7ecdff611efb
   languageName: node
   linkType: hard
 
-"@ariakit/react-core@npm:0.4.13":
-  version: 0.4.13
-  resolution: "@ariakit/react-core@npm:0.4.13"
+"@ariakit/react-core@npm:0.4.18":
+  version: 0.4.18
+  resolution: "@ariakit/react-core@npm:0.4.18"
   dependencies:
-    "@ariakit/core": "npm:0.4.12"
+    "@ariakit/core": "npm:0.4.15"
     "@floating-ui/dom": "npm:^1.0.0"
     use-sync-external-store: "npm:^1.2.0"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/223503aa403ba618121b8493a9c6425ff7fb8ba70d3ec15df7361d4d9cf3b2b79d1e7aaee3b7c50f982085bf61fdea8a3438351dbcc560675f3e1ad5fe2cd9db
+  checksum: 10c0/43d9d36d4c52d321ea186443258b187e15af945a2d4500fe7e0ade3ceaeed1efce01d467043894c08c509dfb1710ab55ddba0012b24630bdde616294bd1c24f6
   languageName: node
   linkType: hard
 
-"@ariakit/react@npm:^0.4.13":
-  version: 0.4.13
-  resolution: "@ariakit/react@npm:0.4.13"
+"@ariakit/react@npm:^0.4.18":
+  version: 0.4.18
+  resolution: "@ariakit/react@npm:0.4.18"
   dependencies:
-    "@ariakit/react-core": "npm:0.4.13"
+    "@ariakit/react-core": "npm:0.4.18"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/d917d283fa03642e13f4e353d2b62ea2eb67c77b3e9c103a066ed337aaac94ee8c7f314eaf28e19ce2fb817d659d2d0c1793283c883e4b574b05e84da79c631e
+  checksum: 10c0/5d26b3d55112453fee5e14274c5db82ebeeaa2070590c5636b2508b63b8167d80df44ebf3323b1091509441c752b6410d90710a139d794dec2f110b901d7a916
   languageName: node
   linkType: hard
 
@@ -15666,7 +15666,7 @@ __metadata:
     void-elements: "npm:^3.1.0"
     webdriverio: "npm:^9.2.8"
     yjs: "npm:^13.6.24"
-    zens: "npm:^0.1.1"
+    zens: "npm:^0.1.3"
   peerDependencies:
     react: ">=16.14.0"
     react-dom: ">=16.14.0"
@@ -18274,12 +18274,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zens@npm:^0.1.1":
-  version: 0.1.1
-  resolution: "zens@npm:0.1.1"
+"zens@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "zens@npm:0.1.3"
   dependencies:
     "@ant-design/icons": "npm:^5.5.1"
-    "@ariakit/react": "npm:^0.4.13"
+    "@ariakit/react": "npm:^0.4.18"
     "@babel/runtime": "npm:^7"
     "@emotion/is-prop-valid": "npm:^1.3.1"
     "@floating-ui/dom": "npm:^1.6.12"
@@ -18295,7 +18295,7 @@ __metadata:
     sonner: "npm:^1.7.0"
     styled-components: "npm:^6.1.13"
     stylis: "npm:^4.3.4"
-  checksum: 10c0/e0ba3b7e0c0c02f9f94e740e991fe94d9260caaf2d3f42bdcfe5efb015881c5ccbf18625d60076ad188f00a8ab735d5c247de9dfc94ad84e2a062b5b7c25d90a
+  checksum: 10c0/947dca073e43acb41783d558af883039892f1241a4c940a300ef8e79756d82310421b139bbc7cd6e8cc291a084922d1ebaa1aa9d4d590d604f609732989da436
   languageName: node
   linkType: hard
 
