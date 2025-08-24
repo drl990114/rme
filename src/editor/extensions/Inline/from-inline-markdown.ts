@@ -1,3 +1,5 @@
+import { needSplitInlineHtmlTokenTags } from '@/editor/transform/markdown-it-html-inline'
+import pkg from 'lodash'
 import type mdast from 'mdast'
 import type { Options as FromMarkdownOptions } from 'mdast-util-from-markdown'
 import { fromMarkdown } from 'mdast-util-from-markdown'
@@ -7,11 +9,10 @@ import { gfmAutolinkLiteral } from 'micromark-extension-gfm-autolink-literal'
 import { gfmStrikethrough } from 'micromark-extension-gfm-strikethrough'
 import { nanoid } from 'nanoid'
 import voidElements from 'void-elements'
+import { getAttrsBySignalHtmlContent, getTagName, isClosingTag } from '../../utils/html'
 import type { LineMarkName } from './inline-mark-extensions'
 import type { InlineToken } from './inline-types'
-import { getAttrsBySignalHtmlContent, getTagName, isClosingTag } from '../../utils/html'
-import { needSplitInlineHtmlTokenTags } from '@/editor/transform/markdown-it-html-inline'
-import { cloneDeep } from 'lodash'
+const { cloneDeep } = pkg
 
 gfmAutolinkLiteralFromMarkdown.transforms = []
 

@@ -1,7 +1,8 @@
-import { cloneDeep } from 'lodash'
-import { rmeDefaultKeymap } from './keymap'
 import { Command } from '@remirror/pm/state'
+import pkg from 'lodash'
 import { ExtensionStore } from 'remirror'
+import { rmeDefaultKeymap } from './keymap'
+const { cloneDeep } = pkg
 
 export interface ShortcutConfig {
   [key: string]: string
