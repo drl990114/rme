@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.1.25",
+  "version": "0.1.28",
   "type": "module",
   "scripts": {
     "build": "yarn clear && yarn build-esbuild && yarn types",
@@ -168,7 +168,7 @@
     "micromark-extension-gfm-strikethrough": "^1.0.7",
     "nanoid": "^5.0.8",
     "parse5": "^7.2.1",
-    "prosemirror-flat-list": "0.5.4",
+    "prosemirror-flat-list": "^0.5.0",
     "prosemirror-paste-rules": "^3.0.0",
     "prosemirror-safari-ime-span": "^1.0.2",
     "react": "^18.3.1",
@@ -176,7 +176,7 @@
     "react-i18next": "^15.1.0",
     "react-popper": "^2.3.0",
     "remirror": "^2.0.39",
-    "remirror-extension-flat-list": "0.2.1",
+    "remirror-extension-flat-list": "^0.2.1",
     "remixicon": "^4.5.0",
     "styled-components": "^6.1.13",
     "stylis": "^4.3.4",
