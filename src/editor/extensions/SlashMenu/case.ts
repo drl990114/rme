@@ -1,5 +1,5 @@
 import type { EditorView } from '@remirror/pm/view'
-import type { SlashMenuState, OpeningConditions } from './type'
+import type { OpeningConditions, SlashMenuState } from './type'
 
 export enum SlashCases {
   OpenMenu = 'openMenu',
@@ -16,6 +16,11 @@ export enum SlashCases {
 const defaultConditions = (openInSelection = false): OpeningConditions => {
   return {
     shouldOpen: (state: SlashMenuState, event: KeyboardEvent, view: EditorView) => {
+      // 检查是否在输入法组合状态中，如果是则不触发SlashMenu
+      if (event.isComposing) {
+        return false
+      }
+
       const editorState = view.state
       const resolvedPos =
         editorState.selection.from < 0 || editorState.selection.from > editorState.doc.content.size
@@ -24,16 +29,18 @@ const defaultConditions = (openInSelection = false): OpeningConditions => {
 
       const parentNode = resolvedPos?.parent
       const inParagraph = parentNode?.type.name === 'paragraph'
-      const inEmptyPar = inParagraph && parentNode?.nodeSize === 2
       const posInLine = editorState.selection.$head.parentOffset
       const prevCharacter = editorState.selection.$head.parent.textContent.slice(
         posInLine - 1,
         posInLine,
       )
+      const inEmptyPar = inParagraph && (parentNode?.textContent === prevCharacter)
+
       const spaceBeforePos = prevCharacter === ' ' || prevCharacter === '' || prevCharacter === ' '
+
       return (
         !state.open &&
-        event.key === '/' &&
+        event.code === 'Slash' &&
         inParagraph &&
         (inEmptyPar ||
           spaceBeforePos ||
@@ -42,7 +49,7 @@ const defaultConditions = (openInSelection = false): OpeningConditions => {
     },
     shouldClose: (state: SlashMenuState, event: KeyboardEvent) =>
       state.open &&
-      (event.key === '/' || event.key === 'Escape' || event.key === 'Backspace') &&
+      (event.key === 'Slash' || event.key === 'Escape' || event.key === 'Backspace') &&
       state.filter.length === 0,
   }
 }
@@ -54,6 +61,19 @@ export const getCase = (
   customConditions?: OpeningConditions,
   shouldOpenInSelection?: boolean,
 ): SlashCases => {
+  // 在输入法组合状态下，忽略大部分键盘事件
+  if (event.isComposing) {
+    // 只处理一些特殊键，如Escape、Backspace等
+    if (event.key === 'Escape') {
+      return SlashCases.CloseMenu
+    }
+    if (event.key === 'Backspace' && state.filter.length === 0) {
+      return SlashCases.CloseMenu
+    }
+    // 其他事件在组合状态下忽略
+    return SlashCases.Ignore
+  }
+
   const condition = customConditions || defaultConditions(shouldOpenInSelection)
   if (condition.shouldOpen(state, event, view)) {
     return SlashCases.OpenMenu
@@ -68,16 +88,10 @@ export const getCase = (
     if (event.key === 'ArrowUp') {
       return SlashCases.PrevItem
     }
-    if (
-      event.key === 'Enter' ||
-      event.key === 'Tab'
-    ) {
+    if (event.key === 'Enter' || event.key === 'Tab') {
       return SlashCases.Execute
     }
-    if (
-      event.key === 'Escape' ||
-      (event.key === 'Backspace' && state.filter.length === 0)
-    ) {
+    if (event.key === 'Escape' || (event.key === 'Backspace' && state.filter.length === 0)) {
       return SlashCases.CloseMenu
     }
     if (state.filter.length > 0 && event.key === 'Backspace') {

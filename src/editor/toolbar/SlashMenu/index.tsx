@@ -1,12 +1,12 @@
-import { useExtension, useRemirrorContext } from '@remirror/react-core'
 import { SlashMenuExtension } from '@/editor/extensions/SlashMenu'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { usePopper } from 'react-popper'
-import { dispatchWithMeta } from '@/editor/extensions/SlashMenu/utils'
 import type { SlashMenuState } from '@/editor/extensions/SlashMenu/type'
 import { SlashMetaTypes } from '@/editor/extensions/SlashMenu/type'
-import { SlashMenuRoot } from './SlashMenuRoot'
+import { dispatchWithMeta } from '@/editor/extensions/SlashMenu/utils'
+import { useExtension, useRemirrorContext } from '@remirror/react-core'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { usePopper } from 'react-popper'
 import styled from 'styled-components'
+import { SlashMenuRoot } from './SlashMenuRoot'
 
 export enum Placement {
   auto = 'auto',
@@ -110,18 +110,25 @@ export const SlashMenu = () => {
     ],
   })
 
-  const closeMenu = useCallback(() => {
+  const closeMenu = useCallback((config: {
+    insertSlash?: boolean
+  }) => {
     if (menuState.open) {
       dispatchWithMeta(editorView, slashMenuExtension.pluginKey, {
         type: SlashMetaTypes.close,
       })
+
+
+      if (config?.insertSlash) {
+        editorView.dispatch(
+          editorView.state.tr.insertText('/').setMeta(slashMenuExtension.pluginKey, {
+            type: SlashMetaTypes.close,
+          }),
+        )
+      }
+      editorView.focus()
     }
   }, [editorView, menuState.open, slashMenuExtension.pluginKey])
-
-  // These two useEffects prevent a bug where the user navigates with clicks, which then blurs the editor and key presses stop working
-  useEffect(() => {
-    editorView.focus()
-  }, [menuState?.open])
 
   return (
     <>
@@ -143,6 +150,6 @@ export const SlashMenu = () => {
 
 const Container = styled.div`
   border-radius: 4px;
-  border: 1px solid ${(props) => props.theme.slashMenuBorderColor };
+  border: 1px solid ${(props) => props.theme.slashMenuBorderColor};
   z-index: 1000;
 `

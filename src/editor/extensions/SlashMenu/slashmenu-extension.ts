@@ -1,8 +1,8 @@
-import { type SlashMenuState, type SlashMenuMeta, SlashMetaTypes } from './type'
+import { type SlashMenuMeta, type SlashMenuState, SlashMetaTypes } from './type'
 import { defaultIgnoredKeys, dispatchWithMeta } from './utils'
 
 import type { CreateExtensionPlugin } from 'remirror'
-import { PlainExtension, extension } from 'remirror'
+import { extension, PlainExtension } from 'remirror'
 import { getCase, SlashCases } from './case'
 
 type SlashMenuOptions = {}
@@ -34,19 +34,41 @@ export class SlashMenuExtension extends PlainExtension {
 
           switch (slashCase) {
             case SlashCases.OpenMenu:
+              const resolvedPos =
+                editorState.selection.from < 0 ||
+                editorState.selection.from > editorState.doc.content.size
+                  ? null
+                  : editorState.doc.resolve(editorState.selection.from)
+
+              const parentNode = resolvedPos?.parent
+              const inParagraph = parentNode?.type.name === 'paragraph'
+
+              if (inParagraph && parentNode.textContent === '/' && resolvedPos) {
+                // 主要处理 safari 上input事件在这里已经触发了的问题
+                view.dispatch(
+                  editorState.tr
+                    .delete(resolvedPos.start(), resolvedPos.end())
+                    .setMeta(this.spec.key!, { type: SlashMetaTypes.open }),
+                )
+              }
               dispatchWithMeta(view, this.spec.key!, { type: SlashMetaTypes.open })
               return true
             case SlashCases.CloseMenu: {
-              if (event.key === '/') {
+              if (event.isComposing) {
+                dispatchWithMeta(view, this.spec.key!, {
+                  type: SlashMetaTypes.close,
+                })
+              } else if (event.code === 'Slash') {
                 view.dispatch(
                   editorState.tr.insertText('/').setMeta(this.spec.key!, {
                     type: SlashMetaTypes.close,
                   }),
                 )
-              } else
+              } else {
                 dispatchWithMeta(view, this.spec.key!, {
                   type: SlashMetaTypes.close,
                 })
+              }
               return true
             }
 

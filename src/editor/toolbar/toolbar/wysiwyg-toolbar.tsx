@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import { AriaKit } from 'zens'
+import { Ariakit } from 'zens'
 import { InsertSeparatorButton } from './command-btns/insert-separator-button'
 import { RedoButton } from './command-btns/redo-button'
 import { ToggleBlockquoteButton } from './command-btns/toggle-blockquote-button'
@@ -46,7 +46,7 @@ export const WysiwygToolbar: FC<WysiwygToolbarProps> = (props) => {
   )
 }
 
-const ToolBar = styled(AriaKit.Toolbar)`
+const ToolBar = styled(Ariakit.Toolbar)`
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
@@ -57,7 +57,7 @@ const ToolBar = styled(AriaKit.Toolbar)`
   background-color: ${(props) => props.theme.editorToolbarBgColor};
 `
 
-const ToolbarSeparator = styled(AriaKit.ToolbarSeparator)`
+const ToolbarSeparator = styled(Ariakit.ToolbarSeparator)`
   height: 0.5em;
   margin: 0 0.25em;
   border-right-width: 1px;

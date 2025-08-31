@@ -2,7 +2,7 @@ import { CoreIcon, isString } from '@remirror/core'
 import { FC, MouseEvent, ReactNode, useCallback } from 'react'
 
 import styled from 'styled-components'
-import { AriaKit, Tooltip } from 'zens'
+import { Ariakit, Tooltip } from 'zens'
 import { useCommandOptionValues, UseCommandOptionValuesParams } from '../use-command-option-values'
 import { CommandButtonIcon } from './command-button-icon'
 
@@ -67,7 +67,7 @@ export const CommandButton: FC<CommandButtonProps> = ({
   )
 }
 
-const Container = styled(AriaKit.ToolbarItem)`
+const Container = styled(Ariakit.ToolbarItem)`
   display: flex;
   flex-direction: column;
   align-items: center;
