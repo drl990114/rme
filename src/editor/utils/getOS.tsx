@@ -11,7 +11,12 @@ export function getOS() {
   }
 }
 
-export function getModKeyName() {
+export function getModKeyIconName() {
   const os = getOS()
-  return os === 'macOS' ? '⌘' : 'Ctrl'
+  return os === 'macOS' ? <i className="ri-command-line" /> : 'Ctrl'
+}
+
+export function getModEventKey() {
+  const os = getOS()
+  return os === 'macOS' ? 'metaKey' : 'ctrlKey'
 }

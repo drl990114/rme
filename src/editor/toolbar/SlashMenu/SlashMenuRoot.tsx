@@ -4,7 +4,7 @@ import type { AnyExtension, CommandsFromExtensions } from 'remirror'
 import styled, { css } from 'styled-components'
 import { Input, Space } from 'zens'
 import { darken } from '../../theme/darken-colors'
-import { getModKeyName } from '../../utils/getOS'
+import { getModEventKey, getModKeyIconName } from '../../utils/getOS'
 import TablePanel from './TablePanel'
 
 type SlashMenuRootProps = {
@@ -236,8 +236,8 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
           return closeMenu()
         }
 
-        // 如果正在输入搜索文本，需要 meta 键
-        if (searchText && event.metaKey === false) {
+        // 如果正在输入搜索文本，需要 mod 键
+        if (searchText && event[getModEventKey()] === false) {
           return
         }
         if (activeItemId) {
@@ -377,7 +377,7 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
           <Shortcut>
             {searchText ? (
               <>
-                <kbd>{getModKeyName()}</kbd>
+                <kbd>{getModKeyIconName()}</kbd>
                 <span> + </span>
               </>
             ) : null}
@@ -451,7 +451,7 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
           <Shortcut>
             {searchText ? (
               <>
-                <kbd>{getModKeyName()}</kbd>
+                <kbd>{getModKeyIconName()}</kbd>
                 <span> + </span>
               </>
             ) : null}
@@ -503,7 +503,7 @@ const Shortcut = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 12px;
   }
 `
 
