@@ -64,6 +64,22 @@ export type CreateCodemirrorOptions = {
   codemirrorEditorViewConfig?: CodeMirrorEditorViewConfig
 
   onValueChange?: (value: string) => void
+
+  /**
+   * Copy button configuration options
+   */
+  copyButton?: {
+    /**
+     * Whether to show the copy button
+     * @default true
+     */
+    enabled?: boolean
+
+    /**
+     * Custom copy function to override default behavior
+     */
+    customCopyFunction?: (code: string, node: ProsemirrorNode, view: EditorView) => Promise<boolean> | boolean
+  }
 }
 
 export class MfCodemirrorView {
@@ -95,6 +111,9 @@ export class MfCodemirrorView {
 
   options?: CreateCodemirrorOptions
 
+  private copyButton: HTMLDivElement | null = null
+  private copyButtonContainer: HTMLElement | null = null
+
   constructor({
     view,
     getPos,
@@ -119,7 +138,6 @@ export class MfCodemirrorView {
     this.languageName = languageName
     this.loadLanguage = loadLanguage
     this.options = options
-
     this.content = this.node.textContent
     const changeFilter = CodeMirrorEditorState.changeFilter.of((tr: CodeMirrorTransaction) => {
       if (!tr.docChanged) {
@@ -150,6 +168,11 @@ export class MfCodemirrorView {
     cmInstanceMap.set(this.id, this)
 
     this.updateLanguage()
+
+    // Create copy button if enabled
+    if (this.options.copyButton?.enabled !== false) {
+      this.createCopyButton()
+    }
   }
 
   update(node: ProsemirrorNode): boolean {
@@ -395,6 +418,142 @@ export class MfCodemirrorView {
       this.view.focus()
       return true
     }
+  }
+
+  /**
+   * Creates the copy button and adds it to the CodeMirror editor
+   */
+  private createCopyButton(): void {
+    if (!this.cm.dom || !this.options) return
+
+    // Create copy button container
+    this.copyButtonContainer = document.createElement('div')
+    this.copyButtonContainer.className = 'cm-copy-btn'
+
+    // Create copy button
+    this.copyButton = document.createElement('div')
+
+    // Use custom icon or default
+    const icon = 'ri-file-copy-line'
+    this.copyButton.innerHTML = `<i class="${icon}"></i>`
+
+    // Use custom tooltip or default
+    const tooltip = 'Copy code'
+    this.copyButton.title = tooltip
+
+    // Add event listeners
+    this.setupCopyButtonEvents()
+
+    // Add button to container
+    this.copyButtonContainer.appendChild(this.copyButton)
+
+    // Add container to CodeMirror editor
+    this.cm.dom.appendChild(this.copyButtonContainer)
+
+    // Enable pointer events on button
+    this.copyButton.style.pointerEvents = 'auto'
+  }
+
+  /**
+   * Sets up event listeners for the copy button
+   */
+  private setupCopyButtonEvents(): void {
+    if (!this.copyButton) return
+
+    // Hover effects
+    this.copyButton.addEventListener('mouseenter', () => {
+      if (!this.copyButton) return
+
+      this.copyButton.style.transform = 'translateY(-1px)'
+
+    })
+
+    this.copyButton.addEventListener('mousedown', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+    })
+
+    this.copyButton.addEventListener('mouseleave', () => {
+      if (!this.copyButton) return
+
+      this.copyButton.style.transform = 'translateY(0)'
+    })
+
+    // Click handler for copying
+    this.copyButton.addEventListener('click', this.handleCopy.bind(this), {
+      capture: true
+    })
+  }
+
+  /**
+   * Handles the copy button click event
+   */
+  private async handleCopy(e: MouseEvent): Promise<void> {
+    e.stopPropagation()
+    e.preventDefault()
+
+    if (!this.options) return
+
+    const code = this.node.textContent
+
+    // Use custom copy function if provided
+    if (this.options.copyButton?.customCopyFunction) {
+      try {
+        const result = this.options.copyButton.customCopyFunction(code, this.node, this.view)
+        if (result instanceof Promise) {
+          const success = await result
+          if (success) {
+            this.showCopySuccess()
+          }
+        } else {
+          if (result) {
+            this.showCopySuccess()
+          }
+        }
+        return
+      } catch (error) {
+        console.error('Custom copy function failed:', error)
+        // Fall back to default copy behavior
+      }
+    }
+
+    // Default copy behavior
+    if (navigator.clipboard && window.isSecureContext) {
+      // Use modern clipboard API
+      try {
+        await navigator.clipboard.writeText(code)
+        this.showCopySuccess()
+      } catch (error) {
+        console.error('Clipboard API failed:', error)
+      }
+    } else {
+    }
+  }
+
+  /**
+   * Shows copy success feedback
+   */
+  private showCopySuccess(): void {
+    if (!this.copyButton || !this.options) return
+
+    const originalIcon = this.copyButton.innerHTML
+    const originalTitle = this.copyButton.title
+
+    // Use custom success icon and tooltip or defaults
+    const successIcon = 'ri-check-line'
+    const successTooltip = 'Copied!'
+
+    this.copyButton.innerHTML = `<i class="${successIcon}"></i>`
+    this.copyButton.title = successTooltip
+    this.copyButton.style.color = 'green'
+
+    setTimeout(() => {
+      if (this.copyButton) {
+        this.copyButton.innerHTML = originalIcon
+        this.copyButton.title = originalTitle
+        this.copyButton.style.color = 'inherit'
+      }
+    }, 1500)
   }
 }
 

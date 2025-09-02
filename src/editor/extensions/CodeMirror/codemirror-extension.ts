@@ -44,7 +44,12 @@ export const fakeIndentedLanguage = 'indent-code'
     extensions: null,
     toggleName: 'paragraph',
     useProsemirrorHistoryKey: false,
-    onCodemirrorViewLoad: () => {}
+    onCodemirrorViewLoad: () => {},
+    showCopyButton: true,
+    customCopyFunction: async (val: string) => {
+      console.log('valval', val)
+      return true
+    }
   },
   staticKeys: [],
   handlerKeys: [],
@@ -93,7 +98,11 @@ export class LineCodeMirrorExtension extends NodeExtension<CodeMirrorExtensionOp
         extensions: this.options.extensions,
         toggleName: this.options.toggleName,
         options: {
-          useProsemirrorHistoryKey: this.options.useProsemirrorHistoryKey
+          useProsemirrorHistoryKey: this.options.useProsemirrorHistoryKey,
+          copyButton: {
+            enabled: this.options.showCopyButton,
+            customCopyFunction: this.options.customCopyFunction
+          }
         },
         onCodemirrorViewLoad: this.options.onCodemirrorViewLoad
       })

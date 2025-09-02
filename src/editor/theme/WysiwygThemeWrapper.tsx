@@ -787,6 +787,20 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     }
   }
 
+  .cm-copy-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 4px 8px;
+    transition: all 0.3s;
+    font-size: small;
+    border-radius: ${props => props.theme.smallBorderRadius};
+    cursor: pointer;
+    z-index: 1000;
+    color: ${(props) => props.theme.labelFontColor};
+    background: ${(props) => props.theme.hoverColor};
+  }
+
   .cm-editor {
     height: auto;
     padding: 12px 0;

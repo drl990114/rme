@@ -38,6 +38,20 @@ export interface CodeMirrorExtensionOptions {
    * This will return the codemirror node view instance, which is very useful in source code mode
    */
   onCodemirrorViewLoad?: (cm: MfCodemirrorView) => void
+  /**
+   * Whether to show the copy button
+   * @default true
+   */
+  showCopyButton?: boolean
+
+  /**
+   * Custom copy function to override default behavior
+   */
+  customCopyFunction?: (
+    code: string,
+  ) => Promise<boolean> | boolean
+
+
 }
 
 export interface CodeMirrorExtensionAttributes extends ProsemirrorAttributes {
