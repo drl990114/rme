@@ -8,12 +8,11 @@ import {
   type ProsemirrorPlugin,
 } from '@remirror/core'
 
+import { createListPlugins, listKeymap } from 'prosemirror-flat-list'
 import {
-  createListPlugins,
-  createListSpec,
   listInputRules,
-  listKeymap,
 } from "../extensions/List/input-rule"
+import { createListSpec } from "../extensions/List/input-rule/schema/node-spec"
 
 export class ListExtension extends NodeExtension {
   static disableExtraAttributes = true
