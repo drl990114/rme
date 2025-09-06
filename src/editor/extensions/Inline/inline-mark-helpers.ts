@@ -4,12 +4,12 @@ import type { Transaction } from '@remirror/pm/state'
 import { Transform } from '@remirror/pm/transform'
 import type { EditorView } from '@remirror/pm/view'
 
+import { excludeHtmlInlineNodes } from '@/editor/transform/markdown-it-html-inline'
 import type { MarkChunk } from '../../steps/batch-mark-step'
 import { BatchSetMarkStep } from '../../steps/batch-mark-step'
 import { iterNode, iterNodeRange } from '../../utils/iter-node'
 import { fromInlineMarkdown } from './from-inline-markdown'
 import { InlineDecorateType } from './inline-types'
-import { excludeHtmlInlineNodes } from '@/editor/transform/markdown-it-html-inline'
 
 function parseTextBlock(schema: Schema, node: Node, startPos: number, output: MarkChunk[]): void {
   if (!node.textContent) {

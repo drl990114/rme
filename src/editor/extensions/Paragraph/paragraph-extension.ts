@@ -1,7 +1,7 @@
 import type { ApplySchemaAttributes, NodeExtensionSpec, NodeSpecOverride } from "@remirror/core"
 import { ParagraphExtension } from "remirror/extensions"
 
-import type { NodeSerializerOptions} from "../../transform"
+import type { NodeSerializerOptions } from "../../transform"
 import { ParserRuleType } from "../../transform"
 
 export class LineParagraphExtension extends ParagraphExtension {

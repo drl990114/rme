@@ -1,18 +1,16 @@
 // prosemirror imports
+import { isImageElement } from '@/editor/utils/html'
+import { history, redo, undo } from '@remirror/pm/history'
+import { keymap } from '@remirror/pm/keymap'
 import { Node as ProseNode } from '@remirror/pm/model'
 import {
-  EditorState,
-  Transaction,
-  TextSelection,
-  PluginKey,
   Command,
+  EditorState,
   Plugin,
+  TextSelection,
+  Transaction
 } from '@remirror/pm/state'
-import { NodeView, EditorView, Decoration } from '@remirror/pm/view'
-import { StepMap } from '@remirror/pm/transform'
-import { keymap } from '@remirror/pm/keymap'
-import { history, redo, redoDepth, undo, undoDepth } from '@remirror/pm/history'
-import { isImageElement } from '@/editor/utils/html'
+import { Decoration, EditorView, NodeView } from '@remirror/pm/view'
 import { ExtensionsOptions } from '..'
 
 /**
@@ -111,11 +109,11 @@ export class HTMLInlineView implements NodeView {
 
     // create dom representation of nodeview
     this.dom = document.createElement(this._tagName)
-    this.dom.classList.add('inline-html')
+    this.dom.classList.add('inline-input')
 
     this._htmlRenderElt = document.createElement('span')
     this._htmlRenderElt.textContent = ''
-    this._htmlRenderElt.classList.add('inline-html-render')
+    this._htmlRenderElt.classList.add('inline-input-render')
     this.dom.appendChild(this._htmlRenderElt)
 
     this._htmlSrcElt = document.createElement('span')
@@ -246,7 +244,7 @@ export class HTMLInlineView implements NodeView {
         this.dom.append(this._htmlRenderElt)
 
         if (preview) {
-          this._htmlRenderElt.classList.add('inline-html-preview')
+          this._htmlRenderElt.classList.add('inline-input-preview')
         }
 
       }
@@ -325,7 +323,7 @@ export class HTMLInlineView implements NodeView {
       dispatchTransaction: this.dispatchInner.bind(this),
     })
 
-    this._innerView.dom.classList.add('inline-html-src')
+    this._innerView.dom.classList.add('inline-input-src')
     this._innerView.dom.classList.remove('ProseMirror')
 
     // focus element
@@ -338,7 +336,7 @@ export class HTMLInlineView implements NodeView {
       innerState.tr.setSelection(TextSelection.create(innerState.doc, innerPos)),
     )
 
-    this._htmlRenderElt?.classList.add('inline-html-preview')
+    this._htmlRenderElt?.classList.add('inline-input-preview')
 
     this._isEditing = true
   }
@@ -366,8 +364,8 @@ export class HTMLInlineView implements NodeView {
 
     if (render) {
       this.renderHtml()
-      this._htmlRenderElt?.classList.add('inline-html-render')
-      this._htmlRenderElt?.classList.remove('inline-html-preview')
+      this._htmlRenderElt?.classList.add('inline-input-render')
+      this._htmlRenderElt?.classList.remove('inline-input-preview')
     }
 
     this._isEditing = false

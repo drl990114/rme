@@ -1,5 +1,5 @@
 import type MarkdownIt from 'markdown-it'
-import type { Core, StateCore } from 'markdown-it'
+import { Core, StateCore } from 'markdown-it/index.js'
 import Token from 'markdown-it/lib/token.mjs'
 
 const rule: Core.RuleCore = (state: StateCore) => {

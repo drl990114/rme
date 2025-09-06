@@ -72,7 +72,7 @@ export class HtmlInlineNodeExtension extends NodeExtension<LineHtmlInlineExtensi
       toDOM: (node) => {
         const dom = document.createElement('span')
 
-        dom.classList.add('inline-html-render')
+        dom.classList.add('inline-input-render')
         dom.innerHTML = node.attrs.htmlText
 
         return dom

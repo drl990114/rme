@@ -28,7 +28,8 @@ export function arrowHandler(dir: 'left' | 'right' | 'up' | 'down'): CommandFunc
       nextPos.$head &&
       (nextPos.$head.parent.type.name === 'codeMirror' ||
         nextPos.$head.parent.type.name === 'html_block' ||
-        nextPos.$head.parent.type.name === 'mermaid_node')
+        nextPos.$head.parent.type.name === 'mermaid_node' ||
+        nextPos.$head.parent.type.name === 'math_block')
     ) {
       dispatch?.(tr.setSelection(nextPos))
       return true

@@ -1,18 +1,17 @@
-import type MarkdownIt from 'markdown-it'
-import type { Core, StateCore } from 'markdown-it'
 import {
   getAttrsBySignalHtmlContent,
   getTagName,
   isClosingTag,
   isSingleNode,
 } from '@/editor/utils/html'
+import type MarkdownIt from 'markdown-it'
 import Token from 'markdown-it/lib/token.mjs'
-import { HTMLNode } from '../extensions/Inline/from-inline-markdown'
 import voidElements from 'void-elements'
+import { HTMLNode } from '../extensions/Inline/from-inline-markdown'
 
 export const needSplitInlineHtmlTokenTags = ['img', 'iframe', 'br']
 
-export const excludeHtmlInlineNodes = ['html_inline_node', 'html_image', 'iframe_inline', 'html_br']
+export const excludeHtmlInlineNodes = ['html_inline_node', 'html_image', 'iframe_inline', 'html_br', 'math_inline']
 
 const typeMap: Record<string, string> = {
   img: 'html_image',
@@ -62,11 +61,11 @@ function getMergeArr(phrasingContents: Token[]) {
         } else if (unCloseedHtmlStack[unCloseedHtmlStack.length - 1]?.tag === htmlNode.tag) {
           if (unCloseedHtmlStack.length >= 1) {
             mergeArr.push([unCloseedHtmlStack.pop()!, htmlNode])
-            phrasingContent.complete = true
+            ;(phrasingContent as any).complete = true
           }
         }
       } else {
-        phrasingContent.complete = true
+        ;(phrasingContent as any).complete = true
       }
     }
   }
@@ -91,14 +90,14 @@ function mergePhrasingContents(
   startIndex: number,
   endIndex: number,
 ): Token[] {
-  const merged = new Token('html_inline_node', '', 0) as Record<string, any>
+  const merged = new Token('html_inline_node', '', 0)
 
   for (let i = startIndex; i <= endIndex; i++) {
     merged.content += phrasingContents[i].content || ''
-    merged.complete = true
+    ;(merged as any).complete = true
   }
 
-  merged.attrs = {
+  (merged as any).attrs = {
     htmlText: merged.content,
   }
   phrasingContents.splice(startIndex, endIndex - startIndex + 1, merged)
@@ -124,14 +123,14 @@ function mergeHtmlPhrasingContents(phrasingContents: Token[]) {
         newToken.content = phrasingContent.content
 
         newToken.attrs = getAttrsBySignalHtmlContent(phrasingContent.content)
-        newToken.attrs!.htmlText = newToken.content
+        ;(newToken.attrs as any).htmlText = newToken.content
 
         phrasingContents.splice(index, 1, newToken)
       } else {
         const newToken = new Token('html_inline_node', '', 0)
         newToken.content = phrasingContent.content
 
-        newToken.attrs = {
+        ;(newToken as any).attrs = {
           htmlText: newToken.content,
         }
         phrasingContents.splice(index, 1, newToken)
@@ -167,7 +166,7 @@ function isHtmlBlockToken(t: Token) {
 //   return res
 // }
 
-const rule: Core.RuleCore = (state: StateCore) => {
+const rule = (state: any) => {
   const edited = false
   const tokens = state.tokens
   let tokensLength = tokens.length
@@ -183,13 +182,13 @@ const rule: Core.RuleCore = (state: StateCore) => {
       const newTokens = []
       let childs: Token[] = []
 
-      newChildren?.forEach((child, index) => {
+      newChildren?.forEach((child: Token, index: number) => {
         if (excludeHtmlInlineNodes.includes(child.type)) {
           if (childs.length > 0) {
             const newToken = new Token('inline', '', 0)
             newToken.children = [...childs]
-            newTokens.push(newToken)
             newToken.content = childs.map((child) => child.content).join('')
+            newTokens.push(newToken)
             childs = []
           }
 

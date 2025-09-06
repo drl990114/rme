@@ -27,6 +27,7 @@ import { HtmlImageExtension } from './Image'
 import { LineInlineDecorationExtension, LineInlineMarkExtension, markExtensions } from './Inline'
 import { LineListExtension } from './List'
 import { MermaidBlockExtension } from './Mermaid'
+import { MathBlockExtension, MathInlineExtension } from './Math'
 import { LineParagraphExtension } from './Paragraph'
 import { PlaceholderExtension } from './Placeholder'
 import { ShortcutsExtension } from './Shortcuts/shortcuts-extension'
@@ -101,6 +102,8 @@ function extensions(options: ExtensionsOptions): any[] {
     new LineInlineDecorationExtension(),
 
     new MermaidBlockExtension({}),
+    new MathBlockExtension({}),
+    new MathInlineExtension({}),
 
     new ShortcutsExtension({
       disableAllBuildInShortcuts: options.disableAllBuildInShortcuts,

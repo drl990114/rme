@@ -1,13 +1,13 @@
+import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
+import { html } from '@codemirror/lang-html'
+import { Compartment } from '@codemirror/state'
+import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
+import type { EditorView } from '@remirror/pm/view'
 import type { Node as ProseNode } from 'prosemirror-model'
 import type { NodeView } from 'prosemirror-view'
-import type { EditorView } from '@remirror/pm/view'
 import type { ProsemirrorNode } from 'remirror'
 import { type EditorSchema } from 'remirror'
-import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
-import { Compartment } from '@codemirror/state'
-import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
 import { minimalSetup } from '../CodeMirror/setup'
-import { html } from '@codemirror/lang-html'
 
 function removeNewlines(str: string) {
   return str.replace(/\n+|\t/g, '')
@@ -145,7 +145,6 @@ export class HtmlNodeView implements NodeView {
     } catch (err) {}
   }
 
-  // == Inner Editor ================================== /
   setSelection(anchor: number, head: number): void {
     if (!this._innerView) {
       this.openEditor()

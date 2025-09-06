@@ -1,14 +1,14 @@
+import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
+import { eventBus } from '@/editor/utils/eventbus'
+import { Compartment } from '@codemirror/state'
+import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
+import type { EditorView } from '@remirror/pm/view'
+import mermaid from 'mermaid'
 import type { Node as ProseNode } from 'prosemirror-model'
 import type { NodeView } from 'prosemirror-view'
-import type { EditorView } from '@remirror/pm/view'
 import type { ProsemirrorNode } from 'remirror'
 import { type EditorSchema } from 'remirror'
-import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
-import { Compartment } from '@codemirror/state'
-import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
 import { minimalSetup } from '../CodeMirror/setup'
-import mermaid from 'mermaid'
-import { eventBus } from '@/editor/utils/eventbus'
 
 /**
  * 确保每个视图都有一个唯一的ID

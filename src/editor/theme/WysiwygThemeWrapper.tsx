@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-interface WarpperProps {
+interface WrapperProps {
   codeEditor?: boolean
   dark?: boolean
   /**
@@ -13,7 +13,7 @@ interface WarpperProps {
   rootLineHeight?: string
 }
 
-export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
+export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   rootFontSize: '15px',
   rootLineHeight: '1.6',
   ...p,
@@ -41,7 +41,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
 
   & a {
     background-color: transparent;
-    color: #58a6ff;
+    color: ${(props) => props.theme.linkColor || props.theme.accentColor};
     text-decoration: none;
   }
 
@@ -87,8 +87,12 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   }
 
   & hr {
-    border-bottom: 1px solid ${(props) => props.theme.hrBorderColor};
-    background-color: ${(props) => props.theme.hrBgColor};
+    box-sizing: content-box;
+    height: 0;
+    margin: 1.5em 0;
+    border: 0;
+    border-top: 1px solid ${(props) => props.theme.hrBorderColor};
+    background: ${(props) => props.theme.hrBgColor};
   }
 
   & kbd {
@@ -152,18 +156,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     margin: 1em 40px;
   }
 
-  & hr {
-    box-sizing: content-box;
-    overflow: hidden;
-    background: transparent;
-    border-bottom: 1px solid #21262d;
-    height: 0.25em;
-    padding: 0;
-    margin: 24px 0;
-    background-color: #30363d;
-    border: 0;
-  }
-
   & input {
     font: inherit;
     margin: 0;
@@ -193,7 +185,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     border-spacing: 0;
     border-collapse: collapse;
     display: block;
-    width: max-content;
+    width: 100%;
     max-width: 100%;
     overflow: auto;
     margin: 1em 0;
@@ -259,7 +251,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   & [role='button']:focus,
   & input[type='radio']:focus,
   & input[type='checkbox']:focus {
-    outline: 2px solid #58a6ff;
+    outline: 2px solid ${(props) => props.theme.accentColor};
     outline-offset: -2px;
     box-shadow: none;
   }
@@ -297,48 +289,48 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   & h6 {
     position: relative;
     margin: 0;
-    line-height: 1;
+    line-height: 1.25;
   }
 
   & h1 {
     font-weight: 600;
-    margin: 10px 0 20px 0;
-    font-size: 1.87em;
+    margin: 0.6em 0 1.2em 0;
+    font-size: 1.875em;
   }
 
   & h2 {
     font-weight: 600;
-    margin: 10px 0 20px 0;
+    margin: 0.55em 0 1.1em 0;
     font-size: 1.75em;
   }
 
   & h3 {
     font-weight: 600;
-    margin: 10px 0 20px 0;
+    margin: 0.5em 0 1em 0;
     font-size: 1.6em;
   }
 
   & h4 {
     font-weight: 600;
-    margin: 10px 0 20px 0;
+    margin: 0.45em 0 0.9em 0;
     font-size: 1.46em;
   }
 
   & h5 {
     font-weight: 600;
-    margin: 6px 0 16px 0;
+    margin: 0.4em 0 0.8em 0;
     font-size: 1.3em;
   }
 
   & h6 {
     font-weight: 600;
-    margin: 6px 0 16px 0;
+    margin: 0.4em 0 0.8em 0;
     font-size: 1.2em;
   }
 
   & p {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0.5em;
   }
 
   & blockquote {
@@ -352,7 +344,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   & ol {
     margin-top: 0;
     margin-bottom: 0;
-    padding-left: 2em;
+    padding-left: 1.5em;
   }
 
   & ol ol,
@@ -693,19 +685,22 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     display: inline-block;
   }
 
-  .inline-html {
+  .inline-input {
     position: relative;
   }
 
-  .inline-html-src {
+  .inline-input-src {
     display: inline;
     padding: 0.2em 0.4em;
     margin: 0;
     background-color: ${(props) => props.theme.codeBgColor};
     border-radius: 6px;
+    br {
+      display: none;
+    }
   }
 
-  .inline-html-preview {
+  .inline-input-preview {
     position: absolute;
     top: calc(100% + 0.5em);
     left: 50%;
@@ -719,9 +714,46 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     z-index: 1;
   }
 
-  .inline-html-render {
+  .inline-input-render {
     display: inline-block;
     line-height: normal;
+  }
+
+  .math-block-nodeview {
+    position: relative;
+    margin: 0;
+
+    br {
+      display: none;
+    }
+  }
+
+  .math-block-render {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    border-radius: 0.2em;
+
+    &:hover {
+      border: 1px solid ${(props) => props.theme.borderColor};
+    }
+  }
+
+  .math-block-preview {
+    position: absolute;
+    top: calc(100% + 0.5em);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    width: 100%;
+    border: 1px solid ${(props) => props.theme.borderColor};
+    border-radius: 0.2em;
+    background-color: ${(props) => props.theme.bgColor};
+    z-index: 1;
   }
 
   .html-node {
@@ -751,7 +783,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   .mermaid-src {
     outline: none;
   }
-
 
   & .ProseMirror-focused {
     outline: none;
@@ -794,7 +825,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     padding: 4px 8px;
     transition: all 0.3s;
     font-size: small;
-    border-radius: ${props => props.theme.smallBorderRadius};
+    border-radius: ${(props) => props.theme.smallBorderRadius};
     cursor: pointer;
     z-index: 1000;
     color: ${(props) => props.theme.labelFontColor};
@@ -808,7 +839,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
     line-height: ${(props) => props.rootLineHeight};
     font-size: ${(props) => props.rootFontSize};
     font-family: ${(props) => props.theme.codemirrorFontFamily} !important;
-    border-radius: ${props => props.theme.smallBorderRadius};
+    border-radius: ${(props) => props.theme.smallBorderRadius};
     background-color: ${(props) => props.theme.preBgColor};
     overflow: auto;
 
@@ -905,11 +936,11 @@ export const WysiwygThemeWrapper = styled.div.attrs<WarpperProps>((p) => ({
   }
 
   & .ai-block-node-view-wrapper {
-    border-radius: ${props => props.theme.smallBorderRadius};
+    border-radius: ${(props) => props.theme.smallBorderRadius};
   }
 
   & .ProseMirror-selectednode {
-    outline: 2px solid #58a6ff;
+    outline: 2px solid ${(props) => props.theme.accentColor};
   }
 
   & .ProseMirror th.selectedCell,

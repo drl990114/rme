@@ -1,10 +1,13 @@
 import type { Node, NodeType, Schema } from '@remirror/pm/model'
 import { Mark } from '@remirror/pm/model'
 import MarkdownIt from 'markdown-it'
-import type { Token } from 'markdown-it'
 
 import MarkdownItListCheckbox from './markdown-it-list-checkbox'
 
+import { Token } from 'markdown-it/index.js'
+import MarkdownItHtmlInline from './markdown-it-html-inline'
+import MarkdownItMath from './markdown-it-math'
+import MarkdownItMermaid from './markdown-it-mermaid'
 import type {
   BlockParserRule,
   ContextParserRule,
@@ -14,8 +17,6 @@ import type {
   TextParserRule,
 } from './parser-type'
 import { ParserRuleType } from './parser-type'
-import MarkdownItHtmlInline from './markdown-it-html-inline'
-import MarkdownItMermaid from './markdown-it-mermaid'
 
 interface StackItem {
   type: NodeType
@@ -252,6 +253,7 @@ export class MarkdownParser {
       .use(MarkdownItHtmlInline)
       .use(MarkdownItListCheckbox)
       .use(MarkdownItMermaid)
+      .use(MarkdownItMath)
 
     this.tokenHandlers = buildTokenHandlers(schema, parserRules)
   }
