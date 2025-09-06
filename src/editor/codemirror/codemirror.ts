@@ -1,31 +1,31 @@
-import type {
-  Extension as CodeMirrorExtension,
-  Transaction as CodeMirrorTransaction,
-} from '@codemirror/state'
-import { Compartment, EditorState as CodeMirrorEditorState } from '@codemirror/state'
-import type {
-  Command as CodeMirrorCommand,
-  KeyBinding as CodeMirrorKeyBinding,
-  EditorViewConfig as CodeMirrorEditorViewConfig,
-} from '@codemirror/view'
-import { EditorView as CodeMirrorEditorView, keymap } from '@codemirror/view'
-import { assertGet, isPromise, replaceNodeAtPosition } from '@remirror/core'
-import type { EditorSchema, EditorView, ProsemirrorNode } from '@remirror/pm'
-import { exitCode } from '@remirror/pm/commands'
-import { Selection, TextSelection } from '@remirror/pm/state'
-import { lightTheme } from '../../editor/theme'
 import {
   ensureSyntaxTree,
   type LanguageDescription,
   type LanguageSupport,
 } from '@codemirror/language'
 import { languages } from '@codemirror/language-data'
-import { nanoid } from 'nanoid'
-import type { LoadLanguage } from '../extensions/CodeMirror/codemirror-node-view'
-import { createTheme } from './theme'
-import type { CreateThemeOptions } from './theme'
+import type {
+  Extension as CodeMirrorExtension,
+  Transaction as CodeMirrorTransaction,
+} from '@codemirror/state'
+import { EditorState as CodeMirrorEditorState, Compartment } from '@codemirror/state'
+import type {
+  Command as CodeMirrorCommand,
+  EditorViewConfig as CodeMirrorEditorViewConfig,
+  KeyBinding as CodeMirrorKeyBinding,
+} from '@codemirror/view'
+import { EditorView as CodeMirrorEditorView, keymap } from '@codemirror/view'
+import { SyntaxNodeRef, Tree } from '@lezer/common'
+import { assertGet, isPromise, replaceNodeAtPosition } from '@remirror/core'
+import type { EditorSchema, EditorView, ProsemirrorNode } from '@remirror/pm'
+import { exitCode } from '@remirror/pm/commands'
 import { redo, undo } from '@remirror/pm/history'
-import { Tree, SyntaxNodeRef } from '@lezer/common'
+import { Selection, TextSelection } from '@remirror/pm/state'
+import { nanoid } from 'nanoid'
+import { lightTheme } from '../../editor/theme'
+import type { LoadLanguage } from '../extensions/CodeMirror/codemirror-node-view'
+import type { CreateThemeOptions } from './theme'
+import { createTheme } from './theme'
 
 const cmInstanceMap = new Map<string, MfCodemirrorView>()
 const themeRef = { current: createTheme(lightTheme.codemirrorTheme as CreateThemeOptions) }
@@ -78,7 +78,11 @@ export type CreateCodemirrorOptions = {
     /**
      * Custom copy function to override default behavior
      */
-    customCopyFunction?: (code: string, node: ProsemirrorNode, view: EditorView) => Promise<boolean> | boolean
+    customCopyFunction?: (
+      code: string,
+      node: ProsemirrorNode,
+      view: EditorView,
+    ) => Promise<boolean> | boolean
   }
 }
 
@@ -426,16 +430,11 @@ export class MfCodemirrorView {
   private createCopyButton(): void {
     if (!this.cm.dom || !this.options) return
 
-    // Create copy button container
-    this.copyButtonContainer = document.createElement('div')
-    this.copyButtonContainer.className = 'cm-copy-btn'
-
     // Create copy button
     this.copyButton = document.createElement('div')
+    this.copyButton.className = 'cm-copy-btn'
 
-    // Use custom icon or default
-    const icon = 'ri-file-copy-line'
-    this.copyButton.innerHTML = `<i class="${icon}"></i>`
+    this.copyButton.innerHTML = `<i class="ri-file-copy-line"></i>`
 
     // Use custom tooltip or default
     const tooltip = 'Copy code'
@@ -444,11 +443,8 @@ export class MfCodemirrorView {
     // Add event listeners
     this.setupCopyButtonEvents()
 
-    // Add button to container
-    this.copyButtonContainer.appendChild(this.copyButton)
-
     // Add container to CodeMirror editor
-    this.cm.dom.appendChild(this.copyButtonContainer)
+    this.cm.dom.appendChild(this.copyButton)
 
     // Enable pointer events on button
     this.copyButton.style.pointerEvents = 'auto'
@@ -465,7 +461,6 @@ export class MfCodemirrorView {
       if (!this.copyButton) return
 
       this.copyButton.style.transform = 'translateY(-1px)'
-
     })
 
     this.copyButton.addEventListener('mousedown', (e) => {
@@ -481,7 +476,7 @@ export class MfCodemirrorView {
 
     // Click handler for copying
     this.copyButton.addEventListener('click', this.handleCopy.bind(this), {
-      capture: true
+      capture: true,
     })
   }
 
@@ -536,20 +531,17 @@ export class MfCodemirrorView {
   private showCopySuccess(): void {
     if (!this.copyButton || !this.options) return
 
-    const originalIcon = this.copyButton.innerHTML
     const originalTitle = this.copyButton.title
 
-    // Use custom success icon and tooltip or defaults
-    const successIcon = 'ri-check-line'
     const successTooltip = 'Copied!'
 
-    this.copyButton.innerHTML = `<i class="${successIcon}"></i>`
+    this.copyButton.innerHTML = `<i class="ri-check-line"></i>`
     this.copyButton.title = successTooltip
     this.copyButton.style.color = 'green'
 
     setTimeout(() => {
       if (this.copyButton) {
-        this.copyButton.innerHTML = originalIcon
+        this.copyButton.innerHTML = `<i class="ri-file-copy-line"></i>`
         this.copyButton.title = originalTitle
         this.copyButton.style.color = 'inherit'
       }

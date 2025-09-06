@@ -47,12 +47,10 @@ export interface CodeMirrorExtensionOptions {
   /**
    * Custom copy function to override default behavior
    */
-  customCopyFunction?: (
-    code: string,
-  ) => Promise<boolean> | boolean
-
-
+  customCopyFunction?: CustomCopyFunction
 }
+
+export type CustomCopyFunction = (code: string) => Promise<boolean> | boolean
 
 export interface CodeMirrorExtensionAttributes extends ProsemirrorAttributes {
   /**
