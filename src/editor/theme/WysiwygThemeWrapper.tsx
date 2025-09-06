@@ -85,6 +85,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
     max-width: 100%;
     box-sizing: content-box;
     background-color: ${(props) => props.theme.imgBgColor};
+    vertical-align: bottom;
   }
 
   & hr {
@@ -928,7 +929,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
 
   & .html-image-node-view-wrapper {
     display: inline-block;
-    line-height: 0;
 
     &:hover {
       outline: 2px solid #58a6ff;

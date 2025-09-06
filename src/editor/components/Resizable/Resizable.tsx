@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { useRef, type FC, useEffect, useCallback, memo, useState } from 'react'
 import { throttle } from '@remirror/core-helpers'
 import type { NodeViewComponentProps } from '@remirror/react'
+import { memo, useCallback, useEffect, useRef, useState, type FC } from 'react'
+import styled from 'styled-components'
 import { ResizableHandle, ResizableHandleType } from './ResizableHandle'
 
 export enum ResizableRatioType {
@@ -13,7 +13,6 @@ const ResizableContainer = styled.div`
   display: inline-block;
   position: relative;
   max-width: 100%;
-  line-height: 0;
   user-select: none;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
