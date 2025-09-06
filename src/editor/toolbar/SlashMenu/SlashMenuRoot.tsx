@@ -1,3 +1,4 @@
+import { isSlashKey } from '@/editor/extensions/SlashMenu/utils'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { AnyExtension, CommandsFromExtensions } from 'remirror'
@@ -315,12 +316,12 @@ export const SlashMenuRoot: React.FC<SlashMenuRootProps> = memo(
                 if (searchText === '') {
                   e.preventDefault()
                   e.stopPropagation()
-                  closeMenu()
+                  closeMenu?.()
                 }
-              } else if (e.code === 'Slash' && (searchText === '' || searchText === '/')) {
+              } else if (isSlashKey(e) && (searchText === '' || searchText === '/')) {
                 e.preventDefault()
                 e.stopPropagation()
-                closeMenu({
+                closeMenu?.({
                   insertSlash: true,
                 })
               }

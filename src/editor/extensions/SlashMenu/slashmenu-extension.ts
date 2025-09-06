@@ -1,5 +1,5 @@
 import { type SlashMenuMeta, type SlashMenuState, SlashMetaTypes } from './type'
-import { defaultIgnoredKeys, dispatchWithMeta } from './utils'
+import { defaultIgnoredKeys, dispatchWithMeta, isSlashKey } from './utils'
 
 import type { CreateExtensionPlugin } from 'remirror'
 import { extension, PlainExtension } from 'remirror'
@@ -58,7 +58,7 @@ export class SlashMenuExtension extends PlainExtension {
                 dispatchWithMeta(view, this.spec.key!, {
                   type: SlashMetaTypes.close,
                 })
-              } else if (event.code === 'Slash') {
+              } else if (isSlashKey(event)) {
                 view.dispatch(
                   editorState.tr.insertText('/').setMeta(this.spec.key!, {
                     type: SlashMetaTypes.close,

@@ -1,5 +1,6 @@
-import type { EditorView } from "prosemirror-view"
 import type { PluginKey } from "prosemirror-state"
+import type { EditorView } from "prosemirror-view"
+import type { KeyboardEvent as ReactKeyboardEvent } from "react"
 import type { SlashMenuMeta } from "./type"
 
 export const dispatchWithMeta = (
@@ -7,6 +8,10 @@ export const dispatchWithMeta = (
   key: PluginKey,
   meta: SlashMenuMeta
 ) => view.dispatch(view.state.tr.setMeta(key, meta))
+
+export const isSlashKey = <T extends HTMLElement>(event: ReactKeyboardEvent<T> | KeyboardEvent) => {
+  return event.key === "/" || event.code === "Slash"
+}
 
 export const defaultIgnoredKeys = [
   "Unidentified",

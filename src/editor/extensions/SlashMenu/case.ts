@@ -1,5 +1,6 @@
 import type { EditorView } from '@remirror/pm/view'
 import type { OpeningConditions, SlashMenuState } from './type'
+import { isSlashKey } from './utils'
 
 export enum SlashCases {
   OpenMenu = 'openMenu',
@@ -34,13 +35,13 @@ const defaultConditions = (openInSelection = false): OpeningConditions => {
         posInLine - 1,
         posInLine,
       )
-      const inEmptyPar = inParagraph && (parentNode?.textContent === prevCharacter)
+      const inEmptyPar = inParagraph && parentNode?.textContent === prevCharacter
 
       const spaceBeforePos = prevCharacter === ' ' || prevCharacter === '' || prevCharacter === ' '
 
       return (
         !state.open &&
-        event.code === 'Slash' &&
+        isSlashKey(event) &&
         inParagraph &&
         (inEmptyPar ||
           spaceBeforePos ||
@@ -49,7 +50,7 @@ const defaultConditions = (openInSelection = false): OpeningConditions => {
     },
     shouldClose: (state: SlashMenuState, event: KeyboardEvent) =>
       state.open &&
-      (event.key === 'Slash' || event.key === 'Escape' || event.key === 'Backspace') &&
+      (isSlashKey(event) || event.key === 'Escape' || event.key === 'Backspace') &&
       state.filter.length === 0,
   }
 }
