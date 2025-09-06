@@ -1,10 +1,6 @@
-import type { Token } from 'markdown-it'
+import type Token from 'markdown-it/lib/token.mjs'
 
-import type { NodeSerializerOptions } from '../../transform'
-import { ParserRuleType } from '../../transform'
-import type { EditorState } from 'remirror'
-import { Decoration, DecorationSet } from '@remirror/pm/view'
-import createCodeMirrorMenuDecorations from './codemirror-lang-menu'
+import { languages } from '@codemirror/language-data'
 import type {
   ApplySchemaAttributes,
   CommandFunction,
@@ -31,10 +27,14 @@ import {
   setBlockType,
 } from '@remirror/core'
 import { TextSelection } from '@remirror/pm/state'
+import { Decoration, DecorationSet } from '@remirror/pm/view'
+import type { EditorState } from 'remirror'
+import type { NodeSerializerOptions } from '../../transform'
+import { ParserRuleType } from '../../transform'
+import createCodeMirrorMenuDecorations from './codemirror-lang-menu'
 import { CodeMirror6NodeView } from './codemirror-node-view'
 import type { CodeMirrorExtensionAttributes, CodeMirrorExtensionOptions } from './codemirror-types'
 import { arrowHandler } from './codemirror-utils'
-import { languages } from '@codemirror/language-data'
 
 export const fakeIndentedLanguage = 'indent-code'
 
@@ -46,10 +46,6 @@ export const fakeIndentedLanguage = 'indent-code'
     useProsemirrorHistoryKey: false,
     onCodemirrorViewLoad: () => {},
     showCopyButton: true,
-    customCopyFunction: async (val: string) => {
-      console.log('valval', val)
-      return true
-    }
   },
   staticKeys: [],
   handlerKeys: [],
