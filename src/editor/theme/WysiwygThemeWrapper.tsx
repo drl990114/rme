@@ -30,6 +30,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.primaryFontColor};
   word-wrap: break-word;
+  white-space: pre-wrap;
   padding: 0 20px;
   padding-bottom: 1em;
   box-sizing: border-box;

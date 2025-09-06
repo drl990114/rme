@@ -187,7 +187,12 @@ const rule = (state: any) => {
           if (childs.length > 0) {
             const newToken = new Token('inline', '', 0)
             newToken.children = [...childs]
-            newToken.content = childs.map((child) => child.content).join('')
+            newToken.content = childs.map((child) => {
+              if (child.type === 'softbreak') {
+                return '\n'
+              }
+              return child.content
+            }).join('')
             newTokens.push(newToken)
             childs = []
           }

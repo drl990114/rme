@@ -1,31 +1,31 @@
-import { TextExtension } from "remirror/extensions"
 import type Token from 'markdown-it/lib/token.mjs'
+import { TextExtension } from 'remirror/extensions'
 
-import type { NodeSerializerOptions} from "../../transform"
-import { ParserRuleType } from "../../transform"
+import type { NodeSerializerOptions } from '../../transform'
+import { ParserRuleType } from '../../transform'
 
 export class LineTextExtension extends TextExtension {
-    fromMarkdown() {
-        return [
-            {
-                type: ParserRuleType.text,
-                token: "text",
-                getText: (tok: Token) => tok.content,
-            },
-            {
-                type: ParserRuleType.text,
-                token: "inline",
-                getText: (tok: Token) => tok.content,
-            },
-            {
-                type: ParserRuleType.text,
-                token: "softbreak",
-                getText: (tok: Token) => "\n",
-            },
-        ] as const
-    }
+  fromMarkdown() {
+    return [
+      {
+        type: ParserRuleType.text,
+        token: 'text',
+        getText: (tok: Token) => tok.content,
+      },
+      {
+        type: ParserRuleType.text,
+        token: 'inline',
+        getText: (tok: Token) => tok.content,
+      },
+      {
+        type: ParserRuleType.text,
+        token: 'softbreak',
+        getText: (tok: Token) => '\n',
+      },
+    ] as const
+  }
 
-    toMarkdown({ state, node }: NodeSerializerOptions) {
-        state.text(node.text || "")
-    }
+  toMarkdown({ state, node }: NodeSerializerOptions) {
+    state.text(node.text || '')
+  }
 }

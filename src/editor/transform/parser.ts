@@ -97,7 +97,13 @@ export class MarkdownParseState {
       const handler = this.tokenHandlers[tok.type]
       if (!handler) return
       if (!handler) throw new UnknowMarkdownItTokenError(tok.type, Object.keys(this.tokenHandlers))
-      handler(this, tok)
+
+      // 递归处理inline token的children
+      if (tok.type === 'inline' && tok.children && tok.children.length > 0) {
+        this.parseTokens(tok.children)
+      } else {
+        handler(this, tok)
+      }
     }
   }
 
