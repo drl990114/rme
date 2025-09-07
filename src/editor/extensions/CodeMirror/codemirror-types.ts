@@ -1,6 +1,6 @@
-import { MfCodemirrorView } from '@/editor/codemirror/codemirror'
 import type { Extension as CodeMirrorExtension } from '@codemirror/state'
 import type { ProsemirrorAttributes } from '@remirror/core'
+import { MfCodemirrorView } from '../../../editor/codemirror/codemirror'
 
 export interface CodeMirrorExtensionOptions {
   /**
