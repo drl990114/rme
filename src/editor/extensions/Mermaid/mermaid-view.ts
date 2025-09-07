@@ -9,6 +9,7 @@ import type { NodeView } from 'prosemirror-view'
 import type { ProsemirrorNode } from 'remirror'
 import { type EditorSchema } from 'remirror'
 import { minimalSetup } from '../CodeMirror/setup'
+import { MermaidExtensionOptions } from './mermaid-extension'
 
 /**
  * 确保每个视图都有一个唯一的ID
@@ -32,13 +33,15 @@ export class MermaidNodeView implements NodeView {
   destroying = false
 
   renderViewId: string | null = null
+  options?: MermaidExtensionOptions
 
-  constructor(node: ProseNode, view: EditorView, getPos: () => number) {
+  constructor(node: ProseNode, view: EditorView, getPos: () => number, options: MermaidExtensionOptions) {
     // store arguments
     this._node = node
     this._outerView = view
     this._getPos = getPos
     this.schema = node.type.schema
+    this.options = options
 
     // create dom representation of nodeview
     this.dom = document.createElement('div')
@@ -178,6 +181,10 @@ export class MermaidNodeView implements NodeView {
         codemirrorEditorViewConfig: {
           parent: this._htmlSrcElt!,
         },
+        copyButton: {
+          enabled: true,
+          customCopyFunction: this.options?.customCopyFunction
+        }
       },
     })
 

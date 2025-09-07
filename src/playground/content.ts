@@ -81,6 +81,8 @@ def hello():
 
 <ruby>汉字<rt>hàn zì</rt></ruby>
 
+<div>这是一个div块，可以包含多行内容。</div>
+
 ## 数学公式
 
 行内数学公式：$E = mc^2$

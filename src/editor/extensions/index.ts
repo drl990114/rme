@@ -3,43 +3,43 @@ import {
   // BulletListExtension,
   // CodeBlockExtension,
   DropCursorExtension,
-} from 'remirror/extensions';
-import { LineTableCellExtension, LineTableHeaderCellExtension } from './Table/table-extension';
+} from 'remirror/extensions'
+import { LineTableCellExtension, LineTableHeaderCellExtension } from './Table/table-extension'
 // import data from 'svgmoji/emoji.json'
-import { CountExtension } from '@remirror/extension-count';
-import { corePreset } from '@remirror/preset-core';
-import { ReactComponentExtension } from '@remirror/react';
-import { AIExtension } from './Ai';
-import { AIOptions } from './Ai/ai-types';
-import { LineBlockquoteExtension } from './BlockQuote';
-import { ClipboardExtension } from './Clipboard';
-import { LineCodeMirrorExtension } from './CodeMirror/codemirror-extension';
-import { CustomCopyFunction } from './CodeMirror/codemirror-types';
-import { minimalSetup } from './CodeMirror/setup';
-import { FindExtension } from './Find';
-import { LineHardBreakExtension } from './HardBreak';
-import { LineHeadingExtension } from './Heading';
-import { LineHorizontalRuleExtension } from './HorizontalRule';
-import { HtmlBrExtension } from './HtmlBr/br-extension';
-import { LineHtmlBlockExtension } from './HtmlNode/html-block-extension';
-import { HtmlInlineNodeExtension } from './HtmlNode/html-inline-node';
-import { IframeExtension } from './Iframe';
-import { HtmlImageExtension } from './Image';
-import { LineInlineDecorationExtension, LineInlineMarkExtension, markExtensions } from './Inline';
-import { LineListExtension } from './List';
-import { MathBlockExtension, MathInlineExtension } from './Math';
-import { MermaidBlockExtension } from './Mermaid';
-import { LineParagraphExtension } from './Paragraph';
-import { PlaceholderExtension } from './Placeholder';
-import { ShortcutsExtension } from './Shortcuts/shortcuts-extension';
-import { SlashMenuExtension } from './SlashMenu';
-import { LineTableExtension, LineTableRowExtension } from './Table';
-import { LineTextExtension } from './Text';
-import { TransformerExtension } from './Transformer/transformer-extension';
+import { CountExtension } from '@remirror/extension-count'
+import { corePreset } from '@remirror/preset-core'
+import { ReactComponentExtension } from '@remirror/react'
+import { AIExtension } from './Ai'
+import { AIOptions } from './Ai/ai-types'
+import { LineBlockquoteExtension } from './BlockQuote'
+import { ClipboardExtension } from './Clipboard'
+import { LineCodeMirrorExtension } from './CodeMirror/codemirror-extension'
+import { CustomCopyFunction } from './CodeMirror/codemirror-types'
+import { minimalSetup } from './CodeMirror/setup'
+import { FindExtension } from './Find'
+import { LineHardBreakExtension } from './HardBreak'
+import { LineHeadingExtension } from './Heading'
+import { LineHorizontalRuleExtension } from './HorizontalRule'
+import { HtmlBrExtension } from './HtmlBr/br-extension'
+import { LineHtmlBlockExtension } from './HtmlNode/html-block-extension'
+import { HtmlInlineNodeExtension } from './HtmlNode/html-inline-node'
+import { IframeExtension } from './Iframe'
+import { HtmlImageExtension } from './Image'
+import { LineInlineDecorationExtension, LineInlineMarkExtension, markExtensions } from './Inline'
+import { LineListExtension } from './List'
+import { MathBlockExtension, MathInlineExtension } from './Math'
+import { MermaidBlockExtension } from './Mermaid'
+import { LineParagraphExtension } from './Paragraph'
+import { PlaceholderExtension } from './Placeholder'
+import { ShortcutsExtension } from './Shortcuts/shortcuts-extension'
+import { SlashMenuExtension } from './SlashMenu'
+import { LineTableExtension, LineTableRowExtension } from './Table'
+import { LineTextExtension } from './Text'
+import { TransformerExtension } from './Transformer/transformer-extension'
 
 // import { TableExtension } from './ReactTables';
 
-export * from './List';
+export * from './List'
 
 export type ExtensionsOptions = {
   disableAllBuildInShortcuts?: boolean
@@ -84,6 +84,12 @@ function extensions(options: ExtensionsOptions): any[] {
       useProsemirrorHistoryKey: true,
       customCopyFunction: options.customCopyFunction,
     }),
+    new LineHtmlBlockExtension({
+      customCopyFunction: options.customCopyFunction,
+    }),
+    new MermaidBlockExtension({
+      customCopyFunction: options.customCopyFunction,
+    }),
     new LineTableExtension({ resizable: false }),
     new LineTableRowExtension(),
     new LineTableCellExtension(),
@@ -92,7 +98,6 @@ function extensions(options: ExtensionsOptions): any[] {
       decoration: { style: 'background-color: yellow; color: black' },
       activeDecoration: { style: 'background-color: orange; color: black' },
     }),
-    new LineHtmlBlockExtension(),
     new HtmlInlineNodeExtension({
       handleViewImgSrcUrl,
     }),
@@ -105,7 +110,6 @@ function extensions(options: ExtensionsOptions): any[] {
     new LineInlineMarkExtension(),
     new LineInlineDecorationExtension(),
 
-    new MermaidBlockExtension({}),
     new MathBlockExtension({}),
     new MathInlineExtension({}),
 

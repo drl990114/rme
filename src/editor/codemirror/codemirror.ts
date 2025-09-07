@@ -24,6 +24,7 @@ import { Selection, TextSelection } from '@remirror/pm/state'
 import { nanoid } from 'nanoid'
 import { lightTheme } from '../../editor/theme'
 import type { LoadLanguage } from '../extensions/CodeMirror/codemirror-node-view'
+import { CustomCopyFunction } from '../extensions/CodeMirror/codemirror-types'
 import type { CreateThemeOptions } from './theme'
 import { createTheme } from './theme'
 
@@ -78,11 +79,7 @@ export type CreateCodemirrorOptions = {
     /**
      * Custom copy function to override default behavior
      */
-    customCopyFunction?: (
-      code: string,
-      node: ProsemirrorNode,
-      view: EditorView,
-    ) => Promise<boolean> | boolean
+    customCopyFunction?: CustomCopyFunction
   }
 }
 
@@ -494,7 +491,7 @@ export class MfCodemirrorView {
     // Use custom copy function if provided
     if (this.options.copyButton?.customCopyFunction) {
       try {
-        const result = this.options.copyButton.customCopyFunction(code, this.node, this.view)
+        const result = this.options.copyButton.customCopyFunction(code)
         if (result instanceof Promise) {
           const success = await result
           if (success) {

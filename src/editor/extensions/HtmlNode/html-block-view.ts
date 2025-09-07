@@ -8,6 +8,7 @@ import type { NodeView } from 'prosemirror-view'
 import type { ProsemirrorNode } from 'remirror'
 import { type EditorSchema } from 'remirror'
 import { minimalSetup } from '../CodeMirror/setup'
+import { LineHtmlBlockExtensionOptions } from './html-block-types'
 
 function removeNewlines(str: string) {
   return str.replace(/\n+|\t/g, '')
@@ -28,13 +29,20 @@ export class HtmlNodeView implements NodeView {
   private readonly languageConf: Compartment
   mfCodemirrorView?: MfCodemirrorView
   destroying = false
+  options?: LineHtmlBlockExtensionOptions
 
-  constructor(node: ProseNode, view: EditorView, getPos: () => number) {
+  constructor(
+    node: ProseNode,
+    view: EditorView,
+    getPos: () => number,
+    options?: LineHtmlBlockExtensionOptions,
+  ) {
     // store arguments
     this._node = node
     this._outerView = view
     this._getPos = getPos
     this.schema = node.type.schema
+    this.options = options
 
     // create dom representation of nodeview
     this.dom = document.createElement('div')
@@ -171,6 +179,10 @@ export class HtmlNodeView implements NodeView {
         codemirrorEditorViewConfig: {
           parent: this._htmlSrcElt!,
         },
+        copyButton: {
+          enabled: true,
+          customCopyFunction: this.options?.customCopyFunction,
+        }
       },
     })
 

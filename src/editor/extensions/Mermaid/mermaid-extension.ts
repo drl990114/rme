@@ -1,5 +1,3 @@
-import type { NodeSerializerOptions } from '../../transform'
-import { ParserRuleType } from '../../transform'
 import type {
   ApplySchemaAttributes,
   NodeExtensionSpec,
@@ -7,14 +5,28 @@ import type {
   NodeViewMethod,
   PrioritizedKeyBindings,
 } from '@remirror/core'
-import { NodeExtension, isElementDomNode, nodeInputRule } from '@remirror/core'
+import { NodeExtension, extension, isElementDomNode, nodeInputRule } from '@remirror/core'
 import type { ProsemirrorNode } from '@remirror/pm'
-import { MermaidNodeView } from './mermaid-view'
 import type { InputRule } from '@remirror/pm/inputrules'
 import { TextSelection } from '@remirror/pm/state'
+import type { NodeSerializerOptions } from '../../transform'
+import { ParserRuleType } from '../../transform'
 import { arrowHandler } from '../CodeMirror/codemirror-utils'
+import { CustomCopyFunction } from './../CodeMirror/codemirror-types'
+import { MermaidNodeView } from './mermaid-view'
 
-export class MermaidBlockExtension extends NodeExtension {
+export interface MermaidExtensionOptions {
+  customCopyFunction?: CustomCopyFunction
+}
+@extension<MermaidExtensionOptions>({
+  defaultOptions: {
+    customCopyFunction: undefined
+  },
+  staticKeys: [],
+  handlerKeys: [],
+  customHandlerKeys: [],
+})
+export class MermaidBlockExtension extends NodeExtension<MermaidExtensionOptions> {
   get name() {
     return 'mermaid_node' as const
   }
@@ -46,7 +58,7 @@ export class MermaidBlockExtension extends NodeExtension {
 
   createNodeViews(): NodeViewMethod {
     return (node: ProsemirrorNode, view, getPos) => {
-      return new MermaidNodeView(node, view, getPos as () => number)
+      return new MermaidNodeView(node, view, getPos as () => number, this.options);
     }
   }
 

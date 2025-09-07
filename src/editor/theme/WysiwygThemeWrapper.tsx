@@ -717,7 +717,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   }
 
   .inline-input-render {
-    display: inline-block;
     line-height: normal;
   }
 

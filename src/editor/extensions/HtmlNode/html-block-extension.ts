@@ -1,23 +1,31 @@
-import { arrayExclude } from '../../utils/common'
-import type { NodeSerializerOptions } from '../../transform'
-import { ParserRuleType } from '../../transform'
+import { needSplitInlineHtmlTokenTags } from '@/editor/transform/markdown-it-html-inline';
 import type {
   ApplySchemaAttributes,
   NodeExtensionSpec,
   NodeSpecOverride,
   NodeViewMethod,
   PrioritizedKeyBindings,
-} from '@remirror/core'
-import { NodeExtension, isElementDomNode, nodeInputRule } from '@remirror/core'
-import type { ProsemirrorNode } from '@remirror/pm'
-import { HtmlNodeView } from './html-block-view'
-import type { InputRule } from '@remirror/pm/inputrules'
-import { TextSelection } from '@remirror/pm/state'
-import block_names from 'markdown-it/lib/common/html_blocks.mjs'
-import { arrowHandler } from '../CodeMirror/codemirror-utils'
-import { needSplitInlineHtmlTokenTags } from '@/editor/transform/markdown-it-html-inline'
+} from '@remirror/core';
+import { NodeExtension, extension, isElementDomNode, nodeInputRule } from '@remirror/core';
+import type { InputRule } from '@remirror/pm/inputrules';
+import { TextSelection } from '@remirror/pm/state';
+import block_names from 'markdown-it/lib/common/html_blocks.mjs';
+import type { NodeSerializerOptions } from '../../transform';
+import { ParserRuleType } from '../../transform';
+import { arrayExclude } from '../../utils/common';
+import { arrowHandler } from '../CodeMirror/codemirror-utils';
+import type { LineHtmlBlockExtensionOptions } from './html-block-types';
+import { HtmlNodeView } from './html-block-view';
 
-export class LineHtmlBlockExtension extends NodeExtension {
+@extension<LineHtmlBlockExtensionOptions>({
+  defaultOptions: {
+    customCopyFunction: () => true
+  },
+  staticKeys: [],
+  handlerKeys: [],
+  customHandlerKeys: [],
+})
+export class LineHtmlBlockExtension extends NodeExtension<LineHtmlBlockExtensionOptions> {
   get name() {
     return 'html_block' as const
   }
@@ -49,8 +57,8 @@ export class LineHtmlBlockExtension extends NodeExtension {
   }
 
   createNodeViews(): NodeViewMethod {
-    return (node: ProsemirrorNode, view, getPos) => {
-      return new HtmlNodeView(node, view, getPos as () => number)
+    return (node, view, getPos) => {
+      return new HtmlNodeView(node, view, getPos as () => number, this.options);
     }
   }
 

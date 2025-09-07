@@ -37,6 +37,9 @@ type LineHtmlInlineExtensionOptions = {
   handleViewImgSrcUrl?: (src: string) => Promise<string>
 }
 @extension<LineHtmlInlineExtensionOptions>({
+  staticKeys: [],
+  handlerKeys: [],
+  customHandlerKeys: [],
   defaultOptions: {
     handleViewImgSrcUrl: async (src: string) => src,
   },
