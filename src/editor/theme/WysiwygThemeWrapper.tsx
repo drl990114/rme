@@ -187,7 +187,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
     border-spacing: 0;
     border-collapse: collapse;
     display: block;
-    width: 100%;
+    width: max-content;
     max-width: 100%;
     overflow: auto;
     margin: 1em 0;
