@@ -5,7 +5,6 @@ const rule = (state: any) => {
   let edited = false
   const tokens = state.tokens
   let tokensLength = tokens.length
-  console.log('tokens', tokens)
 
   for (let i = 0; i <= tokensLength - 1; i++) {
     const curToken = tokens[i] as Token
@@ -15,7 +14,6 @@ const rule = (state: any) => {
       const mathToken = new Token('math_block', '', 0)
       ;(mathToken as any).attrs = { tex: curToken.attrs?.[0]?.[1] || '' }
 
-      console.log('mathTOken', mathToken)
       mathToken.content = originalContent
       mathToken.block = true
       mathToken.map = curToken.map
