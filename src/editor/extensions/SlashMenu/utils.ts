@@ -10,7 +10,7 @@ export const dispatchWithMeta = (
 ) => view.dispatch(view.state.tr.setMeta(key, meta))
 
 export const isSlashKey = <T extends HTMLElement>(event: ReactKeyboardEvent<T> | KeyboardEvent) => {
-  return event.key === "/" || event.code === "Slash"
+  return event.key === "/"
 }
 
 export const defaultIgnoredKeys = [
