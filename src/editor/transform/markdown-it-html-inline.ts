@@ -11,7 +11,7 @@ import { HTMLNode } from '../extensions/Inline/from-inline-markdown'
 
 export const needSplitInlineHtmlTokenTags = ['img', 'iframe', 'br']
 
-export const excludeHtmlInlineNodes = ['html_inline_node', 'html_image', 'iframe_inline', 'html_br', 'math_inline']
+export const excludeHtmlInlineNodes = ['html_inline_node', 'html_image', 'iframe_inline', 'html_br', 'math_inline', 'md_image']
 
 const typeMap: Record<string, string> = {
   img: 'html_image',

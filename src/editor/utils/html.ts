@@ -38,6 +38,14 @@ interface HTMLAst {
   voidElement: boolean
 }
 
+export function buildMarkdownTextFromNode(node: { attrs: { [key: string]: any } }) {
+  const { attrs } = node
+  const alt = attrs.alt || ''
+  const src = attrs.src || ''
+  const title = attrs.title ? ` "${attrs.title}"` : ''
+  return `![${alt}](${src}${title})`
+}
+
 export function buildHtmlStringFromAst(ast: HTMLAst) {
   let attrs = ''
 

@@ -6,6 +6,7 @@ import MarkdownItListCheckbox from './markdown-it-list-checkbox'
 
 import { Token } from 'markdown-it/index.js'
 import MarkdownItHtmlInline from './markdown-it-html-inline'
+import MarkdownItImage from './markdown-it-image'
 import MarkdownItMath from './markdown-it-math'
 import MarkdownItMermaid from './markdown-it-mermaid'
 import type {
@@ -254,12 +255,13 @@ export class MarkdownParser {
   public constructor(schema: Schema, parserRules: ParserRule[]) {
     this.schema = schema
     this.tokenizer = MarkdownIt('commonmark', { html: true })
-      .disable(['emphasis', 'autolink', 'backticks', 'entity', 'reference', 'image', 'link'])
+      .disable(['emphasis', 'autolink', 'backticks', 'entity', 'reference', 'link'])
       .enable(['table'])
       .use(MarkdownItHtmlInline)
       .use(MarkdownItListCheckbox)
       .use(MarkdownItMermaid)
       .use(MarkdownItMath)
+      .use(MarkdownItImage)
 
     this.tokenHandlers = buildTokenHandlers(schema, parserRules)
   }

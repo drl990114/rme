@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-shadow */
+import { getMdImageInputRule } from '@/editor/inline-input-regex'
+import type { NodeSerializerOptions } from '@/editor/transform'
+import { ParserRuleType } from '@/editor/transform'
+import { buildMarkdownTextFromNode } from '@/editor/utils/html'
 import type {
   ApplySchemaAttributes,
   CommandFunction,
   DelayedPromiseCreator,
   EditorView,
-  InputRule,
   NodeExtensionSpec,
   NodeSpecOverride,
   PrimitiveSelection,
@@ -18,21 +21,16 @@ import {
   getTextSelection,
   invariant,
   isElementDomNode,
-  isNumber,
   NodeExtension,
   nodeInputRule,
   omitExtraAttributes,
 } from '@remirror/core'
-import type { PasteRule } from '@remirror/pm/paste-rules'
-import { insertPoint } from '@remirror/pm/transform'
+import { InputRule } from '@remirror/pm/inputrules'
 import { ExtensionImageTheme } from '@remirror/theme'
-import type { NodeSerializerOptions } from '@/editor/transform'
-import { ParserRuleType } from '@/editor/transform'
-import { buildHtmlStringFromAst, getAttrsBySignalHtmlContent } from '@/editor/utils/html'
 import type { ComponentType } from 'react'
+import type { ExtensionsOptions } from '..'
 import type { ImageNodeViewProps } from './image-nodeview'
 import { ImageNodeView } from './image-nodeview'
-import type { ExtensionsOptions } from '..'
 
 type DelayedImage = DelayedPromiseCreator<ImageAttributes>
 
@@ -60,7 +58,7 @@ export interface ImageOptions {
   /**
    * The image hosting service upload handler.
    * It receives the image src and returns a promise for the new src after uploading to image hosting service.
-   * 
+   *
    * @param src - the original image src
    * @returns Promise<string> - the new image src after uploading
    */
@@ -110,21 +108,27 @@ type SetProgress = (progress: number) => void
     uploadHandler,
     imageHostingHandler: async (src: string) => src,
     preferPastedTextContent: true,
-    defaultInlineNode: 'div'
+    defaultInlineNode: 'div',
   },
   staticKeys: [],
   handlerKeys: [],
   customHandlerKeys: [],
 })
-export class HtmlImageExtension extends NodeExtension<ImageOptions> {
+export class MdImgUriExtension extends NodeExtension<ImageOptions> {
   get name() {
-    return 'html_image' as const
+    return 'md_image' as const
   }
 
   ReactComponent: ComponentType<ImageNodeViewProps> | undefined = (props) => {
     const { handleViewImgSrcUrl, imageHostingHandler } = this.options
 
-    return <ImageNodeView handleViewImgSrcUrl={handleViewImgSrcUrl} imageHostingHandler={imageHostingHandler} {...props} />
+    return (
+      <ImageNodeView
+        handleViewImgSrcUrl={handleViewImgSrcUrl}
+        imageHostingHandler={imageHostingHandler}
+        {...props}
+      />
+    )
   }
 
   createTags() {
@@ -147,7 +151,7 @@ export class HtmlImageExtension extends NodeExtension<ImageOptions> {
         rotate: { default: null },
         src: { default: null },
         title: { default: '' },
-        "data-file-name": { default: null },
+        'data-file-name': { default: null },
       },
       parseDOM: [
         {
@@ -176,7 +180,10 @@ export class HtmlImageExtension extends NodeExtension<ImageOptions> {
   }
 
   @command()
-  insertImage(attributes: ImageAttributes, selection?: PrimitiveSelection): CommandFunction {
+  insertMarkdownImage(
+    attributes: ImageAttributes,
+    selection?: PrimitiveSelection,
+  ): CommandFunction {
     return ({ tr, dispatch }) => {
       const { from, to } = getTextSelection(selection ?? tr.selection, tr.doc)
       const node = this.type.create(attributes)
@@ -187,143 +194,22 @@ export class HtmlImageExtension extends NodeExtension<ImageOptions> {
     }
   }
 
-  /**
-   * Insert an image once the provide promise resolves.
-   */
-  @command()
-  uploadImage(
-    value: DelayedPromiseCreator<ImageAttributes>,
-    onElement?: (element: HTMLElement) => void,
-  ): CommandFunction {
-    const { updatePlaceholder, destroyPlaceholder, createPlaceholder } = this.options
-    return (props) => {
-      const { tr } = props
-
-      // This is update in the validate hook
-      let pos = tr.selection.from
-
-      return this.store
-        .createPlaceholderCommand({
-          promise: value,
-          placeholder: {
-            type: 'widget',
-            get pos() {
-              return pos
-            },
-            createElement: (view, pos) => {
-              const element = createPlaceholder(view, pos)
-              onElement?.(element)
-              return element
-            },
-            onUpdate: (view, pos, element, data) => {
-              updatePlaceholder(view, pos, element, data)
-            },
-            onDestroy: (view, element) => {
-              destroyPlaceholder(view, element)
-            },
-          },
-          onSuccess: (value, range, commandProps) => this.insertImage(value, range)(commandProps),
-        })
-        .validate(({ tr, dispatch }) => {
-          const insertPos = insertPoint(tr.doc, pos, this.type)
-
-          if (insertPos == null) {
-            return false
-          }
-
-          pos = insertPos
-
-          if (!tr.selection.empty) {
-            dispatch?.(tr.deleteSelection())
-          }
-
-          return true
-        }, 'unshift')
-
-        .generateCommand()(props)
-    }
-  }
-
-  private fileUploadFileHandler(files: File[], event: ClipboardEvent | DragEvent, pos?: number) {
-    const { preferPastedTextContent, uploadHandler } = this.options
-
-    if (
-      preferPastedTextContent &&
-      isClipboardEvent(event) &&
-      event.clipboardData?.getData('text/plain')
-    ) {
-      return false
-    }
-
-    const { commands, chain } = this.store
-    const filesWithProgress: FileWithProgress[] = files.map((file, index) => ({
-      file,
-      progress: (progress) => {
-        commands.updatePlaceholder(uploads[index], progress)
-      },
-    }))
-
-    const uploads = uploadHandler(filesWithProgress)
-
-    if (isNumber(pos)) {
-      chain.selectText(pos)
-    }
-
-    for (const upload of uploads) {
-      chain.uploadImage(upload)
-    }
-
-    chain.run()
-
-    return true
-  }
-
-  createPasteRules(): PasteRule[] {
-    return [
-      {
-        type: 'file',
-        regexp: /image/i,
-        fileHandler: (props): boolean => {
-          const pos = props.type === 'drop' ? props.pos : undefined
-          return this.fileUploadFileHandler(props.files, props.event, pos)
-        },
-      },
-    ]
-  }
-
   createInputRules(): InputRule[] {
-    const rules: InputRule[] = [
-      nodeInputRule({
-        regexp: new RegExp('<img[^>]*>'),
-        type: this.type,
-        getAttributes: (match) => {
-          return getAttrsBySignalHtmlContent(match[0])
-        },
-      }),
-    ]
-
-    return rules
+    return getMdImageInputRule(this.type).map(nodeInputRule)
   }
 
   public fromMarkdown() {
     return [
       {
         type: ParserRuleType.inline,
-        token: 'html_image',
+        token: 'md_image',
         node: this.name,
       },
     ] as const
   }
 
   public toMarkdown({ state, node }: NodeSerializerOptions) {
-    state.text(
-      buildHtmlStringFromAst({
-        tag: 'img',
-        attrs: node.attrs,
-        voidElement: true,
-      }),
-      false,
-    )
+    state.text(buildMarkdownTextFromNode(node), false)
   }
 }
 
@@ -339,7 +225,7 @@ export interface ImageExtensionAttributes {
   title?: string
 
   /** The file name used to create the image. */
-  "data-file-name"?: string
+  'data-file-name'?: string
 }
 
 /**
@@ -391,7 +277,7 @@ function getImageAttributes({
     src: element.getAttribute('src') ?? null,
     title: element.getAttribute('title') ?? '',
     width: Number.parseInt(width || '0', 10) || null,
-    "data-file-name": element.getAttribute('data-file-name') ?? null,
+    'data-file-name': element.getAttribute('data-file-name') ?? null,
   }
 }
 
@@ -427,7 +313,7 @@ function uploadHandler(files: FileWithProgress[]): DelayedImage[] {
             (readerEvent) => {
               completed += 1
               progress(completed / files.length)
-              resolve({ src: readerEvent.target?.result as string, "data-file-name": file.name })
+              resolve({ src: readerEvent.target?.result as string, 'data-file-name': file.name })
             },
             { once: true },
           )
@@ -438,8 +324,4 @@ function uploadHandler(files: FileWithProgress[]): DelayedImage[] {
   }
 
   return promises
-}
-
-function isClipboardEvent(event: ClipboardEvent | DragEvent): event is ClipboardEvent {
-  return (event as ClipboardEvent).clipboardData !== undefined
 }

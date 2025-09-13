@@ -494,7 +494,7 @@ const SlashMenuFooter = styled.div`
   font-size: 0.85em;
 `
 
-const Shortcut = styled.div`
+export const Shortcut = styled.div`
   display: flex;
   gap: 0.25rem;
   white-space: nowrap;

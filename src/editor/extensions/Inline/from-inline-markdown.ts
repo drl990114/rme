@@ -244,7 +244,7 @@ function flatPhrasingContent(mdastToken: mdast.PhrasingContent, depth: number): 
     case 'break':
       return []
     case 'image':
-      return flatImage(mdastToken, depth)
+      return []
     case 'imageReference':
       return []
     case 'footnote':
@@ -295,6 +295,7 @@ const fromMarkdownOptions: FromMarkdownOptions = {
           'htmlText',
           'list',
           'thematicBreak',
+          'image',
         ],
       },
     },
@@ -599,7 +600,7 @@ function flatHTMLInlineCode(phrasingContents: MdAstHtml[], depth = 1) {
 
   console.log('lastNoHtmlTokenIndex', lastNoHtmlTokenIndex)
   // if (!lastNoHtmlTokenIndex) {
-    // inlineTokens[inlineTokens.length - 1].end += offset
+  // inlineTokens[inlineTokens.length - 1].end += offset
   // }
 
   return inlineTokens

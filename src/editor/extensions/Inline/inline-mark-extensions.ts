@@ -256,7 +256,6 @@ const autoHideMarks: Record<string, true> = {
   mdMark: true,
   mdLinkUri: true,
   mdImgText: true,
-  mdImgUri: true,
   mdHtmlInline: true,
 }
 
@@ -280,9 +279,9 @@ export const markExtensions = (options: LineMarkExtensionOptions = {}) => [
   new LinkText(),
   new LinkUri(),
   new ImgText(),
-  new ImgUri({
-    handleViewImgSrcUrl: options.handleViewImgSrcUrl,
-  }),
+  // new ImgUri({
+  //   handleViewImgSrcUrl: options.handleViewImgSrcUrl,
+  // }),
   // new HtmlInlineMarks(),
 ]
 export type LineMarkExtension = ReturnType<typeof markExtensions>[number]

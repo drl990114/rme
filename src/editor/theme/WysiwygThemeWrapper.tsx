@@ -926,7 +926,8 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
     background-color: transparent;
   }
 
-  & .html-image-node-view-wrapper {
+  & .html-image-node-view-wrapper,
+  & .md-image-node-view-wrapper {
     display: inline-block;
 
     &:hover {

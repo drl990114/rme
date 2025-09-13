@@ -1,3 +1,4 @@
+import { getInlineMathInputRule } from '@/editor/inline-input-regex'
 import type { NodeSerializerOptions } from '@/editor/transform'
 import { ParserRuleType } from '@/editor/transform'
 import type { ApplySchemaAttributes, InputRule, NodeExtensionSpec, NodeSpecOverride, ProsemirrorAttributes } from '@remirror/core'
@@ -55,31 +56,7 @@ export class MathInlineExtension extends NodeExtension {
   }
 
   createInputRules(): InputRule[] {
-    // Support both pasted HTML span and typed $...$ inline math
-    return [
-      // Typed inline math trigger: $$ -> insert empty inline math and focus inside
-      nodeInputRule({
-        regexp: /\$\$(?!\$)/,
-        type: this.type,
-        getAttributes: () => ({ tex: '', fromInput: true }),
-      }),
-      // Pasted HTML span -> inline math node
-      nodeInputRule({
-        regexp: /<span[^>]*data-type=["']math-inline["'][^>]*><\/span>/,
-        type: this.type,
-        getAttributes: () => ({ fromInput: false }),
-      }),
-      // Typed inline math: $...$
-      // Avoids $$...$$ by requiring at least one non-$ char between delimiters
-      nodeInputRule({
-        regexp: /\$([^$\n]+?)\$/,
-        type: this.type,
-        getAttributes: (match) => {
-          console.log(match)
-          return { tex: match[1] ?? '', fromInput: true }
-        },
-      }),
-    ]
+    return getInlineMathInputRule(this.type).map(nodeInputRule)
   }
 
   public fromMarkdown() {

@@ -17,6 +17,7 @@ import { LineCodeMirrorExtension } from './CodeMirror/codemirror-extension'
 import { CustomCopyFunction } from './CodeMirror/codemirror-types'
 import { minimalSetup } from './CodeMirror/setup'
 import { FindExtension } from './Find'
+import { HandleInputExtension } from './HandleInput/handle-input-extension'
 import { LineHardBreakExtension } from './HardBreak'
 import { LineHeadingExtension } from './Heading'
 import { LineHorizontalRuleExtension } from './HorizontalRule'
@@ -25,6 +26,7 @@ import { LineHtmlBlockExtension } from './HtmlNode/html-block-extension'
 import { HtmlInlineNodeExtension } from './HtmlNode/html-inline-node'
 import { IframeExtension } from './Iframe'
 import { HtmlImageExtension } from './Image'
+import { MdImgUriExtension } from './Image/md-image-extension'
 import { LineInlineDecorationExtension, LineInlineMarkExtension, markExtensions } from './Inline'
 import { LineListExtension } from './List'
 import { MathBlockExtension, MathInlineExtension } from './Math'
@@ -46,13 +48,15 @@ export type ExtensionsOptions = {
 
   handleViewImgSrcUrl?: (src: string) => Promise<string>
 
+  imageHostingHandler?: (src: string) => Promise<string>
+
   ai?: AIOptions
 
   customCopyFunction?: CustomCopyFunction
 }
 
 function extensions(options: ExtensionsOptions): any[] {
-  const { handleViewImgSrcUrl } = options
+  const { handleViewImgSrcUrl, imageHostingHandler } = options
 
   const res: any[] = [
     ...corePreset({ excludeExtensions: ['paragraph', 'text'] }),
@@ -62,7 +66,13 @@ function extensions(options: ExtensionsOptions): any[] {
     new CountExtension({}),
     new HtmlImageExtension({
       handleViewImgSrcUrl,
+      imageHostingHandler,
     }),
+    new MdImgUriExtension({
+      handleViewImgSrcUrl,
+      imageHostingHandler,
+    }),
+    new HandleInputExtension(),
     new HtmlBrExtension(),
     new IframeExtension({
       enableResizing: true,
