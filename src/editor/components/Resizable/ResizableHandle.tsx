@@ -15,6 +15,7 @@ export enum ResizableHandleType {
 interface ResizableHandleProps extends BaseComponentProps {
   visible: boolean
   handleType: ResizableHandleType
+  selected?: boolean
   onResizing?: (e: React.MouseEvent, handleType: ResizableHandleType) => void
 }
 
@@ -25,13 +26,14 @@ const ResizableHandleContainer = styled.span<ResizableHandleProps>`
   background: rgba(0, 0, 0, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 6px;
-  transition: opacity 300ms ease-in 0s;
+  transition: opacity ${props => props.selected ? '100ms' : '300ms'} ease-in 0s;
   z-index: 99;
 
   ${(props) => {
     if (props.visible) {
       return css`
         opacity: 1;
+        ${props.selected ? 'transform: scale(1.1);' : ''}
       `
     } else {
       return css`
@@ -45,7 +47,7 @@ const ResizableHandleContainer = styled.span<ResizableHandleProps>`
       case ResizableHandleType.BottomLeft:
         return css`
           left: -6px;
-          bottom: -10px;
+          bottom: -6px;
           height: 6px;
           width: 6px;
           border-radius: 6px;
@@ -55,7 +57,7 @@ const ResizableHandleContainer = styled.span<ResizableHandleProps>`
       case ResizableHandleType.BottomRight:
         return css`
           right: -6px;
-          bottom: -10px;
+          bottom: -6px;
           height: 6px;
           width: 6px;
           border-radius: 6px;
@@ -131,6 +133,7 @@ export const ResizableHandle: FC<ResizableHandleProps> = (props) => {
     <ResizableHandleContainer
       className='resizeable-handle'
       visible={props.visible}
+      selected={props.selected}
       handleType={props.handleType}
       onMouseDown={handleResizing}
     />

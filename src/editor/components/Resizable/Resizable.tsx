@@ -22,10 +22,11 @@ const ResizableContainer = styled.div`
 `
 
 interface ResizableProps extends BaseComponentProps, NodeViewComponentProps {
+  selected: boolean
   aspectRatio?: ResizableRatioType
   defaultSize?: { width: number; height: number }
   controlInit?: (init: () => void) => void
-  onResize?: (e: React.MouseEvent<Element, MouseEvent>, handleType: ResizableHandleType) => void
+  onResize?: (e: React.MouseEvent<Element, MouseEvent>) => void
 }
 
 const MIN_WIDTH = 20
@@ -37,6 +38,7 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
     updateAttributes,
     selected,
     controlInit,
+    onResize,
   } = props
 
   const [size, setSize] = useState<{ width?: number; height?: number }>({})
@@ -46,6 +48,9 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
   const containerRef = useRef<HTMLDivElement>(null)
   const startWidthRef = useRef(0)
   const startHeightRef = useRef(0)
+  const currentWidthRef = useRef(0)
+  const currentHeightRef = useRef(0)
+  const isResizingRef = useRef(false)
 
   const startResizing = useCallback(
     (e: React.MouseEvent<Element, MouseEvent>, handleType: ResizableHandleType) => {
@@ -56,7 +61,14 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
       const startWidth = startWidthRef.current || 0
       const startHeight = startHeightRef.current || 0
 
+      // Initialize current dimensions and start resizing
+      currentWidthRef.current = startWidth
+      currentHeightRef.current = startHeight
+      isResizingRef.current = true
+
       const onMouseMove = throttle(100, false, (event: any) => {
+        // Only process if still resizing
+        if (!isResizingRef.current) return
         const currentX = event.pageX
         const currentY = event.pageY
         const diffX = currentX - startX
@@ -123,42 +135,53 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
           }
         }
 
-        if (newWidth && containerRef.current) {
-          setSize((prev) => ({ ...prev, width: Math.round(newWidth!) }))
+        if (newWidth && containerRef.current && isResizingRef.current) {
+          currentWidthRef.current = Math.round(newWidth!)
+          setSize((prev) => ({ ...prev, width: currentWidthRef.current }))
         }
 
-        if (newHeight) {
-          setSize((prev) => ({ ...prev, height: Math.round(newHeight!) }))
+        if (newHeight && isResizingRef.current) {
+          currentHeightRef.current = Math.round(newHeight!)
+          setSize((prev) => ({ ...prev, height: currentHeightRef.current }))
         }
       })
 
       const onMouseUp = (event: any) => {
         event.preventDefault()
+        event.stopPropagation()
+
+        // Stop resizing immediately to prevent further mousemove updates
+        isResizingRef.current = false
 
         document.removeEventListener('mousemove', onMouseMove)
         document.removeEventListener('mouseup', onMouseUp)
 
-        if (containerRef.current) {
-          const { width, height } = containerRef.current.getBoundingClientRect()
-          startWidthRef.current = width
-          startHeightRef.current = height
-          setSize({ width, height })
+        // Use the ref values which are always up to date
+        const finalWidth = currentWidthRef.current
+        const finalHeight = currentHeightRef.current
 
-          updateAttributes({
-            ...node.attrs,
-            width: startWidthRef.current,
-            height: startHeightRef.current,
-          })
-        }
+        startWidthRef.current = finalWidth
+        startHeightRef.current = finalHeight
+        setSize({ width: finalWidth, height: finalHeight })
+
+        updateAttributes({
+          ...node.attrs,
+          width: finalWidth,
+          height: finalHeight,
+        })
+        onResize?.(event)
       }
 
       document.addEventListener('mousemove', onMouseMove)
       document.addEventListener('mouseup', onMouseUp)
 
-      destoryList.current.push(() => document.removeEventListener('mousemove', onMouseMove))
+      destoryList.current.push(() => {
+        isResizingRef.current = false
+        document.removeEventListener('mousemove', onMouseMove)
+      })
       destoryList.current.push(() => document.removeEventListener('mouseup', onMouseUp))
     },
-    [aspectRatio, node.attrs, updateAttributes],
+    [aspectRatio, node.attrs, updateAttributes, onResize],
   )
 
   const handleResizing = useCallback(
@@ -167,13 +190,14 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
     },
     [startResizing],
   )
-
   useEffect(() => {
     const init = () => {
       if (containerRef.current) {
         const { width, height } = containerRef.current.getBoundingClientRect()
         startWidthRef.current = width
         startHeightRef.current = height
+        currentWidthRef.current = width
+        currentHeightRef.current = height
         setHasChanged(true)
         setSize({ width, height })
       }
@@ -210,21 +234,25 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
     >
       <ResizableHandle
         visible={handleVisible}
+        selected={selected}
         onResizing={handleResizing}
         handleType={ResizableHandleType.TopLeft}
       />
       <ResizableHandle
         visible={handleVisible}
+        selected={selected}
         onResizing={handleResizing}
         handleType={ResizableHandleType.TopRight}
       />
       <ResizableHandle
         visible={handleVisible}
+        selected={selected}
         onResizing={handleResizing}
         handleType={ResizableHandleType.BottomLeft}
       />
       <ResizableHandle
         visible={handleVisible}
+        selected={selected}
         onResizing={handleResizing}
         handleType={ResizableHandleType.BottomRight}
       />

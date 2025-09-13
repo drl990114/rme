@@ -2,7 +2,7 @@
 import { getMdImageInputRule } from '@/editor/inline-input-regex'
 import type { NodeSerializerOptions } from '@/editor/transform'
 import { ParserRuleType } from '@/editor/transform'
-import { buildMarkdownTextFromNode } from '@/editor/utils/html'
+import { buildHtmlStringFromAst, buildMarkdownTextFromNode } from '@/editor/utils/html'
 import type {
   ApplySchemaAttributes,
   CommandFunction,
@@ -144,6 +144,7 @@ export class MdImgUriExtension extends NodeExtension<ImageOptions> {
       ...override,
       attrs: {
         ...extra.defaults(),
+        'data-rme-type': { default: 'md' },
         alt: { default: '' },
         crop: { default: null },
         height: { default: null },
@@ -209,7 +210,17 @@ export class MdImgUriExtension extends NodeExtension<ImageOptions> {
   }
 
   public toMarkdown({ state, node }: NodeSerializerOptions) {
-    state.text(buildMarkdownTextFromNode(node), false)
+    if (node.attrs['data-rme-type'] === 'html') {
+      state.text(
+        buildHtmlStringFromAst({
+          tag: 'img',
+          attrs: node.attrs,
+          voidElement: true,
+        }),
+      )
+    } else {
+      state.text(buildMarkdownTextFromNode(node), false)
+    }
   }
 }
 

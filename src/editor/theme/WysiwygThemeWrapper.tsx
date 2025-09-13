@@ -930,10 +930,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   & .md-image-node-view-wrapper {
     display: inline-block;
 
-    &:hover {
-      outline: 2px solid #58a6ff;
-      transition: all 300ms ease-in 0s;
-    }
   }
 
   & .ai-block-node-view-wrapper {

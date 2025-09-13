@@ -1,12 +1,14 @@
 import { Resizable } from '@/editor/components/Resizable'
 import type { NodeViewComponentProps } from '@remirror/react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PopoverStore } from 'zens'
 import { Popover, Image as ZensImage } from 'zens'
 import type { ExtensionsOptions } from '..'
 import { ImageToolTips } from './image-tool-tips'
 
 export interface ImageNodeViewProps extends NodeViewComponentProps {
+  resizeable?: boolean
+  defaultSyntaxType?: 'html' | 'md'
   handleViewImgSrcUrl?: ExtensionsOptions['handleViewImgSrcUrl']
   imageHostingHandler?: (src: string) => Promise<string>
 }
@@ -65,38 +67,41 @@ export function ImageNodeView(props: ImageNodeViewProps) {
     }
   }, [isPopoverOpen])
 
-  const Main = useMemo(
-    () => (
-      <Resizable controlInit={(init) => (initRef.current = init)} {...props}>
-        <ZensImage
-          onLoad={() => initRef.current?.()}
-          src={node.attrs.src}
-          imgPromise={(src) => {
-            return new Promise((resolve, reject) => {
-              const makeImageLoad = (targetSrc: string) => {
-                const img = new Image()
-                img.src = targetSrc
-                img.onload = () => {
-                  resolve(targetSrc)
-                }
-                img.onerror = () => {
-                  reject(warningFallBack)
-                }
+  const handleResize = useCallback(() => {
+    updateAttributes({
+      ['data-rme-type']: 'html',
+    })
+  }, [updateAttributes])
+
+  const Main = (
+    <Resizable controlInit={(init) => (initRef.current = init)} onResize={handleResize} {...props}>
+      <ZensImage
+        onLoad={() => initRef.current?.()}
+        src={node.attrs.src}
+        imgPromise={(src) => {
+          return new Promise((resolve, reject) => {
+            const makeImageLoad = (targetSrc: string) => {
+              const img = new Image()
+              img.src = targetSrc
+              img.onload = () => {
+                resolve(targetSrc)
               }
-              if (handleViewImgSrcUrl) {
-                handleViewImgSrcUrl(node.attrs.src).then((newSrc) => {
-                  makeImageLoad(newSrc)
-                })
-              } else {
-                makeImageLoad(node.attrs.src)
+              img.onerror = () => {
+                reject(warningFallBack)
               }
-            })
-          }}
-          {...node.attrs}
-        />
-      </Resizable>
-    ),
-    [],
+            }
+            if (handleViewImgSrcUrl) {
+              handleViewImgSrcUrl(node.attrs.src).then((newSrc) => {
+                makeImageLoad(newSrc)
+              })
+            } else {
+              makeImageLoad(node.attrs.src)
+            }
+          })
+        }}
+        {...node.attrs}
+      />
+    </Resizable>
   )
 
   return (
