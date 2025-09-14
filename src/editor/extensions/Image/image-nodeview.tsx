@@ -1,6 +1,6 @@
 import { Resizable } from '@/editor/components/Resizable'
 import type { NodeViewComponentProps } from '@remirror/react'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import type { PopoverStore } from 'zens'
 import { Popover, Image as ZensImage } from 'zens'
 import type { ExtensionsOptions } from '..'
@@ -20,29 +20,26 @@ export function ImageNodeView(props: ImageNodeViewProps) {
   const { node, selected, updateAttributes, handleViewImgSrcUrl, imageHostingHandler } = props
   const initRef = useRef<() => void>()
   const popoverStore = useRef<PopoverStore>()
-  const prevSrcRef = useRef(node.attrs.src)
   const popoverRef = useRef<HTMLDivElement>(null)
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
 
-  useEffect(() => {
-    const currentSrc = node.attrs.src
-    if (currentSrc && currentSrc !== prevSrcRef.current && imageHostingHandler) {
-      imageHostingHandler(currentSrc).then((newSrc) => {
-        if (newSrc !== currentSrc) {
-          updateAttributes({ src: newSrc })
-        }
-      })
-    }
-    prevSrcRef.current = currentSrc
-  }, [node.attrs.src, imageHostingHandler, updateAttributes])
+  // useEffect(() => {
+  //   const toggle = () => {
+  //     popoverStore.current?.toggle()
+  //   }
+
+  //   if (selected) {
+  //     setTimeout(() => {
+  //       popoverRef.current?.addEventListener('click', toggle)
+  //     })
+  //   }
+
+  //   return () => {
+  //     popoverRef.current?.removeEventListener('click', toggle)
+  //   }
+  // }, [selected])
 
   const handleStoreChange = (store: PopoverStore) => {
     popoverStore.current = store
-    if (store) {
-      setTimeout(() => {
-        setIsPopoverOpen(true)
-      }, 10)
-    }
   }
 
   useEffect(() => {
@@ -55,17 +52,16 @@ export function ImageNodeView(props: ImageNodeViewProps) {
           !popoverRef.current.contains(event.target))
       ) {
         popoverStore.current.setOpen(false)
-        setIsPopoverOpen(false)
       }
     }
 
-    if (isPopoverOpen) {
+    if (selected) {
       document.addEventListener('mousedown', handleOutsideClick)
       return () => {
         document.removeEventListener('mousedown', handleOutsideClick)
       }
     }
-  }, [isPopoverOpen])
+  }, [selected])
 
   const handleResize = useCallback(() => {
     updateAttributes({
@@ -74,12 +70,21 @@ export function ImageNodeView(props: ImageNodeViewProps) {
   }, [updateAttributes])
 
   const Main = (
-    <Resizable controlInit={(init) => (initRef.current = init)} onResize={handleResize} {...props}>
+    <Resizable
+      key={`${node.attrs.src}`}
+      controlInit={(init) => (initRef.current = init)}
+      onResize={handleResize}
+      {...props}
+    >
       <ZensImage
         onLoad={() => initRef.current?.()}
         src={node.attrs.src}
         imgPromise={(src) => {
           return new Promise((resolve, reject) => {
+            if (node.attrs['data-rme-loading'] === 'true') {
+              return
+            }
+
             const makeImageLoad = (targetSrc: string) => {
               const img = new Image()
               img.src = targetSrc
@@ -90,6 +95,7 @@ export function ImageNodeView(props: ImageNodeViewProps) {
                 reject(warningFallBack)
               }
             }
+
             if (handleViewImgSrcUrl) {
               handleViewImgSrcUrl(node.attrs.src).then((newSrc) => {
                 makeImageLoad(newSrc)
@@ -109,7 +115,9 @@ export function ImageNodeView(props: ImageNodeViewProps) {
       <Popover
         customContent={
           <ImageToolTips
+            key={`${node.attrs.src}`}
             node={node}
+            imageHostingHandler={imageHostingHandler}
             updateAttributes={(...args) => {
               updateAttributes(...args)
               popoverStore.current?.setOpen(false)
@@ -119,9 +127,6 @@ export function ImageNodeView(props: ImageNodeViewProps) {
         placement="top-start"
         onStoreChange={handleStoreChange}
         toggleOnClick
-        onClose={() => {
-          setIsPopoverOpen(false)
-        }}
       >
         {Main}
       </Popover>

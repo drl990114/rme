@@ -50,13 +50,15 @@ export type ExtensionsOptions = {
 
   imageHostingHandler?: (src: string) => Promise<string>
 
+  imageCopyHandler?: (src: string) => Promise<string>
+
   ai?: AIOptions
 
   customCopyFunction?: CustomCopyFunction
 }
 
 function extensions(options: ExtensionsOptions): any[] {
-  const { handleViewImgSrcUrl, imageHostingHandler } = options
+  const { handleViewImgSrcUrl, imageHostingHandler, imageCopyHandler } = options
 
   const res: any[] = [
     ...corePreset({ excludeExtensions: ['paragraph', 'text'] }),
@@ -111,7 +113,9 @@ function extensions(options: ExtensionsOptions): any[] {
     new HtmlInlineNodeExtension({
       handleViewImgSrcUrl,
     }),
-    new ClipboardExtension(),
+    new ClipboardExtension({
+      imageCopyHandler,
+    }),
 
     new ReactComponentExtension({}),
     new DropCursorExtension({}),

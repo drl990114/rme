@@ -929,7 +929,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   & .html-image-node-view-wrapper,
   & .md-image-node-view-wrapper {
     display: inline-block;
-
+    z-index: 1;
   }
 
   & .ai-block-node-view-wrapper {

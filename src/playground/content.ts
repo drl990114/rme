@@ -20,7 +20,7 @@ const defaultContent = [
 
 这是一个[链接](https://www.google.com)，这是一个自动链接：https://www.github.com
 
-这是html 图片：<img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" /> ， 这是 Markdown 图片：![图片](https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg)
+这是html 图片：<img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" /> ， 这是 Markdown 图片：![图片](https://remixicon.com/img/logo/dark/text.svg)
 
 ## 列表
 

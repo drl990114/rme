@@ -1,6 +1,6 @@
-import type { CreateExtensionPlugin } from '@remirror/core'
-import { PlainExtension } from '@remirror/core'
-import { DOMParser, Node, Slice } from '@remirror/pm/model'
+import type { CreateExtensionPlugin, EditorView } from '@remirror/core'
+import { extension, PlainExtension } from '@remirror/core'
+import { DOMParser, Fragment, Node, Slice } from '@remirror/pm/model'
 import { getTransformerByView } from '../Transformer/utils'
 
 type UnknownRecord = Record<string, unknown>
@@ -31,7 +31,17 @@ function isTextOnlySlice(slice: Slice): Node | false {
   return false
 }
 
-export class ClipboardExtension extends PlainExtension {
+type ClipboardExtensionOptions = {
+  imageCopyHandler?: (src: string) => Promise<string>
+}
+
+@extension<ClipboardExtensionOptions>({
+  defaultOptions: {},
+  staticKeys: [],
+  handlerKeys: [],
+  customHandlerKeys: [],
+})
+export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions> {
   get name() {
     return 'clipboard' as const
   }
@@ -58,7 +68,6 @@ export class ClipboardExtension extends PlainExtension {
 
           const domParser = DOMParser.fromSchema(schema)
           let dom
-
           if (html.length === 0) {
             const slice = parser?.(text)
 
@@ -75,7 +84,16 @@ export class ClipboardExtension extends PlainExtension {
               }
             })
 
-            view.dispatch(view.state.tr.replaceSelectionWith(res, false))
+            // Process images asynchronously
+            this.processImagesInNodesAsync(res, view)
+
+            // For multiple nodes, we need to replace with a fragment
+            if (res.length === 1) {
+              view.dispatch(view.state.tr.replaceSelectionWith(res[0], false))
+            } else {
+              const fragment = Fragment.from(res)
+              view.dispatch(view.state.tr.replaceSelection(new Slice(fragment, 0, 0)))
+            }
 
             return true
           } else {
@@ -88,9 +106,23 @@ export class ClipboardExtension extends PlainExtension {
           const slice = domParser.parseSlice(dom)
           const node = isTextOnlySlice(slice)
           if (node) {
+            // Even for text-only nodes, check if it's an image node
+            if (
+              (node.type.name === 'html_image' || node.type.name === 'md_image') &&
+              node.attrs.src
+            ) {
+              this.processImageNode(node, view)
+            } else {
+              // Also check for markdown image syntax in text content
+              this.processMarkdownImageSyntax([node], view)
+            }
+
             view.dispatch(view.state.tr.replaceSelectionWith(node, true))
             return true
           }
+
+          // Process images asynchronously
+          this.processImagesInSliceAsync(slice, view)
 
           view.dispatch(view.state.tr.replaceSelection(slice))
           return true
@@ -109,6 +141,191 @@ export class ClipboardExtension extends PlainExtension {
           return value
         },
       },
+    }
+  }
+
+  /**
+   * Process markdown image syntax in text nodes and update their src attributes using imageCopyHandler
+   */
+  private processMarkdownImageSyntax(nodes: Node[], view: EditorView): void {
+    const { imageCopyHandler } = this.options
+    if (!imageCopyHandler) return
+
+    // Regex to match markdown image syntax: ![alt](src "title")
+    const imageRegex = /!\[([^\]]*)\]\(([^\s]+)(?:\s+"([^"]*)")??\)/g
+    const foundUrls = new Set<string>()
+
+    const processTextNode = (node: Node) => {
+      if (node.isText && node.text) {
+        let match: RegExpExecArray | null
+        imageRegex.lastIndex = 0 // Reset regex state
+
+        while ((match = imageRegex.exec(node.text)) !== null) {
+          const [, , src] = match
+          if (src) {
+            foundUrls.add(src)
+          }
+        }
+      }
+
+      // Process child nodes recursively
+      if (node.content && node.content.size > 0) {
+        node.content.forEach((child) => {
+          processTextNode(child)
+        })
+      }
+    }
+
+    nodes.forEach(processTextNode)
+
+    // If we found image URLs, set up a document change listener to catch converted nodes
+    if (foundUrls.size > 0) {
+      this.setupImageConversionMonitor(view, foundUrls)
+    }
+  }
+
+  /**
+   * Monitor document changes for converted image nodes
+   */
+  private setupImageConversionMonitor(view: EditorView, urlsToMonitor: Set<string>): void {
+    const { imageCopyHandler } = this.options
+    if (!imageCopyHandler) return
+
+    // Create a one-time document change listener
+    const checkForConvertedImages = () => {
+      const { doc } = view.state
+      const processedUrls = new Set<string>()
+
+      doc.descendants((node: Node) => {
+        if ((node.type.name === 'html_image' || node.type.name === 'md_image') && node.attrs.src) {
+          const src = node.attrs.src
+          if (urlsToMonitor.has(src) && !processedUrls.has(src)) {
+            processedUrls.add(src)
+            this.processImageNode(node, view)
+          }
+        }
+        return true
+      })
+    }
+
+    // Check immediately
+    setTimeout(checkForConvertedImages, 0)
+
+    // Also check after a short delay to catch any async conversions
+    setTimeout(checkForConvertedImages, 100)
+  }
+
+  /**
+   * Process a single image node asynchronously and update its src attribute using imageCopyHandler
+   */
+  private processImageNode(node: Node, view: EditorView): void {
+    const { imageCopyHandler } = this.options
+    if (!imageCopyHandler || !node.attrs.src) return
+
+    // @ts-ignore
+    node.attrs['data-rme-loading'] = 'true'
+
+    // Call the imageCopyHandler to get the new src
+    imageCopyHandler(node.attrs.src)
+      .then((newSrc) => {
+        if (newSrc && newSrc !== node.attrs.src) {
+          // Find and update the image node in the document
+          this.updateImageNodeSrc(view, node.attrs.src, newSrc)
+        }
+      })
+      .catch((error) => {
+        console.warn('imageCopyHandler failed:', error)
+      })
+  }
+
+  /**
+   * Process images in a slice asynchronously and update their src attributes using imageCopyHandler
+   */
+  private processImagesInSliceAsync(slice: Slice, view: any): void {
+    const { imageCopyHandler } = this.options
+    if (!imageCopyHandler) return
+
+    // Find all image nodes in the slice
+    const imageNodes: { node: Node; pos: number }[] = []
+    let currentPos = 0
+
+    const findImageNodes = (node: Node, pos: number) => {
+      if ((node.type.name === 'html_image' || node.type.name === 'md_image') && node.attrs.src) {
+        imageNodes.push({ node, pos })
+      }
+
+      if (node.content && node.content.size > 0) {
+        node.content.forEach((child, offset) => {
+          findImageNodes(child, pos + offset + 1)
+        })
+      }
+    }
+
+    slice.content.forEach((node, offset) => {
+      findImageNodes(node, currentPos + offset)
+    })
+
+    // Process each image node
+    imageNodes.forEach(({ node, pos }) => {
+      if (node.attrs.src) {
+        this.processImageNode(node, view)
+      }
+    })
+  }
+
+  /**
+   * Process images in an array of nodes asynchronously and update their src attributes using imageCopyHandler
+   */
+  private processImagesInNodesAsync(nodes: Node[], view: any): void {
+    const { imageCopyHandler } = this.options
+    if (!imageCopyHandler) return
+
+    const processNode = (node: Node) => {
+      // Check if node is an image node (both image and md_image)
+      if ((node.type.name === 'html_image' || node.type.name === 'md_image') && node.attrs.src) {
+        this.processImageNode(node, view)
+      }
+
+      // Process child nodes recursively
+      if (node.content && node.content.size > 0) {
+        node.content.forEach((child) => {
+          processNode(child)
+        })
+      }
+    }
+
+    nodes.forEach(processNode)
+  }
+
+  /**
+   * Update image node src attribute in the document
+   */
+  private updateImageNodeSrc(view: EditorView, oldSrc: string, newSrc: string): void {
+    const { state, dispatch } = view
+    const { doc } = state
+    let tr = state.tr
+    let updated = false
+
+    // Find all image nodes with the old src and update them
+    doc.descendants((node: Node, pos: number) => {
+      if (
+        (node.type.name === 'html_image' || node.type.name === 'md_image') &&
+        node.attrs.src === oldSrc
+      ) {
+        const newAttrs = {
+          ...node.attrs,
+          src: newSrc,
+          'data-rme-loading': null,
+        }
+        tr = tr.setNodeMarkup(pos, undefined, newAttrs)
+        updated = true
+      }
+      return true
+    })
+
+    if (updated) {
+      tr = tr.setMeta('addToHistory', false)
+      dispatch(tr)
     }
   }
 }

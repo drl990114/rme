@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
+import type { NodeSerializerOptions } from '@/editor/transform'
+import { ParserRuleType } from '@/editor/transform'
+import { buildHtmlStringFromAst, getAttrsBySignalHtmlContent } from '@/editor/utils/html'
 import type {
   ApplySchemaAttributes,
   CommandFunction,
@@ -26,13 +29,10 @@ import {
 import type { PasteRule } from '@remirror/pm/paste-rules'
 import { insertPoint } from '@remirror/pm/transform'
 import { ExtensionImageTheme } from '@remirror/theme'
-import type { NodeSerializerOptions } from '@/editor/transform'
-import { ParserRuleType } from '@/editor/transform'
-import { buildHtmlStringFromAst, getAttrsBySignalHtmlContent } from '@/editor/utils/html'
 import type { ComponentType } from 'react'
+import type { ExtensionsOptions } from '..'
 import type { ImageNodeViewProps } from './image-nodeview'
 import { ImageNodeView } from './image-nodeview'
-import type { ExtensionsOptions } from '..'
 
 type DelayedImage = DelayedPromiseCreator<ImageAttributes>
 
@@ -60,7 +60,7 @@ export interface ImageOptions {
   /**
    * The image hosting service upload handler.
    * It receives the image src and returns a promise for the new src after uploading to image hosting service.
-   * 
+   *
    * @param src - the original image src
    * @returns Promise<string> - the new image src after uploading
    */
@@ -148,6 +148,7 @@ export class HtmlImageExtension extends NodeExtension<ImageOptions> {
         src: { default: null },
         title: { default: '' },
         "data-file-name": { default: null },
+        'data-rme-loading': { default: null }
       },
       parseDOM: [
         {

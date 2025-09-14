@@ -41,6 +41,7 @@
     "searchPlaceholder": "Search menu items...",
     "noResults": "No results",
     "toNavigate": "to navigate",
-    "toSelect": "to select"
+    "toSelect": "to select",
+    "toCancel": "to cancel"
   }
 }

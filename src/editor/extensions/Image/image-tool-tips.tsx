@@ -4,10 +4,12 @@ import { useState, type FC } from 'react'
 import styled from 'styled-components'
 import { Button, Input } from 'zens'
 import { Shortcut } from '../../toolbar/SlashMenu/SlashMenuRoot'
+import { ImageNodeViewProps } from './image-nodeview'
 
 interface ImageToolTipsProps {
   node: NodeViewComponentProps['node']
   updateAttributes?: NodeViewComponentProps['updateAttributes']
+  imageHostingHandler?: ImageNodeViewProps['imageHostingHandler']
 }
 
 const Container = styled.div`
@@ -26,6 +28,12 @@ const Container = styled.div`
 const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
+  gap: ${(props) => props.theme.spaceXs};
+`
+
+const FooterBar = styled.div`
+  display: flex;
+  justify-content: flex-end;
   gap: ${(props) => props.theme.spaceXs};
 `
 
@@ -94,7 +102,7 @@ const ActionButton = styled(Button)`
 `
 
 export const ImageToolTips: FC<ImageToolTipsProps> = (props) => {
-  const { node } = props
+  const { node, imageHostingHandler } = props
   const { src, alt } = node.attrs
   const [srcVal, setSrcVal] = useState(src || '')
   const [altVal, setAltVal] = useState(alt || '')
@@ -114,11 +122,24 @@ export const ImageToolTips: FC<ImageToolTipsProps> = (props) => {
 
   const handleUpdate = () => {
     if (props.updateAttributes) {
-      props.updateAttributes({
-        ...node.attrs,
-        src: srcVal.trim(),
-        alt: altVal.trim(),
-      })
+      const currentSrc = node.attrs.src
+      if (currentSrc && currentSrc !== srcVal && imageHostingHandler) {
+        imageHostingHandler(currentSrc).then((newSrc) => {
+          if (newSrc !== currentSrc) {
+            props.updateAttributes?.({
+              ...node.attrs,
+              src: newSrc,
+              alt: altVal.trim(),
+            })
+          }
+        })
+      } else {
+        props.updateAttributes({
+          ...node.attrs,
+          src: srcVal.trim(),
+          alt: altVal.trim(),
+        })
+      }
       setHasChanges(false)
     }
   }
@@ -160,25 +181,30 @@ export const ImageToolTips: FC<ImageToolTipsProps> = (props) => {
           onKeyDown={handleKeyPress}
         />
       </InputGroup>
-      <Shortcut>
-        <kbd aria-label="Enter">
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="9 10 4 15 9 20"></polyline>
-          <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
-        </svg>
-      </kbd>
-      {t('slashMenu.toSelect')}
-      </Shortcut>
-
+      <FooterBar>
+        <Shortcut>
+          <kbd aria-label="Esc">Esc</kbd>
+          {t('slashMenu.toCancel')}
+        </Shortcut>
+        <Shortcut>
+          <kbd aria-label="Enter">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 10 4 15 9 20"></polyline>
+              <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
+            </svg>
+          </kbd>
+          {t('slashMenu.toSelect')}
+        </Shortcut>
+      </FooterBar>
     </Container>
   )
 }
