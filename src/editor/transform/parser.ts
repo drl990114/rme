@@ -263,6 +263,16 @@ export class MarkdownParser {
       .use(MarkdownItMath)
       .use(MarkdownItImage)
 
+    // Custom validateLink function to allow data:application/octet-stream URIs
+    this.tokenizer.validateLink = (url: string) => {
+      // Allow all data: URIs (including application/octet-stream)
+      if (url.startsWith('data:')) {
+        return true
+      }
+      // Use default validation for other URLs
+      return MarkdownIt().validateLink(url)
+    }
+
     this.tokenHandlers = buildTokenHandlers(schema, parserRules)
   }
 
