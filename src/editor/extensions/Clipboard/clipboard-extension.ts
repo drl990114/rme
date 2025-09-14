@@ -112,16 +112,16 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
               node.attrs.src
             ) {
               this.processImageNode(node, view)
+              view.dispatch(view.state.tr.replaceSelectionWith(node, true))
             } else {
-              // Also check for markdown image syntax in text content
-              this.processMarkdownImageSyntax([node], view)
+              this.processMarkdownImageSyntax(node, view).then(() => {
+                view.dispatch(view.state.tr.replaceSelectionWith(node, true))
+              })
             }
 
-            view.dispatch(view.state.tr.replaceSelectionWith(node, true))
             return true
           }
 
-          // Process images asynchronously
           this.processImagesInSliceAsync(slice, view)
 
           view.dispatch(view.state.tr.replaceSelection(slice))
@@ -147,72 +147,40 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
   /**
    * Process markdown image syntax in text nodes and update their src attributes using imageCopyHandler
    */
-  private processMarkdownImageSyntax(nodes: Node[], view: EditorView): void {
+  private async processMarkdownImageSyntax(node: Node, view: EditorView) {
     const { imageCopyHandler } = this.options
     if (!imageCopyHandler) return
 
     // Regex to match markdown image syntax: ![alt](src "title")
     const imageRegex = /!\[([^\]]*)\]\(([^\s]+)(?:\s+"([^"]*)")??\)/g
-    const foundUrls = new Set<string>()
 
-    const processTextNode = (node: Node) => {
-      if (node.isText && node.text) {
+    const processTextNode = async (n: Node) => {
+      if (n.isText && n.text) {
         let match: RegExpExecArray | null
         imageRegex.lastIndex = 0 // Reset regex state
 
-        while ((match = imageRegex.exec(node.text)) !== null) {
+        while ((match = imageRegex.exec(n.text)) !== null) {
           const [, , src] = match
           if (src) {
-            foundUrls.add(src)
+            const newSrc = await imageCopyHandler(src)
+            if (newSrc && newSrc !== src) {
+
+              // @ts-ignore
+              n.text = n.text!.replace(src, newSrc)
+            }
           }
         }
       }
 
       // Process child nodes recursively
-      if (node.content && node.content.size > 0) {
-        node.content.forEach((child) => {
+      if (n.content && n.content.size > 0) {
+        n.content.forEach((child) => {
           processTextNode(child)
         })
       }
     }
 
-    nodes.forEach(processTextNode)
-
-    // If we found image URLs, set up a document change listener to catch converted nodes
-    if (foundUrls.size > 0) {
-      this.setupImageConversionMonitor(view, foundUrls)
-    }
-  }
-
-  /**
-   * Monitor document changes for converted image nodes
-   */
-  private setupImageConversionMonitor(view: EditorView, urlsToMonitor: Set<string>): void {
-    const { imageCopyHandler } = this.options
-    if (!imageCopyHandler) return
-
-    // Create a one-time document change listener
-    const checkForConvertedImages = () => {
-      const { doc } = view.state
-      const processedUrls = new Set<string>()
-
-      doc.descendants((node: Node) => {
-        if ((node.type.name === 'html_image' || node.type.name === 'md_image') && node.attrs.src) {
-          const src = node.attrs.src
-          if (urlsToMonitor.has(src) && !processedUrls.has(src)) {
-            processedUrls.add(src)
-            this.processImageNode(node, view)
-          }
-        }
-        return true
-      })
-    }
-
-    // Check immediately
-    setTimeout(checkForConvertedImages, 0)
-
-    // Also check after a short delay to catch any async conversions
-    setTimeout(checkForConvertedImages, 100)
+    await processTextNode(node)
   }
 
   /**
@@ -230,7 +198,7 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
       .then((newSrc) => {
         if (newSrc && newSrc !== node.attrs.src) {
           // Find and update the image node in the document
-          this.updateImageNodeSrc(view, node.attrs.src, newSrc)
+          this.updateImageNodeSrc(view, node, newSrc)
         }
       })
       .catch((error) => {
@@ -300,32 +268,13 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
   /**
    * Update image node src attribute in the document
    */
-  private updateImageNodeSrc(view: EditorView, oldSrc: string, newSrc: string): void {
+  private updateImageNodeSrc(view: EditorView, node: Node, newSrc: string): void {
     const { state, dispatch } = view
-    const { doc } = state
     let tr = state.tr
-    let updated = false
-
-    // Find all image nodes with the old src and update them
-    doc.descendants((node: Node, pos: number) => {
-      if (
-        (node.type.name === 'html_image' || node.type.name === 'md_image') &&
-        node.attrs.src === oldSrc
-      ) {
-        const newAttrs = {
-          ...node.attrs,
-          src: newSrc,
-          'data-rme-loading': null,
-        }
-        tr = tr.setNodeMarkup(pos, undefined, newAttrs)
-        updated = true
-      }
-      return true
-    })
-
-    if (updated) {
-      tr = tr.setMeta('addToHistory', false)
-      dispatch(tr)
-    }
+    // @ts-ignore
+    node.attrs.src = newSrc
+    // @ts-ignore
+    node.attrs['data-rme-loading'] = null
+    dispatch(tr)
   }
 }

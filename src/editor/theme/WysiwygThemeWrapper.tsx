@@ -828,7 +828,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
     font-size: small;
     border-radius: ${(props) => props.theme.smallBorderRadius};
     cursor: pointer;
-    z-index: 1000;
+    z-index: 10;
     color: ${(props) => props.theme.labelFontColor};
     background: ${(props) => props.theme.hoverColor};
   }

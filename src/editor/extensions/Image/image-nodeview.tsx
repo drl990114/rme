@@ -111,7 +111,7 @@ export function ImageNodeView(props: ImageNodeViewProps) {
   )
 
   return (
-    <div ref={popoverRef}>
+    <div ref={popoverRef} style={{ position: 'relative', zIndex: selected ? 10 : 'auto' }}>
       <Popover
         customContent={
           <ImageToolTips
@@ -127,6 +127,7 @@ export function ImageNodeView(props: ImageNodeViewProps) {
         placement="top-start"
         onStoreChange={handleStoreChange}
         toggleOnClick
+        style={{ zIndex: 11 }}
       >
         {Main}
       </Popover>
