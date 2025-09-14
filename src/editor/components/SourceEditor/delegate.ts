@@ -1,12 +1,12 @@
-import { createReactManager } from '@remirror/react'
-import type { StringToDoc, DocToString, EditorDelegate } from '../../types'
-import { DocExtension } from 'remirror/extensions'
-import type { RemirrorManager } from 'remirror'
-import { LineCodeMirrorExtension } from '../../extensions/CodeMirror/codemirror-extension'
 import { markdown } from '@codemirror/lang-markdown'
-import { basicSetup } from '../../extensions/CodeMirror/setup'
 import { CountExtension } from '@remirror/extension-count'
+import { createReactManager } from '@remirror/react'
+import type { RemirrorManager } from 'remirror'
+import { DocExtension } from 'remirror/extensions'
 import { MfCodemirrorView } from '../../codemirror/codemirror'
+import { LineCodeMirrorExtension } from '../../extensions/CodeMirror/codemirror-extension'
+import { basicSetup } from '../../extensions/CodeMirror/setup'
+import type { DocToString, EditorDelegate, StringToDoc } from '../../types'
 
 type CreateSourceCodeManagerOptions = {
   language?: string
@@ -20,6 +20,7 @@ export function createSourceCodeManager(
     new DocExtension({ content: 'codeMirror' }),
     new LineCodeMirrorExtension({
       hideDecoration: true,
+      showCopyButton: false,
       extensions: [basicSetup, markdown()],
       onCodemirrorViewLoad: options?.onCodemirrorViewLoad,
     }),
