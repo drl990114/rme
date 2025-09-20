@@ -2,7 +2,7 @@ import { NodeType } from '@remirror/pm'
 
 export const getMdImageInputRule = <T extends NodeType | string>(nodeType: T) => [
   {
-    regexp: /!\[([^\]]*)\]\((\S+)?(?:\s+"(.*?)")?\)/,
+    regexp: /!\[([^\]]*)\]\(([^\s"]+(?:\s+[^\s"]+)*)?(?:\s+"(.*?)")?\)/,
     type: nodeType,
     getAttributes: (match: string[]) => {
       const [, alt, src, title] = match

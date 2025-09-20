@@ -1,3 +1,4 @@
+import { getMdImageInputRule } from '@/editor/inline-input-regex'
 import type { CreateExtensionPlugin, EditorView } from '@remirror/core'
 import { extension, PlainExtension } from '@remirror/core'
 import { DOMParser, Fragment, Node, Slice } from '@remirror/pm/model'
@@ -152,7 +153,7 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
     if (!imageCopyHandler) return
 
     // Regex to match markdown image syntax: ![alt](src "title")
-    const imageRegex = /!\[([^\]]*)\]\(([^\s]+)(?:\s+"([^"]*)")??\)/g
+    const imageRegex = new RegExp(getMdImageInputRule('md_image')[0]?.regexp, 'g')
 
     const processTextNode = async (n: Node) => {
       if (n.isText && n.text) {
@@ -164,7 +165,6 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
           if (src) {
             const newSrc = await imageCopyHandler(src)
             if (newSrc && newSrc !== src) {
-
               // @ts-ignore
               n.text = n.text!.replace(src, newSrc)
             }
@@ -199,6 +199,12 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
         if (newSrc && newSrc !== node.attrs.src) {
           // Find and update the image node in the document
           this.updateImageNodeSrc(view, node, newSrc)
+        } else {
+          const { state, dispatch } = view
+
+          // @ts-ignore
+          node.attrs['data-rme-loading'] = null
+          dispatch(state.tr)
         }
       })
       .catch((error) => {
