@@ -15638,7 +15638,7 @@ __metadata:
     void-elements: "npm:^3.1.0"
     webdriverio: "npm:^9.2.8"
     yjs: "npm:^13.6.24"
-    zens: "npm:^0.1.7"
+    zens: "npm:^0.1.9"
   peerDependencies:
     react: ">=16.14.0"
     react-dom: ">=16.14.0"
@@ -18246,9 +18246,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zens@npm:^0.1.7":
-  version: 0.1.7
-  resolution: "zens@npm:0.1.7"
+"zens@npm:^0.1.9":
+  version: 0.1.9
+  resolution: "zens@npm:0.1.9"
   dependencies:
     "@ant-design/icons": "npm:^5.5.1"
     "@ariakit/react": "npm:^0.4.18"
@@ -18267,7 +18267,7 @@ __metadata:
     sonner: "npm:^1.7.0"
     styled-components: "npm:^6.1.13"
     stylis: "npm:^4.3.4"
-  checksum: 10c0/b20a5977e2ba1da93435ece5b52165a3b63cbd865eec74c5d9ccf0a51c5d58d392458ce47ede594a145f3d52ffae4969ce1e46e40dbee0a5d7372686f55aa730
+  checksum: 10c0/3ffa79b7debbc6b94256150ace1d33ffafc1ffaa0166400d81a207aef7e05e6e3f0343d1d924199678f22dc3213166924f67160c0944bbdc75785a2a56e0730a
   languageName: node
   linkType: hard
 

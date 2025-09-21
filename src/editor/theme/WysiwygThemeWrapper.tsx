@@ -929,6 +929,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   & .html-image-node-view-wrapper,
   & .md-image-node-view-wrapper {
     display: inline-block;
+    padding: 0 2px;
     z-index: 1;
   }
 
