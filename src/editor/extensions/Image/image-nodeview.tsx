@@ -71,7 +71,7 @@ export function ImageNodeView(props: ImageNodeViewProps) {
 
   const Main = (
     <Resizable
-      key={`${node.attrs.src}`}
+      key={`${node.attrs.src}_${node.attrs['data-rme-loading']}`}
       controlInit={(init) => (initRef.current = init)}
       onResize={handleResize}
       {...props}

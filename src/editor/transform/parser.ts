@@ -273,6 +273,11 @@ export class MarkdownParser {
       return MarkdownIt().validateLink(url)
     }
 
+    this.tokenizer.normalizeLink = (url: string) => {
+      // Prevent normalization that could alter data:application/octet-stream URIs
+      return url
+    }
+
     this.tokenHandlers = buildTokenHandlers(schema, parserRules)
   }
 
