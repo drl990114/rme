@@ -186,6 +186,7 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
 
   const handleResizing = useCallback(
     (e: React.MouseEvent, handleType: ResizableHandleType) => {
+      setHasChanged(true)
       startResizing(e, handleType)
     },
     [startResizing],
@@ -198,7 +199,6 @@ export const Resizable: FC<ResizableProps> = memo((props) => {
         startHeightRef.current = height
         currentWidthRef.current = width
         currentHeightRef.current = height
-        setHasChanged(true)
         setSize({ width, height })
       }
     }
