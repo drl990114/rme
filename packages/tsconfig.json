@@ -1,0 +1,18 @@
+{
+  "extends": "../support/tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "node",
+      "jest",
+      "expect-playwright/global",
+      "jest-playwright-preset",
+      "jest-extended",
+      "snapshot-diff",
+      "playwright"
+    ],
+    "composite": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["./*/src"]
+}

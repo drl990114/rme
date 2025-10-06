@@ -1,0 +1,31 @@
+// Manually exports commands to get rid of `chainCommands`, which has name
+// collision with the `chainCommands` from remirror.
+export {
+  autoJoin,
+  baseKeymap, chainCommands, createParagraphNear,
+  deleteSelection,
+  exitCode,
+  joinBackward,
+  joinDown,
+  joinForward,
+  joinTextblockBackward,
+  joinTextblockForward,
+  joinUp,
+  lift,
+  liftEmptyBlock,
+  macBaseKeymap,
+  newlineInCode,
+  pcBaseKeymap, selectAll,
+  selectNodeBackward,
+  selectNodeForward,
+  selectParentNode,
+  selectTextblockEnd,
+  selectTextblockStart,
+  setBlockType,
+  splitBlock,
+  splitBlockAs,
+  splitBlockKeepMarks,
+  toggleMark,
+  wrapIn
+} from 'prosemirror-commands';
+

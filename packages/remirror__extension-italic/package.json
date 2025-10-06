@@ -1,0 +1,69 @@
+{
+  "name": "@remirror/extension-italic",
+  "version": "3.0.2",
+  "description": "Adds italic formatting to your text editor.",
+  "keywords": [
+    "remirror",
+    "extension"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__extension-italic",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__extension-italic"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-extension-italic.js",
+      "require": "./dist/remirror-extension-italic.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-extension-italic.cjs",
+  "module": "./dist/remirror-extension-italic.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core": "workspace:*",
+    "@remirror/messages": "workspace:*"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@remirror/pm": "workspace:*"
+  },
+  "peerDependencies": {
+    "@remirror/pm": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-extension-italic.d.ts",
+        "import": "./dist/remirror-extension-italic.js",
+        "require": "./dist/remirror-extension-italic.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/remirror-extension-italic.cjs",
+    "module": "./dist/remirror-extension-italic.js",
+    "type": "module",
+    "types": "./dist/remirror-extension-italic.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "10 KB"
+  }
+}

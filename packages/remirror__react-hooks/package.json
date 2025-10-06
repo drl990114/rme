@@ -1,0 +1,247 @@
+{
+  "name": "@remirror/react-hooks",
+  "version": "3.0.3",
+  "description": "A selection of core hooks built for working within the editor.",
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__react-hooks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__react-hooks"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-react-hooks.js",
+      "require": "./dist/remirror-react-hooks.cjs"
+    },
+    "./package.json": "./package.json",
+    "./use-context-menu": {
+      "types": "./dist-types/use-context-menu.d.ts",
+      "import": "./use-context-menu/dist/remirror-react-hooks-use-context-menu.js",
+      "require": "./use-context-menu/dist/remirror-react-hooks-use-context-menu.cjs"
+    },
+    "./use-editor-event": {
+      "types": "./dist-types/use-editor-event.d.ts",
+      "import": "./use-editor-event/dist/remirror-react-hooks-use-editor-event.js",
+      "require": "./use-editor-event/dist/remirror-react-hooks-use-editor-event.cjs"
+    },
+    "./use-editor-focus": {
+      "types": "./dist-types/use-editor-focus.d.ts",
+      "import": "./use-editor-focus/dist/remirror-react-hooks-use-editor-focus.js",
+      "require": "./use-editor-focus/dist/remirror-react-hooks-use-editor-focus.cjs"
+    },
+    "./use-emoji": {
+      "types": "./dist-types/use-emoji.d.ts",
+      "import": "./use-emoji/dist/remirror-react-hooks-use-emoji.js",
+      "require": "./use-emoji/dist/remirror-react-hooks-use-emoji.cjs"
+    },
+    "./use-history": {
+      "types": "./dist-types/use-history.d.ts",
+      "import": "./use-history/dist/remirror-react-hooks-use-history.js",
+      "require": "./use-history/dist/remirror-react-hooks-use-history.cjs"
+    },
+    "./use-hover": {
+      "types": "./dist-types/use-hover.d.ts",
+      "import": "./use-hover/dist/remirror-react-hooks-use-hover.js",
+      "require": "./use-hover/dist/remirror-react-hooks-use-hover.cjs"
+    },
+    "./use-keymap": {
+      "types": "./dist-types/use-keymap.d.ts",
+      "import": "./use-keymap/dist/remirror-react-hooks-use-keymap.js",
+      "require": "./use-keymap/dist/remirror-react-hooks-use-keymap.cjs"
+    },
+    "./use-keymaps": {
+      "types": "./dist-types/use-keymaps.d.ts",
+      "import": "./use-keymaps/dist/remirror-react-hooks-use-keymaps.js",
+      "require": "./use-keymaps/dist/remirror-react-hooks-use-keymaps.cjs"
+    },
+    "./use-menu-navigation": {
+      "types": "./dist-types/use-menu-navigation.d.ts",
+      "import": "./use-menu-navigation/dist/remirror-react-hooks-use-menu-navigation.js",
+      "require": "./use-menu-navigation/dist/remirror-react-hooks-use-menu-navigation.cjs"
+    },
+    "./use-multi-positioner": {
+      "types": "./dist-types/use-multi-positioner.d.ts",
+      "import": "./use-multi-positioner/dist/remirror-react-hooks-use-multi-positioner.js",
+      "require": "./use-multi-positioner/dist/remirror-react-hooks-use-multi-positioner.cjs"
+    },
+    "./use-positioner": {
+      "types": "./dist-types/use-positioner.d.ts",
+      "import": "./use-positioner/dist/remirror-react-hooks-use-positioner.js",
+      "require": "./use-positioner/dist/remirror-react-hooks-use-positioner.cjs"
+    },
+    "./use-suggest": {
+      "types": "./dist-types/use-suggest.d.ts",
+      "import": "./use-suggest/dist/remirror-react-hooks-use-suggest.js",
+      "require": "./use-suggest/dist/remirror-react-hooks-use-suggest.cjs"
+    }
+  },
+  "main": "./dist/remirror-react-hooks.cjs",
+  "module": "./dist/remirror-react-hooks.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types",
+    "use-context-menu",
+    "use-editor-event",
+    "use-editor-focus",
+    "use-emoji",
+    "use-history",
+    "use-hover",
+    "use-keymap",
+    "use-keymaps",
+    "use-menu-navigation",
+    "use-multi-positioner",
+    "use-positioner",
+    "use-suggest"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core": "workspace:*",
+    "@remirror/core-constants": "workspace:*",
+    "@remirror/core-helpers": "workspace:*",
+    "@remirror/extension-emoji": "workspace:*",
+    "@remirror/extension-events": "workspace:*",
+    "@remirror/extension-history": "workspace:*",
+    "@remirror/extension-positioner": "workspace:*",
+    "@remirror/react-core": "workspace:*",
+    "@remirror/react-utils": "workspace:*",
+    "multishift": "2.0.10",
+    "use-isomorphic-layout-effect": "^1.1.2",
+    "use-previous": "^1.2.0"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@remirror/pm": "workspace:*",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "svgmoji": "^3.2.0"
+  },
+  "peerDependencies": {
+    "@remirror/pm": "workspace:*",
+    "@types/react": "^16.14.0 || ^17 || ^18",
+    "@types/react-dom": "^16.9.0 || ^17 || ^18",
+    "react": "^16.14.0 || ^17 || ^18",
+    "react-dom": "^16.14.0 || ^17 || ^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-react-hooks.d.ts",
+        "import": "./dist/remirror-react-hooks.js",
+        "require": "./dist/remirror-react-hooks.cjs"
+      },
+      "./package.json": "./package.json",
+      "./use-context-menu": {
+        "types": "./use-context-menu/dist/remirror-react-hooks-use-context-menu.d.ts",
+        "import": "./use-context-menu/dist/remirror-react-hooks-use-context-menu.js",
+        "require": "./use-context-menu/dist/remirror-react-hooks-use-context-menu.cjs"
+      },
+      "./use-editor-event": {
+        "types": "./use-editor-event/dist/remirror-react-hooks-use-editor-event.d.ts",
+        "import": "./use-editor-event/dist/remirror-react-hooks-use-editor-event.js",
+        "require": "./use-editor-event/dist/remirror-react-hooks-use-editor-event.cjs"
+      },
+      "./use-editor-focus": {
+        "types": "./use-editor-focus/dist/remirror-react-hooks-use-editor-focus.d.ts",
+        "import": "./use-editor-focus/dist/remirror-react-hooks-use-editor-focus.js",
+        "require": "./use-editor-focus/dist/remirror-react-hooks-use-editor-focus.cjs"
+      },
+      "./use-emoji": {
+        "types": "./use-emoji/dist/remirror-react-hooks-use-emoji.d.ts",
+        "import": "./use-emoji/dist/remirror-react-hooks-use-emoji.js",
+        "require": "./use-emoji/dist/remirror-react-hooks-use-emoji.cjs"
+      },
+      "./use-history": {
+        "types": "./use-history/dist/remirror-react-hooks-use-history.d.ts",
+        "import": "./use-history/dist/remirror-react-hooks-use-history.js",
+        "require": "./use-history/dist/remirror-react-hooks-use-history.cjs"
+      },
+      "./use-hover": {
+        "types": "./use-hover/dist/remirror-react-hooks-use-hover.d.ts",
+        "import": "./use-hover/dist/remirror-react-hooks-use-hover.js",
+        "require": "./use-hover/dist/remirror-react-hooks-use-hover.cjs"
+      },
+      "./use-keymap": {
+        "types": "./use-keymap/dist/remirror-react-hooks-use-keymap.d.ts",
+        "import": "./use-keymap/dist/remirror-react-hooks-use-keymap.js",
+        "require": "./use-keymap/dist/remirror-react-hooks-use-keymap.cjs"
+      },
+      "./use-keymaps": {
+        "types": "./use-keymaps/dist/remirror-react-hooks-use-keymaps.d.ts",
+        "import": "./use-keymaps/dist/remirror-react-hooks-use-keymaps.js",
+        "require": "./use-keymaps/dist/remirror-react-hooks-use-keymaps.cjs"
+      },
+      "./use-menu-navigation": {
+        "types": "./use-menu-navigation/dist/remirror-react-hooks-use-menu-navigation.d.ts",
+        "import": "./use-menu-navigation/dist/remirror-react-hooks-use-menu-navigation.js",
+        "require": "./use-menu-navigation/dist/remirror-react-hooks-use-menu-navigation.cjs"
+      },
+      "./use-multi-positioner": {
+        "types": "./use-multi-positioner/dist/remirror-react-hooks-use-multi-positioner.d.ts",
+        "import": "./use-multi-positioner/dist/remirror-react-hooks-use-multi-positioner.js",
+        "require": "./use-multi-positioner/dist/remirror-react-hooks-use-multi-positioner.cjs"
+      },
+      "./use-positioner": {
+        "types": "./use-positioner/dist/remirror-react-hooks-use-positioner.d.ts",
+        "import": "./use-positioner/dist/remirror-react-hooks-use-positioner.js",
+        "require": "./use-positioner/dist/remirror-react-hooks-use-positioner.cjs"
+      },
+      "./use-suggest": {
+        "types": "./use-suggest/dist/remirror-react-hooks-use-suggest.d.ts",
+        "import": "./use-suggest/dist/remirror-react-hooks-use-suggest.js",
+        "require": "./use-suggest/dist/remirror-react-hooks-use-suggest.cjs"
+      }
+    },
+    "main": "./dist/remirror-react-hooks.cjs",
+    "module": "./dist/remirror-react-hooks.js",
+    "type": "module",
+    "types": "./dist/remirror-react-hooks.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "200 KB"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "use-context-menu.ts",
+      "use-editor-focus.ts",
+      "use-emoji.ts",
+      "use-editor-event.ts",
+      "use-history.ts",
+      "use-hover.ts",
+      "use-keymap.ts",
+      "use-keymaps.ts",
+      "use-menu-navigation.ts",
+      "use-multi-positioner.ts",
+      "use-positioner.ts",
+      "use-suggest.ts"
+    ]
+  }
+}

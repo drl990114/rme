@@ -1,0 +1,79 @@
+{
+  "name": "@remirror/react-utils",
+  "version": "3.0.0",
+  "description": "A small set of utilities for react components in remirror.",
+  "keywords": [
+    "react",
+    "utils",
+    "remirror",
+    "prosemirror"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__react-utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__react-utils"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-react-utils.js",
+      "require": "./dist/remirror-react-utils.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-react-utils.cjs",
+  "module": "./dist/remirror-react-utils.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core-constants": "workspace:*",
+    "@remirror/core-helpers": "workspace:*",
+    "@remirror/core-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@types/react": "^18.2.0",
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.14.0 || ^17 || ^18",
+    "react": "^16.14.0 || ^17 || ^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-react-utils.d.ts",
+        "import": "./dist/remirror-react-utils.js",
+        "require": "./dist/remirror-react-utils.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/remirror-react-utils.cjs",
+    "module": "./dist/remirror-react-utils.js",
+    "type": "module",
+    "types": "./dist/remirror-react-utils.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "10 KB"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "@remirror/core-types",
+  "version": "3.0.0",
+  "description": "Provides the core TS types for use throughout the remirror codebase",
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__core-types",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__core-types"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-core-types.js",
+      "require": "./dist/remirror-core-types.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-core-types.cjs",
+  "module": "./dist/remirror-core-types.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "base",
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@remirror/core-constants": "workspace:*",
+    "@remirror/types": "workspace:*"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@remirror/pm": "workspace:*"
+  },
+  "peerDependencies": {
+    "@remirror/pm": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-core-types.d.ts",
+        "import": "./dist/remirror-core-types.js",
+        "require": "./dist/remirror-core-types.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/remirror-core-types.cjs",
+    "module": "./dist/remirror-core-types.js",
+    "type": "module",
+    "types": "./dist/remirror-core-types.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "1 kB"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts"
+    ]
+  }
+}

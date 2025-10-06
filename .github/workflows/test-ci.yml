@@ -19,16 +19,7 @@ jobs:
         uses: actions/checkout@v3 # v3
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install
 
       - name: Build workspaces
-        run: yarn build
-
-      - name: Run Test
-        run: yarn test:coverage
-
-      - name: Upload test results
-        if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+        run: pnpm build

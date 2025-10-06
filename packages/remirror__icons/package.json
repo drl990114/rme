@@ -1,0 +1,80 @@
+{
+  "name": "@remirror/icons",
+  "version": "3.0.0",
+  "description": "RemixIcons for use in your remirror editor.",
+  "keywords": [
+    "remirror"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__icons",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__icons"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-icons.js",
+      "require": "./dist/remirror-icons.cjs"
+    },
+    "./all": {
+      "types": "./dist-types/all.d.ts",
+      "import": "./all/dist/remirror-icons-all.js",
+      "require": "./all/dist/remirror-icons-all.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-icons.cjs",
+  "module": "./dist/remirror-icons.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "all",
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core-helpers": "workspace:*"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-icons.d.ts",
+        "import": "./dist/remirror-icons.js",
+        "require": "./dist/remirror-icons.cjs"
+      },
+      "./all": {
+        "types": "./all/dist/remirror-icons-all.d.ts",
+        "import": "./all/dist/remirror-icons-all.js",
+        "require": "./all/dist/remirror-icons-all.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/remirror-icons.cjs",
+    "module": "./dist/remirror-icons.js",
+    "type": "module",
+    "types": "./dist/remirror-icons.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "30 KB"
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "all.ts",
+      "index.ts"
+    ]
+  }
+}

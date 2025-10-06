@@ -1,0 +1,73 @@
+{
+  "name": "@remirror/extension-codemirror6",
+  "version": "2.0.2",
+  "description": "Add CodeMirror6 to your editor.",
+  "keywords": [
+    "remirror",
+    "remirror-extension",
+    "CodeMirror",
+    "editor"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__extension-codemirror6",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__extension-codemirror6"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ocavue <ocavue@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-extension-codemirror6.js",
+      "require": "./dist/remirror-extension-codemirror6.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-extension-codemirror6.cjs",
+  "module": "./dist/remirror-extension-codemirror6.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@codemirror/language": "^6.11.3",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.38.4",
+    "@remirror/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@remirror/pm": "workspace:*"
+  },
+  "peerDependencies": {
+    "@remirror/pm": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-extension-codemirror6.d.ts",
+        "import": "./dist/remirror-extension-codemirror6.js",
+        "require": "./dist/remirror-extension-codemirror6.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/remirror-extension-codemirror6.cjs",
+    "module": "./dist/remirror-extension-codemirror6.js",
+    "type": "module",
+    "types": "./dist/remirror-extension-codemirror6.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "100 KB"
+  }
+}

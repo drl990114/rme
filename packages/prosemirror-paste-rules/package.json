@@ -1,0 +1,71 @@
+{
+  "name": "prosemirror-paste-rules",
+  "version": "3.0.0",
+  "description": "Better handling of pasted content in your prosemirror editor.",
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/prosemirror-paste-rules",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/prosemirror-paste-rules"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/prosemirror-paste-rules.js",
+      "require": "./dist/prosemirror-paste-rules.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/prosemirror-paste-rules.cjs",
+  "module": "./dist/prosemirror-paste-rules.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core-constants": "workspace:*",
+    "@remirror/core-helpers": "workspace:*",
+    "escape-string-regexp": "^4.0.0"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "prosemirror-model": "^1.25.1",
+    "prosemirror-state": "^1.4.3",
+    "prosemirror-view": "^1.39.2"
+  },
+  "peerDependencies": {
+    "prosemirror-model": "^1.22.1",
+    "prosemirror-state": "^1.4.2",
+    "prosemirror-view": "^1.33.8"
+  },
+  "peerDependenciesMeta": {},
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/prosemirror-paste-rules.d.ts",
+        "import": "./dist/prosemirror-paste-rules.js",
+        "require": "./dist/prosemirror-paste-rules.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/prosemirror-paste-rules.cjs",
+    "module": "./dist/prosemirror-paste-rules.js",
+    "type": "module",
+    "types": "./dist/prosemirror-paste-rules.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "10 KB"
+  }
+}

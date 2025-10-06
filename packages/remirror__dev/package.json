@@ -1,0 +1,79 @@
+{
+  "name": "@remirror/dev",
+  "version": "3.0.3",
+  "description": "Development utilities for remirror",
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__dev"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-dev.js",
+      "require": "./dist/remirror-dev.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-dev.cjs",
+  "module": "./dist/remirror-dev.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/react-core": "workspace:*",
+    "prosemirror-dev-toolkit": "^1.1.8"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@remirror/pm": "workspace:*",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "peerDependencies": {
+    "@remirror/pm": "workspace:*",
+    "@types/react": "^16.14.0 || ^17 || ^18",
+    "@types/react-dom": "^16.9.0 || ^17 || ^18",
+    "react": "^16.14.0 || ^17 || ^18",
+    "react-dom": "^16.14.0 || ^17 || ^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-dev.d.ts",
+        "import": "./dist/remirror-dev.js",
+        "require": "./dist/remirror-dev.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/remirror-dev.cjs",
+    "module": "./dist/remirror-dev.js",
+    "type": "module",
+    "types": "./dist/remirror-dev.d.ts"
+  }
+}

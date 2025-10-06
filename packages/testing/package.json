@@ -1,0 +1,143 @@
+{
+  "name": "testing",
+  "version": "0.0.4",
+  "private": true,
+  "description": "Test fixtures for remirror unit tests",
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/testing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/testing"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/testing.js",
+      "require": "./dist/testing.cjs"
+    },
+    "./package.json": "./package.json",
+    "./playwright": {
+      "types": "./dist-types/playwright/index.d.ts",
+      "import": "./playwright/dist/testing-playwright.js",
+      "require": "./playwright/dist/testing-playwright.cjs"
+    },
+    "./react": {
+      "types": "./dist-types/react.d.ts",
+      "import": "./react/dist/testing-react.js",
+      "require": "./react/dist/testing-react.cjs"
+    },
+    "./types/*": "./dist/declarations/src/*.d.ts"
+  },
+  "main": "./dist/testing.cjs",
+  "module": "./dist/testing.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types",
+    "playwright",
+    "react"
+  ],
+  "scripts": {
+    "build": "remirror-cli build --no-types"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@jest/globals": "^29.5.0",
+    "@react-spring/mock-raf": "^1.1.1",
+    "@remirror/core": "workspace:*",
+    "@remirror/pm": "workspace:*",
+    "@remirror/preset-core": "workspace:*",
+    "@remirror/react": "workspace:*",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/fluent-ffmpeg": "^2.1.21",
+    "@types/min-document": "^2.19.0",
+    "@types/react-test-renderer": "^18.0.0",
+    "@types/signal-exit": "^3.0.1",
+    "@types/wait-on": "^5.3.1",
+    "delay": "^5.0.0",
+    "expect-playwright": "^0.8.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "jest": "^29.5.0",
+    "jest-dev-server": "^8.0.5",
+    "jest-diff": "^29.5.0",
+    "jest-playwright-preset": "^3.0.1",
+    "jest-process-manager": "^0.3.1",
+    "looks-same": "^7.3.0",
+    "min-document": "^2.19.0",
+    "p-limit": "^3.1.0",
+    "playwright": "^1.34.3",
+    "playwright-core": "^1.34.3",
+    "playwright-testing-library": "^4.5.0",
+    "react-test-renderer": "^18.2.0",
+    "signal-exit": "^3.0.7",
+    "test-keyboard": "2.0.7"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@types/react": "^18.2.0",
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.14.0 || ^17 || ^18",
+    "react": "^16.14.0 || ^17 || ^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/testing.d.ts",
+        "import": "./dist/testing.js",
+        "require": "./dist/testing.cjs"
+      },
+      "./package.json": "./package.json",
+      "./playwright": {
+        "types": "./playwright/dist/testing-playwright.d.ts",
+        "import": "./playwright/dist/testing-playwright.js",
+        "require": "./playwright/dist/testing-playwright.cjs"
+      },
+      "./react": {
+        "types": "./react/dist/testing-react.d.ts",
+        "import": "./react/dist/testing-react.js",
+        "require": "./react/dist/testing-react.cjs"
+      },
+      "./types/*": "./dist/declarations/src/*.d.ts"
+    },
+    "main": "./dist/testing.cjs",
+    "module": "./dist/testing.js",
+    "type": "module",
+    "types": "./dist/testing.d.ts"
+  },
+  "@remirror": {
+    "tsconfigs": {
+      "src": {
+        "compilerOptions": {
+          "types": [
+            "expect-playwright/global",
+            "jest-playwright-preset",
+            "jest",
+            "jest-extended",
+            "snapshot-diff",
+            "playwright",
+            "node"
+          ]
+        }
+      }
+    }
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "playwright/index.ts",
+      "react.tsx"
+    ]
+  }
+}

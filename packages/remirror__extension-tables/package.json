@@ -1,0 +1,76 @@
+{
+  "name": "@remirror/extension-tables",
+  "version": "3.0.2",
+  "description": "A table a day keeps the doctor away. Remirror and play keeps the bad times at bay.",
+  "keywords": [
+    "remirror",
+    "preset",
+    "react",
+    "tables",
+    "prosemirror",
+    "table editing"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__extension-tables",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__extension-tables"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ocavue <ocavue@gmail.com>",
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/remirror-extension-tables.js",
+      "require": "./dist/remirror-extension-tables.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-extension-tables.cjs",
+  "module": "./dist/remirror-extension-tables.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core": "workspace:*",
+    "@remirror/extension-events": "workspace:*",
+    "@remirror/extension-positioner": "workspace:*",
+    "@remirror/messages": "workspace:*"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@remirror/pm": "workspace:*"
+  },
+  "peerDependencies": {
+    "@remirror/pm": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/remirror-extension-tables.d.ts",
+        "import": "./dist/remirror-extension-tables.js",
+        "require": "./dist/remirror-extension-tables.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/remirror-extension-tables.cjs",
+    "module": "./dist/remirror-extension-tables.js",
+    "type": "module",
+    "types": "./dist/remirror-extension-tables.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "10 KB"
+  }
+}

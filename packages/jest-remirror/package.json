@@ -1,0 +1,112 @@
+{
+  "name": "jest-remirror",
+  "version": "3.0.3",
+  "description": "A text editor for react built with prosemirror",
+  "keywords": [
+    "prosemirror",
+    "react",
+    "text editor"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/jest-remirror",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/jest-remirror"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/jest-remirror.js",
+      "require": "./dist/jest-remirror.cjs"
+    },
+    "./environment": {
+      "types": "./dist-types/environment.d.ts",
+      "import": "./environment/dist/jest-remirror-environment.js",
+      "require": "./environment/dist/jest-remirror-environment.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/jest-remirror.cjs",
+  "module": "./dist/jest-remirror.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types",
+    "environment"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core": "workspace:*",
+    "@remirror/dom": "workspace:*",
+    "@remirror/pm": "workspace:*",
+    "@remirror/preset-core": "workspace:*",
+    "@testing-library/dom": "^9.3.0",
+    "@types/sanitize-html": "^2.9.0",
+    "jest-prosemirror": "workspace:*",
+    "sanitize-html": "^2.10.0",
+    "tiny-warning": "^1.0.3"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "@types/node": "^16.18.34",
+    "jest": "^29.5.0"
+  },
+  "peerDependencies": {
+    "@types/node": "*",
+    "jest": ">= 24.9.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/node": {
+      "optional": true
+    },
+    "jest": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/jest-remirror.d.ts",
+        "import": "./dist/jest-remirror.js",
+        "require": "./dist/jest-remirror.cjs"
+      },
+      "./environment": {
+        "types": "./environment/dist/jest-remirror-environment.d.ts",
+        "import": "./environment/dist/jest-remirror-environment.js",
+        "require": "./environment/dist/jest-remirror-environment.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/jest-remirror.cjs",
+    "module": "./dist/jest-remirror.js",
+    "type": "module",
+    "types": "./dist/jest-remirror.d.ts"
+  },
+  "@remirror": {
+    "tsconfigs": {
+      "src": {
+        "compilerOptions": {
+          "types": [
+            "node",
+            "jest"
+          ]
+        }
+      }
+    }
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "environment.ts"
+    ]
+  }
+}

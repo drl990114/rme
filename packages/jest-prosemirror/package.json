@@ -1,0 +1,123 @@
+{
+  "name": "jest-prosemirror",
+  "version": "3.0.1",
+  "description": "Write expressive tests for your prosemirror editor",
+  "keywords": [
+    "jest",
+    "prosemirror",
+    "snapshots",
+    "tests"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/jest-prosemirror",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/jest-prosemirror"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/jest-prosemirror.js",
+      "require": "./dist/jest-prosemirror.cjs"
+    },
+    "./environment": {
+      "types": "./dist-types/environment.d.ts",
+      "import": "./environment/dist/jest-prosemirror-environment.js",
+      "require": "./environment/dist/jest-prosemirror-environment.cjs"
+    },
+    "./package.json": "./package.json",
+    "./serializer": {
+      "types": "./dist-types/serializer.d.ts",
+      "require": "./serializer/dist/jest-prosemirror-serializer.cjs"
+    }
+  },
+  "main": "./dist/jest-prosemirror.cjs",
+  "module": "./dist/jest-prosemirror.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types",
+    "environment",
+    "serializer"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core-constants": "workspace:*",
+    "@remirror/core-helpers": "workspace:*",
+    "@remirror/core-types": "workspace:*",
+    "@remirror/core-utils": "workspace:*",
+    "@remirror/pm": "workspace:*",
+    "@testing-library/dom": "^9.3.0",
+    "@types/stringify-object": "^3.3.1",
+    "chalk": "^4.1.0",
+    "jest-matcher-utils": "^29.5.0",
+    "prosemirror-schema-basic": "^1.2.4",
+    "prosemirror-tables": "^1.7.1",
+    "prosemirror-test-builder": "^1.1.1",
+    "stringify-object": "^3.3.0",
+    "test-keyboard": "2.0.7"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*",
+    "jest": "^29.5.0"
+  },
+  "peerDependencies": {
+    "jest": ">= 24.9.0"
+  },
+  "peerDependenciesMeta": {
+    "jest": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/jest-prosemirror.d.ts",
+        "import": "./dist/jest-prosemirror.js",
+        "require": "./dist/jest-prosemirror.cjs"
+      },
+      "./environment": {
+        "types": "./environment/dist/jest-prosemirror-environment.d.ts",
+        "import": "./environment/dist/jest-prosemirror-environment.js",
+        "require": "./environment/dist/jest-prosemirror-environment.cjs"
+      },
+      "./package.json": "./package.json",
+      "./serializer": {
+        "types": "./serializer/dist/jest-prosemirror-serializer.d.ts",
+        "require": "./serializer/dist/jest-prosemirror-serializer.cjs"
+      }
+    },
+    "main": "./dist/jest-prosemirror.cjs",
+    "module": "./dist/jest-prosemirror.js",
+    "type": "module",
+    "types": "./dist/jest-prosemirror.d.ts"
+  },
+  "@remirror": {
+    "tsconfigs": {
+      "src": {
+        "compilerOptions": {
+          "types": [
+            "node",
+            "jest"
+          ]
+        }
+      }
+    }
+  },
+  "preconstruct": {
+    "entrypoints": [
+      "index.ts",
+      "environment.ts",
+      "serializer.cts"
+    ]
+  }
+}

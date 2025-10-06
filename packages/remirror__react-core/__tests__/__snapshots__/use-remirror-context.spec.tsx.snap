@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useRemirrorContext returns the provider context 1`] = `
+[
+  "active",
+  "addHandler",
+  "attributes",
+  "attrs",
+  "blur",
+  "chain",
+  "clearContent",
+  "commands",
+  "defaultBlockNode",
+  "focus",
+  "getExtension",
+  "getForcedUpdates",
+  "getPluginState",
+  "getPreviousState",
+  "getRootProps",
+  "getState",
+  "hasExtension",
+  "helpers",
+  "manager",
+  "markTags",
+  "marks",
+  "nodeTags",
+  "nodes",
+  "plainTags",
+  "pluginKeys",
+  "plugins",
+  "portalContainer",
+  "schema",
+  "setContent",
+  "tags",
+  "uid",
+  "view",
+]
+`;

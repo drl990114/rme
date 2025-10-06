@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/remirror-pm-gapcursor.d.ts",
+      "import": "./dist/remirror-pm-gapcursor.js",
+      "require": "./dist/remirror-pm-gapcursor.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/remirror-pm-gapcursor.cjs",
+  "module": "./dist/remirror-pm-gapcursor.js",
+  "types": "./dist/remirror-pm-gapcursor.d.ts"
+}

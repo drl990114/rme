@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`schemaToJSON 1`] = `
+{
+  "marks": {
+    "bold": {
+      "attrs": {},
+      "group": "formattingMark fontStyle",
+      "parseDOM": [
+        {
+          "getAttrs": [Function],
+          "tag": "strong",
+        },
+        {
+          "getAttrs": [Function],
+          "tag": "b",
+        },
+        {
+          "getAttrs": [Function],
+          "style": "font-weight",
+        },
+      ],
+      "toDOM": [Function],
+    },
+  },
+  "nodes": {
+    "doc": {
+      "attrs": {},
+      "content": "block+",
+      "group": undefined,
+    },
+    "paragraph": {
+      "attrs": {},
+      "content": "inline*",
+      "draggable": false,
+      "group": "lastNodeCompatible textBlock block formattingNode",
+      "parseDOM": [
+        {
+          "getAttrs": [Function],
+          "tag": "p",
+        },
+      ],
+      "toDOM": [Function],
+    },
+    "text": {
+      "group": "inline",
+    },
+  },
+}
+`;

@@ -1,0 +1,67 @@
+{
+  "name": "test-keyboard",
+  "version": "2.0.7",
+  "description": "A test keyboard for composing fake keyboard events",
+  "keywords": [
+    "compose events",
+    "events",
+    "keyboard"
+  ],
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/test-keyboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/test-keyboard"
+  },
+  "license": "MIT",
+  "contributors": [
+    "Ifiok Jr. <ifiokotung@gmail.com>"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-types/index.d.ts",
+      "import": "./dist/test-keyboard.js",
+      "require": "./dist/test-keyboard.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/test-keyboard.cjs",
+  "module": "./dist/test-keyboard.js",
+  "types": "./dist-types/index.d.ts",
+  "files": [
+    "dist",
+    "dist-types",
+    "environment.d.ts",
+    "environment.js"
+  ],
+  "scripts": {
+    "build": "remirror-cli build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.27.0",
+    "@remirror/core-helpers": "workspace:*",
+    "@remirror/core-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@remirror/cli": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/test-keyboard.d.ts",
+        "import": "./dist/test-keyboard.js",
+        "require": "./dist/test-keyboard.cjs"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/test-keyboard.cjs",
+    "module": "./dist/test-keyboard.js",
+    "type": "module",
+    "types": "./dist/test-keyboard.d.ts"
+  },
+  "@remirror": {
+    "sizeLimit": "10 KB"
+  }
+}
