@@ -15,11 +15,17 @@ import { joinListUp } from './join-list-up'
 import { protectCollapsed } from './protect-collapsed'
 import { createSplitListCommand } from './split-list'
 
+/**
+ * @internal
+ */
 export const enterCommand: Command = pmChainCommands(
   protectCollapsed,
   createSplitListCommand(),
 )
 
+/**
+ * @internal
+ */
 export const backspaceCommand: Command = pmChainCommands(
   protectCollapsed,
   deleteSelection,
@@ -29,6 +35,9 @@ export const backspaceCommand: Command = pmChainCommands(
   selectNodeBackward,
 )
 
+/**
+ * @internal
+ */
 export const deleteCommand: Command = pmChainCommands(
   protectCollapsed,
   deleteSelection,
@@ -45,7 +54,7 @@ export const deleteCommand: Command = pmChainCommands(
  * - `Mod-[`: Decrease indentation. See {@link createDedentListCommand}.
  * - `Mod-]`: Increase indentation. See {@link createIndentListCommand}.
  *
- * @public @group Commands
+ * @public  Commands
  */
 export const listKeymap = {
   Enter: enterCommand,

@@ -14,7 +14,7 @@ export const flatListGroup = 'flatList'
 /**
  * Return the spec for list node.
  *
- *  @public @group Schema
+ *  @public  Schema
  */
 export function createListSpec(): NodeSpec {
   return {

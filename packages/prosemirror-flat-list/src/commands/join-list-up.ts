@@ -10,7 +10,7 @@ import { safeLift } from '../utils/safe-lift'
  * all content inside the list. If the text cursor is at the start of the last
  * child of a list node, lift this child.
  *
- * @public @group Commands
+ * @public  Commands
  */
 export const joinListUp: Command = (state, dispatch, view) => {
   const $cursor = atTextblockStart(state, view)

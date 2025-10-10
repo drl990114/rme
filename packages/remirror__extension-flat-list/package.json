@@ -1,31 +1,32 @@
 {
-  "name": "prosemirror-flat-list",
+  "name": "remirror-extension-flat-list",
   "type": "module",
   "version": "3.0.0",
-  "description": "Powerful list support for ProseMirror",
+  "description": "A Remirror extension based on prosemirror-flat-list",
   "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/ocavue",
-  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/prosemirror-flat-list",
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__extension-flat-list",
   "repository": {
     "type": "git",
     "url": "https://github.com/remirror/remirror.git",
-    "directory": "packages/prosemirror-flat-list"
+    "directory": "packages/remirror__extension-flat-list"
   },
   "bugs": "https://github.com/ocavue/prosemirror-flat-list/issues",
   "keywords": [
     "ProseMirror",
+    "Remirror",
     "list"
   ],
   "sideEffects": false,
-  "main": "./dist/prosemirror-flat-list.cjs",
-  "module": "./dist/prosemirror-flat-list.js",
+  "main": "./dist/remirror-extension-flat-list.cjs",
+  "module": "./dist/remirror-extension-flat-list.js",
   "types": "./dist-types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/prosemirror-flat-list.js",
-      "require": "./dist/prosemirror-flat-list.cjs"
+      "import": "./dist/remirror-extension-flat-list.js",
+      "require": "./dist/remirror-extension-flat-list.cjs"
     },
     "./dist/style.css": "./dist/style.css",
     "./style.css": "./dist/style.css",
@@ -38,20 +39,26 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "remirror-cli build",
+    "build:tsup": "tsup",
+    "build:tsc": "tsc -b tsconfig.json",
     "prepublishOnly": "pnpm run build",
     "test": "vitest"
   },
   "dependencies": {
     "@remirror/core": "workspace:*",
-    "@remirror/pm": "workspace:*",
-    "@remirror/preset-core": "workspace:*",
-    "remirror": "workspace:*",
-    "prosemirror-safari-ime-span": "^1.0.2"
+    "prosemirror-flat-list": "workspace:*"
+  },
+  "peerDependencies": {
+    "@remirror/pm": "workspace:*"
   },
   "devDependencies": {
     "@remirror/cli": "workspace:*",
+    "@remirror/preset-core": "workspace:*",
+    "@remirror/react": "workspace:*",
     "@types/dedent": "^0.7.2",
     "@types/node": "^20.17.5",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
     "@vitest/coverage-v8": "^3.1.4",
     "dedent": "^1.6.0",
     "execa": "^9.6.0",
@@ -60,24 +67,31 @@
     "jsdom": "^25.0.1",
     "postcss": "^8.5.4",
     "postcss-nesting": "^13.0.1",
+    "prosemirror-model": "^1.25.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rehype-stringify": "^10.0.1",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
+    "remirror": "workspace:*",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "unified": "^11.0.5",
     "vite": "^6.3.5",
     "vitest": "^3.1.4"
   },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/index.ts"
+    ]
+  },
   "publishConfig": {
     "exports": {
       ".": {
-        "types": "./dist/prosemirror-flat-list.d.ts",
-        "import": "./dist/prosemirror-flat-list.js",
-        "require": "./dist/prosemirror-flat-list.cjs"
+        "types": "./dist/remirror-extension-flat-list.d.ts",
+        "import": "./dist/remirror-extension-flat-list.js",
+        "require": "./dist/remirror-extension-flat-list.cjs"
       },
       "./dist/style.css": "./dist/style.css",
       "./package.json": "./package.json",
@@ -85,8 +99,8 @@
     },
     "access": "public",
     "type": "module",
-    "main": "./dist/prosemirror-flat-list.cjs",
-    "module": "./dist/prosemirror-flat-list.js",
-    "types": "./dist/prosemirror-flat-list.d.ts"
+    "main": "./dist/remirror-extension-flat-list.cjs",
+    "module": "./dist/remirror-extension-flat-list.js",
+    "types": "./dist/remirror-extension-flat-list.d.ts"
   }
 }

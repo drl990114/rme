@@ -6,7 +6,7 @@ import { isListNode } from '../utils/is-list-node'
 import { setSafeSelection } from './set-safe-selection'
 
 /**
- * @public @group Commands
+ * @public  Commands
  */
 export interface ToggleCollapsedOptions {
   /**
@@ -25,7 +25,7 @@ export interface ToggleCollapsedOptions {
 /**
  * Return a command function that toggle the `collapsed` attribute of the list node.
  *
- * @public @group Commands
+ * @public  Commands
  */
 export function createToggleCollapsedCommand(
   options: ToggleCollapsedOptions = {},

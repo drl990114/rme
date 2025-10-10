@@ -44,6 +44,13 @@ export {
 } from './input-rule'
 export { migrateDocJSON } from './migrate'
 export { createListNodeView } from './node-view'
+export {
+  createListClipboardPlugin,
+  createListEventPlugin,
+  createListPlugins,
+  createListRenderingPlugin,
+  createSafariInputMethodWorkaroundPlugin
+} from './plugins'
 export { createListSpec, flatListGroup } from './schema/node-spec'
 export { createParseDomRules } from './schema/parse-dom'
 export {

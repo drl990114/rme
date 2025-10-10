@@ -3,7 +3,7 @@ import type { DOMOutputSpec, Node as ProsemirrorNode } from '@remirror/pm/model'
 import type { ListAttributes } from '../types'
 
 /**
- * @public @group Schema
+ * @public  Schema
  */
 export interface ListToDOMOptions {
   /**
@@ -35,7 +35,7 @@ export interface ListToDOMOptions {
 /**
  * Renders a list node to DOM output spec.
  *
- * @public @group Schema
+ * @public  Schema
  */
 export function listToDOM(options: ListToDOMOptions): DOMOutputSpec {
   const {

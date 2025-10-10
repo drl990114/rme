@@ -14,5 +14,5 @@
     "noEmit": true,
     "skipLibCheck": true
   },
-  "include": ["./*/src"]
+  "include": ["./*/src", "prosemirror-flat-list/test"]
 }

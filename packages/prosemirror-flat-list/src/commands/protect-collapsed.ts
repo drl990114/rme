@@ -13,7 +13,7 @@ import { isCollapsedListNode } from '../utils/is-collapsed-list-node'
  * instead. Therefore the user can clearly know what content he is trying to
  * delete.
  *
- * @public @group Commands
+ * @public  Commands
  *
  */
 export const protectCollapsed: Command = (state, dispatch): boolean => {
@@ -21,6 +21,7 @@ export const protectCollapsed: Command = (state, dispatch): boolean => {
   let found = false
   const { from, to } = state.selection
 
+  // @ts-ignore
   state.doc.nodesBetween(from, to, (node, pos, parent, index) => {
     if (found && !dispatch) {
       return false
