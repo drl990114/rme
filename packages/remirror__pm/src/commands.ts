@@ -2,7 +2,8 @@
 // collision with the `chainCommands` from remirror.
 export {
   autoJoin,
-  baseKeymap, chainCommands, createParagraphNear,
+  baseKeymap,
+  createParagraphNear,
   deleteSelection,
   exitCode,
   joinBackward,
@@ -15,7 +16,9 @@ export {
   liftEmptyBlock,
   macBaseKeymap,
   newlineInCode,
-  pcBaseKeymap, selectAll,
+  pcBaseKeymap,
+  chainCommands as pmChainCommands,
+  selectAll,
   selectNodeBackward,
   selectNodeForward,
   selectParentNode,

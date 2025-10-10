@@ -1,7 +1,7 @@
-import { getMdImageInputRule } from '../../inline-input-regex'
-import type { CreateExtensionPlugin, EditorView } from '@remirror/core'
+import type { CommandFunction, CreateExtensionPlugin, EditorView } from '@remirror/core'
 import { extension, PlainExtension } from '@remirror/core'
 import { DOMParser, Fragment, Node, Slice } from '@remirror/pm/model'
+import { getMdImageInputRule } from '../../inline-input-regex'
 import { getTransformerByView } from '../Transformer/utils'
 
 type UnknownRecord = Record<string, unknown>
@@ -141,6 +141,141 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
           const value = serializer?.(doc) || ''
           return value
         },
+      },
+    }
+  }
+
+  createCommands() {
+    return {
+      copy(): CommandFunction {
+        return (props) => {
+          if (props.tr.selection.empty) {
+            return false
+          }
+
+          if (props.dispatch) {
+            document.execCommand('copy')
+          }
+
+          return true
+        }
+      },
+      paste: (): CommandFunction => {
+        return (params) => {
+          const { view } = params
+          if (!view) return false
+          console.log('handlePaste event', event)
+          const transformer = getTransformerByView(view)
+
+          const parser = transformer.stringToDoc
+          const schema = view.state.schema
+          const editable = view.props.editable?.(view.state)
+          navigator.clipboard.read().then(async (data) => {
+            let html = ''
+            let text = ''
+            const htmlData = data.find((item) => item.types.includes('text/html'))
+            const textData = data.find((item) => item.types.includes('text/plain'))
+
+            const getHtml = async () => {
+              if (htmlData) {
+                const blob = await htmlData.getType('text/html')
+                html = await blob.text()
+              }
+            }
+            const getText = async () => {
+              if (textData) {
+                const blob = await textData.getType('text/plain')
+                text = await blob.text()
+              }
+            }
+
+            await Promise.all([getHtml(), getText()])
+
+            if (!editable || !html || !text) return false
+
+            const currentNode = view.state.selection.$from.node()
+            if (currentNode.type.spec.code) return false
+
+            if (html.length === 0 && text.length === 0) return false
+            console.log('html', html)
+            console.log('text', text)
+            const domParser = DOMParser.fromSchema(schema)
+            let dom
+            if (html.length === 0) {
+              const slice = parser?.(text)
+
+              if (!slice || typeof slice === 'string') return false
+
+              const res: Node[] = []
+              slice.content.forEach((node, index) => {
+                if (node.type.name === 'paragraph' && index === 0) {
+                  node.content.forEach((child) => {
+                    res.push(child)
+                  })
+                } else {
+                  res.push(node)
+                }
+              })
+
+              // Process images asynchronously
+              this.processImagesInNodesAsync(res, view)
+
+              // For multiple nodes, we need to replace with a fragment
+              if (res.length === 1) {
+                view.dispatch(view.state.tr.replaceSelectionWith(res[0], false))
+              } else {
+                const fragment = Fragment.from(res)
+                view.dispatch(view.state.tr.replaceSelection(new Slice(fragment, 0, 0)))
+              }
+
+              return true
+            } else {
+              const template = document.createElement('template')
+              template.innerHTML = html
+              dom = template.content.cloneNode(true)
+              template.remove()
+            }
+
+            const slice = domParser.parseSlice(dom)
+            const node = isTextOnlySlice(slice)
+            console.log('slice', slice, node)
+            if (node) {
+              // Even for text-only nodes, check if it's an image node
+              if (
+                (node.type.name === 'html_image' || node.type.name === 'md_image') &&
+                node.attrs.src
+              ) {
+                this.processImageNode(node, view)
+                view.dispatch(view.state.tr.replaceSelectionWith(node, true))
+              } else {
+                this.processMarkdownImageSyntax(node, view).then(() => {
+                  view.dispatch(view.state.tr.replaceSelectionWith(node, true))
+                })
+              }
+
+              return true
+            }
+
+            this.processImagesInSliceAsync(slice, view)
+
+            view.dispatch(view.state.tr.replaceSelection(slice))
+          })
+
+          return true
+        }
+      },
+      cut: (): CommandFunction => {
+        return (props) => {
+          if (props.tr.selection.empty) {
+            return false
+          }
+
+          if (props.dispatch) {
+            document.execCommand('cut')
+          }
+
+          return true
+        }
       },
     }
   }

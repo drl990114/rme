@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "main": "./dist/remirror-pm-paste-rules.cjs",
+  "module": "./dist/remirror-pm-paste-rules.js",
+  "types": "./dist/remirror-pm-paste-rules.d.ts",
   "exports": {
     ".": {
       "types": "./dist/remirror-pm-paste-rules.d.ts",
@@ -7,8 +10,5 @@
       "require": "./dist/remirror-pm-paste-rules.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-pm-paste-rules.cjs",
-  "module": "./dist/remirror-pm-paste-rules.js",
-  "types": "./dist/remirror-pm-paste-rules.d.ts"
+  }
 }

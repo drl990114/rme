@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "main": "./dist/remirror-pm-collab.cjs",
+  "module": "./dist/remirror-pm-collab.js",
+  "types": "./dist/remirror-pm-collab.d.ts",
   "exports": {
     ".": {
       "types": "./dist/remirror-pm-collab.d.ts",
@@ -7,8 +10,5 @@
       "require": "./dist/remirror-pm-collab.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-pm-collab.cjs",
-  "module": "./dist/remirror-pm-collab.js",
-  "types": "./dist/remirror-pm-collab.d.ts"
+  }
 }

@@ -47,6 +47,29 @@ export type CreateWysiwygDelegateOptions = ExtensionsOptions
 export const createWysiwygDelegate = (
   options: CreateWysiwygDelegateOptions = {},
 ): EditorDelegate<any> => {
+  const defaultOverrideShortcutMap = {
+    copy: 'mod-c',
+    paste: 'mod-v',
+    undo: 'mod-z',
+    redo: 'mod-shift-z',
+    cut: 'mod-x',
+    toggleH1: 'mod-1',
+    toggleH2: 'mod-2',
+    toggleH3: 'mod-3',
+    toggleH4: 'mod-4',
+    toggleH5: 'mod-5',
+    toggleH6: 'mod-6',
+    toggleStrong: 'mod-b',
+    toggleEmphasis: 'mod-i',
+    toggleCodeText: 'mod-e',
+    toggleDelete: 'mod-shift-s',
+  }
+
+  const overrideShortcutMap = {
+    ...defaultOverrideShortcutMap,
+    ...(options.overrideShortcutMap || {}),
+  }
+
   const manager = createReactManager(
     () => {
       return [...EditorExtensions(options)]
@@ -54,11 +77,7 @@ export const createWysiwygDelegate = (
     {
       builtin: {
         excludeBaseKeymap: true,
-        preventAllDefaultKeyDown: true,
-        overrideShortcutMap: {
-          copy: 'Mod-k',
-          paste: 'Mod-z'
-        },
+        overrideShortcutMap,
       },
     },
   )

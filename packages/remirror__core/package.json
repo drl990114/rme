@@ -42,14 +42,11 @@
     "@remirror/icons": "workspace:*",
     "@remirror/messages": "workspace:*",
     "nanoevents": "^5.1.13",
-    "tiny-warning": "^1.0.3"
+    "tiny-warning": "^1.0.3",
+    "@remirror/pm": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
-  },
-  "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@remirror/cli": "workspace:*"
   },
   "publishConfig": {
     "access": "public",

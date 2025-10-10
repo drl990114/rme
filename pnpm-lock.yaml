@@ -824,6 +824,9 @@ importers:
       '@remirror/messages':
         specifier: workspace:*
         version: link:../remirror__messages
+      '@remirror/pm':
+        specifier: workspace:*
+        version: link:../remirror__pm
       nanoevents:
         specifier: ^5.1.13
         version: 5.1.13
@@ -834,9 +837,6 @@ importers:
       '@remirror/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
-        specifier: workspace:*
-        version: link:../remirror__pm
 
   packages/remirror__core-constants:
     devDependencies:

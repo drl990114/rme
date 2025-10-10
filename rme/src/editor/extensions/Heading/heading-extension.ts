@@ -1,14 +1,15 @@
 import type {
   ApplySchemaAttributes,
+  ExtensionCommandReturn,
   KeyBindings,
   NodeExtensionSpec,
-  NodeSpecOverride,
+  NodeSpecOverride
 } from '@remirror/core'
 import { convertCommand, findParentNodeOfType } from '@remirror/core'
-import { HeadingExtension } from 'remirror/extensions'
 import { setBlockType } from '@remirror/pm/commands'
 import type { Schema } from '@remirror/pm/model'
 import type Token from 'markdown-it/lib/token.mjs'
+import { HeadingExtension } from 'remirror/extensions'
 
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
@@ -48,10 +49,14 @@ export class LineHeadingExtension extends HeadingExtension {
       },
     }
 
-    this.options.levels.forEach((level) => {
-      keys[`mod-${level}`] = convertCommand(setBlockType(this.type, { level }))
-    })
+    return keys
+  }
 
+  createCommands() {
+    const keys: ExtensionCommandReturn = {}
+    this.options.levels.forEach((level) => {
+      keys[`toggleH${level}`] = () => convertCommand(setBlockType(this.type, { level }))
+    })
     return keys
   }
 

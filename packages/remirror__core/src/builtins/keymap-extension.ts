@@ -33,11 +33,11 @@ import {
   isStartOfTextBlock,
   mergeProsemirrorKeyBindings,
 } from '@remirror/core-utils'
-import { baseKeymap, chainCommands as pmChainCommands, selectParentNode } from '@remirror/pm/commands'
+// @ts-ignore
+import { baseKeymap, pmChainCommands, selectParentNode } from '@remirror/pm/commands'
 import { undoInputRule } from '@remirror/pm/inputrules'
 import { keydownHandler } from '@remirror/pm/keymap'
 import { Plugin } from '@remirror/pm/state'
-
 import { AnyExtension, extension, Helper, PlainExtension } from '../extension'
 import type { AddCustomHandler } from '../extension/base-class'
 import type { OnSetOptionsProps } from '../types'
@@ -226,7 +226,6 @@ export class KeymapExtension extends PlainExtension<KeymapOptions> {
 
   private setupKeydownHandler() {
     const bindings = this.generateKeymapBindings()
-    console.log('bindings', bindings, this.commands)
     this.keydownHandler = keydownHandler(bindings)
   }
 
@@ -235,7 +234,7 @@ export class KeymapExtension extends PlainExtension<KeymapOptions> {
    */
   private generateKeymapBindings = () => {
     const overrideShortcutMap = this.options.overrideShortcutMap
-
+    console.log('overrideShortcutMap', overrideShortcutMap, this.commands)
     if (overrideShortcutMap) {
       const overrideKeyMap: Record<string, any> = {}
       Object.entries(overrideShortcutMap).forEach(([commandName, shortcut]) => {
@@ -384,9 +383,7 @@ export class KeymapExtension extends PlainExtension<KeymapOptions> {
 
     // Automatically remove the input rule when the option is set to true.
     if (undoInputRuleOnBackspace && baseKeymap.Backspace) {
-      baseKeyBindings.Backspace = convertCommand(
-        pmChainCommands(undoInputRule, baseKeymap.Backspace),
-      )
+      baseKeyBindings.Backspace = convertCommand(pmChainCommands(undoInputRule, baseKeymap.Backspace))
     }
 
     // Allow escape to select the parent node when set to true.

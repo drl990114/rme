@@ -54,6 +54,8 @@ export type ExtensionsOptions = {
   ai?: AIOptions
 
   customCopyFunction?: CustomCopyFunction
+
+  overrideShortcutMap?: Record<string, string>
 }
 
 function extensions(options: ExtensionsOptions): any[] {

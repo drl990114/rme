@@ -1,4 +1,4 @@
-export { chainableEditorState, chainCommands, convertCommand, nonChainable } from '@remirror/pm';
+export { chainableEditorState, convertCommand, nonChainable } from '@remirror/pm';
 export {
   isChrome,
   isSafari,

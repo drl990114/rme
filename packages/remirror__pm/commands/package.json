@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "main": "./dist/remirror-pm-commands.cjs",
+  "module": "./dist/remirror-pm-commands.js",
+  "types": "./dist/remirror-pm-commands.d.ts",
   "exports": {
     ".": {
       "types": "./dist/remirror-pm-commands.d.ts",
@@ -7,8 +10,5 @@
       "require": "./dist/remirror-pm-commands.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-pm-commands.cjs",
-  "module": "./dist/remirror-pm-commands.js",
-  "types": "./dist/remirror-pm-commands.d.ts"
+  }
 }

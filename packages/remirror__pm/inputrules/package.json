@@ -1,5 +1,8 @@
 {
   "type": "module",
+  "main": "./dist/remirror-pm-inputrules.cjs",
+  "module": "./dist/remirror-pm-inputrules.js",
+  "types": "./dist/remirror-pm-inputrules.d.ts",
   "exports": {
     ".": {
       "types": "./dist/remirror-pm-inputrules.d.ts",
@@ -7,8 +10,5 @@
       "require": "./dist/remirror-pm-inputrules.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-pm-inputrules.cjs",
-  "module": "./dist/remirror-pm-inputrules.js",
-  "types": "./dist/remirror-pm-inputrules.d.ts"
+  }
 }

@@ -31,7 +31,6 @@ import {
   environment,
   getMarkRange,
   getTextSelection,
-  htmlToProsemirrorNode,
   isEmptyBlockNode,
   isProsemirrorFragment,
   isProsemirrorNode,
@@ -44,7 +43,7 @@ import {
   toggleBlockItem,
   ToggleBlockItemProps,
   toggleWrap,
-  wrapIn,
+  wrapIn
 } from '@remirror/core-utils';
 import { CoreMessages as Messages } from '@remirror/messages';
 import { Mark } from '@remirror/pm/model';
@@ -874,84 +873,6 @@ export class CommandsExtension extends PlainExtension<CommandOptions> {
   })
   selectAll(): CommandFunction {
     return this.selectText('all');
-  }
-
-  /**
-   * Copy the selected content for non empty selections.
-   */
-  @command({
-    description: ({ t }) => t(Messages.COPY_DESCRIPTION),
-    label: ({ t }) => t(Messages.COPY_LABEL),
-    shortcut: NamedShortcut.Copy,
-    icon: 'fileCopyLine',
-  })
-  copy(): CommandFunction {
-    return (props) => {
-      if (props.tr.selection.empty) {
-        return false;
-      }
-
-      if (props.dispatch) {
-        document.execCommand('copy');
-      }
-
-      return true;
-    };
-  }
-
-  /**
-   * Select all text in the editor.
-   */
-  @command({
-    description: ({ t }) => t(Messages.PASTE_DESCRIPTION),
-    label: ({ t }) => t(Messages.PASTE_LABEL),
-    shortcut: NamedShortcut.Paste,
-    icon: 'clipboardLine',
-  })
-  paste(): CommandFunction {
-    // Todo check if the permissions are supported first.
-    // navigator.permissions.query({name: 'clipboard'})
-
-    return this.store
-      .createPlaceholderCommand({
-        // TODO https://caniuse.com/?search=clipboard.read - once browser support is sufficient.
-        promise: async () => {
-          if (navigator.clipboard?.readText) {
-            return await navigator.clipboard.readText();
-          }
-
-          return '';
-        },
-        placeholder: { type: 'inline' },
-        onSuccess: (value, selection, props) =>
-          this.insertNode(htmlToProsemirrorNode({ content: value, schema: props.state.schema }), {
-            selection,
-          })(props),
-      })
-      .generateCommand();
-  }
-
-  /**
-   * Cut the selected content.
-   */
-  @command({
-    description: ({ t }) => t(Messages.CUT_DESCRIPTION),
-    label: ({ t }) => t(Messages.CUT_LABEL),
-    shortcut: NamedShortcut.Cut,
-    icon: 'scissorsFill',
-  })
-  cut(): CommandFunction {
-    return (props) => {
-      if (props.tr.selection.empty) {
-        return false;
-      }
-
-      if (props.dispatch) {
-        document.execCommand('cut');
-      }
-
-      return true;
-    };
   }
 
   /**
