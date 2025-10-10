@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "composite": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "dist-types/tsconfig.tsbuildinfo",
+    "jsx": "react",
+    "target": "es2018",
+    "module": "esnext",
+    "lib": ["esnext", "DOM"],
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "outDir": "temp",
+  },
+  "include": ["./*.ts", "./*.cjs", "./*.mjs", "./src", "./test", "test"],
+  "references": [
+    { "path": "../remirror__core/src" },
+    { "path": "../remirror__pm/src" },
+    { "path": "../remirror__preset-core/src" },
+  ]
+}

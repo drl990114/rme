@@ -1,6 +1,5 @@
 import {
   ApplySchemaAttributes,
-  chainCommands,
   command,
   CommandFunction,
   convertCommand,
@@ -12,6 +11,7 @@ import {
   NodeExtensionSpec,
   NodeSpecOverride,
 } from '@remirror/core';
+import { chainCommands } from '@remirror/pm';
 import { exitCode } from '@remirror/pm/commands';
 
 export interface HardBreakOptions {
@@ -34,6 +34,7 @@ export interface HardBreakOptions {
  */
 @extension({
   defaultPriority: ExtensionPriority.Low,
+  defaultOptions: {}
 })
 export class HardBreakExtension extends NodeExtension {
   get name() {

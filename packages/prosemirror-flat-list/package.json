@@ -1,0 +1,78 @@
+{
+  "name": "prosemirror-flat-list",
+  "type": "module",
+  "version": "3.0.0",
+  "description": "Powerful list support for ProseMirror",
+  "author": "ocavue <ocavue@gmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/ocavue",
+  "homepage": "https://github.com/ocavue/prosemirror-flat-list#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ocavue/prosemirror-flat-list.git",
+    "directory": "packages/core"
+  },
+  "bugs": "https://github.com/ocavue/prosemirror-flat-list/issues",
+  "keywords": [
+    "ProseMirror",
+    "list"
+  ],
+  "sideEffects": false,
+  "main": "./dist/prosemirror-flat-list.js",
+  "module": "./dist/prosemirror-flat-list.js",
+  "types": "./dist/prosemirror-flat-list.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/prosemirror-flat-list.d.ts",
+      "require": "./dist/prosemirror-flat-list.cjs",
+      "import": "./dist/prosemirror-flat-list.js"
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "pnpm run build:tsup && pnpm run build:tsc",
+    "build:tsup": "tsup",
+    "build:tsc": "tsc -b tsconfig.json",
+    "prepublishOnly": "pnpm run build",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@remirror/core": "workspace:*",
+    "@remirror/preset-core": "workspace:*",
+    "remirror": "workspace:*",
+    "@remirror/pm": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/dedent": "^0.7.2",
+    "@types/node": "^20.17.5",
+    "@vitest/coverage-v8": "^3.1.4",
+    "dedent": "^1.6.0",
+    "execa": "^9.6.0",
+    "jest-prosemirror": "workspace:*",
+    "jest-remirror": "workspace:*",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.5.4",
+    "postcss-nesting": "^13.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "unified": "^11.0.5",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4"
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/index.ts"
+    ]
+  }
+}

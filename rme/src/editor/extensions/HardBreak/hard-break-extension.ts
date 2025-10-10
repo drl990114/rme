@@ -1,11 +1,9 @@
-import { chainCommands, convertCommand } from '@remirror/core';
-import {
-  baseKeymap,
-  exitCode
-} from "@remirror/pm/commands";
-import { HardBreakExtension } from 'remirror/extensions';
+import { convertCommand } from '@remirror/core'
+import { baseKeymap, exitCode } from '@remirror/pm/commands'
+import { HardBreakExtension } from 'remirror/extensions'
 
-import type { NodeSerializerOptions } from '../../transform';
+import { chainCommands } from '@remirror/pm'
+import type { NodeSerializerOptions } from '../../transform'
 
 const needUseBrNodeNames = ['tableCell']
 
