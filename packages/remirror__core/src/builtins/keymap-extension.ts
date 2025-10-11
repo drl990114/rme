@@ -233,19 +233,6 @@ export class KeymapExtension extends PlainExtension<KeymapOptions> {
    * Updates the stored keymap bindings on this extension.
    */
   private generateKeymapBindings = () => {
-    const overrideShortcutMap = this.options.overrideShortcutMap
-    console.log('overrideShortcutMap', overrideShortcutMap, this.commands)
-    if (overrideShortcutMap) {
-      const overrideKeyMap: Record<string, any> = {}
-      Object.entries(overrideShortcutMap).forEach(([commandName, shortcut]) => {
-        const command = this.commands?.[commandName]
-        if (command) {
-          overrideKeyMap[shortcut] = command
-        }
-      })
-      return overrideKeyMap
-    }
-
     const extensionKeymaps: PrioritizedKeyBindings[] = []
     const shortcutMap = this.shortcutMap
     const commandsExtension = this.store.getExtension(CommandsExtension)
@@ -317,6 +304,17 @@ export class KeymapExtension extends PlainExtension<KeymapOptions> {
     const sortedKeymaps = this.sortKeymaps([...this.extraKeyBindings, ...extensionKeymaps])
     const mappedCommands = mergeProsemirrorKeyBindings(sortedKeymaps)
 
+    const overrideShortcutMap = this.options.overrideShortcutMap
+    if (overrideShortcutMap) {
+      const overrideKeyMap: Record<string, any> = {}
+      Object.entries(overrideShortcutMap).forEach(([commandName, shortcut]) => {
+        const command = this.commands?.[commandName]
+        if (command) {
+          overrideKeyMap[shortcut] = command
+        }
+      })
+      Object.assign(mappedCommands, overrideKeyMap)
+    }
     return mappedCommands
   }
 

@@ -76,7 +76,6 @@ export const createWysiwygDelegate = (
     },
     {
       builtin: {
-        excludeBaseKeymap: true,
         overrideShortcutMap,
       },
     },
