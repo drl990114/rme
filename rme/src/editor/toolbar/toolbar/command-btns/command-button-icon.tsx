@@ -1,4 +1,4 @@
-import { CoreIcon, isString } from '@remirror/core';
+import { CoreIcon, isString } from '@rme-sdk/core';
 import { FC } from 'react';
 
 export interface CommandButtonIconProps {

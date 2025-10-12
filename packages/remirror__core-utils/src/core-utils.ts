@@ -1,82 +1,82 @@
+import {
+    __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
+    ErrorConstant,
+    LEAF_NODE_REPLACING_CHARACTER,
+    RemirrorIdentifier,
+} from '@rme-sdk/core-constants';
+import {
+    assert,
+    assertGet,
+    clamp,
+    includes,
+    invariant,
+    isArray,
+    isNullOrUndefined,
+    isNumber,
+    isObject,
+    isString,
+    keys,
+    omit,
+    sort,
+    uniqueBy,
+    unset,
+} from '@rme-sdk/core-helpers';
+import type {
+    AnchorHeadProps,
+    AnyConstructor,
+    ApplySchemaAttributes,
+    AttributesProps,
+    DOMCompatibleAttributes,
+    EditorSchema,
+    EditorState,
+    FromToProps,
+    MarkTypeProps,
+    PosProps,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+    ProsemirrorNode,
+    RemirrorContentType,
+    RemirrorIdentifierShape,
+    RemirrorJSON,
+    ResolvedPos,
+    SchemaProps,
+    Selection,
+    TextProps,
+    Transaction,
+    TrStateProps,
+} from '@rme-sdk/core-types';
+import {
+    DOMSerializer,
+    Fragment,
+    Mark,
+    MarkType,
+    NodeRange,
+    NodeType,
+    ParseOptions,
+    DOMParser as PMDomParser,
+    Node as PMNode,
+    ResolvedPos as PMResolvedPos,
+    Schema,
+    Slice,
+} from '@rme-sdk/pm/model';
+import {
+    AllSelection,
+    NodeSelection,
+    EditorState as PMEditorState,
+    Selection as PMSelection,
+    Transaction as PMTransaction,
+    TextSelection,
+} from '@rme-sdk/pm/state';
+import type { Step } from '@rme-sdk/pm/transform';
+import {
+    AddMarkStep,
+    RemoveMarkStep,
+    ReplaceAroundStep,
+    ReplaceStep,
+} from '@rme-sdk/pm/transform';
 import { cssifyObject } from 'css-in-js-utils';
 import type { StyleObject } from 'css-in-js-utils/es/cssifyObject';
 import { getDomDocument } from 'get-dom-document';
-import {
-  __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
-  ErrorConstant,
-  LEAF_NODE_REPLACING_CHARACTER,
-  RemirrorIdentifier,
-} from '@remirror/core-constants';
-import {
-  assert,
-  assertGet,
-  clamp,
-  includes,
-  invariant,
-  isArray,
-  isNullOrUndefined,
-  isNumber,
-  isObject,
-  isString,
-  keys,
-  omit,
-  sort,
-  uniqueBy,
-  unset,
-} from '@remirror/core-helpers';
-import type {
-  AnchorHeadProps,
-  AnyConstructor,
-  ApplySchemaAttributes,
-  AttributesProps,
-  DOMCompatibleAttributes,
-  EditorSchema,
-  EditorState,
-  FromToProps,
-  MarkTypeProps,
-  PosProps,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-  ProsemirrorNode,
-  RemirrorContentType,
-  RemirrorIdentifierShape,
-  RemirrorJSON,
-  ResolvedPos,
-  SchemaProps,
-  Selection,
-  TextProps,
-  Transaction,
-  TrStateProps,
-} from '@remirror/core-types';
-import {
-  DOMParser as PMDomParser,
-  DOMSerializer,
-  Fragment,
-  Mark,
-  MarkType,
-  Node as PMNode,
-  NodeRange,
-  NodeType,
-  ParseOptions,
-  ResolvedPos as PMResolvedPos,
-  Schema,
-  Slice,
-} from '@remirror/pm/model';
-import {
-  AllSelection,
-  EditorState as PMEditorState,
-  NodeSelection,
-  Selection as PMSelection,
-  TextSelection,
-  Transaction as PMTransaction,
-} from '@remirror/pm/state';
-import type { Step } from '@remirror/pm/transform';
-import {
-  AddMarkStep,
-  RemoveMarkStep,
-  ReplaceAroundStep,
-  ReplaceStep,
-} from '@remirror/pm/transform';
 
 import { environment } from './environment';
 import { containsAttributes } from './prosemirror-utils';
@@ -1121,7 +1121,7 @@ const MAX_ATTEMPTS = 3;
 /**
  * Creates a document node from the passed in content and schema.
  *
- * @remirror
+ * @rme-sdk
  *
  * This supports a primitive form of error handling. When an error occurs, the
  * `onError` handler will be called along with the error produced by the Schema
@@ -1359,7 +1359,7 @@ export type StringHandlerOptions = NodeStringHandlerOptions | FragmentStringHand
  *
  * ```tsx
  * import { htmlToProsemirrorNode } from 'remirror';
- * import { Remirror, useManager } from '@remirror/react';
+ * import { Remirror, useManager } from '@rme-sdk/react';
  *
  * const Editor = () => {
  *   const manager = useManager([]);

@@ -1,5 +1,5 @@
+import { isEmptyArray, isString, object, RemirrorJSON } from '@rme-sdk/core';
 import React, { FC, Fragment } from 'react';
-import { isEmptyArray, isString, object, RemirrorJSON } from '@remirror/core';
 
 import { Callout, CodeBlock, TextHandler } from './handlers';
 import { Heading } from './handlers/heading';

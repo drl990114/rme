@@ -1,13 +1,13 @@
-import type { EditorState, Helper, Static, Transaction } from '@remirror/core';
-import { extension, findMatches, helper, PlainExtension } from '@remirror/core';
-import { Plugin } from '@remirror/pm/state';
-import { Decoration, DecorationSet } from '@remirror/pm/view';
+import type { EditorState, Helper, Static, Transaction } from '@rme-sdk/core';
+import { extension, findMatches, helper, PlainExtension } from '@rme-sdk/core';
+import { Plugin } from '@rme-sdk/pm/state';
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view';
 
 import {
-  getCharacterExceededPosition,
-  getTextLength,
-  getWordExceededPosition,
-  WORDS_REGEX,
+    getCharacterExceededPosition,
+    getTextLength,
+    getWordExceededPosition,
+    WORDS_REGEX,
 } from './count-utils';
 
 export enum CountStrategy {

@@ -1,16 +1,16 @@
+import { Cast, isNumber, keys } from '@rme-sdk/core-helpers';
+import type { EditorSchema, ProsemirrorNode, ProsemirrorPlugin } from '@rme-sdk/core-types';
+import { GapCursor } from '@rme-sdk/pm/gapcursor';
+import {
+    AllSelection,
+    EditorState,
+    NodeSelection,
+    Selection,
+    TextSelection,
+} from '@rme-sdk/pm/state';
+import { cellAround, CellSelection } from '@rme-sdk/pm/tables';
 import * as pm from 'prosemirror-test-builder';
 import { MarkBuilder, NodeBuilder } from 'prosemirror-test-builder';
-import { Cast, isNumber, keys } from '@remirror/core-helpers';
-import type { EditorSchema, ProsemirrorNode, ProsemirrorPlugin } from '@remirror/core-types';
-import { GapCursor } from '@remirror/pm/gapcursor';
-import {
-  AllSelection,
-  EditorState,
-  NodeSelection,
-  Selection,
-  TextSelection,
-} from '@remirror/pm/state';
-import { cellAround, CellSelection } from '@remirror/pm/tables';
 
 import { schema } from './jest-prosemirror-schema';
 import type { TaggedDocProps, TaggedProsemirrorNode } from './jest-prosemirror-types';

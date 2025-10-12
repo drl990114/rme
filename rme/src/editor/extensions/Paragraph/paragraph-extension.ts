@@ -1,5 +1,5 @@
-import type { ApplySchemaAttributes, NodeExtensionSpec, NodeSpecOverride } from "@remirror/core"
-import { ParagraphExtension } from "remirror/extensions"
+import type { ApplySchemaAttributes, NodeExtensionSpec, NodeSpecOverride } from "@rme-sdk/core"
+import { ParagraphExtension } from "@rme-sdk/main/extensions"
 
 import type { NodeSerializerOptions } from "../../transform"
 import { ParserRuleType } from "../../transform"

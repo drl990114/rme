@@ -1,5 +1,5 @@
-import type { EditorState, ProsemirrorNode } from '@remirror/core';
-import { findMatches } from '@remirror/core';
+import type { EditorState, ProsemirrorNode } from '@rme-sdk/core';
+import { findMatches } from '@rme-sdk/core';
 
 // Consider anything not whitespace a word. (Microsoft Word behaviour)
 export const WORDS_REGEX = /\S+/g;

@@ -1,4 +1,4 @@
-import type { AnyExtension, HelpersFromExtensions } from '@remirror/core';
+import type { AnyExtension, HelpersFromExtensions } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 
@@ -6,7 +6,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * A core hook which provides the helpers for usage in your editor.
  *
  * ```tsx
- * import { useHelpers } from '@remirror/react';
+ * import { useHelpers } from '@rme-sdk/react';
  *
  * const EditorButton = () => {
  *   const helpers = useHelpers();

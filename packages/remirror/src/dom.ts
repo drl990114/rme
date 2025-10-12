@@ -1,1 +1,1 @@
-export * from '@remirror/dom';
+export * from '@rme-sdk/dom';

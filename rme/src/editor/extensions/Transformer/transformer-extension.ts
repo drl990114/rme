@@ -1,5 +1,5 @@
-import type { CreateExtensionPlugin } from 'remirror';
-import { PlainExtension, extension } from 'remirror';
+import type { CreateExtensionPlugin } from '@rme-sdk/core';
+import { PlainExtension, extension } from '@rme-sdk/core';
 import { DocToString, StringToDoc } from '../../types/index';
 
 export type TransformerMenuState = {

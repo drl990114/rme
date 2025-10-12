@@ -1,4 +1,4 @@
-import type { RemirrorMessage } from '@remirror/core-types';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
 
 export const CREATE_COMMAND_LABEL: RemirrorMessage = /*i18n*/ {
   id: 'extension.command.create-table.label',

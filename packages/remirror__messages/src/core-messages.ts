@@ -1,4 +1,4 @@
-import type { RemirrorMessage } from '@remirror/core-types';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
 
 export const COPY_LABEL: RemirrorMessage = /*i18n*/ {
   id: 'extension.command.copy.label',

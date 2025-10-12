@@ -1,25 +1,25 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  CommandsExtension,
-  extension,
-  ExtensionTag,
-  InputRule,
-  KeyBindings,
-  NamedShortcut,
-  NodeExtension,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  object,
-  ProsemirrorAttributes,
-  ProsemirrorNode,
-  setBlockType,
-  Static,
-  toggleBlockItem,
-} from '@remirror/core';
-import { textblockTypeInputRule } from '@remirror/pm/inputrules';
-import { NodePasteRule } from '@remirror/pm/paste-rules';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    CommandsExtension,
+    extension,
+    ExtensionTag,
+    InputRule,
+    KeyBindings,
+    NamedShortcut,
+    NodeExtension,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    object,
+    ProsemirrorAttributes,
+    ProsemirrorNode,
+    setBlockType,
+    Static,
+    toggleBlockItem,
+} from '@rme-sdk/core';
+import { textblockTypeInputRule } from '@rme-sdk/pm/inputrules';
+import { NodePasteRule } from '@rme-sdk/pm/paste-rules';
 
 import { shortcuts, toggleHeadingOptions } from './heading-constants';
 

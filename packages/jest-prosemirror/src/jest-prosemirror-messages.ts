@@ -1,6 +1,6 @@
+import { ProsemirrorNode } from '@rme-sdk/core-types';
 import chalk from 'chalk';
 import { matcherHint, printExpected, printReceived } from 'jest-matcher-utils';
-import { ProsemirrorNode } from '@remirror/core-types';
 
 import { selectionFor } from './jest-prosemirror-nodes';
 

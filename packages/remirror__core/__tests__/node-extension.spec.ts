@@ -1,8 +1,8 @@
+import { ExtensionPriority, ExtensionTag } from '@rme-sdk/core-constants';
+import type { ApplySchemaAttributes, NodeExtensionSpec } from '@rme-sdk/core-types';
+import { htmlToProsemirrorNode } from '@rme-sdk/core-utils';
 import { pmBuild } from 'jest-prosemirror';
 import { createCoreManager } from 'remirror/extensions';
-import { ExtensionPriority, ExtensionTag } from '@remirror/core-constants';
-import type { ApplySchemaAttributes, NodeExtensionSpec } from '@remirror/core-types';
-import { htmlToProsemirrorNode } from '@remirror/core-utils';
 
 import { NodeExtension } from '../';
 

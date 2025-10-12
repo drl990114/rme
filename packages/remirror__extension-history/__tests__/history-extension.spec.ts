@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals';
+import type { EditorState } from '@rme-sdk/core';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
-import type { EditorState } from '@remirror/core';
 
 import { HistoryExtension } from '../';
 

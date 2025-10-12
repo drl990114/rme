@@ -1,4 +1,4 @@
-import type { Transaction } from '@remirror/pm/state'
+import type { Transaction } from '@rme-sdk/pm/state'
 
 export function mapPos(tr: Transaction, pos: number) {
   let nextStepIndex = tr.steps.length

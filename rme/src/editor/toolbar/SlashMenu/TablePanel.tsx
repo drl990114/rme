@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { forwardRef, useState, useImperativeHandle, memo } from 'react'
-import type { AnyExtension, CommandsFromExtensions } from 'remirror'
+import type { AnyExtension, CommandsFromExtensions } from '@rme-sdk/main'
+import { forwardRef, memo, useImperativeHandle, useState } from 'react'
 import styled from 'styled-components'
 import { ChildrenHandlerNext } from './SlashMenuRoot'
 

@@ -1,49 +1,49 @@
+import {
+    assertGet,
+    clamp,
+    defaultImport,
+    isArray,
+    isEmptyArray,
+    isNumber,
+    isObject,
+    isString,
+    isUndefined,
+    keys,
+    last,
+    object,
+    omit,
+    range,
+    take,
+    uniqueArray,
+    uniqueBy,
+    within,
+} from '@rme-sdk/core-helpers';
+import type { AnyFunction, Nullable } from '@rme-sdk/core-types';
 import _computeScrollIntoView from 'compute-scroll-into-view';
 import type { Dispatch, KeyboardEvent, SyntheticEvent } from 'react';
 import warning from 'tiny-warning';
 import { keyName } from 'w3c-keyname';
-import {
-  assertGet,
-  clamp,
-  defaultImport,
-  isArray,
-  isEmptyArray,
-  isNumber,
-  isObject,
-  isString,
-  isUndefined,
-  keys,
-  last,
-  object,
-  omit,
-  range,
-  take,
-  uniqueArray,
-  uniqueBy,
-  within,
-} from '@remirror/core-helpers';
-import type { AnyFunction, Nullable } from '@remirror/core-types';
 
 import { SpecialKey, Type } from './multishift-constants';
 import type {
-  ActionCreator,
-  ActionCreatorMapToDispatch,
-  ActionCreatorsMapObject,
-  GetItemId,
-  ItemClickPayload,
-  ItemToString,
-  Modifier,
-  MultishiftA11yIdProps,
-  MultishiftBehaviorProps,
-  MultishiftChangeHandlerProps,
-  MultishiftDefaultValueProps,
-  MultishiftInitialValueProps,
-  MultishiftProps,
-  MultishiftState,
-  MultishiftStateChangeset,
-  MultishiftStateHelpers,
-  MultishiftStateProps,
-  SpecialKeyDownPayload,
+    ActionCreator,
+    ActionCreatorMapToDispatch,
+    ActionCreatorsMapObject,
+    GetItemId,
+    ItemClickPayload,
+    ItemToString,
+    Modifier,
+    MultishiftA11yIdProps,
+    MultishiftBehaviorProps,
+    MultishiftChangeHandlerProps,
+    MultishiftDefaultValueProps,
+    MultishiftInitialValueProps,
+    MultishiftProps,
+    MultishiftState,
+    MultishiftStateChangeset,
+    MultishiftStateHelpers,
+    MultishiftStateProps,
+    SpecialKeyDownPayload,
 } from './multishift-types';
 
 const computeScrollIntoView = defaultImport(_computeScrollIntoView);

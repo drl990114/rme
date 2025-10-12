@@ -1,5 +1,5 @@
-import { CodeExtension } from '@remirror/extension-code'
-import { useActive, useCommands } from '@remirror/react-core'
+import { CodeExtension } from '@rme-sdk/extension-code'
+import { useActive, useCommands } from '@rme-sdk/react-core'
 import { FC, useCallback } from 'react'
 
 import { t } from 'i18next'

@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-shortcuts",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-shortcuts",
+  "version": "1.1.0",
   "description": "Replace characters with keyboard shortcuts",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-shortcuts.js",
-      "require": "./dist/remirror-extension-shortcuts.cjs"
+      "import": "./dist/rme-sdk-extension-shortcuts.js",
+      "require": "./dist/rme-sdk-extension-shortcuts.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-shortcuts.cjs",
-  "module": "./dist/remirror-extension-shortcuts.js",
+  "main": "./dist/rme-sdk-extension-shortcuts.cjs",
+  "module": "./dist/rme-sdk-extension-shortcuts.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,31 +38,31 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*"
+    "@rme-sdk/core": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-shortcuts.d.ts",
-        "import": "./dist/remirror-extension-shortcuts.js",
-        "require": "./dist/remirror-extension-shortcuts.cjs"
+        "types": "./dist/rme-sdk-extension-shortcuts.d.ts",
+        "import": "./dist/rme-sdk-extension-shortcuts.js",
+        "require": "./dist/rme-sdk-extension-shortcuts.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-shortcuts.cjs",
-    "module": "./dist/remirror-extension-shortcuts.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-shortcuts.d.ts"
+    "main": "./dist/rme-sdk-extension-shortcuts.cjs",
+    "module": "./dist/rme-sdk-extension-shortcuts.js",
+    "types": "./dist/rme-sdk-extension-shortcuts.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

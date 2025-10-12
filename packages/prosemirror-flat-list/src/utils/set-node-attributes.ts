@@ -1,5 +1,5 @@
-import type { Attrs } from '@remirror/pm/model'
-import type { Transaction } from '@remirror/pm/state'
+import type { Attrs } from '@rme-sdk/pm/model'
+import type { Transaction } from '@rme-sdk/pm/state'
 
 export function setNodeAttributes(
   tr: Transaction,

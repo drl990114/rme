@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-epic-mode",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-epic-mode",
+  "version": "1.1.0",
   "description": "Epic (power) mode extension for the remirror wysiwyg editor.",
   "keywords": [
     "remirror",
@@ -26,13 +26,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-epic-mode.js",
-      "require": "./dist/remirror-extension-epic-mode.cjs"
+      "import": "./dist/rme-sdk-extension-epic-mode.js",
+      "require": "./dist/rme-sdk-extension-epic-mode.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-epic-mode.cjs",
-  "module": "./dist/remirror-extension-epic-mode.js",
+  "main": "./dist/rme-sdk-extension-epic-mode.cjs",
+  "module": "./dist/rme-sdk-extension-epic-mode.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -43,32 +43,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-epic-mode.d.ts",
-        "import": "./dist/remirror-extension-epic-mode.js",
-        "require": "./dist/remirror-extension-epic-mode.cjs"
+        "types": "./dist/rme-sdk-extension-epic-mode.d.ts",
+        "import": "./dist/rme-sdk-extension-epic-mode.js",
+        "require": "./dist/rme-sdk-extension-epic-mode.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-epic-mode.cjs",
-    "module": "./dist/remirror-extension-epic-mode.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-epic-mode.d.ts"
+    "main": "./dist/rme-sdk-extension-epic-mode.cjs",
+    "module": "./dist/rme-sdk-extension-epic-mode.js",
+    "types": "./dist/rme-sdk-extension-epic-mode.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

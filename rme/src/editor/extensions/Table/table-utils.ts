@@ -1,7 +1,7 @@
-import { findParentNodeOfType, FindProsemirrorNodeResult, NodeWithPosition } from '@remirror/core'
-import { TableSchemaSpec } from '@remirror/extension-tables'
-import { EditorState, NodeType, ResolvedPos, Selection } from '@remirror/pm'
-import { CellSelection, Rect, TableMap } from '@remirror/pm/tables'
+import { findParentNodeOfType, FindProsemirrorNodeResult, NodeWithPosition } from '@rme-sdk/core'
+import { TableSchemaSpec } from '@rme-sdk/extension-tables'
+import { EditorState, NodeType, ResolvedPos, Selection } from '@rme-sdk/pm'
+import { CellSelection, Rect, TableMap } from '@rme-sdk/pm/tables'
 
 export function findTable(selection: EditorState | Selection | ResolvedPos) {
   return findParentNodeOfType({ selection, types: 'table' })

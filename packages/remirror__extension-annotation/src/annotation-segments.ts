@@ -1,4 +1,4 @@
-import { FromToProps, sort } from '@remirror/core';
+import { FromToProps, sort } from '@rme-sdk/core';
 
 import type { Annotation, OmitText } from './annotation-types';
 

@@ -1,7 +1,7 @@
+import { defaultAbsolutePosition } from '@rme-sdk/extension-positioner';
+import { createReactManager, Remirror } from '@rme-sdk/react-core';
 import React, { FC } from 'react';
 import { strictRender } from 'testing/react';
-import { defaultAbsolutePosition } from '@remirror/extension-positioner';
-import { createReactManager, Remirror } from '@remirror/react-core';
 
 import { usePositioner } from '../src/use-positioner';
 

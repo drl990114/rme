@@ -1,6 +1,6 @@
-import type { CommandFunction, CreateExtensionPlugin, EditorView } from '@remirror/core'
-import { extension, PlainExtension } from '@remirror/core'
-import { DOMParser, Fragment, Node, Slice } from '@remirror/pm/model'
+import type { CommandFunction, CreateExtensionPlugin, EditorView } from '@rme-sdk/core'
+import { extension, PlainExtension } from '@rme-sdk/core'
+import { DOMParser, Fragment, Node, Slice } from '@rme-sdk/pm/model'
 import { getMdImageInputRule } from '../../inline-input-regex'
 import { getTransformerByView } from '../Transformer/utils'
 

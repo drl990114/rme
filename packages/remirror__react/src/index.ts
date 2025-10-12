@@ -1,7 +1,8 @@
-export * from '@remirror/extension-react-component';
-export * from '@remirror/preset-react';
-export * from '@remirror/react-components';
-export * from '@remirror/react-core';
-export * from '@remirror/react-hooks';
-export * from '@remirror/react-renderer';
-export * from '@remirror/react-utils';
+export * from '@rme-sdk/extension-react-component';
+export * from '@rme-sdk/preset-react';
+export * from '@rme-sdk/react-components';
+export * from '@rme-sdk/react-core';
+export * from '@rme-sdk/react-hooks';
+export * from '@rme-sdk/react-renderer';
+export * from '@rme-sdk/react-utils';
+

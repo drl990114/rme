@@ -1,18 +1,18 @@
-import { ErrorConstant } from '@remirror/core-constants';
-import { invariant, isFunction, isNullOrUndefined, isString } from '@remirror/core-helpers';
+import { ErrorConstant } from '@rme-sdk/core-constants';
+import { invariant, isFunction, isNullOrUndefined, isString } from '@rme-sdk/core-helpers';
 import type {
-  EditorState,
-  EditorStateProps,
-  GetAttributesProps,
-  Mark,
-  MarkType,
-  MarkTypeProps,
-  NodeTypeProps,
-  RegExpProps,
-  TransactionProps,
-} from '@remirror/core-types';
-import { InputRule } from '@remirror/pm/inputrules';
-import { markActiveInRange } from '@remirror/pm/suggest';
+    EditorState,
+    EditorStateProps,
+    GetAttributesProps,
+    Mark,
+    MarkType,
+    MarkTypeProps,
+    NodeTypeProps,
+    RegExpProps,
+    TransactionProps,
+} from '@rme-sdk/core-types';
+import { InputRule } from '@rme-sdk/pm/inputrules';
+import { markActiveInRange } from '@rme-sdk/pm/suggest';
 
 export interface BeforeDispatchProps extends TransactionProps {
   /**
@@ -290,7 +290,7 @@ export function nodeInputRule(props: NodeInputRuleProps): SkippableInputRule {
 
 /**
  * Creates a plain rule based on the provided regex. You can see this being used
- * in the `@remirror/extension-emoji` when it is setup to use plain text.
+ * in the `@rme-sdk/extension-emoji` when it is setup to use plain text.
  */
 export function plainInputRule(props: PlainInputRuleProps): SkippableInputRule {
   const {

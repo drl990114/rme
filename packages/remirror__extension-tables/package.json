@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-tables",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-tables",
+  "version": "1.1.0",
   "description": "A table a day keeps the doctor away. Remirror and play keeps the bad times at bay.",
   "keywords": [
     "remirror",
@@ -26,13 +26,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-tables.js",
-      "require": "./dist/remirror-extension-tables.cjs"
+      "import": "./dist/rme-sdk-extension-tables.js",
+      "require": "./dist/rme-sdk-extension-tables.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-tables.cjs",
-  "module": "./dist/remirror-extension-tables.js",
+  "main": "./dist/rme-sdk-extension-tables.cjs",
+  "module": "./dist/rme-sdk-extension-tables.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -43,34 +43,34 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/extension-events": "workspace:*",
-    "@remirror/extension-positioner": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/extension-events": "workspace:*",
+    "@rme-sdk/extension-positioner": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-tables.d.ts",
-        "import": "./dist/remirror-extension-tables.js",
-        "require": "./dist/remirror-extension-tables.cjs"
+        "types": "./dist/rme-sdk-extension-tables.d.ts",
+        "import": "./dist/rme-sdk-extension-tables.js",
+        "require": "./dist/rme-sdk-extension-tables.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-tables.cjs",
-    "module": "./dist/remirror-extension-tables.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-tables.d.ts"
+    "main": "./dist/rme-sdk-extension-tables.cjs",
+    "module": "./dist/rme-sdk-extension-tables.js",
+    "types": "./dist/rme-sdk-extension-tables.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

@@ -1,25 +1,25 @@
 import { jest } from '@jest/globals';
+import { EMPTY_PARAGRAPH_NODE, ExtensionPriority, ExtensionTag } from '@rme-sdk/core-constants';
+import type {
+    Dispose,
+    KeyBindingCommandFunction,
+    NodeExtensionSpec,
+    NodeViewMethod,
+    ProsemirrorAttributes,
+} from '@rme-sdk/core-types';
+import { Schema } from '@rme-sdk/pm/model';
+import { EditorState, Plugin, Transaction } from '@rme-sdk/pm/state';
+import { EditorView } from '@rme-sdk/pm/view';
 import { createEditor, doc, p } from 'jest-prosemirror';
 import {
-  isRemirrorManager,
-  NodeExtension,
-  NodeViewsExtension,
-  PlainExtension,
-  RemirrorManager,
+    isRemirrorManager,
+    NodeExtension,
+    NodeViewsExtension,
+    PlainExtension,
+    RemirrorManager,
 } from 'remirror';
 import { corePreset, createCoreManager, HeadingExtension } from 'remirror/extensions';
 import { createFramework, hideConsoleError } from 'testing';
-import { EMPTY_PARAGRAPH_NODE, ExtensionPriority, ExtensionTag } from '@remirror/core-constants';
-import type {
-  Dispose,
-  KeyBindingCommandFunction,
-  NodeExtensionSpec,
-  NodeViewMethod,
-  ProsemirrorAttributes,
-} from '@remirror/core-types';
-import { Schema } from '@remirror/pm/model';
-import { EditorState, Plugin, Transaction } from '@remirror/pm/state';
-import { EditorView } from '@remirror/pm/view';
 
 describe('Manager', () => {
   let state: EditorState;

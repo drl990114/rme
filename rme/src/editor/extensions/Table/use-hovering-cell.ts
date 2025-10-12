@@ -1,9 +1,8 @@
-import { NodeWithPosition } from "@remirror/core"
-import { useHover } from "@remirror/react"
-import React from "react"
-import { useCallback } from "react"
+import { NodeWithPosition } from "@rme-sdk/core"
+import { useHover } from "@rme-sdk/react"
+import React, { useCallback } from "react"
 
-import { isCellType, isTableType } from "./table-utils"
+import { isCellType } from "./table-utils"
 
 /**
  * A hook which returns the table cell node and its position that is currently

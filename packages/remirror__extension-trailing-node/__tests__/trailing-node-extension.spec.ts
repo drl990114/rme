@@ -1,11 +1,11 @@
+import { UnpackedExtension } from '@rme-sdk/core';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
 import {
-  BlockquoteExtension,
-  HeadingExtension,
-  TrailingNodeExtension,
-  TrailingNodeOptions,
+    BlockquoteExtension,
+    HeadingExtension,
+    TrailingNodeExtension,
+    TrailingNodeOptions,
 } from 'remirror/extensions';
-import { UnpackedExtension } from '@remirror/core';
 
 extensionValidityTest(TrailingNodeExtension);
 

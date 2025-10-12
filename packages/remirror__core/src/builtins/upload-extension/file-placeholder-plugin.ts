@@ -1,5 +1,5 @@
-import { EditorState, Plugin, PluginKey, Transaction } from '@remirror/pm/state';
-import { Decoration, DecorationSet } from '@remirror/pm/view';
+import { EditorState, Plugin, PluginKey, Transaction } from '@rme-sdk/pm/state';
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view';
 
 import { ActionType, PlaceholderPluginAction } from './file-placeholder-actions';
 

@@ -1,4 +1,4 @@
-import type { DOMOutputSpec, Node as ProsemirrorNode } from '@remirror/pm/model'
+import type { DOMOutputSpec, Node as ProsemirrorNode } from '@rme-sdk/pm/model'
 
 import type { ListAttributes } from '../types'
 

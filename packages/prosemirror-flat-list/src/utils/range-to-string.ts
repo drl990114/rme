@@ -1,4 +1,4 @@
-import type { NodeRange } from '@remirror/pm/model'
+import type { NodeRange } from '@rme-sdk/pm/model'
 
 import { cutByIndex } from './cut-by-index'
 

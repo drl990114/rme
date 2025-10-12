@@ -1,4 +1,4 @@
-import { EditorState, isEditorState, isProsemirrorNode, ProsemirrorNode } from '@remirror/core';
+import { EditorState, isEditorState, isProsemirrorNode, ProsemirrorNode } from '@rme-sdk/core';
 
 import type { TaggedProsemirrorNode } from './jest-remirror-types';
 import { createSelectionFromTaggedDocument } from './jest-remirror-utils';

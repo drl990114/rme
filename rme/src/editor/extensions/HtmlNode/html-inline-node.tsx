@@ -1,20 +1,20 @@
-import { NodeSerializerOptions, ParserRuleType } from '../../transform'
-import {
-  needSplitInlineHtmlTokenTags
-} from '../../transform/markdown-it-html-inline'
-import { getTagName } from '../../utils/html'
-import block_names from 'markdown-it/lib/common/html_blocks.mjs'
 import type {
   InputRule,
   NodeExtensionSpec,
   NodeViewMethod
-} from 'remirror'
+} from '@rme-sdk/main'
 import {
   ExtensionTag,
   NodeExtension,
   extension,
   nodeInputRule
-} from 'remirror'
+} from '@rme-sdk/main'
+import block_names from 'markdown-it/lib/common/html_blocks.mjs'
+import { NodeSerializerOptions, ParserRuleType } from '../../transform'
+import {
+  needSplitInlineHtmlTokenTags
+} from '../../transform/markdown-it-html-inline'
+import { getTagName } from '../../utils/html'
 import { HTMLInlineView } from './html-inline-view'
 
 const attr_name = '[a-zA-Z_:][a-zA-Z0-9:._-]*'

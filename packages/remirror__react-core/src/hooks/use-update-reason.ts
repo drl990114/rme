@@ -1,5 +1,5 @@
+import { PluginsExtension } from '@rme-sdk/core';
 import { useCallback, useState } from 'react';
-import { PluginsExtension } from '@remirror/core';
 
 import { useExtensionEvent } from './use-extension-event';
 

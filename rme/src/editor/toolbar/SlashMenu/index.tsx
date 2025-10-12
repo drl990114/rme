@@ -1,11 +1,11 @@
+import { useExtension, useRemirrorContext } from '@rme-sdk/react-core'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { usePopper } from 'react-popper'
+import styled from 'styled-components'
 import { SlashMenuExtension } from '../../extensions/SlashMenu'
 import type { SlashMenuState } from '../../extensions/SlashMenu/type'
 import { SlashMetaTypes } from '../../extensions/SlashMenu/type'
 import { dispatchWithMeta } from '../../extensions/SlashMenu/utils'
-import { useExtension, useRemirrorContext } from '@remirror/react-core'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { usePopper } from 'react-popper'
-import styled from 'styled-components'
 import { SlashMenuRoot } from './SlashMenuRoot'
 
 export enum Placement {

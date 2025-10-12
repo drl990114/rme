@@ -1,14 +1,14 @@
 import {
-  createParagraphNear,
-  newlineInCode,
-  pmChainCommands,
-  splitBlock,
-} from '@remirror/pm/commands'
-import type { Command } from '@remirror/pm/state'
+    createParagraphNear,
+    newlineInCode,
+    pmChainCommands,
+    splitBlock,
+} from '@rme-sdk/pm/commands'
+import type { Command } from '@rme-sdk/pm/state'
 
 /**
  * This command has the same behavior as the `Enter` keybinding from
- * `@remirror/pm/commands`, but without the `liftEmptyBlock` command.
+ * `@rme-sdk/pm/commands`, but without the `liftEmptyBlock` command.
  *
  * @internal
  */

@@ -1,20 +1,20 @@
 import type {
-  __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
-  RemirrorIdentifier,
-} from '@remirror/core-constants';
+    __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
+    RemirrorIdentifier,
+} from '@rme-sdk/core-constants';
 import type {
-  CommandFunctionProps,
-  EditorState,
-  EditorView,
-  Mark,
-  ProsemirrorCommandFunction,
-  ProsemirrorNode,
-  ResolvedPos,
-  Selection,
-} from '@remirror/pm';
-import type { AttributeSpec, MarkSpec, NodeSpec } from '@remirror/pm/model';
-import { Decoration, DecorationSource, NodeView } from '@remirror/pm/view';
-import type { JsonPrimitive, Literal, ObjectMark, ProsemirrorAttributes } from '@remirror/types';
+    CommandFunctionProps,
+    EditorState,
+    EditorView,
+    Mark,
+    ProsemirrorCommandFunction,
+    ProsemirrorNode,
+    ResolvedPos,
+    Selection,
+} from '@rme-sdk/pm';
+import type { AttributeSpec, MarkSpec, NodeSpec } from '@rme-sdk/pm/model';
+import { Decoration, DecorationSource, NodeView } from '@rme-sdk/pm/view';
+import type { JsonPrimitive, Literal, ObjectMark, ProsemirrorAttributes } from '@rme-sdk/types';
 
 import type { FromToProps, MarkWithAttributes, NodeWithAttributes } from './props-types';
 

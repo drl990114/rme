@@ -1,4 +1,4 @@
-import { ProsemirrorPlugin } from '@remirror/pm';
+import { ProsemirrorPlugin } from '@rme-sdk/pm';
 
 import { PlainExtension } from '../../extension';
 import { createUploadPlaceholderPlugin } from './file-placeholder-plugin';

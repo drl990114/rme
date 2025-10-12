@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-node-formatting",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-node-formatting",
+  "version": "1.1.0",
   "description": "Support consistent formatting of nodes within your editor.",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-node-formatting.js",
-      "require": "./dist/remirror-extension-node-formatting.cjs"
+      "import": "./dist/rme-sdk-extension-node-formatting.js",
+      "require": "./dist/rme-sdk-extension-node-formatting.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-node-formatting.cjs",
-  "module": "./dist/remirror-extension-node-formatting.js",
+  "main": "./dist/rme-sdk-extension-node-formatting.cjs",
+  "module": "./dist/rme-sdk-extension-node-formatting.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,32 +38,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-node-formatting.d.ts",
-        "import": "./dist/remirror-extension-node-formatting.js",
-        "require": "./dist/remirror-extension-node-formatting.cjs"
+        "types": "./dist/rme-sdk-extension-node-formatting.d.ts",
+        "import": "./dist/rme-sdk-extension-node-formatting.js",
+        "require": "./dist/rme-sdk-extension-node-formatting.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-node-formatting.cjs",
-    "module": "./dist/remirror-extension-node-formatting.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-node-formatting.d.ts"
+    "main": "./dist/rme-sdk-extension-node-formatting.cjs",
+    "module": "./dist/rme-sdk-extension-node-formatting.js",
+    "types": "./dist/rme-sdk-extension-node-formatting.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

@@ -1,14 +1,14 @@
 import { expect, jest } from '@jest/globals';
+import { isAllSelection } from '@rme-sdk/core';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
-import { isAllSelection } from '@remirror/core';
 
 import {
-  blockNodePositioner,
-  cursorPositioner,
-  isPositionerUpdateTransaction,
-  POSITIONER_UPDATE_KEY,
-  PositionerExtension,
-  selectionPositioner,
+    blockNodePositioner,
+    cursorPositioner,
+    isPositionerUpdateTransaction,
+    POSITIONER_UPDATE_KEY,
+    PositionerExtension,
+    selectionPositioner,
 } from '../';
 
 extensionValidityTest(PositionerExtension);

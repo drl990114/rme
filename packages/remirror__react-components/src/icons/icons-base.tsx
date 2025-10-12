@@ -4,9 +4,9 @@
  * Taken from
  * https://github.com/react-icons/react-icons/blob/10199cca7abeb3efbc647090714daa279da45779/packages/react-icons/src/iconBase.tsx#L1-L62
  */
+import * as Icons from '@rme-sdk/icons';
+import { IconTree } from '@rme-sdk/icons';
 import React, { createElement, ReactElement, ReactNode, SVGAttributes } from 'react';
-import * as Icons from '@remirror/icons';
-import { IconTree } from '@remirror/icons';
 
 import { IconContext } from './icons-context';
 

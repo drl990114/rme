@@ -1,6 +1,6 @@
-import { ExtensionPriority } from '@remirror/core-constants';
-import type { AnyFunction, CommandFunction, Static, Transaction } from '@remirror/core-types';
-import { environment } from '@remirror/core-utils';
+import { ExtensionPriority } from '@rme-sdk/core-constants';
+import type { AnyFunction, CommandFunction, Static, Transaction } from '@rme-sdk/core-types';
+import { environment } from '@rme-sdk/core-utils';
 
 import { AnyExtension, extension, PlainExtension } from '../extension';
 import type { CreateExtensionPlugin } from '../types';

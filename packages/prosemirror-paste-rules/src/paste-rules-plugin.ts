@@ -1,17 +1,17 @@
+import { ExtensionPriority } from '@rme-sdk/core-constants';
+import { findMatches, includes, isFunction, range, sort } from '@rme-sdk/core-helpers';
 import {
-  Fragment,
-  Mark,
-  MarkType,
-  Node as ProsemirrorNode,
-  NodeType,
-  ResolvedPos,
-  Schema as EditorSchema,
-  Slice,
+    Schema as EditorSchema,
+    Fragment,
+    Mark,
+    MarkType,
+    NodeType,
+    Node as ProsemirrorNode,
+    ResolvedPos,
+    Slice,
 } from 'prosemirror-model';
 import { Plugin, PluginKey, Selection } from 'prosemirror-state';
 import type { EditorView } from 'prosemirror-view';
-import { ExtensionPriority } from '@remirror/core-constants';
-import { findMatches, includes, isFunction, range, sort } from '@remirror/core-helpers';
 
 /**
  * Create the paste plugin handler.

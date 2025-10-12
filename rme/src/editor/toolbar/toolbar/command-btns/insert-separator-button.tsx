@@ -1,4 +1,4 @@
-import { useActive, useCommands } from '@remirror/react-core'
+import { useActive, useCommands } from '@rme-sdk/react-core'
 import { FC, useCallback } from 'react'
 
 import { CodeMirrorExtensionAttributes } from '@/editor/extensions/CodeMirror/codemirror-types'

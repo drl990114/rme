@@ -1,5 +1,5 @@
-import { pmChainCommands } from '@remirror/pm/commands'
-import type { Command } from '@remirror/pm/state'
+import { pmChainCommands } from '@rme-sdk/pm/commands'
+import type { Command } from '@rme-sdk/pm/state'
 
 import type { ListAttributes } from '../types'
 

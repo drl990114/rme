@@ -1,12 +1,12 @@
 import { jest } from '@jest/globals';
+import {
+    MountedPortal,
+    PortalContainer,
+    RemirrorPortals,
+    usePortals,
+} from '@rme-sdk/extension-react-component';
 import React from 'react';
 import { act, strictRender } from 'testing/react';
-import {
-  MountedPortal,
-  PortalContainer,
-  RemirrorPortals,
-  usePortals,
-} from '@remirror/extension-react-component';
 
 import { createReactManager, Remirror, useRemirrorContext } from '../';
 

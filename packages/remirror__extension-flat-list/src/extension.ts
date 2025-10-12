@@ -1,33 +1,33 @@
 import {
-  convertCommand,
-  ExtensionTag,
-  type InputRule,
-  type KeyBindings,
-  NodeExtension,
-  type NodeExtensionSpec,
-  type ProsemirrorPlugin,
-} from '@remirror/core'
-import type { NodeRange } from '@remirror/pm/model'
+    convertCommand,
+    ExtensionTag,
+    type InputRule,
+    type KeyBindings,
+    NodeExtension,
+    type NodeExtensionSpec,
+    type ProsemirrorPlugin,
+} from '@rme-sdk/core'
+import type { NodeRange } from '@rme-sdk/pm/model'
 import {
-  createDedentListCommand,
-  createIndentListCommand,
-  createListPlugins,
-  createListSpec,
-  createMoveListCommand,
-  createSplitListCommand,
-  createToggleCollapsedCommand,
-  createToggleListCommand,
-  createUnwrapListCommand,
-  createWrapInListCommand,
-  type DedentListOptions,
-  type IndentListOptions,
-  type ListAttributes,
-  listInputRules,
-  listKeymap,
-  protectCollapsed,
-  type ToggleCollapsedOptions,
-  type UnwrapListOptions,
-} from 'prosemirror-flat-list'
+    createDedentListCommand,
+    createIndentListCommand,
+    createListPlugins,
+    createListSpec,
+    createMoveListCommand,
+    createSplitListCommand,
+    createToggleCollapsedCommand,
+    createToggleListCommand,
+    createUnwrapListCommand,
+    createWrapInListCommand,
+    type DedentListOptions,
+    type IndentListOptions,
+    type ListAttributes,
+    listInputRules,
+    listKeymap,
+    protectCollapsed,
+    type ToggleCollapsedOptions,
+    type UnwrapListOptions,
+} from '@rme-sdk/prosemirror-flat-list'
 
 /**
  * A Remirror extension for creating lists. It's a simple wrapper around the API from `prosemirror-flat-list`.

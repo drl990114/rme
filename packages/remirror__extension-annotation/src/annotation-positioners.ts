@@ -1,5 +1,5 @@
-import { Coords } from '@remirror/core';
-import { Positioner, selectionPositioner } from '@remirror/extension-positioner';
+import { Coords } from '@rme-sdk/core';
+import { Positioner, selectionPositioner } from '@rme-sdk/extension-positioner';
 
 import type { Annotation } from './annotation-types';
 

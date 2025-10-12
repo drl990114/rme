@@ -1,5 +1,5 @@
+import { ErrorConstant } from '@rme-sdk/core-constants';
 import { BaseError } from 'make-error';
-import { ErrorConstant } from '@remirror/core-constants';
 
 import { includes, isString, values } from './core-helpers';
 
@@ -15,7 +15,7 @@ const errorMessageMap: Partial<Record<ErrorConstant, string>> = {
     'The arguments passed to the command method were invalid.',
   [ErrorConstant.CUSTOM]: 'This is a custom error, possibly thrown by an external library.',
   [ErrorConstant.CORE_HELPERS]:
-    'An error occurred in a function called from the `@remirror/core-helpers` library.',
+    'An error occurred in a function called from the `@rme-sdk/core-helpers` library.',
   [ErrorConstant.MUTATION]: 'Mutation of immutable value detected.',
   [ErrorConstant.INTERNAL]:
     'This is an error which should not occur and is internal to the remirror codebase.',

@@ -1,4 +1,4 @@
-import type { Command, Transaction } from '@remirror/pm/state'
+import type { Command, Transaction } from '@rme-sdk/pm/state'
 
 import { withAutoFixList } from '../utils/auto-fix-list'
 import { cutByIndex } from '../utils/cut-by-index'

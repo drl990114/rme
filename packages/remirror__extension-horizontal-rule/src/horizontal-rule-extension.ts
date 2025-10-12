@@ -1,21 +1,21 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  ErrorConstant,
-  extension,
-  ExtensionTag,
-  InputRule,
-  invariant,
-  isEmptyBlockNode,
-  isNodeSelection,
-  NodeExtension,
-  NodeExtensionSpec,
-  nodeInputRule,
-  NodeSpecOverride,
-  Transaction,
-} from '@remirror/core';
-import { TextSelection } from '@remirror/pm/state';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    ErrorConstant,
+    extension,
+    ExtensionTag,
+    InputRule,
+    invariant,
+    isEmptyBlockNode,
+    isNodeSelection,
+    NodeExtension,
+    NodeExtensionSpec,
+    nodeInputRule,
+    NodeSpecOverride,
+    Transaction,
+} from '@rme-sdk/core';
+import { TextSelection } from '@rme-sdk/pm/state';
 
 import { insertHorizontalRuleOptions } from './horizontal-rule-utils';
 

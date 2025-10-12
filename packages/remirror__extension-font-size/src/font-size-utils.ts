@@ -1,4 +1,4 @@
-import { ExtensionFontSizeMessages as Messages } from '@remirror/messages';
+import { ExtensionFontSizeMessages as Messages } from '@rme-sdk/messages';
 
 export const setFontSizeOptions: Remirror.CommandDecoratorOptions = {
   icon: 'fontSize',

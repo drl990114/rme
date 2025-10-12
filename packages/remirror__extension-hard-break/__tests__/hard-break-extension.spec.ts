@@ -1,5 +1,5 @@
+import { isTextSelection } from '@rme-sdk/core';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
-import { isTextSelection } from '@remirror/core';
 
 import { HardBreakExtension } from '../';
 

@@ -1,6 +1,6 @@
+import { FocusType, isElementDomNode } from '@rme-sdk/core';
+import { useRemirrorContext } from '@rme-sdk/react-core';
 import { useCallback, useState } from 'react';
-import { FocusType, isElementDomNode } from '@remirror/core';
-import { useRemirrorContext } from '@remirror/react-core';
 
 import { useEditorEvent } from './use-editor-event';
 

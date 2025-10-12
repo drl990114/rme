@@ -1,14 +1,14 @@
-import { Remirror } from '@remirror/react'
+import { ProsemirrorDevTools } from '@rme-sdk/dev'
+import type { Extension, RemirrorEventListener } from '@rme-sdk/main'
+import { Remirror } from '@rme-sdk/react'
 import { createContextState } from 'create-context-state'
 import React, { memo, useCallback, useMemo } from 'react'
-import Text from '../Text'
-import type { EditorDelegate } from '../../types'
-import { ProsemirrorDevTools } from '@remirror/dev'
-import { createSourceCodeDelegate } from './delegate'
-import ErrorBoundary from '../ErrorBoundary'
-import { defaultStyleToken, type EditorProps } from '../Editor'
-import type { Extension, RemirrorEventListener } from 'remirror'
 import { SourceCodeThemeWrapper } from '../../theme'
+import type { EditorDelegate } from '../../types'
+import { defaultStyleToken, type EditorProps } from '../Editor'
+import ErrorBoundary from '../ErrorBoundary'
+import Text from '../Text'
+import { createSourceCodeDelegate } from './delegate'
 
 type Context = Props
 

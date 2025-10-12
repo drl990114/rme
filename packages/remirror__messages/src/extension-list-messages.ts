@@ -1,4 +1,4 @@
-import type { RemirrorMessage } from '@remirror/core-types';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
 
 export const ORDERED_LIST_LABEL: RemirrorMessage = /*i18n*/ {
   id: 'extension.command.toggle-ordered-list.label',

@@ -1,7 +1,7 @@
 {
   "__AUTO_GENERATED__": [
     "To update the configuration edit the following field.",
-    "`package.json > @remirror > tsconfigs > 'src'`",
+    "`package.json > @rme-sdk > tsconfigs > 'src'`",
     "",
     "Then run: `pnpm -w generate:ts`"
   ],

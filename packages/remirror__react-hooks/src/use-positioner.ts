@@ -1,12 +1,12 @@
-import { useMemo, useRef } from 'react';
-import { isBoolean, uniqueId } from '@remirror/core';
+import { isBoolean, uniqueId } from '@rme-sdk/core';
 import {
-  CallbackPositioner,
-  defaultAbsolutePosition,
-  Positioner,
-  PositionerParam,
-  StringPositioner,
-} from '@remirror/extension-positioner';
+    CallbackPositioner,
+    defaultAbsolutePosition,
+    Positioner,
+    PositionerParam,
+    StringPositioner,
+} from '@rme-sdk/extension-positioner';
+import { useMemo, useRef } from 'react';
 
 import { useMultiPositioner, UseMultiPositionerReturn } from './use-multi-positioner';
 
@@ -58,7 +58,7 @@ export type UsePositionerReturn<Data = any> =
  * Must apply the ref to the component when called.
  *
  * ```ts
- * import { usePositioner } from '@remirror/react';
+ * import { usePositioner } from '@rme-sdk/react';
  *
  * const MenuComponent: FC = () => {
  *   const positions = usePositioner('bubble');

@@ -1,23 +1,23 @@
 import {
-  ApplySchemaAttributes,
-  EditorSchema,
-  ErrorConstant,
-  ExtensionTag,
-  findParentNodeOfType,
-  FindProsemirrorNodeResult,
-  includes,
-  invariant,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  NodeType,
-  object,
-  ResolvedPos,
-  SchemaProps,
-  Selection,
-  values,
-} from '@remirror/core';
-import { ExtensionTablesMessages } from '@remirror/messages';
-import type { Node as ProsemirrorNode } from '@remirror/pm/model';
+    ApplySchemaAttributes,
+    EditorSchema,
+    ErrorConstant,
+    ExtensionTag,
+    findParentNodeOfType,
+    FindProsemirrorNodeResult,
+    includes,
+    invariant,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    NodeType,
+    object,
+    ResolvedPos,
+    SchemaProps,
+    Selection,
+    values,
+} from '@rme-sdk/core';
+import { ExtensionTablesMessages } from '@rme-sdk/messages';
+import type { Node as ProsemirrorNode } from '@rme-sdk/pm/model';
 
 export interface TableSchemaSpec extends NodeExtensionSpec {
   tableRole: TableRole;

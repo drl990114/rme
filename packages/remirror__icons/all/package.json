@@ -1,14 +1,14 @@
 {
   "type": "module",
+  "main": "./dist/rme-sdk-icons-all.cjs",
+  "module": "./dist/rme-sdk-icons-all.js",
+  "types": "./dist/rme-sdk-icons-all.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-icons-all.d.ts",
-      "import": "./dist/remirror-icons-all.js",
-      "require": "./dist/remirror-icons-all.cjs"
+      "types": "./dist/rme-sdk-icons-all.d.ts",
+      "import": "./dist/rme-sdk-icons-all.js",
+      "require": "./dist/rme-sdk-icons-all.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-icons-all.cjs",
-  "module": "./dist/remirror-icons-all.js",
-  "types": "./dist/remirror-icons-all.d.ts"
+  }
 }

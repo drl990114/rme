@@ -1,6 +1,6 @@
-import { BlockquoteExtension } from "remirror/extensions"
+import { BlockquoteExtension } from "@rme-sdk/main/extensions"
 
-import type { NodeSerializerOptions} from "../../transform"
+import type { NodeSerializerOptions } from "../../transform"
 import { ParserRuleType } from "../../transform"
 
 export class LineBlockquoteExtension extends BlockquoteExtension {

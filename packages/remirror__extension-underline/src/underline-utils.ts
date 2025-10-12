@@ -1,4 +1,4 @@
-import { ExtensionUnderlineMessages as Messages } from '@remirror/messages';
+import { ExtensionUnderlineMessages as Messages } from '@rme-sdk/messages';
 
 export const toggleUnderlineOptions: Remirror.CommandDecoratorOptions = {
   icon: 'underline',

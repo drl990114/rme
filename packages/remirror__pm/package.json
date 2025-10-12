@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/pm",
-  "version": "3.0.1",
+  "name": "@rme-sdk/pm",
+  "version": "1.1.0",
   "description": "A bundled library containing all the core prosemirror libraries required for using remirror",
   "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__pm",
   "repository": {
@@ -17,93 +17,93 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-pm.js",
-      "require": "./dist/remirror-pm.cjs"
+      "import": "./dist/rme-sdk-pm.js",
+      "require": "./dist/rme-sdk-pm.cjs"
     },
     "./collab": {
       "types": "./dist-types/collab.d.ts",
-      "import": "./collab/dist/remirror-pm-collab.js",
-      "require": "./collab/dist/remirror-pm-collab.cjs"
+      "import": "./collab/dist/rme-sdk-pm-collab.js",
+      "require": "./collab/dist/rme-sdk-pm-collab.cjs"
     },
     "./commands": {
       "types": "./dist-types/commands.d.ts",
-      "import": "./commands/dist/remirror-pm-commands.js",
-      "require": "./commands/dist/remirror-pm-commands.cjs"
+      "import": "./commands/dist/rme-sdk-pm-commands.js",
+      "require": "./commands/dist/rme-sdk-pm-commands.cjs"
     },
     "./dropcursor": {
       "types": "./dist-types/dropcursor.d.ts",
-      "import": "./dropcursor/dist/remirror-pm-dropcursor.js",
-      "require": "./dropcursor/dist/remirror-pm-dropcursor.cjs"
+      "import": "./dropcursor/dist/rme-sdk-pm-dropcursor.js",
+      "require": "./dropcursor/dist/rme-sdk-pm-dropcursor.cjs"
     },
     "./gapcursor": {
       "types": "./dist-types/gapcursor.d.ts",
-      "import": "./gapcursor/dist/remirror-pm-gapcursor.js",
-      "require": "./gapcursor/dist/remirror-pm-gapcursor.cjs"
+      "import": "./gapcursor/dist/rme-sdk-pm-gapcursor.js",
+      "require": "./gapcursor/dist/rme-sdk-pm-gapcursor.cjs"
     },
     "./history": {
       "types": "./dist-types/history.d.ts",
-      "import": "./history/dist/remirror-pm-history.js",
-      "require": "./history/dist/remirror-pm-history.cjs"
+      "import": "./history/dist/rme-sdk-pm-history.js",
+      "require": "./history/dist/rme-sdk-pm-history.cjs"
     },
     "./inputrules": {
       "types": "./dist-types/inputrules.d.ts",
-      "import": "./inputrules/dist/remirror-pm-inputrules.js",
-      "require": "./inputrules/dist/remirror-pm-inputrules.cjs"
+      "import": "./inputrules/dist/rme-sdk-pm-inputrules.js",
+      "require": "./inputrules/dist/rme-sdk-pm-inputrules.cjs"
     },
     "./keymap": {
       "types": "./dist-types/keymap.d.ts",
-      "import": "./keymap/dist/remirror-pm-keymap.js",
-      "require": "./keymap/dist/remirror-pm-keymap.cjs"
+      "import": "./keymap/dist/rme-sdk-pm-keymap.js",
+      "require": "./keymap/dist/rme-sdk-pm-keymap.cjs"
     },
     "./model": {
       "types": "./dist-types/model.d.ts",
-      "import": "./model/dist/remirror-pm-model.js",
-      "require": "./model/dist/remirror-pm-model.cjs"
+      "import": "./model/dist/rme-sdk-pm-model.js",
+      "require": "./model/dist/rme-sdk-pm-model.cjs"
     },
     "./package.json": "./package.json",
     "./paste-rules": {
       "types": "./dist-types/paste-rules.d.ts",
-      "import": "./paste-rules/dist/remirror-pm-paste-rules.js",
-      "require": "./paste-rules/dist/remirror-pm-paste-rules.cjs"
+      "import": "./paste-rules/dist/rme-sdk-pm-paste-rules.js",
+      "require": "./paste-rules/dist/rme-sdk-pm-paste-rules.cjs"
     },
     "./schema-list": {
       "types": "./dist-types/schema-list.d.ts",
-      "import": "./schema-list/dist/remirror-pm-schema-list.js",
-      "require": "./schema-list/dist/remirror-pm-schema-list.cjs"
+      "import": "./schema-list/dist/rme-sdk-pm-schema-list.js",
+      "require": "./schema-list/dist/rme-sdk-pm-schema-list.cjs"
     },
     "./state": {
       "types": "./dist-types/state.d.ts",
-      "import": "./state/dist/remirror-pm-state.js",
-      "require": "./state/dist/remirror-pm-state.cjs"
+      "import": "./state/dist/rme-sdk-pm-state.js",
+      "require": "./state/dist/rme-sdk-pm-state.cjs"
     },
     "./suggest": {
       "types": "./dist-types/suggest.d.ts",
-      "import": "./suggest/dist/remirror-pm-suggest.js",
-      "require": "./suggest/dist/remirror-pm-suggest.cjs"
+      "import": "./suggest/dist/rme-sdk-pm-suggest.js",
+      "require": "./suggest/dist/rme-sdk-pm-suggest.cjs"
     },
     "./tables": {
       "types": "./dist-types/tables.d.ts",
-      "import": "./tables/dist/remirror-pm-tables.js",
-      "require": "./tables/dist/remirror-pm-tables.cjs"
+      "import": "./tables/dist/rme-sdk-pm-tables.js",
+      "require": "./tables/dist/rme-sdk-pm-tables.cjs"
     },
     "./trailing-node": {
       "types": "./dist-types/trailing-node.d.ts",
-      "import": "./trailing-node/dist/remirror-pm-trailing-node.js",
-      "require": "./trailing-node/dist/remirror-pm-trailing-node.cjs"
+      "import": "./trailing-node/dist/rme-sdk-pm-trailing-node.js",
+      "require": "./trailing-node/dist/rme-sdk-pm-trailing-node.cjs"
     },
     "./transform": {
       "types": "./dist-types/transform.d.ts",
-      "import": "./transform/dist/remirror-pm-transform.js",
-      "require": "./transform/dist/remirror-pm-transform.cjs"
+      "import": "./transform/dist/rme-sdk-pm-transform.js",
+      "require": "./transform/dist/rme-sdk-pm-transform.cjs"
     },
     "./view": {
       "types": "./dist-types/view.d.ts",
-      "import": "./view/dist/remirror-pm-view.js",
-      "require": "./view/dist/remirror-pm-view.cjs"
+      "import": "./view/dist/rme-sdk-pm-view.js",
+      "require": "./view/dist/rme-sdk-pm-view.cjs"
     }
   },
-  "main": "./dist/remirror-pm.cjs",
-  "module": "./dist/remirror-pm.js",
+  "main": "./dist/rme-sdk-pm.cjs",
+  "module": "./dist/rme-sdk-pm.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "collab",
@@ -130,8 +130,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core-constants": "workspace:*",
-    "@remirror/core-helpers": "workspace:*",
+    "@rme-sdk/core-constants": "workspace:*",
+    "@rme-sdk/core-helpers": "workspace:*",
     "prosemirror-collab": "^1.3.1",
     "prosemirror-commands": "^1.7.1",
     "prosemirror-dropcursor": "^1.8.2",
@@ -150,102 +150,102 @@
     "prosemirror-view": "^1.39.2"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*"
+    "@rme-sdk/cli": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-pm.d.ts",
-        "import": "./dist/remirror-pm.js",
-        "require": "./dist/remirror-pm.cjs"
+        "types": "./dist/rme-sdk-pm.d.ts",
+        "import": "./dist/rme-sdk-pm.js",
+        "require": "./dist/rme-sdk-pm.cjs"
       },
       "./collab": {
-        "types": "./collab/dist/remirror-pm-collab.d.ts",
-        "import": "./collab/dist/remirror-pm-collab.js",
-        "require": "./collab/dist/remirror-pm-collab.cjs"
+        "types": "./collab/dist/rme-sdk-pm-collab.d.ts",
+        "import": "./collab/dist/rme-sdk-pm-collab.js",
+        "require": "./collab/dist/rme-sdk-pm-collab.cjs"
       },
       "./commands": {
-        "types": "./commands/dist/remirror-pm-commands.d.ts",
-        "import": "./commands/dist/remirror-pm-commands.js",
-        "require": "./commands/dist/remirror-pm-commands.cjs"
+        "types": "./commands/dist/rme-sdk-pm-commands.d.ts",
+        "import": "./commands/dist/rme-sdk-pm-commands.js",
+        "require": "./commands/dist/rme-sdk-pm-commands.cjs"
       },
       "./dropcursor": {
-        "types": "./dropcursor/dist/remirror-pm-dropcursor.d.ts",
-        "import": "./dropcursor/dist/remirror-pm-dropcursor.js",
-        "require": "./dropcursor/dist/remirror-pm-dropcursor.cjs"
+        "types": "./dropcursor/dist/rme-sdk-pm-dropcursor.d.ts",
+        "import": "./dropcursor/dist/rme-sdk-pm-dropcursor.js",
+        "require": "./dropcursor/dist/rme-sdk-pm-dropcursor.cjs"
       },
       "./gapcursor": {
-        "types": "./gapcursor/dist/remirror-pm-gapcursor.d.ts",
-        "import": "./gapcursor/dist/remirror-pm-gapcursor.js",
-        "require": "./gapcursor/dist/remirror-pm-gapcursor.cjs"
+        "types": "./gapcursor/dist/rme-sdk-pm-gapcursor.d.ts",
+        "import": "./gapcursor/dist/rme-sdk-pm-gapcursor.js",
+        "require": "./gapcursor/dist/rme-sdk-pm-gapcursor.cjs"
       },
       "./history": {
-        "types": "./history/dist/remirror-pm-history.d.ts",
-        "import": "./history/dist/remirror-pm-history.js",
-        "require": "./history/dist/remirror-pm-history.cjs"
+        "types": "./history/dist/rme-sdk-pm-history.d.ts",
+        "import": "./history/dist/rme-sdk-pm-history.js",
+        "require": "./history/dist/rme-sdk-pm-history.cjs"
       },
       "./inputrules": {
-        "types": "./inputrules/dist/remirror-pm-inputrules.d.ts",
-        "import": "./inputrules/dist/remirror-pm-inputrules.js",
-        "require": "./inputrules/dist/remirror-pm-inputrules.cjs"
+        "types": "./inputrules/dist/rme-sdk-pm-inputrules.d.ts",
+        "import": "./inputrules/dist/rme-sdk-pm-inputrules.js",
+        "require": "./inputrules/dist/rme-sdk-pm-inputrules.cjs"
       },
       "./keymap": {
-        "types": "./keymap/dist/remirror-pm-keymap.d.ts",
-        "import": "./keymap/dist/remirror-pm-keymap.js",
-        "require": "./keymap/dist/remirror-pm-keymap.cjs"
+        "types": "./keymap/dist/rme-sdk-pm-keymap.d.ts",
+        "import": "./keymap/dist/rme-sdk-pm-keymap.js",
+        "require": "./keymap/dist/rme-sdk-pm-keymap.cjs"
       },
       "./model": {
-        "types": "./model/dist/remirror-pm-model.d.ts",
-        "import": "./model/dist/remirror-pm-model.js",
-        "require": "./model/dist/remirror-pm-model.cjs"
+        "types": "./model/dist/rme-sdk-pm-model.d.ts",
+        "import": "./model/dist/rme-sdk-pm-model.js",
+        "require": "./model/dist/rme-sdk-pm-model.cjs"
       },
       "./package.json": "./package.json",
       "./paste-rules": {
-        "types": "./paste-rules/dist/remirror-pm-paste-rules.d.ts",
-        "import": "./paste-rules/dist/remirror-pm-paste-rules.js",
-        "require": "./paste-rules/dist/remirror-pm-paste-rules.cjs"
+        "types": "./paste-rules/dist/rme-sdk-pm-paste-rules.d.ts",
+        "import": "./paste-rules/dist/rme-sdk-pm-paste-rules.js",
+        "require": "./paste-rules/dist/rme-sdk-pm-paste-rules.cjs"
       },
       "./schema-list": {
-        "types": "./schema-list/dist/remirror-pm-schema-list.d.ts",
-        "import": "./schema-list/dist/remirror-pm-schema-list.js",
-        "require": "./schema-list/dist/remirror-pm-schema-list.cjs"
+        "types": "./schema-list/dist/rme-sdk-pm-schema-list.d.ts",
+        "import": "./schema-list/dist/rme-sdk-pm-schema-list.js",
+        "require": "./schema-list/dist/rme-sdk-pm-schema-list.cjs"
       },
       "./state": {
-        "types": "./state/dist/remirror-pm-state.d.ts",
-        "import": "./state/dist/remirror-pm-state.js",
-        "require": "./state/dist/remirror-pm-state.cjs"
+        "types": "./state/dist/rme-sdk-pm-state.d.ts",
+        "import": "./state/dist/rme-sdk-pm-state.js",
+        "require": "./state/dist/rme-sdk-pm-state.cjs"
       },
       "./suggest": {
-        "types": "./suggest/dist/remirror-pm-suggest.d.ts",
-        "import": "./suggest/dist/remirror-pm-suggest.js",
-        "require": "./suggest/dist/remirror-pm-suggest.cjs"
+        "types": "./suggest/dist/rme-sdk-pm-suggest.d.ts",
+        "import": "./suggest/dist/rme-sdk-pm-suggest.js",
+        "require": "./suggest/dist/rme-sdk-pm-suggest.cjs"
       },
       "./tables": {
-        "types": "./tables/dist/remirror-pm-tables.d.ts",
-        "import": "./tables/dist/remirror-pm-tables.js",
-        "require": "./tables/dist/remirror-pm-tables.cjs"
+        "types": "./tables/dist/rme-sdk-pm-tables.d.ts",
+        "import": "./tables/dist/rme-sdk-pm-tables.js",
+        "require": "./tables/dist/rme-sdk-pm-tables.cjs"
       },
       "./trailing-node": {
-        "types": "./trailing-node/dist/remirror-pm-trailing-node.d.ts",
-        "import": "./trailing-node/dist/remirror-pm-trailing-node.js",
-        "require": "./trailing-node/dist/remirror-pm-trailing-node.cjs"
+        "types": "./trailing-node/dist/rme-sdk-pm-trailing-node.d.ts",
+        "import": "./trailing-node/dist/rme-sdk-pm-trailing-node.js",
+        "require": "./trailing-node/dist/rme-sdk-pm-trailing-node.cjs"
       },
       "./transform": {
-        "types": "./transform/dist/remirror-pm-transform.d.ts",
-        "import": "./transform/dist/remirror-pm-transform.js",
-        "require": "./transform/dist/remirror-pm-transform.cjs"
+        "types": "./transform/dist/rme-sdk-pm-transform.d.ts",
+        "import": "./transform/dist/rme-sdk-pm-transform.js",
+        "require": "./transform/dist/rme-sdk-pm-transform.cjs"
       },
       "./view": {
-        "types": "./view/dist/remirror-pm-view.d.ts",
-        "import": "./view/dist/remirror-pm-view.js",
-        "require": "./view/dist/remirror-pm-view.cjs"
+        "types": "./view/dist/rme-sdk-pm-view.d.ts",
+        "import": "./view/dist/rme-sdk-pm-view.js",
+        "require": "./view/dist/rme-sdk-pm-view.cjs"
       }
     },
-    "main": "./dist/remirror-pm.cjs",
-    "module": "./dist/remirror-pm.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-pm.d.ts"
+    "main": "./dist/rme-sdk-pm.cjs",
+    "module": "./dist/rme-sdk-pm.js",
+    "types": "./dist/rme-sdk-pm.d.ts"
   },
   "preconstruct": {
     "entrypoints": [

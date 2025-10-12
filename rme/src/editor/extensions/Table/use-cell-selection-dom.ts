@@ -1,6 +1,6 @@
 import { isTableCellElement } from "@/editor/utils/dom";
-import { isCellSelection } from "@remirror/pm/tables"
-import { useRemirrorContext } from "@remirror/react-core"
+import { isCellSelection } from "@rme-sdk/pm/tables";
+import { useRemirrorContext } from "@rme-sdk/react-core";
 
 /**
  * A hook which returns the anchor and head cell HTML elements of the current

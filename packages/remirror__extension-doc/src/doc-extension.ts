@@ -1,24 +1,24 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  DefaultDocNodeOptions,
-  EditorStateProps,
-  entries,
-  extension,
-  ExtensionPriority,
-  Helper,
-  helper,
-  isDefaultDocNode,
-  isPlainObject,
-  NodeExtension,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  object,
-  ProsemirrorAttributes,
-  Static,
-} from '@remirror/core';
-import { AttributeSpec } from '@remirror/pm/model';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    DefaultDocNodeOptions,
+    EditorStateProps,
+    entries,
+    extension,
+    ExtensionPriority,
+    Helper,
+    helper,
+    isDefaultDocNode,
+    isPlainObject,
+    NodeExtension,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    object,
+    ProsemirrorAttributes,
+    Static,
+} from '@rme-sdk/core';
+import { AttributeSpec } from '@rme-sdk/pm/model';
 
 export interface DocOptions {
   /**

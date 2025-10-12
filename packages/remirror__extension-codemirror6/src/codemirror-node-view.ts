@@ -1,20 +1,20 @@
 import type { LanguageSupport } from '@codemirror/language';
 import {
-  Compartment,
-  EditorState as CodeMirrorEditorState,
-  Extension as CodeMirrorExtension,
-  Transaction as CodeMirrorTransaction,
+    EditorState as CodeMirrorEditorState,
+    Extension as CodeMirrorExtension,
+    Transaction as CodeMirrorTransaction,
+    Compartment,
 } from '@codemirror/state';
 import {
-  Command as CodeMirrorCommand,
-  EditorView as CodeMirrorEditorView,
-  KeyBinding as CodeMirrorKeyBinding,
-  keymap,
+    Command as CodeMirrorCommand,
+    EditorView as CodeMirrorEditorView,
+    KeyBinding as CodeMirrorKeyBinding,
+    keymap,
 } from '@codemirror/view';
-import { assertGet, isPromise, replaceNodeAtPosition } from '@remirror/core';
-import type { EditorSchema, EditorView, NodeView, ProsemirrorNode } from '@remirror/pm';
-import { exitCode } from '@remirror/pm/commands';
-import { Selection, TextSelection } from '@remirror/pm/state';
+import { assertGet, isPromise, replaceNodeAtPosition } from '@rme-sdk/core';
+import type { EditorSchema, EditorView, NodeView, ProsemirrorNode } from '@rme-sdk/pm';
+import { exitCode } from '@rme-sdk/pm/commands';
+import { Selection, TextSelection } from '@rme-sdk/pm/state';
 
 type LoadLanguage = (lang: string) => Promise<LanguageSupport> | LanguageSupport | void;
 

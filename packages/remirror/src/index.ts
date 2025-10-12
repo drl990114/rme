@@ -1,2 +1,2 @@
-export * from '@remirror/core';
+export * from '@rme-sdk/core';
 

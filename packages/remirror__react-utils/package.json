@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/react-utils",
-  "version": "3.0.0",
+  "name": "@rme-sdk/react-utils",
+  "version": "1.1.0",
   "description": "A small set of utilities for react components in remirror.",
   "keywords": [
     "react",
@@ -23,13 +23,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-react-utils.js",
-      "require": "./dist/remirror-react-utils.cjs"
+      "import": "./dist/rme-sdk-react-utils.js",
+      "require": "./dist/rme-sdk-react-utils.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-react-utils.cjs",
-  "module": "./dist/remirror-react-utils.js",
+  "main": "./dist/rme-sdk-react-utils.cjs",
+  "module": "./dist/rme-sdk-react-utils.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -40,12 +40,12 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core-constants": "workspace:*",
-    "@remirror/core-helpers": "workspace:*",
-    "@remirror/core-types": "workspace:*"
+    "@rme-sdk/core-constants": "workspace:*",
+    "@rme-sdk/core-helpers": "workspace:*",
+    "@rme-sdk/core-types": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "@types/react": "^18.2.0",
     "react": "^18.3.1"
   },
@@ -59,21 +59,21 @@
     }
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-react-utils.d.ts",
-        "import": "./dist/remirror-react-utils.js",
-        "require": "./dist/remirror-react-utils.cjs"
+        "types": "./dist/rme-sdk-react-utils.d.ts",
+        "import": "./dist/rme-sdk-react-utils.js",
+        "require": "./dist/rme-sdk-react-utils.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-react-utils.cjs",
-    "module": "./dist/remirror-react-utils.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-react-utils.d.ts"
+    "main": "./dist/rme-sdk-react-utils.cjs",
+    "module": "./dist/rme-sdk-react-utils.js",
+    "types": "./dist/rme-sdk-react-utils.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

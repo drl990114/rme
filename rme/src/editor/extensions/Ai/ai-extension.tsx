@@ -1,12 +1,12 @@
 import type {
-  ApplySchemaAttributes,
-  ExtensionCommandReturn,
-  NodeExtensionSpec,
-  NodeSpecOverride
-} from '@remirror/core'
-import { extension, ExtensionTag, NodeExtension } from '@remirror/core'
-import { TextSelection } from '@remirror/pm/state'
-import type { NodeViewComponentProps } from '@remirror/react'
+    ApplySchemaAttributes,
+    ExtensionCommandReturn,
+    NodeExtensionSpec,
+    NodeSpecOverride
+} from '@rme-sdk/core'
+import { extension, ExtensionTag, NodeExtension } from '@rme-sdk/core'
+import { TextSelection } from '@rme-sdk/pm/state'
+import type { NodeViewComponentProps } from '@rme-sdk/react'
 import type { ComponentType } from 'react'
 import { AINodeView } from './ai-nodeview'
 import type { AIOptions } from './ai-types'

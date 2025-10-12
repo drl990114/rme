@@ -1,6 +1,6 @@
-import type { Node as ProsemirrorNode } from '@remirror/pm/model'
-import type { Command } from '@remirror/pm/state'
-import type { EditorView } from '@remirror/pm/view'
+import type { Node as ProsemirrorNode } from '@rme-sdk/pm/model'
+import type { Command } from '@rme-sdk/pm/state'
+import type { EditorView } from '@rme-sdk/pm/view'
 
 import { withSafeSelection } from './commands/set-safe-selection'
 import type { ListAttributes } from './types'

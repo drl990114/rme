@@ -1,8 +1,8 @@
+import type { CreateExtensionPlugin } from '@rme-sdk/core'
+import { PlainExtension } from '@rme-sdk/core'
+import type { Node as ProsemirrorNode } from '@rme-sdk/pm/model'
+import type { Transaction } from '@rme-sdk/pm/state'
 import { getInlineMathInputRule, getMdImageInputRule } from '../../inline-input-regex'
-import type { CreateExtensionPlugin } from '@remirror/core'
-import { PlainExtension } from '@remirror/core'
-import type { Node as ProsemirrorNode } from '@remirror/pm/model'
-import type { Transaction } from '@remirror/pm/state'
 
 /**
  * 输入处理规则接口

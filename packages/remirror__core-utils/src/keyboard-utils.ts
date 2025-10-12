@@ -1,5 +1,5 @@
-import type { RemirrorMessage } from '@remirror/core-types';
-import { CoreUtilsMessages as Messages } from '@remirror/messages';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
+import { CoreUtilsMessages as Messages } from '@rme-sdk/messages';
 
 import { environment } from './environment';
 

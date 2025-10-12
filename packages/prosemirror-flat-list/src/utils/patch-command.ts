@@ -1,4 +1,4 @@
-import type { Command, Transaction } from '@remirror/pm/state'
+import type { Command, Transaction } from '@rme-sdk/pm/state'
 
 export function patchCommand(patch: (tr: Transaction) => Transaction) {
   const withPatch = (command: Command): Command => {

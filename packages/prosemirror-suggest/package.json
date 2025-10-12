@@ -34,13 +34,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core-constants": "workspace:*",
-    "@remirror/core-helpers": "workspace:*",
-    "@remirror/types": "workspace:*",
+    "@rme-sdk/core-constants": "workspace:*",
+    "@rme-sdk/core-helpers": "workspace:*",
+    "@rme-sdk/types": "workspace:*",
     "escape-string-regexp": "^4.0.0"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "prosemirror-model": "^1.25.1",
     "prosemirror-state": "^1.4.3",
     "prosemirror-view": "^1.39.2"
@@ -66,7 +66,7 @@
     "type": "module",
     "types": "./dist/prosemirror-suggest.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

@@ -1,19 +1,19 @@
 import {
-  Coords,
-  EditorState,
-  findParentNode,
-  FindProsemirrorNodeResult,
-  getDefaultBlockNode,
-  GetMarkRange,
-  getMarkRanges,
-  getSelectedWord,
-  getTextSelection,
-  isElementDomNode,
-  isSelectionEmpty,
-  isTextSelection,
-  MarkType,
-  Shape,
-} from '@remirror/core';
+    Coords,
+    EditorState,
+    findParentNode,
+    FindProsemirrorNodeResult,
+    getDefaultBlockNode,
+    GetMarkRange,
+    getMarkRanges,
+    getSelectedWord,
+    getTextSelection,
+    isElementDomNode,
+    isSelectionEmpty,
+    isTextSelection,
+    MarkType,
+    Shape,
+} from '@rme-sdk/core';
 
 import { Positioner, PositionerPosition } from './positioner';
 import { hasStateChanged, isEmptyBlockNode, isPositionVisible } from './positioner-utils';

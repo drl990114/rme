@@ -1,43 +1,43 @@
-import { ErrorConstant } from '@remirror/core-constants';
+import { ErrorConstant } from '@rme-sdk/core-constants';
 import {
-  entries,
-  invariant,
-  isArray,
-  isEmptyObject,
-  isNonEmptyArray,
-  isNullOrUndefined,
-  isString,
-  object,
-} from '@remirror/core-helpers';
+    entries,
+    invariant,
+    isArray,
+    isEmptyObject,
+    isNonEmptyArray,
+    isNullOrUndefined,
+    isString,
+    object,
+} from '@rme-sdk/core-helpers';
 import type {
-  AnyFunction,
-  AttributesProps,
-  EditorSchema,
-  EditorState,
-  EditorView,
-  Fragment,
-  KeyBindingCommandFunction,
-  KeyBindings,
-  Mark,
-  MarkTypesProps,
-  NodeTypeProps,
-  NodeTypesProps,
-  OptionalMarkProps,
-  OptionalProsemirrorNodeProps,
-  PosProps,
-  ProsemirrorAttributes,
-  ProsemirrorCommandFunction,
-  ProsemirrorKeyBindings,
-  ProsemirrorNode,
-  ProsemirrorNodeProps,
-  ResolvedPos,
-  Selection,
-  SelectionProps,
-  Transaction,
-  TransactionProps,
-} from '@remirror/core-types';
-import type { MarkSpec, NodeSpec, NodeType } from '@remirror/pm/model';
-import { Selection as PMSelection } from '@remirror/pm/state';
+    AnyFunction,
+    AttributesProps,
+    EditorSchema,
+    EditorState,
+    EditorView,
+    Fragment,
+    KeyBindingCommandFunction,
+    KeyBindings,
+    Mark,
+    MarkTypesProps,
+    NodeTypeProps,
+    NodeTypesProps,
+    OptionalMarkProps,
+    OptionalProsemirrorNodeProps,
+    PosProps,
+    ProsemirrorAttributes,
+    ProsemirrorCommandFunction,
+    ProsemirrorKeyBindings,
+    ProsemirrorNode,
+    ProsemirrorNodeProps,
+    ResolvedPos,
+    Selection,
+    SelectionProps,
+    Transaction,
+    TransactionProps,
+} from '@rme-sdk/core-types';
+import type { MarkSpec, NodeSpec, NodeType } from '@rme-sdk/pm/model';
+import { Selection as PMSelection } from '@rme-sdk/pm/state';
 
 import { isEditorState, isNodeSelection, isResolvedPos, isSelection } from './core-utils';
 import { isTextDomNode } from './dom-utils';

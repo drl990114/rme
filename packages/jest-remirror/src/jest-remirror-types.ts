@@ -1,12 +1,12 @@
 import type {
-  AnyExtension,
-  AttributesProps,
-  EditorSchema,
-  ProsemirrorAttributes,
-  ProsemirrorNode,
-} from '@remirror/core';
-import type { DomFrameworkProps } from '@remirror/dom';
-import type { CreateCoreManagerOptions } from '@remirror/preset-core';
+    AnyExtension,
+    AttributesProps,
+    EditorSchema,
+    ProsemirrorAttributes,
+    ProsemirrorNode,
+} from '@rme-sdk/core';
+import type { DomFrameworkProps } from '@rme-sdk/dom';
+import type { CreateCoreManagerOptions } from '@rme-sdk/preset-core';
 
 export interface BaseFactoryProps extends Partial<AttributesProps> {
   /**

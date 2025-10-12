@@ -1,34 +1,34 @@
+import { isFunction, isString, object, sort } from '@rme-sdk/core-helpers';
 import { PluginKey, Selection, TextSelection } from 'prosemirror-state';
 import { Decoration, DecorationSet } from 'prosemirror-view';
-import { isFunction, isString, object, sort } from '@remirror/core-helpers';
 
 import {
-  isInvalidSplitReason,
-  isJumpReason,
-  isTextSelection,
-  isValidMatch,
+    isInvalidSplitReason,
+    isJumpReason,
+    isTextSelection,
+    isValidMatch,
 } from './suggest-predicates';
 import type {
-  AddIgnoredProps,
-  CompareMatchProps,
-  EditorState,
-  EditorStateProps,
-  EditorView,
-  RemoveIgnoredProps,
-  ResolvedPos,
-  ResolvedPosProps,
-  SuggestChangeHandlerProps,
-  Suggester,
-  SuggestMatch,
-  SuggestReasonMap,
-  Transaction,
-  TransactionProps,
+    AddIgnoredProps,
+    CompareMatchProps,
+    EditorState,
+    EditorStateProps,
+    EditorView,
+    RemoveIgnoredProps,
+    ResolvedPos,
+    ResolvedPosProps,
+    SuggestChangeHandlerProps,
+    Suggester,
+    SuggestMatch,
+    SuggestReasonMap,
+    Transaction,
+    TransactionProps,
 } from './suggest-types';
 import {
-  DEFAULT_SUGGESTER,
-  findFromSuggesters,
-  findReason,
-  IGNORE_SUGGEST_META_KEY,
+    DEFAULT_SUGGESTER,
+    findFromSuggesters,
+    findReason,
+    IGNORE_SUGGEST_META_KEY,
 } from './suggest-utils';
 
 /**

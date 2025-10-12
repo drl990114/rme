@@ -1,5 +1,5 @@
-import type { ProsemirrorNode } from '@remirror/core-types';
-import type { EditorView } from '@remirror/pm/view';
+import type { ProsemirrorNode } from '@rme-sdk/core-types';
+import type { EditorView } from '@rme-sdk/pm/view';
 
 /**
  * Tests that a command run transform the nodes from one state to another.

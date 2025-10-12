@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals';
+import { AllSelection } from '@rme-sdk/pm/state';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
 import { BoldExtension, ItalicExtension } from 'remirror/extensions';
-import { AllSelection } from '@remirror/pm/state';
 
 import { CommandsExtension } from '../';
 

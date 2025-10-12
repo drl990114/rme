@@ -1,5 +1,5 @@
-import { HeadingExtension, HeadingExtensionAttributes } from '@remirror/extension-heading';
-import { useActive, useCommands } from '@remirror/react-core';
+import { HeadingExtension, HeadingExtensionAttributes } from '@rme-sdk/extension-heading';
+import { useActive, useCommands } from '@rme-sdk/react-core';
 import { FC, useCallback } from 'react';
 
 import { t } from 'i18next';

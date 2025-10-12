@@ -130,7 +130,7 @@ export type AnyConstructor<Type = any> = new (...args: any[]) => Type;
  * always be available.
  *
  * ```ts
- * import { MinArray } from '@remirror/core-types';
+ * import { MinArray } from '@rme-sdk/core-types';
  *
  * MinArray<string, 2>; // => [string, string, ...string[]];
  * ```
@@ -205,7 +205,7 @@ export type TupleUnion<T> = (
  * Extract the valid index union from a provided tuple.
  *
  * ```ts
- * import { IndexUnionFromTuple } from '@remirror/core-types';
+ * import { IndexUnionFromTuple } from '@rme-sdk/core-types';
  *
  * const tuple = ['a', 'b', 'c'];
  * type Index = IndexUnionFromTuple<typeof tuple> => 0 | 1 | 2

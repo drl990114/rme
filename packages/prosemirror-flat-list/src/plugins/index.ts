@@ -1,5 +1,5 @@
-import type { Schema } from '@remirror/pm/model'
-import type { Plugin } from '@remirror/pm/state'
+import type { Schema } from '@rme-sdk/pm/model'
+import type { Plugin } from '@rme-sdk/pm/state'
 
 import { createListClipboardPlugin } from './clipboard'
 import { createListEventPlugin } from './event'
@@ -30,7 +30,7 @@ export function createListPlugins(options: { schema: Schema }): Plugin[] {
 }
 
 export {
-  createListClipboardPlugin, createListEventPlugin, createListRenderingPlugin,
-  createSafariInputMethodWorkaroundPlugin
+    createListClipboardPlugin, createListEventPlugin, createListRenderingPlugin,
+    createSafariInputMethodWorkaroundPlugin
 }
 

@@ -1,13 +1,13 @@
 import {
-  AnyExtension,
-  EditorState,
-  Framework,
-  FrameworkOutput,
-  FrameworkProps,
-  STATE_OVERRIDE,
-  UpdateStateProps,
-} from '@remirror/core';
-import { EditorView } from '@remirror/pm/view';
+    AnyExtension,
+    EditorState,
+    Framework,
+    FrameworkOutput,
+    FrameworkProps,
+    STATE_OVERRIDE,
+    UpdateStateProps,
+} from '@rme-sdk/core';
+import { EditorView } from '@rme-sdk/pm/view';
 
 export interface DomFrameworkOutput<Extension extends AnyExtension>
   extends FrameworkOutput<Extension> {

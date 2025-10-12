@@ -1,10 +1,10 @@
+import { createReactManager, Remirror, useRemirrorContext } from '@rme-sdk/react-core';
 import { act, renderHook } from '@testing-library/react-hooks';
 import { RemirrorTestChain } from 'jest-remirror';
 import React, { FC } from 'react';
 import { EmojiExtension } from 'remirror/extensions';
 import data from 'svgmoji/emoji.json';
 import { act as renderAct, strictRender } from 'testing/react';
-import { createReactManager, Remirror, useRemirrorContext } from '@remirror/react-core';
 
 import { useEmoji, UseEmojiReturn } from '../src/use-emoji';
 

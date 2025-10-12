@@ -1,37 +1,37 @@
 import {
-  clamp,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionPriority,
-  ExtensionTag,
-  IdentifierSchemaAttributes,
-  isEmptyArray,
-  joinStyles,
-  keyBinding,
-  KeyBindingProps,
-  NamedShortcut,
-  NodeWithPosition,
-  PlainExtension,
-  ProsemirrorAttributes,
-  SchemaAttributesObject,
-} from '@remirror/core';
+    clamp,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionPriority,
+    ExtensionTag,
+    IdentifierSchemaAttributes,
+    isEmptyArray,
+    joinStyles,
+    keyBinding,
+    KeyBindingProps,
+    NamedShortcut,
+    NodeWithPosition,
+    PlainExtension,
+    ProsemirrorAttributes,
+    SchemaAttributesObject,
+} from '@rme-sdk/core';
 
 import {
-  centerAlignOptions,
-  decreaseIndentOptions,
-  extractIndent,
-  extractLineHeight,
-  gatherNodes,
-  increaseIndentOptions,
-  justifyAlignOptions,
-  leftAlignOptions,
-  NODE_INDENT_ATTRIBUTE,
-  NODE_LINE_HEIGHT_ATTRIBUTE,
-  NODE_TEXT_ALIGNMENT_ATTRIBUTE,
-  NodeFormattingOptions,
-  NodeTextAlignment,
-  rightAlignOptions,
+    centerAlignOptions,
+    decreaseIndentOptions,
+    extractIndent,
+    extractLineHeight,
+    gatherNodes,
+    increaseIndentOptions,
+    justifyAlignOptions,
+    leftAlignOptions,
+    NODE_INDENT_ATTRIBUTE,
+    NODE_LINE_HEIGHT_ATTRIBUTE,
+    NODE_TEXT_ALIGNMENT_ATTRIBUTE,
+    NodeFormattingOptions,
+    NodeTextAlignment,
+    rightAlignOptions,
 } from './node-formatting-utils';
 
 /**
@@ -212,7 +212,7 @@ export class NodeFormattingExtension extends PlainExtension<NodeFormattingOption
   @keyBinding({
     shortcut: NamedShortcut.IncreaseIndent,
     command: 'increaseIndent',
-    // Ensure this has lower priority than the indent keybinding in @remirror/extension-list
+    // Ensure this has lower priority than the indent keybinding in @rme-sdk/extension-list
     priority: ExtensionPriority.Low,
   })
   increaseIndentShortcut(props: KeyBindingProps): boolean {
@@ -222,7 +222,7 @@ export class NodeFormattingExtension extends PlainExtension<NodeFormattingOption
   @keyBinding({
     shortcut: NamedShortcut.DecreaseIndent,
     command: 'decreaseIndent',
-    // Ensure this has higher priority than the dedent keybinding in @remirror/extension-list
+    // Ensure this has higher priority than the dedent keybinding in @rme-sdk/extension-list
     priority: ExtensionPriority.Medium,
   })
   decreaseIndentShortcut(props: KeyBindingProps): boolean {

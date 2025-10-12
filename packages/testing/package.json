@@ -47,10 +47,10 @@
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@jest/globals": "^29.5.0",
     "@react-spring/mock-raf": "^1.1.1",
-    "@remirror/core": "workspace:*",
-    "@remirror/pm": "workspace:*",
-    "@remirror/preset-core": "workspace:*",
-    "@remirror/react": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
+    "@rme-sdk/preset-core": "workspace:*",
+    "@rme-sdk/react": "workspace:*",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/fluent-ffmpeg": "^2.1.21",
@@ -77,7 +77,7 @@
     "test-keyboard": "2.0.7"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "@types/react": "^18.2.0",
     "react": "^18.3.1"
   },
@@ -116,7 +116,7 @@
     "type": "module",
     "types": "./dist/testing.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "tsconfigs": {
       "src": {
         "compilerOptions": {

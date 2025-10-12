@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/core-types",
-  "version": "3.0.0",
+  "name": "@rme-sdk/core-types",
+  "version": "1.1.0",
   "description": "Provides the core TS types for use throughout the remirror codebase",
   "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__core-types",
   "repository": {
@@ -17,13 +17,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-core-types.js",
-      "require": "./dist/remirror-core-types.cjs"
+      "import": "./dist/rme-sdk-core-types.js",
+      "require": "./dist/rme-sdk-core-types.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-core-types.cjs",
-  "module": "./dist/remirror-core-types.js",
+  "main": "./dist/rme-sdk-core-types.cjs",
+  "module": "./dist/rme-sdk-core-types.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "base",
@@ -34,32 +34,32 @@
     "build": "remirror-cli build"
   },
   "dependencies": {
-    "@remirror/core-constants": "workspace:*",
-    "@remirror/types": "workspace:*"
+    "@rme-sdk/core-constants": "workspace:*",
+    "@rme-sdk/types": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-core-types.d.ts",
-        "import": "./dist/remirror-core-types.js",
-        "require": "./dist/remirror-core-types.cjs"
+        "types": "./dist/rme-sdk-core-types.d.ts",
+        "import": "./dist/rme-sdk-core-types.js",
+        "require": "./dist/rme-sdk-core-types.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-core-types.cjs",
-    "module": "./dist/remirror-core-types.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-core-types.d.ts"
+    "main": "./dist/rme-sdk-core-types.cjs",
+    "module": "./dist/rme-sdk-core-types.js",
+    "types": "./dist/rme-sdk-core-types.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "1 kB"
   },
   "preconstruct": {

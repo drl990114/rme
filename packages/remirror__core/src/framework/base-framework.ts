@@ -1,17 +1,17 @@
-import type { Unsubscribe } from 'nanoevents';
-import type { ClassName } from '@remirror/core-helpers';
+import type { ClassName } from '@rme-sdk/core-helpers';
 import type {
-  EditorState,
-  EditorStateProps,
-  EditorViewProps,
-  PrimitiveSelection,
-  RemirrorContentType,
-  TextProps,
-  Transaction,
-  TransactionProps,
-  TransactionTransformer,
-} from '@remirror/core-types';
-import type { DirectEditorProps } from '@remirror/pm/view';
+    EditorState,
+    EditorStateProps,
+    EditorViewProps,
+    PrimitiveSelection,
+    RemirrorContentType,
+    TextProps,
+    Transaction,
+    TransactionProps,
+    TransactionTransformer,
+} from '@rme-sdk/core-types';
+import type { DirectEditorProps } from '@rme-sdk/pm/view';
+import type { Unsubscribe } from 'nanoevents';
 
 import type { UpdatableViewProps } from '../builtins';
 import type { AnyExtension, AnyExtensionConstructor } from '../extension';

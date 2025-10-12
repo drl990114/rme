@@ -1,5 +1,5 @@
-import { CoreIcon, NamedShortcut } from '@remirror/core';
-import { ExtensionHeadingMessages } from '@remirror/messages';
+import { CoreIcon, NamedShortcut } from '@rme-sdk/core';
+import { ExtensionHeadingMessages } from '@rme-sdk/messages';
 
 const { LABEL } = ExtensionHeadingMessages;
 

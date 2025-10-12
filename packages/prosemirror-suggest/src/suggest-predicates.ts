@@ -1,12 +1,12 @@
+import { includes, isObject, isString } from '@rme-sdk/core-helpers';
 import { TextSelection } from 'prosemirror-state';
-import { includes, isObject, isString } from '@remirror/core-helpers';
 
 import type {
-  CompareMatchProps,
-  SelectionProps,
-  SuggestMatch,
-  SuggestReasonMap,
-  SuggestStateMatchProps,
+    CompareMatchProps,
+    SelectionProps,
+    SuggestMatch,
+    SuggestReasonMap,
+    SuggestStateMatchProps,
 } from './suggest-types';
 import { ChangeReason, ExitReason } from './suggest-types';
 

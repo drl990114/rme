@@ -1,18 +1,18 @@
-import type { ExtensionPriority } from '@remirror/core-constants';
-import { Cast } from '@remirror/core-helpers';
+import type { ExtensionPriority } from '@rme-sdk/core-constants';
+import { Cast } from '@rme-sdk/core-helpers';
 import type {
-  CustomHandlerKeyList,
-  EmptyShape,
-  GetCustomHandler,
-  GetHandler,
-  GetStatic,
-  HandlerKeyList,
-  IfEmpty,
-  IfHasRequiredProperties,
-  Shape,
-  StaticKeyList,
-  Writeable,
-} from '@remirror/core-types';
+    CustomHandlerKeyList,
+    EmptyShape,
+    GetCustomHandler,
+    GetHandler,
+    GetStatic,
+    HandlerKeyList,
+    IfEmpty,
+    IfHasRequiredProperties,
+    Shape,
+    StaticKeyList,
+    Writeable,
+} from '@rme-sdk/core-types';
 
 import type { AnyExtensionConstructor, DefaultExtensionOptions, ExtensionConstructor } from './';
 import type { HandlerKeyOptions } from './base-class';

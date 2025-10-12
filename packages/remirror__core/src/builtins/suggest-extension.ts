@@ -1,13 +1,13 @@
-import { includes, isArray } from '@remirror/core-helpers';
-import type { CustomHandler, EditorState, ProsemirrorPlugin } from '@remirror/core-types';
+import { includes, isArray } from '@rme-sdk/core-helpers';
+import type { CustomHandler, EditorState, ProsemirrorPlugin } from '@rme-sdk/core-types';
 import {
-  addSuggester,
-  getSuggestPluginState,
-  removeSuggester,
-  suggest,
-  Suggester,
-  SuggestState,
-} from '@remirror/pm/suggest';
+    addSuggester,
+    getSuggestPluginState,
+    removeSuggester,
+    suggest,
+    Suggester,
+    SuggestState,
+} from '@rme-sdk/pm/suggest';
 
 import { extension, Helper, PlainExtension } from '../extension';
 import type { AddCustomHandler } from '../extension/base-class';

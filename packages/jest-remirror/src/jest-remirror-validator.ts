@@ -14,7 +14,7 @@ import {
   omit,
   OptionsOfConstructor,
   pick,
-} from '@remirror/core';
+} from '@rme-sdk/core';
 
 import { renderEditor } from './jest-remirror-editor';
 import { simpleMockFn } from './simple-mock';

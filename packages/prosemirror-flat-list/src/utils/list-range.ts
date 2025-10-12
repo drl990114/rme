@@ -1,4 +1,4 @@
-import { NodeRange, type ResolvedPos } from '@remirror/pm/model'
+import { NodeRange, type ResolvedPos } from '@rme-sdk/pm/model'
 
 import { isListNode } from './is-list-node'
 

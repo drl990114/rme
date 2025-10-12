@@ -1,5 +1,5 @@
+import { Literal } from '@rme-sdk/core';
 import React, { FC } from 'react';
-import { Literal } from '@remirror/core';
 
 type LinkHandler = FC<{
   href: string;

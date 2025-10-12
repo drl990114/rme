@@ -1,4 +1,4 @@
-import { EditorView } from '@remirror/pm';
+import { EditorView } from '@rme-sdk/pm';
 
 import { useRemirrorContext } from './use-remirror-context';
 

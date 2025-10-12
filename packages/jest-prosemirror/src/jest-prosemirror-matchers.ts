@@ -1,13 +1,13 @@
-import stringifyObject from 'stringify-object';
-import { isEmptyObject, isString } from '@remirror/core-helpers';
+import { isEmptyObject, isString } from '@rme-sdk/core-helpers';
 import type {
-  CommandFunction,
-  ObjectMark,
-  ProsemirrorCommandFunction,
-  ProsemirrorNode as _ProsemirrorNode,
-  ProsemirrorNode,
-  RemirrorJSON,
-} from '@remirror/core-types';
+    ProsemirrorNode as _ProsemirrorNode,
+    CommandFunction,
+    ObjectMark,
+    ProsemirrorCommandFunction,
+    ProsemirrorNode,
+    RemirrorJSON,
+} from '@rme-sdk/core-types';
+import stringifyObject from 'stringify-object';
 
 import { apply } from './jest-prosemirror-editor';
 import { transformsNodeFailMessage, transformsNodePassMessage } from './jest-prosemirror-messages';
@@ -256,7 +256,7 @@ declare global {
        * the prosemirror node in the desired way.
        *
        * ```ts
-       * import { removeMark } from '@remirror/core-utils';
+       * import { removeMark } from '@rme-sdk/core-utils';
        * import { schema, doc, p, strong } from 'jest-prosemirror';
        *
        * test('remove the mark', () => {
@@ -281,7 +281,7 @@ declare global {
        *
        * ```ts
        * import { createEditor, doc, p } from 'jest-prosemirror';
-       * import { removeNodeAtPosition } from '@remirror/core-utils';
+       * import { removeNodeAtPosition } from '@rme-sdk/core-utils';
        *
        * test('remove block top level node at specified position', () => {
        *   const {
@@ -302,7 +302,7 @@ declare global {
        *
        * ```ts
        * import { createEditor, doc, p } from 'jest-prosemirror';
-       * import { removeNodeAtPosition } from '@remirror/core-utils';
+       * import { removeNodeAtPosition } from '@rme-sdk/core-utils';
        *
        * test('inputRules', () => {
        *   const {

@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals';
+import { createReactManager, Remirror } from '@rme-sdk/react-core';
 import React from 'react';
 import { strictRender } from 'testing/react';
-import { createReactManager, Remirror } from '@remirror/react-core';
 
 import { ProsemirrorDevTools } from '../';
 

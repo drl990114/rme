@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-horizontal-rule",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-horizontal-rule",
+  "version": "1.1.0",
   "description": "Allow your users to divide their content with horizontal lines. Nice!",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-horizontal-rule.js",
-      "require": "./dist/remirror-extension-horizontal-rule.cjs"
+      "import": "./dist/rme-sdk-extension-horizontal-rule.js",
+      "require": "./dist/rme-sdk-extension-horizontal-rule.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-horizontal-rule.cjs",
-  "module": "./dist/remirror-extension-horizontal-rule.js",
+  "main": "./dist/rme-sdk-extension-horizontal-rule.cjs",
+  "module": "./dist/rme-sdk-extension-horizontal-rule.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,32 +38,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-horizontal-rule.d.ts",
-        "import": "./dist/remirror-extension-horizontal-rule.js",
-        "require": "./dist/remirror-extension-horizontal-rule.cjs"
+        "types": "./dist/rme-sdk-extension-horizontal-rule.d.ts",
+        "import": "./dist/rme-sdk-extension-horizontal-rule.js",
+        "require": "./dist/rme-sdk-extension-horizontal-rule.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-horizontal-rule.cjs",
-    "module": "./dist/remirror-extension-horizontal-rule.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-horizontal-rule.d.ts"
+    "main": "./dist/rme-sdk-extension-horizontal-rule.cjs",
+    "module": "./dist/rme-sdk-extension-horizontal-rule.js",
+    "types": "./dist/rme-sdk-extension-horizontal-rule.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

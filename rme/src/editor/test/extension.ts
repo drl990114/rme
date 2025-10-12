@@ -6,9 +6,9 @@ import {
   NodeExtension,
   type NodeExtensionSpec,
   type ProsemirrorPlugin,
-} from '@remirror/core'
+} from '@rme-sdk/core'
 
-import { createListPlugins, listKeymap } from 'prosemirror-flat-list'
+import { createListPlugins, listKeymap } from '@rme-sdk/prosemirror-flat-list'
 import {
   listInputRules,
 } from "../extensions/List/input-rule"

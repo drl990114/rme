@@ -1,5 +1,5 @@
-import { extension, OnSetOptionsProps, PlainExtension, ProsemirrorPlugin } from '@remirror/core';
-import { trailingNode, TrailingNodePluginOptions } from '@remirror/pm/trailing-node';
+import { extension, OnSetOptionsProps, PlainExtension, ProsemirrorPlugin } from '@rme-sdk/core';
+import { trailingNode, TrailingNodePluginOptions } from '@rme-sdk/pm/trailing-node';
 
 export interface TrailingNodeOptions extends TrailingNodePluginOptions {
   /**

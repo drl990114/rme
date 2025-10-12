@@ -1,5 +1,5 @@
+import { PlaceholderExtension } from '@rme-sdk/extension-placeholder';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
-import { PlaceholderExtension } from '@remirror/extension-placeholder';
 
 import { ReactExtension } from '../';
 

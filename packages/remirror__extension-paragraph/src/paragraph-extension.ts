@@ -1,20 +1,20 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionPriority,
-  ExtensionTag,
-  keyBinding,
-  KeyBindingProps,
-  NamedShortcut,
-  NodeExtension,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-} from '@remirror/core';
-import { ExtensionParagraphMessages } from '@remirror/messages';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionPriority,
+    ExtensionTag,
+    keyBinding,
+    KeyBindingProps,
+    NamedShortcut,
+    NodeExtension,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+} from '@rme-sdk/core';
+import { ExtensionParagraphMessages } from '@rme-sdk/messages';
 
 const insertParagraphOptions: Remirror.CommandDecoratorOptions = {
   icon: 'paragraph',

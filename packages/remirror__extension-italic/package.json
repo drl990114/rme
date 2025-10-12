@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-italic",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-italic",
+  "version": "1.1.0",
   "description": "Adds italic formatting to your text editor.",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-italic.js",
-      "require": "./dist/remirror-extension-italic.cjs"
+      "import": "./dist/rme-sdk-extension-italic.js",
+      "require": "./dist/rme-sdk-extension-italic.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-italic.cjs",
-  "module": "./dist/remirror-extension-italic.js",
+  "main": "./dist/rme-sdk-extension-italic.cjs",
+  "module": "./dist/rme-sdk-extension-italic.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,32 +38,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-italic.d.ts",
-        "import": "./dist/remirror-extension-italic.js",
-        "require": "./dist/remirror-extension-italic.cjs"
+        "types": "./dist/rme-sdk-extension-italic.d.ts",
+        "import": "./dist/rme-sdk-extension-italic.js",
+        "require": "./dist/rme-sdk-extension-italic.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-italic.cjs",
-    "module": "./dist/remirror-extension-italic.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-italic.d.ts"
+    "main": "./dist/rme-sdk-extension-italic.cjs",
+    "module": "./dist/rme-sdk-extension-italic.js",
+    "types": "./dist/rme-sdk-extension-italic.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

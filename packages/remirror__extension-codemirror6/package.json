@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-codemirror6",
-  "version": "2.0.2",
+  "name": "@rme-sdk/extension-codemirror6",
+  "version": "1.1.0",
   "description": "Add CodeMirror6 to your editor.",
   "keywords": [
     "remirror",
@@ -23,13 +23,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-codemirror6.js",
-      "require": "./dist/remirror-extension-codemirror6.cjs"
+      "import": "./dist/rme-sdk-extension-codemirror6.js",
+      "require": "./dist/rme-sdk-extension-codemirror6.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-codemirror6.cjs",
-  "module": "./dist/remirror-extension-codemirror6.js",
+  "main": "./dist/rme-sdk-extension-codemirror6.cjs",
+  "module": "./dist/rme-sdk-extension-codemirror6.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -43,31 +43,31 @@
     "@codemirror/language": "^6.11.3",
     "@codemirror/state": "^6.5.2",
     "@codemirror/view": "^6.38.4",
-    "@remirror/core": "workspace:*"
+    "@rme-sdk/core": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-codemirror6.d.ts",
-        "import": "./dist/remirror-extension-codemirror6.js",
-        "require": "./dist/remirror-extension-codemirror6.cjs"
+        "types": "./dist/rme-sdk-extension-codemirror6.d.ts",
+        "import": "./dist/rme-sdk-extension-codemirror6.js",
+        "require": "./dist/rme-sdk-extension-codemirror6.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-codemirror6.cjs",
-    "module": "./dist/remirror-extension-codemirror6.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-codemirror6.d.ts"
+    "main": "./dist/rme-sdk-extension-codemirror6.cjs",
+    "module": "./dist/rme-sdk-extension-codemirror6.js",
+    "types": "./dist/rme-sdk-extension-codemirror6.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "100 KB"
   }
 }

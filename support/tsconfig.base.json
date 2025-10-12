@@ -28,6 +28,7 @@
     "noUnusedParameters": true,
     "allowUnreachableCode": false,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "noImplicitAny": false
   }
 }

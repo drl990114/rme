@@ -24,14 +24,14 @@ export async function listPackages({ isPrivate = null }: { isPrivate?: boolean |
 export async function listPackagesToBuild() {
   // The following packages are still handled by the old build system (preconstruct)
   const executedPackageNames = new Set([
-    '@remirror/cli',
+    '@rme-sdk/cli',
     'storybook-react',
     'support',
     'actions',
     'scripts',
-    '@remirror/extension-template',
-    '@remirror/minimal-template',
-    '@remirror/preset-template',
+    '@rme-sdk/extension-template',
+    '@rme-sdk/minimal-template',
+    '@rme-sdk/preset-template',
     'website',
   ]);
   return (await listPackages()).filter((pkg) => !executedPackageNames.has(pkg.packageJson.name));

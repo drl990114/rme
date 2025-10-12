@@ -1,75 +1,75 @@
-import { ErrorConstant, ExtensionPriority, NamedShortcut } from '@remirror/core-constants';
+import { ErrorConstant, ExtensionPriority, NamedShortcut } from '@rme-sdk/core-constants';
 import {
-  entries,
-  invariant,
-  isEmptyArray,
-  isEmptyObject,
-  isString,
-  object,
-  uniqueArray,
-} from '@remirror/core-helpers';
+    entries,
+    invariant,
+    isEmptyArray,
+    isEmptyObject,
+    isString,
+    object,
+    uniqueArray,
+} from '@rme-sdk/core-helpers';
 import type {
-  AnyFunction,
-  CommandFunction,
-  CommandFunctionProps,
-  DispatchFunction,
-  EmptyShape,
-  Fragment,
-  FromToProps,
-  LiteralUnion,
-  MarkType,
-  NodeType,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-  ProsemirrorNode,
-  RemirrorContentType,
-  Shape,
-  Static,
-  Transaction,
-} from '@remirror/core-types';
+    AnyFunction,
+    CommandFunction,
+    CommandFunctionProps,
+    DispatchFunction,
+    EmptyShape,
+    Fragment,
+    FromToProps,
+    LiteralUnion,
+    MarkType,
+    NodeType,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+    ProsemirrorNode,
+    RemirrorContentType,
+    Shape,
+    Static,
+    Transaction,
+} from '@rme-sdk/core-types';
 import {
-  environment,
-  getMarkRange,
-  getTextSelection,
-  isEmptyBlockNode,
-  isProsemirrorFragment,
-  isProsemirrorNode,
-  isTextSelection,
-  removeMark,
-  RemoveMarkProps,
-  replaceText,
-  ReplaceTextProps,
-  setBlockType,
-  toggleBlockItem,
-  ToggleBlockItemProps,
-  toggleWrap,
-  wrapIn
-} from '@remirror/core-utils';
-import { CoreMessages as Messages } from '@remirror/messages';
-import { Mark } from '@remirror/pm/model';
-import { TextSelection } from '@remirror/pm/state';
-import type { EditorView } from '@remirror/pm/view';
+    environment,
+    getMarkRange,
+    getTextSelection,
+    isEmptyBlockNode,
+    isProsemirrorFragment,
+    isProsemirrorNode,
+    isTextSelection,
+    removeMark,
+    RemoveMarkProps,
+    replaceText,
+    ReplaceTextProps,
+    setBlockType,
+    toggleBlockItem,
+    ToggleBlockItemProps,
+    toggleWrap,
+    wrapIn
+} from '@rme-sdk/core-utils';
+import { CoreMessages as Messages } from '@rme-sdk/messages';
+import { Mark } from '@rme-sdk/pm/model';
+import { TextSelection } from '@rme-sdk/pm/state';
+import type { EditorView } from '@rme-sdk/pm/view';
 
 import { applyMark, insertText, InsertTextOptions, toggleMark, ToggleMarkProps } from '../commands';
 import {
-  AnyExtension,
-  ChainedCommandProps,
-  ChainedFromExtensions,
-  CommandNames,
-  CommandsFromExtensions,
-  extension,
-  Helper,
-  PlainExtension,
-  UiCommandNames,
+    AnyExtension,
+    ChainedCommandProps,
+    ChainedFromExtensions,
+    CommandNames,
+    CommandsFromExtensions,
+    extension,
+    Helper,
+    PlainExtension,
+    UiCommandNames,
 } from '../extension';
 import { throwIfNameNotUnique } from '../helpers';
 import type {
-  CommandShape,
-  CreateExtensionPlugin,
-  ExtensionCommandFunction,
-  ExtensionCommandReturn,
-  FocusType,
-  StateUpdateLifecycleProps,
+    CommandShape,
+    CreateExtensionPlugin,
+    ExtensionCommandFunction,
+    ExtensionCommandReturn,
+    FocusType,
+    StateUpdateLifecycleProps,
 } from '../types';
 import { command, CommandDecoratorOptions, helper } from './builtin-decorators';
 
@@ -344,7 +344,7 @@ export class CommandsExtension extends PlainExtension<CommandOptions> {
    *
    * ```ts
    * import React, { useCallback } from 'react';
-   * import { useRemirror } from '@remirror/react';
+   * import { useRemirror } from '@rme-sdk/react';
    *
    * const MyEditorButton = () => {
    *   const { commands } = useRemirror();
@@ -703,7 +703,7 @@ export class CommandsExtension extends PlainExtension<CommandOptions> {
    *
    * ```tsx
    * import { useCallback } from 'react';
-   * import { useRemirrorContext } from '@remirror/react';
+   * import { useRemirrorContext } from '@rme-sdk/react';
    *
    * const MenuButton = () => {
    *   const { chain } = useRemirrorContext();
@@ -1309,7 +1309,7 @@ declare global {
        * of the extension.
        *
        * ```ts
-       * import { ExtensionFactory } from '@remirror/core';
+       * import { ExtensionFactory } from '@rme-sdk/core';
        *
        * const MyExtension = ExtensionFactory.plain({
        *   name: 'myExtension',
@@ -1364,7 +1364,7 @@ declare global {
        * within the `createCommands` method calls.
        *
        * ```ts
-       * import { ExtensionFactory } from '@remirror/core';
+       * import { ExtensionFactory } from '@rme-sdk/core';
        *
        * const MyExtension = ExtensionFactory.plain({
        *   name: 'myExtension',

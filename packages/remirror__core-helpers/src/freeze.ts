@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { ErrorConstant } from '@remirror/core-constants';
+import { ErrorConstant } from '@rme-sdk/core-constants';
 
 import { invariant } from './core-errors';
 import { isArray, isObject } from './core-helpers';

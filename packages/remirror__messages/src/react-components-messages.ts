@@ -1,4 +1,4 @@
-import type { RemirrorMessage } from '@remirror/core-types';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
 
 export const NO_ITEMS_AVAILABLE: RemirrorMessage = /*i18n*/ {
   id: 'react-components.mention-atom-component.zero-items',

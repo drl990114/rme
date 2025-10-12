@@ -1,9 +1,9 @@
 // prosemirror imports
-import { history, redo, undo } from '@remirror/pm/history'
-import { keymap } from '@remirror/pm/keymap'
-import { Node as ProseNode } from '@remirror/pm/model'
-import { Command, EditorState, Plugin, TextSelection, Transaction } from '@remirror/pm/state'
-import { Decoration, EditorView, NodeView } from '@remirror/pm/view'
+import { history, redo, undo } from '@rme-sdk/pm/history'
+import { keymap } from '@rme-sdk/pm/keymap'
+import { Node as ProseNode } from '@rme-sdk/pm/model'
+import { Command, EditorState, Plugin, TextSelection, Transaction } from '@rme-sdk/pm/state'
+import { Decoration, EditorView, NodeView } from '@rme-sdk/pm/view'
 import katex from 'katex'
 
 /**

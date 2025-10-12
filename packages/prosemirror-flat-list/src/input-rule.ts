@@ -1,7 +1,7 @@
-import { InputRule } from '@remirror/pm/inputrules'
-import type { Attrs } from '@remirror/pm/model'
-import type { Transaction } from '@remirror/pm/state'
-import { findWrapping } from '@remirror/pm/transform'
+import { InputRule } from '@rme-sdk/pm/inputrules'
+import type { Attrs } from '@rme-sdk/pm/model'
+import type { Transaction } from '@rme-sdk/pm/state'
+import { findWrapping } from '@rme-sdk/pm/transform'
 
 import type { ListAttributes } from './types'
 import { getListType } from './utils/get-list-type'

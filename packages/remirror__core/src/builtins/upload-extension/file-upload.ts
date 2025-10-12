@@ -1,7 +1,7 @@
-import { isNumber, uniqueId } from '@remirror/core-helpers';
-import { ProsemirrorNode } from '@remirror/pm';
-import { NodeType } from '@remirror/pm/model';
-import { EditorView } from '@remirror/pm/view';
+import { isNumber, uniqueId } from '@rme-sdk/core-helpers';
+import { ProsemirrorNode } from '@rme-sdk/pm';
+import { NodeType } from '@rme-sdk/pm/model';
+import { EditorView } from '@rme-sdk/pm/view';
 
 import { ActionType } from './file-placeholder-actions';
 import { findUploadPlaceholderPos, setUploadPlaceholderAction } from './file-placeholder-plugin';

@@ -1,6 +1,6 @@
+import { clamp, findMatches, includes, isNumber, isObject, isString } from '@rme-sdk/core-helpers';
+import { KebabCase, StringKey } from '@rme-sdk/core-types';
 import parse from 'parenthesis';
-import { clamp, findMatches, includes, isNumber, isObject, isString } from '@remirror/core-helpers';
-import { KebabCase, StringKey } from '@remirror/core-types';
 
 import { getMatchString, getWindowFromElement, maybeGetWindowFromElement } from './core-utils';
 

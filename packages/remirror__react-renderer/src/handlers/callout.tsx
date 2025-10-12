@@ -1,5 +1,5 @@
+import { RemirrorJSON } from '@rme-sdk/core';
 import React, { FC } from 'react';
-import { RemirrorJSON } from '@remirror/core';
 
 import { MarkMap, RemirrorRenderer } from '../';
 

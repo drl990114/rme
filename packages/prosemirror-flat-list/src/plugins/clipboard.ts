@@ -1,5 +1,5 @@
-import type { Schema } from '@remirror/pm/model'
-import { Plugin } from '@remirror/pm/state'
+import type { Schema } from '@rme-sdk/pm/model'
+import { Plugin } from '@rme-sdk/pm/state'
 
 import { ListDOMSerializer } from '../utils/list-serializer'
 import { unwrapListSlice } from '../utils/unwrap-list-slice'

@@ -1,4 +1,4 @@
-import { ExtensionItalicMessages as Messages } from '@remirror/messages';
+import { ExtensionItalicMessages as Messages } from '@rme-sdk/messages';
 
 export const toggleItalicOptions: Remirror.CommandDecoratorOptions = {
   icon: 'italic',

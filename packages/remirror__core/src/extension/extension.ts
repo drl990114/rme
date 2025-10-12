@@ -1,44 +1,44 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 
 import {
-  __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
-  ErrorConstant,
-  ExtensionPriority,
-  RemirrorIdentifier,
-} from '@remirror/core-constants';
-import { assertGet, freeze, invariant, pascalCase, uniqueBy } from '@remirror/core-helpers';
+    __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
+    ErrorConstant,
+    ExtensionPriority,
+    RemirrorIdentifier,
+} from '@rme-sdk/core-constants';
+import { assertGet, freeze, invariant, pascalCase, uniqueBy } from '@rme-sdk/core-helpers';
 import type {
-  ApplySchemaAttributes,
-  Dispose,
-  EditorState,
-  EditorView,
-  EmptyShape,
-  MarkExtensionSpec,
-  MarkSpecOverride,
-  MarkType,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  NodeType,
-  Replace,
-  Shape,
-  ValidOptions,
-} from '@remirror/core-types';
-import { isIdentifierOfType, isRemirrorType } from '@remirror/core-utils';
+    ApplySchemaAttributes,
+    Dispose,
+    EditorState,
+    EditorView,
+    EmptyShape,
+    MarkExtensionSpec,
+    MarkSpecOverride,
+    MarkType,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    NodeType,
+    Replace,
+    Shape,
+    ValidOptions,
+} from '@rme-sdk/core-types';
+import { isIdentifierOfType, isRemirrorType } from '@rme-sdk/core-utils';
 
 import type {
-  AppendLifecycleProps,
-  ApplyStateLifecycleProps,
-  BaseExtensionOptions,
-  ExtensionCommandReturn,
-  ExtensionHelperReturn,
-  StateUpdateLifecycleProps,
+    AppendLifecycleProps,
+    ApplyStateLifecycleProps,
+    BaseExtensionOptions,
+    ExtensionCommandReturn,
+    ExtensionHelperReturn,
+    StateUpdateLifecycleProps,
 } from '../types';
 import {
-  AnyBaseClassOverrides,
-  BaseClass,
-  BaseClassConstructor,
-  ConstructorProps,
-  DefaultOptions,
+    AnyBaseClassOverrides,
+    BaseClass,
+    BaseClassConstructor,
+    ConstructorProps,
+    DefaultOptions,
 } from './base-class';
 
 /**

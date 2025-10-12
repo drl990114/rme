@@ -4,7 +4,7 @@ import {
     type Fragment,
     type Node as ProsemirrorNode,
     type Schema,
-} from '@remirror/pm/model'
+} from '@rme-sdk/pm/model'
 
 import { listToDOM } from '../schema/to-dom'
 

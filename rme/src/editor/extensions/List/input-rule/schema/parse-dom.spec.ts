@@ -1,4 +1,4 @@
-import { htmlToProsemirrorNode } from '@remirror/core'
+import { htmlToProsemirrorNode } from '@rme-sdk/core'
 import { describe, expect, it } from 'vitest'
 
 import { setupTestingEditor } from '../../../../test/setup-editor'

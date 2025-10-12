@@ -1,5 +1,5 @@
 import type { Extension as CodeMirrorExtension } from '@codemirror/state'
-import type { ProsemirrorAttributes } from '@remirror/core'
+import type { ProsemirrorAttributes } from '@rme-sdk/core'
 import { MfCodemirrorView } from '../../codemirror/codemirror'
 
 export interface CodeMirrorExtensionOptions {

@@ -1,23 +1,23 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionTag,
-  InputRule,
-  keyBinding,
-  KeyBindingProps,
-  KeyBindings,
-  LEAF_NODE_REPLACING_CHARACTER,
-  MarkExtension,
-  MarkExtensionSpec,
-  markInputRule,
-  MarkSpecOverride,
-  NamedShortcut,
-  toggleMark,
-} from '@remirror/core';
-import { ExtensionCodeMessages } from '@remirror/messages';
-import { MarkPasteRule } from '@remirror/pm/paste-rules';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionTag,
+    InputRule,
+    keyBinding,
+    KeyBindingProps,
+    KeyBindings,
+    LEAF_NODE_REPLACING_CHARACTER,
+    MarkExtension,
+    MarkExtensionSpec,
+    markInputRule,
+    MarkSpecOverride,
+    NamedShortcut,
+    toggleMark,
+} from '@rme-sdk/core';
+import { ExtensionCodeMessages } from '@rme-sdk/messages';
+import { MarkPasteRule } from '@rme-sdk/pm/paste-rules';
 
 const { DESCRIPTION, LABEL } = ExtensionCodeMessages;
 const toggleCodeOptions: Remirror.CommandDecoratorOptions = {

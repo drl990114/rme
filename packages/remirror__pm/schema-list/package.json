@@ -1,13 +1,13 @@
 {
   "type": "module",
-  "main": "./dist/remirror-pm-schema-list.cjs",
-  "module": "./dist/remirror-pm-schema-list.js",
-  "types": "./dist/remirror-pm-schema-list.d.ts",
+  "main": "./dist/rme-sdk-pm-schema-list.cjs",
+  "module": "./dist/rme-sdk-pm-schema-list.js",
+  "types": "./dist/rme-sdk-pm-schema-list.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-pm-schema-list.d.ts",
-      "import": "./dist/remirror-pm-schema-list.js",
-      "require": "./dist/remirror-pm-schema-list.cjs"
+      "types": "./dist/rme-sdk-pm-schema-list.d.ts",
+      "import": "./dist/rme-sdk-pm-schema-list.js",
+      "require": "./dist/rme-sdk-pm-schema-list.cjs"
     },
     "./package.json": "./package.json"
   }

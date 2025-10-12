@@ -1,4 +1,4 @@
-import type { NodeRange } from '@remirror/pm/model'
+import type { NodeRange } from '@rme-sdk/pm/model'
 
 /**
  * Returns a deeper block range if possible

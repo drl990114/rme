@@ -1,11 +1,11 @@
+import { prosemirrorNodeToHtml } from '@rme-sdk/main'
+import { type Node } from '@rme-sdk/pm/model'
 // @ts-ignore
 import HTML from 'html-parse-stringify'
-import { prosemirrorNodeToHtml } from 'remirror'
-import { HTMLAstNode } from '../components/Preview'
-import { type Node } from '@remirror/pm/model'
-import { nanoid } from 'nanoid'
 import mermaid from 'mermaid'
+import { nanoid } from 'nanoid'
 import { EditorProps } from '../components'
+import { HTMLAstNode } from '../components/Preview'
 
 export const handlerByAdditions: Record<
   string,

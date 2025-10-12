@@ -1,10 +1,10 @@
-import type { ResolvedPos } from '@remirror/pm/model'
+import type { ResolvedPos } from '@rme-sdk/pm/model'
 import {
-  Command,
-  type Selection,
-  TextSelection,
-  type Transaction,
-} from '@remirror/pm/state'
+    Command,
+    type Selection,
+    TextSelection,
+    type Transaction,
+} from '@rme-sdk/pm/state'
 
 import { isCollapsedListNode } from '../utils/is-collapsed-list-node'
 import { patchCommand } from '../utils/patch-command'

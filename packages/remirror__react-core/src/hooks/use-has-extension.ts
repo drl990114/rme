@@ -1,5 +1,5 @@
+import { AnyExtensionConstructor } from '@rme-sdk/core';
 import { useMemo } from 'react';
-import { AnyExtensionConstructor } from '@remirror/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 

@@ -1,14 +1,14 @@
 {
   "type": "module",
+  "main": "./dist/rme-sdk-react-hooks-use-emoji.cjs",
+  "module": "./dist/rme-sdk-react-hooks-use-emoji.js",
+  "types": "./dist/rme-sdk-react-hooks-use-emoji.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-react-hooks-use-emoji.d.ts",
-      "import": "./dist/remirror-react-hooks-use-emoji.js",
-      "require": "./dist/remirror-react-hooks-use-emoji.cjs"
+      "types": "./dist/rme-sdk-react-hooks-use-emoji.d.ts",
+      "import": "./dist/rme-sdk-react-hooks-use-emoji.js",
+      "require": "./dist/rme-sdk-react-hooks-use-emoji.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-react-hooks-use-emoji.cjs",
-  "module": "./dist/remirror-react-hooks-use-emoji.js",
-  "types": "./dist/remirror-react-hooks-use-emoji.d.ts"
+  }
 }

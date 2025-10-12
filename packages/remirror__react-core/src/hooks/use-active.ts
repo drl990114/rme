@@ -1,4 +1,4 @@
-import type { ActiveFromExtensions, AnyExtension } from '@remirror/core';
+import type { ActiveFromExtensions, AnyExtension } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 
@@ -7,7 +7,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * editor.
  *
  * ```ts
- * import { useActive } from '@remirror/react';
+ * import { useActive } from '@rme-sdk/react';
  * ```
  *
  * This hooks updates the local component on each state update for the editor,

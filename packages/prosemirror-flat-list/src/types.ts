@@ -1,4 +1,4 @@
-import type { Attrs, Node } from '@remirror/pm/model'
+import type { Attrs, Node } from '@rme-sdk/pm/model'
 
 /**
  * All default list node kinds.

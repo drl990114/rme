@@ -1,15 +1,15 @@
-import type { ExtensionPriority } from '@remirror/core-constants';
+import type { ExtensionPriority } from '@rme-sdk/core-constants';
 import type {
-  AnyFunction,
-  ConditionalExcept,
-  ConditionalPick,
-  Flavoring,
-  FlipPartialAndRequired,
-  PickPartial,
-  RemoveFlavoring,
-  Shape,
-  StringKey,
-} from '@remirror/types';
+    AnyFunction,
+    ConditionalExcept,
+    ConditionalPick,
+    Flavoring,
+    FlipPartialAndRequired,
+    PickPartial,
+    RemoveFlavoring,
+    Shape,
+    StringKey,
+} from '@rme-sdk/types';
 
 type StaticAnnotation = Flavoring<'StaticAnnotation'>;
 type DynamicAnnotation = Flavoring<'DynamicAnnotation'>;

@@ -1,4 +1,4 @@
-import { NodeType } from '@remirror/pm'
+import { NodeType } from '@rme-sdk/pm'
 
 export const getMdImageInputRule = <T extends NodeType | string>(nodeType: T) => [
   {

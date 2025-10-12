@@ -1,28 +1,28 @@
 import type { LanguageDescription, LanguageSupport } from '@codemirror/language';
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  EditorView,
-  extension,
-  findParentNodeOfType,
-  GetAttributes,
-  InputRule,
-  isElementDomNode,
-  isEqual,
-  isTextSelection,
-  keyBinding,
-  KeyBindingProps,
-  NodeExtension,
-  NodeExtensionSpec,
-  nodeInputRule,
-  NodeSpecOverride,
-  NodeViewMethod,
-  PrioritizedKeyBindings,
-  ProsemirrorNode,
-  setBlockType,
-} from '@remirror/core';
-import { TextSelection } from '@remirror/pm/state';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    EditorView,
+    extension,
+    findParentNodeOfType,
+    GetAttributes,
+    InputRule,
+    isElementDomNode,
+    isEqual,
+    isTextSelection,
+    keyBinding,
+    KeyBindingProps,
+    NodeExtension,
+    NodeExtensionSpec,
+    nodeInputRule,
+    NodeSpecOverride,
+    NodeViewMethod,
+    PrioritizedKeyBindings,
+    ProsemirrorNode,
+    setBlockType,
+} from '@rme-sdk/core';
+import { TextSelection } from '@rme-sdk/pm/state';
 
 import { CodeMirror6NodeView } from './codemirror-node-view';
 import { CodeMirrorExtensionAttributes, CodeMirrorExtensionOptions } from './codemirror-types';

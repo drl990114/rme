@@ -1,12 +1,12 @@
-import { Transaction, TransactionProps } from '@remirror/core';
-import { Decoration, DecorationSet } from '@remirror/pm/view';
+import { Transaction, TransactionProps } from '@rme-sdk/core';
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view';
 
 import {
-  ActionType,
-  AddAnnotationAction,
-  RemoveAnnotationsAction,
-  SetAnnotationsAction,
-  UpdateAnnotationAction,
+    ActionType,
+    AddAnnotationAction,
+    RemoveAnnotationsAction,
+    SetAnnotationsAction,
+    UpdateAnnotationAction,
 } from './annotation-actions';
 import { toSegments } from './annotation-segments';
 import type { Annotation, AnnotationStore, GetStyle, OmitText } from './annotation-types';

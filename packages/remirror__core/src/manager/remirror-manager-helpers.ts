@@ -1,16 +1,16 @@
+import { ErrorConstant } from '@rme-sdk/core-constants';
+import { invariant, isEmptyArray, sort } from '@rme-sdk/core-helpers';
+import type { Dispose, EditorView } from '@rme-sdk/core-types';
 import warning from 'tiny-warning';
-import { ErrorConstant } from '@remirror/core-constants';
-import { invariant, isEmptyArray, sort } from '@remirror/core-helpers';
-import type { Dispose, EditorView } from '@remirror/core-types';
 
 import {
-  AnyExtension,
-  AnyExtensionConstructor,
-  GetExtensions,
-  isExtension,
-  isMarkExtension,
-  isNodeExtension,
-  isPlainExtension,
+    AnyExtension,
+    AnyExtensionConstructor,
+    GetExtensions,
+    isExtension,
+    isMarkExtension,
+    isNodeExtension,
+    isPlainExtension,
 } from '../extension';
 import type { GetConstructor, StateUpdateLifecycleProps } from '../types';
 

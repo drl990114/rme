@@ -1,44 +1,44 @@
-import { ErrorConstant, NULL_CHARACTER } from '@remirror/core-constants';
-import { entries, isEmptyObject, object } from '@remirror/core-helpers';
+import { ErrorConstant, NULL_CHARACTER } from '@rme-sdk/core-constants';
+import { entries, isEmptyObject, object } from '@rme-sdk/core-helpers';
 import type {
-  AnyFunction,
-  CommandFunction,
-  EditorState,
-  EditorStateProps,
-  EmptyShape,
-  Fragment,
-  LiteralUnion,
-  ProsemirrorAttributes,
-  ProsemirrorNode,
-  RemirrorJSON,
-  Shape,
-  StateJSON,
-} from '@remirror/core-types';
+    AnyFunction,
+    CommandFunction,
+    EditorState,
+    EditorStateProps,
+    EmptyShape,
+    Fragment,
+    LiteralUnion,
+    ProsemirrorAttributes,
+    ProsemirrorNode,
+    RemirrorJSON,
+    Shape,
+    StateJSON,
+} from '@rme-sdk/core-types';
 import {
-  containsAttributes,
-  FragmentStringHandlerOptions,
-  getActiveNode,
-  getMarkRange,
-  htmlToProsemirrorNode,
-  isMarkActive,
-  isNodeActive,
-  isSelectionEmpty,
-  NodeStringHandlerOptions,
-  prosemirrorNodeToHtml,
-  StringHandlerOptions,
-} from '@remirror/core-utils';
+    containsAttributes,
+    FragmentStringHandlerOptions,
+    getActiveNode,
+    getMarkRange,
+    htmlToProsemirrorNode,
+    isMarkActive,
+    isNodeActive,
+    isSelectionEmpty,
+    NodeStringHandlerOptions,
+    prosemirrorNodeToHtml,
+    StringHandlerOptions,
+} from '@rme-sdk/core-utils';
 
 import {
-  ActiveFromExtensions,
-  AnyExtension,
-  AttrsFromExtensions,
-  extension,
-  Helper,
-  HelperNames,
-  HelpersFromExtensions,
-  isMarkExtension,
-  isNodeExtension,
-  PlainExtension,
+    ActiveFromExtensions,
+    AnyExtension,
+    AttrsFromExtensions,
+    extension,
+    Helper,
+    HelperNames,
+    HelpersFromExtensions,
+    isMarkExtension,
+    isNodeExtension,
+    PlainExtension,
 } from '../extension';
 import { throwIfNameNotUnique } from '../helpers';
 import type { ExtensionHelperReturn } from '../types';
@@ -305,7 +305,7 @@ declare global {
        *
        * ```tsx
        * // extension.ts
-       * import { ExtensionFactory } from '@remirror/core';
+       * import { ExtensionFactory } from '@rme-sdk/core';
        *
        * const MyBeautifulExtension = ExtensionFactory.plain({
        *   name: 'beautiful',
@@ -317,7 +317,7 @@ declare global {
        *
        * ```
        * // app.tsx
-       * import { useRemirrorContext } from '@remirror/react';
+       * import { useRemirrorContext } from '@rme-sdk/react';
        *
        * const MyEditor = () => {
        *   const { helpers } = useRemirrorContext({ autoUpdate: true });

@@ -1,27 +1,27 @@
-import React, { ComponentType, FunctionComponent, RefCallback } from 'react';
-import { ErrorConstant, SELECTED_NODE_CLASS_NAME } from '@remirror/core-constants';
+import { ErrorConstant, SELECTED_NODE_CLASS_NAME } from '@rme-sdk/core-constants';
 import {
-  entries,
-  invariant,
-  isFunction,
-  isPlainObject,
-  isString,
-  kebabCase,
-  pascalCase,
-} from '@remirror/core-helpers';
-import { GetFixed, NodeWithAttributes, ProsemirrorAttributes } from '@remirror/core-types';
-import { isDomNode, isElementDomNode, isNodeOfType } from '@remirror/core-utils';
-import { Decoration, EditorView, NodeView, ProsemirrorNode } from '@remirror/pm';
-import { DOMSerializer } from '@remirror/pm/model';
-import { NodeSelection } from '@remirror/pm/state';
-import type { ViewMutationRecord } from '@remirror/pm/view';
+    entries,
+    invariant,
+    isFunction,
+    isPlainObject,
+    isString,
+    kebabCase,
+    pascalCase,
+} from '@rme-sdk/core-helpers';
+import { GetFixed, NodeWithAttributes, ProsemirrorAttributes } from '@rme-sdk/core-types';
+import { isDomNode, isElementDomNode, isNodeOfType } from '@rme-sdk/core-utils';
+import { Decoration, EditorView, NodeView, ProsemirrorNode } from '@rme-sdk/pm';
+import { DOMSerializer } from '@rme-sdk/pm/model';
+import { NodeSelection } from '@rme-sdk/pm/state';
+import type { ViewMutationRecord } from '@rme-sdk/pm/view';
+import React, { ComponentType, FunctionComponent, RefCallback } from 'react';
 
 import type {
-  CreateNodeViewProps,
-  GetPosition,
-  NodeViewComponentProps,
-  ReactComponentOptions,
-  ReactNodeViewProps,
+    CreateNodeViewProps,
+    GetPosition,
+    NodeViewComponentProps,
+    ReactComponentOptions,
+    ReactNodeViewProps,
 } from './node-view-types';
 import type { PortalContainer } from './portals';
 

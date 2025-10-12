@@ -1,4 +1,4 @@
-import { randomInt } from '@remirror/core';
+import { randomInt } from '@rme-sdk/core';
 
 import type { ParticleEffect } from './epic-mode-types';
 

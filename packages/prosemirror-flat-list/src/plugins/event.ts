@@ -1,4 +1,4 @@
-import { Plugin } from '@remirror/pm/state'
+import { Plugin } from '@rme-sdk/pm/state'
 
 import { handleListMarkerMouseDown } from '../dom-events'
 

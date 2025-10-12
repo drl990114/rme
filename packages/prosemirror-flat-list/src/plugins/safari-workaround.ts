@@ -1,4 +1,4 @@
-import type { Plugin } from '@remirror/pm/state'
+import type { Plugin } from '@rme-sdk/pm/state'
 import { imeSpan } from 'prosemirror-safari-ime-span'
 
 /**

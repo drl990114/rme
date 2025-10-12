@@ -1,4 +1,4 @@
-import type { Shape } from '@remirror/core-types';
+import type { Shape } from '@rme-sdk/core-types';
 
 // Taken from dom-testing-library
 

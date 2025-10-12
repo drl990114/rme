@@ -1,4 +1,4 @@
-import { Selection } from '@remirror/core';
+import { Selection } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 

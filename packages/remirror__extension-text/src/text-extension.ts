@@ -1,10 +1,10 @@
 import {
-  extension,
-  ExtensionPriority,
-  ExtensionTag,
-  NodeExtension,
-  NodeExtensionSpec,
-} from '@remirror/core';
+    extension,
+    ExtensionPriority,
+    ExtensionTag,
+    NodeExtension,
+    NodeExtensionSpec,
+} from '@rme-sdk/core';
 
 /**
  * The default text passed into the prosemirror schema.

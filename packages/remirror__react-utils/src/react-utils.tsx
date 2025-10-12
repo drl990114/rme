@@ -1,13 +1,13 @@
+import { ErrorConstant } from '@rme-sdk/core-constants';
+import { invariant, isFunction, isObject, isString } from '@rme-sdk/core-helpers';
+import type { AnyFunction, UnknownShape } from '@rme-sdk/core-types';
 import {
-  cloneElement,
-  Fragment,
-  isValidElement as isValidReactElement,
-  ReactElement,
-  ReactNode,
+    cloneElement,
+    Fragment,
+    isValidElement as isValidReactElement,
+    ReactElement,
+    ReactNode,
 } from 'react';
-import { ErrorConstant } from '@remirror/core-constants';
-import { invariant, isFunction, isObject, isString } from '@remirror/core-helpers';
-import type { AnyFunction, UnknownShape } from '@remirror/core-types';
 
 /**
  * A drop in replacement for built in React.isValidElement which accepts a test value of any type

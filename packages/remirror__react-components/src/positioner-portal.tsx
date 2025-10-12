@@ -1,6 +1,6 @@
+import { useHelpers } from '@rme-sdk/react-core';
 import React, { FC, ReactChild } from 'react';
 import { createPortal } from 'react-dom';
-import { useHelpers } from '@remirror/react-core';
 
 export interface PositionerComponentProps {
   children: ReactChild;

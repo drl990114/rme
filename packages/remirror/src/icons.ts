@@ -1,1 +1,1 @@
-export * from '@remirror/icons';
+export * from '@rme-sdk/icons';

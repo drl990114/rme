@@ -1,5 +1,5 @@
+import type { AnyExtension, RemirrorManager } from '@rme-sdk/core';
 import { useEffect, useRef, useState } from 'react';
-import type { AnyExtension, RemirrorManager } from '@remirror/core';
 
 import { createReactManager } from '../react-helpers';
 import type { CreateReactManagerOptions, ReactExtensions } from '../react-types';
@@ -16,7 +16,7 @@ import type { CreateReactManagerOptions, ReactExtensions } from '../react-types'
  * causes issues.
  *
  * ```tsx
- * import { useExtension } from '@remirror/react';
+ * import { useExtension } from '@rme-sdk/react';
  * import { PresetCore } from 'remirror/preset-core';
  * import { BoldExtension } from 'remirror/extension-bold';
  *

@@ -1,4 +1,4 @@
-import { ContextMenuEventHandler } from '@remirror/extension-events';
+import { ContextMenuEventHandler } from '@rme-sdk/extension-events';
 
 import { useEditorEvent } from './use-editor-event';
 

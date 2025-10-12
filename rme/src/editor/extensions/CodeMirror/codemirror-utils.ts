@@ -1,5 +1,5 @@
-import type { CommandFunction } from '@remirror/core'
-import { Selection } from '@remirror/pm/state'
+import type { CommandFunction } from '@rme-sdk/core'
+import { Selection } from '@rme-sdk/pm/state'
 
 /**
  * Handling cursor motion from the outer to the inner editor must be done with a

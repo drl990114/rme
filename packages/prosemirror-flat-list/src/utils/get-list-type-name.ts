@@ -1,4 +1,4 @@
-import type { Schema } from '@remirror/pm/model'
+import type { Schema } from '@rme-sdk/pm/model'
 
 import { flatListGroup } from '../schema/node-spec'
 

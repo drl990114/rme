@@ -1,18 +1,18 @@
-import { useCallback, useMemo, useState } from 'react';
-import { isEmptyArray, take } from '@remirror/core';
+import { isEmptyArray, take } from '@rme-sdk/core';
 import {
-  EmojiExtension,
-  EmojiSuggestHandler,
-  EmojiSuggestHandlerCommand,
-  EmojiSuggestHandlerProps,
-  FlatEmoji,
-} from '@remirror/extension-emoji';
-import { useExtensionEvent, useHelpers } from '@remirror/react-core';
+    EmojiExtension,
+    EmojiSuggestHandler,
+    EmojiSuggestHandlerCommand,
+    EmojiSuggestHandlerProps,
+    FlatEmoji,
+} from '@rme-sdk/extension-emoji';
+import { useExtensionEvent, useHelpers } from '@rme-sdk/react-core';
+import { useCallback, useMemo, useState } from 'react';
 
 import {
-  MenuNavigationOptions,
-  useMenuNavigation,
-  UseMenuNavigationReturn,
+    MenuNavigationOptions,
+    useMenuNavigation,
+    UseMenuNavigationReturn,
 } from './use-menu-navigation';
 
 export interface FlatEmojiWithUrl extends FlatEmoji {

@@ -1,10 +1,10 @@
 import { jest } from '@jest/globals';
+import type { I18nFormatter, RemirrorMessage } from '@rme-sdk/core';
 import { RemirrorTestChain } from 'jest-remirror';
 import React, { FC } from 'react';
 import { BoldExtension, ItalicExtension } from 'remirror/extensions';
 import { docNodeBasicJSON } from 'testing';
 import { fireEvent, strictRender } from 'testing/react';
-import type { I18nFormatter, RemirrorMessage } from '@remirror/core';
 
 import { createReactManager, Remirror, useI18n, useRemirrorContext } from '../';
 

@@ -1,6 +1,6 @@
+import { AnyExtension, ErrorConstant, invariant, isArray, isNullOrUndefined } from '@rme-sdk/core';
+import { ReactExtension } from '@rme-sdk/preset-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { AnyExtension, ErrorConstant, invariant, isArray, isNullOrUndefined } from '@remirror/core';
-import { ReactExtension } from '@remirror/preset-react';
 
 import { ReactFramework, ReactFrameworkOptions, ReactFrameworkProps } from '../react-framework';
 import type { ReactFrameworkOutput } from '../react-types';
@@ -59,7 +59,7 @@ export function useReactFramework<Extension extends AnyExtension>(
     return manager.createState({ content: initialContent, selection: initialSelection });
   });
 
-  // Create the framework which manages the connection between the `@remirror/core`
+  // Create the framework which manages the connection between the `@rme-sdk/core`
   // and React.
   const framework: ReactFramework<Extension> = useFramework<Extension>({
     initialEditorState,

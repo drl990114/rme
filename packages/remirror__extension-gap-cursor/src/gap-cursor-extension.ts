@@ -1,5 +1,5 @@
-import { extension, isInstanceOf, PlainExtension, ProsemirrorPlugin } from '@remirror/core';
-import { GapCursor, gapCursor } from '@remirror/pm/gapcursor';
+import { extension, isInstanceOf, PlainExtension, ProsemirrorPlugin } from '@rme-sdk/core';
+import { GapCursor, gapCursor } from '@rme-sdk/pm/gapcursor';
 
 /**
  * Create a gap cursor plugin.
@@ -14,7 +14,7 @@ import { GapCursor, gapCursor } from '@remirror/pm/gapcursor';
  * Make sure to import the styles as shown below.
  *
  * ```ts
- * import '@remirror/styles/extension-gap-cursor.css';
+ * import '@rme-sdk/styles/extension-gap-cursor.css';
  * ```
  */
 @extension({})

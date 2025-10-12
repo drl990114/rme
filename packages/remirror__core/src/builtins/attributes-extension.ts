@@ -1,5 +1,5 @@
-import { ClassName, cx, object } from '@remirror/core-helpers';
-import type { ProsemirrorAttributes } from '@remirror/core-types';
+import { ClassName, cx, object } from '@rme-sdk/core-helpers';
+import type { ProsemirrorAttributes } from '@rme-sdk/core-types';
 
 import { AnyExtension, PlainExtension } from '../extension';
 

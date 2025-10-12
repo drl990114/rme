@@ -1,8 +1,8 @@
-import type { InputRule, ProsemirrorNode } from '@remirror/core'
-import { isString } from '@remirror/core'
+import type { InputRule, ProsemirrorNode } from '@rme-sdk/core'
+import { isString } from '@rme-sdk/core'
+import type { ListAttributes } from '@rme-sdk/extension-flat-list'
+import { ListExtension } from '@rme-sdk/extension-flat-list'
 import type Token from 'markdown-it/lib/token.mjs'
-import type { ListAttributes } from 'remirror-extension-flat-list'
-import { ListExtension } from 'remirror-extension-flat-list'
 import type {
   MarkdownParseState,
   NodeSerializerOptions,

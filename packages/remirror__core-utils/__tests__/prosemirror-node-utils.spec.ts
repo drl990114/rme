@@ -1,26 +1,26 @@
 import { jest } from '@jest/globals';
+import { TextSelection } from '@rme-sdk/pm/state';
 import {
-  atomInline,
-  createEditor,
-  doc,
-  p,
-  strong,
-  table,
-  td,
-  tdEmpty,
-  tr as row,
+    atomInline,
+    createEditor,
+    doc,
+    p,
+    tr as row,
+    strong,
+    table,
+    td,
+    tdEmpty,
 } from 'jest-prosemirror';
-import { TextSelection } from '@remirror/pm/state';
 
 import {
-  containsNodesOfType,
-  findBlockNodes,
-  findChildren,
-  findChildrenByAttribute,
-  findChildrenByMark,
-  findChildrenByNode,
-  findTextNodes,
-  getChangedNodes,
+    containsNodesOfType,
+    findBlockNodes,
+    findChildren,
+    findChildrenByAttribute,
+    findChildrenByMark,
+    findChildrenByNode,
+    findTextNodes,
+    getChangedNodes,
 } from '../';
 
 describe('findChildren', () => {

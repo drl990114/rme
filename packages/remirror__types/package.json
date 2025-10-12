@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/types",
-  "version": "2.0.0",
+  "name": "@rme-sdk/types",
+  "version": "1.1.0",
   "description": "Base types used throughout the remirror packages.",
   "keywords": [
     "remirror"
@@ -20,13 +20,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-types.js",
-      "require": "./dist/remirror-types.cjs"
+      "import": "./dist/rme-sdk-types.js",
+      "require": "./dist/rme-sdk-types.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-types.cjs",
-  "module": "./dist/remirror-types.js",
+  "main": "./dist/rme-sdk-types.cjs",
+  "module": "./dist/rme-sdk-types.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -39,24 +39,24 @@
     "type-fest": "^3.10.0"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*"
+    "@rme-sdk/cli": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-types.d.ts",
-        "import": "./dist/remirror-types.js",
-        "require": "./dist/remirror-types.cjs"
+        "types": "./dist/rme-sdk-types.d.ts",
+        "import": "./dist/rme-sdk-types.js",
+        "require": "./dist/rme-sdk-types.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-types.cjs",
-    "module": "./dist/remirror-types.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-types.d.ts"
+    "main": "./dist/rme-sdk-types.cjs",
+    "module": "./dist/rme-sdk-types.js",
+    "types": "./dist/rme-sdk-types.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "1 KB"
   }
 }

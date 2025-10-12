@@ -1,6 +1,6 @@
-import { ErrorConstant } from '@remirror/core-constants';
-import { freeze, invariant, keys, object } from '@remirror/core-helpers';
-import type { GetFixedDynamic, GetPartialDynamic, ValidOptions } from '@remirror/core-types';
+import { ErrorConstant } from '@rme-sdk/core-constants';
+import { freeze, invariant, keys, object } from '@rme-sdk/core-helpers';
+import type { GetFixedDynamic, GetPartialDynamic, ValidOptions } from '@rme-sdk/core-types';
 
 import type { GetChangeOptionsReturn, PickChanged } from './types';
 

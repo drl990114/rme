@@ -1,4 +1,4 @@
-import { PortalContainer } from '@remirror/extension-react-component';
+import { PortalContainer } from '@rme-sdk/extension-react-component';
 
 import { useRemirrorContext } from './use-remirror-context';
 

@@ -1,10 +1,10 @@
 import type {
-  ExtensionCommandReturn,
-  MarkExtensionSpec,
-  NodeView,
-  NodeViewMethod,
-} from '@remirror/core'
-import { MarkExtension, extension } from '@remirror/core'
+    ExtensionCommandReturn,
+    MarkExtensionSpec,
+    NodeView,
+    NodeViewMethod,
+} from '@rme-sdk/core'
+import { MarkExtension, extension } from '@rme-sdk/core'
 
 import { formatHref } from './format-href'
 import { toggleInlineMark } from './inline-mark-commands'

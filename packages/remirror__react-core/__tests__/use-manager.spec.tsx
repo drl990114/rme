@@ -1,14 +1,14 @@
+import type { AnyExtension, AnyRemirrorManager } from '@rme-sdk/core';
+import { ReactExtension } from '@rme-sdk/preset-react';
 import React from 'react';
-import { act as renderAct, render } from 'testing/react';
-import type { AnyExtension, AnyRemirrorManager } from '@remirror/core';
-import { ReactExtension } from '@remirror/preset-react';
+import { render, act as renderAct } from 'testing/react';
 
 import { useManager } from '../';
 
 // TODO: `jest.mock` doesn't work on ESM environments.
 describe.skip('useManager', () => {
-  // jest.mock('@remirror/preset-react', () => {
-  //   const actual = jest.requireActual('@remirror/preset-react');
+  // jest.mock('@rme-sdk/preset-react', () => {
+  //   const actual = jest.requireActual('@rme-sdk/preset-react');
   //   return {
   //     ...actual,
   //     ReactExtension: jest

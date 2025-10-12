@@ -37,7 +37,7 @@
     "throttle-debounce": "^3.0.1"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*"
+    "@rme-sdk/cli": "workspace:*"
   },
   "publishConfig": {
     "access": "public",
@@ -54,7 +54,7 @@
     "type": "module",
     "types": "./dist/a11y-status.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "1 KB"
   }
 }

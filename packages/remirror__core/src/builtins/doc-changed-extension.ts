@@ -1,5 +1,5 @@
-import { ExtensionPriority } from '@remirror/core-constants';
-import type { Handler } from '@remirror/core-types';
+import { ExtensionPriority } from '@rme-sdk/core-constants';
+import type { Handler } from '@rme-sdk/core-types';
 
 import { extension, PlainExtension } from '../extension';
 import type { StateUpdateLifecycleProps } from '../types';

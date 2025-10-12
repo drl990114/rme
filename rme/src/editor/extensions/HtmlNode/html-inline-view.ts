@@ -1,17 +1,17 @@
 // prosemirror imports
-import { isImageElement } from '../../utils/html'
-import { history, redo, undo } from '@remirror/pm/history'
-import { keymap } from '@remirror/pm/keymap'
-import { Node as ProseNode } from '@remirror/pm/model'
+import { history, redo, undo } from '@rme-sdk/pm/history'
+import { keymap } from '@rme-sdk/pm/keymap'
+import { Node as ProseNode } from '@rme-sdk/pm/model'
 import {
-  Command,
-  EditorState,
-  Plugin,
-  TextSelection,
-  Transaction
-} from '@remirror/pm/state'
-import { Decoration, EditorView, NodeView } from '@remirror/pm/view'
+    Command,
+    EditorState,
+    Plugin,
+    TextSelection,
+    Transaction
+} from '@rme-sdk/pm/state'
+import { Decoration, EditorView, NodeView } from '@rme-sdk/pm/view'
 import { ExtensionsOptions } from '..'
+import { isImageElement } from '../../utils/html'
 
 /**
  * A ProseMirror command for determining whether to exit a math block, based on

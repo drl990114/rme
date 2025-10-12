@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/icons",
-  "version": "3.0.0",
+  "name": "@rme-sdk/icons",
+  "version": "1.1.0",
   "description": "RemixIcons for use in your remirror editor.",
   "keywords": [
     "remirror"
@@ -20,18 +20,18 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-icons.js",
-      "require": "./dist/remirror-icons.cjs"
+      "import": "./dist/rme-sdk-icons.js",
+      "require": "./dist/rme-sdk-icons.cjs"
     },
     "./all": {
       "types": "./dist-types/all.d.ts",
-      "import": "./all/dist/remirror-icons-all.js",
-      "require": "./all/dist/remirror-icons-all.cjs"
+      "import": "./all/dist/rme-sdk-icons-all.js",
+      "require": "./all/dist/rme-sdk-icons-all.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-icons.cjs",
-  "module": "./dist/remirror-icons.js",
+  "main": "./dist/rme-sdk-icons.cjs",
+  "module": "./dist/rme-sdk-icons.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "all",
@@ -43,32 +43,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core-helpers": "workspace:*"
+    "@rme-sdk/core-helpers": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*"
+    "@rme-sdk/cli": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-icons.d.ts",
-        "import": "./dist/remirror-icons.js",
-        "require": "./dist/remirror-icons.cjs"
+        "types": "./dist/rme-sdk-icons.d.ts",
+        "import": "./dist/rme-sdk-icons.js",
+        "require": "./dist/rme-sdk-icons.cjs"
       },
       "./all": {
-        "types": "./all/dist/remirror-icons-all.d.ts",
-        "import": "./all/dist/remirror-icons-all.js",
-        "require": "./all/dist/remirror-icons-all.cjs"
+        "types": "./all/dist/rme-sdk-icons-all.d.ts",
+        "import": "./all/dist/rme-sdk-icons-all.js",
+        "require": "./all/dist/rme-sdk-icons-all.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-icons.cjs",
-    "module": "./dist/remirror-icons.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-icons.d.ts"
+    "main": "./dist/rme-sdk-icons.cjs",
+    "module": "./dist/rme-sdk-icons.js",
+    "types": "./dist/rme-sdk-icons.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "30 KB"
   },
   "preconstruct": {

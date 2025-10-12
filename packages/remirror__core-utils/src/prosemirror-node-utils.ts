@@ -1,20 +1,20 @@
-import { ErrorConstant } from '@remirror/core-constants';
-import { entries, invariant, isFunction, isString, keys } from '@remirror/core-helpers';
+import { ErrorConstant } from '@rme-sdk/core-constants';
+import { entries, invariant, isFunction, isString, keys } from '@rme-sdk/core-helpers';
 import type {
-  AnyConstructor,
-  MarkType,
-  MarkTypeProps,
-  NodeTypeProps,
-  OptionalProsemirrorNodeProps,
-  PosProps,
-  PredicateProps,
-  Primitive,
-  ProsemirrorNode,
-  ProsemirrorNodeProps,
-  Transaction,
-} from '@remirror/core-types';
-import type { NodeRange } from '@remirror/pm/model';
-import type { Step } from '@remirror/pm/transform';
+    AnyConstructor,
+    MarkType,
+    MarkTypeProps,
+    NodeTypeProps,
+    OptionalProsemirrorNodeProps,
+    PosProps,
+    PredicateProps,
+    Primitive,
+    ProsemirrorNode,
+    ProsemirrorNodeProps,
+    Transaction,
+} from '@rme-sdk/core-types';
+import type { NodeRange } from '@rme-sdk/pm/model';
+import type { Step } from '@rme-sdk/pm/transform';
 
 import { getChangedNodeRanges, isProsemirrorNode } from './core-utils';
 

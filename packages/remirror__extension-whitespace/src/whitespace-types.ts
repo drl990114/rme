@@ -1,5 +1,5 @@
-import { FromToProps, ProsemirrorNode, Static } from '@remirror/core';
-import { DecorationSet } from '@remirror/pm/view';
+import { FromToProps, ProsemirrorNode, Static } from '@rme-sdk/core';
+import { DecorationSet } from '@rme-sdk/pm/view';
 
 export interface WhitespaceOptions extends WhitespaceDecoratorSettings {
   /**

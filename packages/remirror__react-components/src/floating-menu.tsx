@@ -1,28 +1,28 @@
 import {
-  Alignment,
-  autoPlacement,
-  autoUpdate,
-  flip,
-  FloatingPortal,
-  Placement as FloatingUIPlacement,
-  Middleware,
-  offset,
-  Strategy,
-  useFloating,
+    Alignment,
+    autoPlacement,
+    autoUpdate,
+    flip,
+    FloatingPortal,
+    Placement as FloatingUIPlacement,
+    Middleware,
+    offset,
+    Strategy,
+    useFloating,
 } from '@floating-ui/react';
-import { cx, isObject } from '@remirror/core';
-import type { PositionerParam } from '@remirror/extension-positioner';
-import { getPositioner } from '@remirror/extension-positioner';
-import { useHelpers } from '@remirror/react-core';
-import { useEditorFocus, UseEditorFocusProps, usePositioner } from '@remirror/react-hooks';
+import { cx, isObject } from '@rme-sdk/core';
+import type { PositionerParam } from '@rme-sdk/extension-positioner';
+import { getPositioner } from '@rme-sdk/extension-positioner';
+import { useHelpers } from '@rme-sdk/react-core';
+import { useEditorFocus, UseEditorFocusProps, usePositioner } from '@rme-sdk/react-hooks';
 import React, {
-  FC,
-  MouseEventHandler,
-  PropsWithChildren,
-  ReactNode,
-  Ref,
-  useCallback,
-  useMemo,
+    FC,
+    MouseEventHandler,
+    PropsWithChildren,
+    ReactNode,
+    Ref,
+    useCallback,
+    useMemo,
 } from 'react';
 import { createPortal } from 'react-dom';
 

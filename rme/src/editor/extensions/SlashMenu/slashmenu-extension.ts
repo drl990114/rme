@@ -1,8 +1,8 @@
 import { type SlashMenuMeta, type SlashMenuState, SlashMetaTypes } from './type'
 import { defaultIgnoredKeys, dispatchWithMeta, isSlashKey } from './utils'
 
-import type { CreateExtensionPlugin } from 'remirror'
-import { extension, PlainExtension } from 'remirror'
+import type { CreateExtensionPlugin } from '@rme-sdk/main'
+import { extension, PlainExtension } from '@rme-sdk/main'
 import { getCase, SlashCases } from './case'
 
 type SlashMenuOptions = {}

@@ -13,7 +13,7 @@ import type {
   NodeViewMethod,
   PrioritizedKeyBindings,
   ProsemirrorNode,
-} from '@remirror/core'
+} from '@rme-sdk/core'
 import {
   extension,
   findParentNodeOfType,
@@ -23,10 +23,10 @@ import {
   NodeExtension,
   nodeInputRule,
   setBlockType
-} from '@remirror/core'
-import { TextSelection } from '@remirror/pm/state'
-import { Decoration, DecorationSet } from '@remirror/pm/view'
-import type { EditorState } from 'remirror'
+} from '@rme-sdk/core'
+import type { EditorState } from '@rme-sdk/main'
+import { TextSelection } from '@rme-sdk/pm/state'
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import createCodeMirrorMenuDecorations from './codemirror-lang-menu'

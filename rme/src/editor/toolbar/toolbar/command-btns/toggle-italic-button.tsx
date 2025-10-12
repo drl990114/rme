@@ -1,5 +1,5 @@
-import { ItalicExtension } from '@remirror/extension-italic'
-import { useActive, useCommands } from '@remirror/react-core'
+import { ItalicExtension } from '@rme-sdk/extension-italic'
+import { useActive, useCommands } from '@rme-sdk/react-core'
 import { FC, useCallback } from 'react'
 
 import { t } from 'i18next'

@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-bold",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-bold",
+  "version": "1.1.0",
   "description": "Make your text bold. Make it courageous.",
   "keywords": [
     "remirror",
@@ -23,13 +23,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-bold.js",
-      "require": "./dist/remirror-extension-bold.cjs"
+      "import": "./dist/rme-sdk-extension-bold.js",
+      "require": "./dist/rme-sdk-extension-bold.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-bold.cjs",
-  "module": "./dist/remirror-extension-bold.js",
+  "main": "./dist/rme-sdk-extension-bold.cjs",
+  "module": "./dist/rme-sdk-extension-bold.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -40,32 +40,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-bold.d.ts",
-        "import": "./dist/remirror-extension-bold.js",
-        "require": "./dist/remirror-extension-bold.cjs"
+        "types": "./dist/rme-sdk-extension-bold.d.ts",
+        "import": "./dist/rme-sdk-extension-bold.js",
+        "require": "./dist/rme-sdk-extension-bold.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-bold.cjs",
-    "module": "./dist/remirror-extension-bold.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-bold.d.ts"
+    "main": "./dist/rme-sdk-extension-bold.cjs",
+    "module": "./dist/rme-sdk-extension-bold.js",
+    "types": "./dist/rme-sdk-extension-bold.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

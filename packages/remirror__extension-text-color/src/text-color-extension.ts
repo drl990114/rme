@@ -1,30 +1,30 @@
-import { toHex } from 'color2k';
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionPriority,
-  ExtensionTag,
-  Helper,
-  helper,
-  isElementDomNode,
-  isString,
-  joinStyles,
-  Mark,
-  MarkExtension,
-  MarkExtensionSpec,
-  MarkSpecOverride,
-  omitExtraAttributes,
-} from '@remirror/core';
-import type { StyleParseRule, TagParseRule } from '@remirror/pm/model';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionPriority,
+    ExtensionTag,
+    Helper,
+    helper,
+    isElementDomNode,
+    isString,
+    joinStyles,
+    Mark,
+    MarkExtension,
+    MarkExtensionSpec,
+    MarkSpecOverride,
+    omitExtraAttributes,
+} from '@rme-sdk/core';
+import type { StyleParseRule, TagParseRule } from '@rme-sdk/pm/model';
+import { toHex } from 'color2k';
 
 import { SetTextColorOptions, TextColorAttributes, TextColorOptions } from './text-color-types';
 import {
-  CSS_VAR_REGEX,
-  palette,
-  setTextColorOptions,
-  TEXT_COLOR_ATTRIBUTE,
+    CSS_VAR_REGEX,
+    palette,
+    setTextColorOptions,
+    TEXT_COLOR_ATTRIBUTE,
 } from './text-color-utils';
 
 /**

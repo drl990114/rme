@@ -1,5 +1,5 @@
-import { type Node as ProsemirrorNode, DOMSerializer } from '@remirror/pm/model'
-import type { NodeViewConstructor } from '@remirror/pm/view'
+import { type Node as ProsemirrorNode, DOMSerializer } from '@rme-sdk/pm/model'
+import type { NodeViewConstructor } from '@rme-sdk/pm/view'
 
 import * as browser from './utils/browser'
 

@@ -1,5 +1,5 @@
+import { ErrorConstant } from '@rme-sdk/core-constants';
 import { hideConsoleError } from 'testing';
-import { ErrorConstant } from '@remirror/core-constants';
 
 import { freeze, invariant, RemirrorError } from '../';
 

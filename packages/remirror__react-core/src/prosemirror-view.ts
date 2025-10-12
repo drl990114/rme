@@ -1,4 +1,4 @@
-import { DirectEditorProps, EditorView } from '@remirror/pm/view';
+import { DirectEditorProps, EditorView } from '@rme-sdk/pm/view';
 
 /**
  * Creates a new editor view

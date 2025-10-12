@@ -1,65 +1,65 @@
-import { createNanoEvents, Unsubscribe } from 'nanoevents';
 import {
-  __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
-  ErrorConstant,
-  ExtensionPriority,
-  ManagerPhase,
-  RemirrorIdentifier,
-} from '@remirror/core-constants';
+    __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
+    ErrorConstant,
+    ExtensionPriority,
+    ManagerPhase,
+    RemirrorIdentifier,
+} from '@rme-sdk/core-constants';
 import {
-  freeze,
-  getLazyArray,
-  includes,
-  invariant,
-  isNullOrUndefined,
-  isString,
-  object,
-} from '@remirror/core-helpers';
+    freeze,
+    getLazyArray,
+    includes,
+    invariant,
+    isNullOrUndefined,
+    isString,
+    object,
+} from '@rme-sdk/core-helpers';
 import type {
-  Dispose,
-  EditorSchema,
-  EditorView,
-  MarkExtensionSpec,
-  NodeExtensionSpec,
-  PrimitiveSelection,
-  ProsemirrorNode,
-  RemirrorContentType,
-  Replace,
-  Simplify,
-  Transaction,
-} from '@remirror/core-types';
+    Dispose,
+    EditorSchema,
+    EditorView,
+    MarkExtensionSpec,
+    NodeExtensionSpec,
+    PrimitiveSelection,
+    ProsemirrorNode,
+    RemirrorContentType,
+    Replace,
+    Simplify,
+    Transaction,
+} from '@rme-sdk/core-types';
 import {
-  createDocumentNode,
-  CustomDocumentProps,
-  getDocument,
-  getTextSelection,
-  InvalidContentHandler,
-  isIdentifierOfType,
-  isRemirrorType,
-  NamedStringHandlers,
-  StringHandler,
-  StringHandlerProps,
-} from '@remirror/core-utils';
-import { EditorState } from '@remirror/pm/state';
+    createDocumentNode,
+    CustomDocumentProps,
+    getDocument,
+    getTextSelection,
+    InvalidContentHandler,
+    isIdentifierOfType,
+    isRemirrorType,
+    NamedStringHandlers,
+    StringHandler,
+    StringHandlerProps,
+} from '@rme-sdk/core-utils';
+import { EditorState } from '@rme-sdk/pm/state';
+import { createNanoEvents, Unsubscribe } from 'nanoevents';
 
 import { BuiltinPreset, builtinPreset, CombinedTags, CommandsExtension } from '../builtins';
 import type {
-  AnyExtension,
-  AnyExtensionConstructor,
-  AnyManagerStore,
-  GetExtensions,
-  GetMarkNameUnion,
-  GetNameUnion,
-  GetNodeNameUnion,
-  GetPlainNameUnion,
-  ManagerStoreKeys,
+    AnyExtension,
+    AnyExtensionConstructor,
+    AnyManagerStore,
+    GetExtensions,
+    GetMarkNameUnion,
+    GetNameUnion,
+    GetNodeNameUnion,
+    GetPlainNameUnion,
+    ManagerStoreKeys,
 } from '../extension';
 import type { BaseFramework, FrameworkOutput } from '../framework';
 import type { StateUpdateLifecycleProps } from '../types';
 import {
-  extractLifecycleMethods,
-  ManagerLifecycleHandlers,
-  transformExtensions,
+    extractLifecycleMethods,
+    ManagerLifecycleHandlers,
+    transformExtensions,
 } from './remirror-manager-helpers';
 
 /**
@@ -240,7 +240,7 @@ export class RemirrorManager<Extension extends AnyExtension> {
    *
    * ```tsx
    * import React, { useEffect } from 'react';
-   * import { useRemirror, Remirror } from '@remirror/react';
+   * import { useRemirror, Remirror } from '@rme-sdk/react';
    *
    * const Editor = () => {
    *   const { manager } = useRemirror();
@@ -1037,7 +1037,7 @@ declare global {
        * ```tsx
        * import React from 'react';
        * import { Remirror, InvalidContentHandler } from 'remirror';
-       * import { Remirror, useManager } from '@remirror/react';
+       * import { Remirror, useManager } from '@rme-sdk/react';
        * import { WysiwygPreset } from 'remirror/extensions';
        *
        * const Editor = () => {

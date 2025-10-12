@@ -1,31 +1,31 @@
-import escapeStringRegex from 'escape-string-regexp';
-import { NULL_CHARACTER } from '@remirror/core-constants';
+import { NULL_CHARACTER } from '@rme-sdk/core-constants';
 import {
-  findMatches,
-  isEmptyArray,
-  isRegExp,
-  isString,
-  object,
-  range,
-} from '@remirror/core-helpers';
-import { PickPartial } from '@remirror/types';
+    findMatches,
+    isEmptyArray,
+    isRegExp,
+    isString,
+    object,
+    range,
+} from '@rme-sdk/core-helpers';
+import { PickPartial } from '@rme-sdk/types';
+import escapeStringRegex from 'escape-string-regexp';
 
 import { isChange, isEntry, isExit, isJump, isMove } from './suggest-predicates';
 import type {
-  CompareMatchProps,
-  DocChangedProps,
-  EditorStateProps,
-  MakeOptional,
-  ReasonProps,
-  ResolvedPos,
-  ResolvedPosProps,
-  ResolvedRangeWithCursor,
-  Suggester,
-  SuggesterProps,
-  SuggestMatch,
-  SuggestReasonMap,
-  SuggestStateMatchProps,
-  TextProps,
+    CompareMatchProps,
+    DocChangedProps,
+    EditorStateProps,
+    MakeOptional,
+    ReasonProps,
+    ResolvedPos,
+    ResolvedPosProps,
+    ResolvedRangeWithCursor,
+    Suggester,
+    SuggesterProps,
+    SuggestMatch,
+    SuggestReasonMap,
+    SuggestStateMatchProps,
+    TextProps,
 } from './suggest-types';
 import { ChangeReason, ExitReason } from './suggest-types';
 

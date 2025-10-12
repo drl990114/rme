@@ -7,7 +7,7 @@ import {
   isFunction,
   isString,
   ProsemirrorAttributes,
-} from '@remirror/core'
+} from '@rme-sdk/core'
 import { t } from 'i18next'
 
 export interface RmeCommandDecoratorMessageProps extends CommandDecoratorMessageProps {

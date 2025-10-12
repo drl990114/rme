@@ -1,10 +1,10 @@
 import type {
-  ApplySchemaAttributes,
-  InputRule,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-} from '@remirror/core'
-import { extension, ExtensionTag, NodeExtension, nodeInputRule } from '@remirror/core'
+    ApplySchemaAttributes,
+    InputRule,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+} from '@rme-sdk/core'
+import { extension, ExtensionTag, NodeExtension, nodeInputRule } from '@rme-sdk/core'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 

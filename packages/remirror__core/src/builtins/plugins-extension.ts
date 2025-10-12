@@ -1,21 +1,21 @@
-import { ErrorConstant, ExtensionPriority, ManagerPhase } from '@remirror/core-constants';
-import { assertGet, invariant, isEmptyArray, object } from '@remirror/core-helpers';
-import type { Handler, ProsemirrorPlugin } from '@remirror/core-types';
-import { EditorState, Plugin, PluginKey } from '@remirror/pm/state';
+import { ErrorConstant, ExtensionPriority, ManagerPhase } from '@rme-sdk/core-constants';
+import { assertGet, invariant, isEmptyArray, object } from '@rme-sdk/core-helpers';
+import type { Handler, ProsemirrorPlugin } from '@rme-sdk/core-types';
+import { EditorState, Plugin, PluginKey } from '@rme-sdk/pm/state';
 
 import {
-  AnyExtension,
-  AnyExtensionConstructor,
-  extension,
-  GetNameUnion,
-  isExtension,
-  isExtensionConstructor,
-  PlainExtension,
+    AnyExtension,
+    AnyExtensionConstructor,
+    extension,
+    GetNameUnion,
+    isExtension,
+    isExtensionConstructor,
+    PlainExtension,
 } from '../extension';
 import type {
-  AppendLifecycleProps,
-  ApplyStateLifecycleProps,
-  CreateExtensionPlugin,
+    AppendLifecycleProps,
+    ApplyStateLifecycleProps,
+    CreateExtensionPlugin,
 } from '../types';
 
 export interface PluginsOptions {

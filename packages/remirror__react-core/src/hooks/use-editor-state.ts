@@ -1,4 +1,4 @@
-import { EditorState } from '@remirror/pm/state';
+import { EditorState } from '@rme-sdk/pm/state';
 
 import { useRemirrorContext } from './use-remirror-context';
 

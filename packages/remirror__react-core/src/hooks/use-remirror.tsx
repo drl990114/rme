@@ -1,18 +1,18 @@
-import { useCallback, useMemo, useState } from 'react';
 import {
-  AnyExtension,
-  CreateEditorStateProps,
-  EditorState,
-  InvalidContentHandler,
-  RemirrorEventListener,
-  RemirrorManager,
-  StringHandler,
-} from '@remirror/core';
+    AnyExtension,
+    CreateEditorStateProps,
+    EditorState,
+    InvalidContentHandler,
+    RemirrorEventListener,
+    RemirrorManager,
+    StringHandler,
+} from '@rme-sdk/core';
+import { useCallback, useMemo, useState } from 'react';
 
 import type {
-  CreateReactManagerOptions,
-  ReactExtensions,
-  ReactFrameworkOutput,
+    CreateReactManagerOptions,
+    ReactExtensions,
+    ReactFrameworkOutput,
 } from '../react-types';
 import { useManager } from './use-manager';
 
@@ -43,7 +43,7 @@ export interface UseRemirrorProps<Extension extends AnyExtension>
    * ```tsx
    * import React from 'react';
    * import { Remirror, InvalidContentHandler } from 'remirror';
-   * import { Remirror, useManager } from '@remirror/react';
+   * import { Remirror, useManager } from '@rme-sdk/react';
    * import { WysiwygPreset } from 'remirror/extensions';
    *
    * const Framework = () => {
@@ -96,7 +96,7 @@ export interface UseRemirrorReturn<Extension extends AnyExtension> {
    *
    * ```ts
    * import React, { useCallback } from 'react';
-   * import { useRemirror, Provider } from '@remirror/react';
+   * import { useRemirror, Provider } from '@rme-sdk/react';
    * import { htmlToProsemirrorNode } from 'remirror';
    *
    * const Editor = () => {
@@ -123,7 +123,7 @@ export interface UseRemirrorReturn<Extension extends AnyExtension> {
    *
    * ```ts
    * import React from 'react';
-   * import { useRemirror, Provider } from '@remirror/react';
+   * import { useRemirror, Provider } from '@rme-sdk/react';
    * import { htmlToProsemirrorNode } from 'remirror';
    *
    * const Editor = () => {

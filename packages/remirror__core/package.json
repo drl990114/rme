@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/core",
-  "version": "3.0.2",
+  "name": "@rme-sdk/core",
+  "version": "1.1.0",
   "description": "Where your quest to create a world class editing experience begins.",
   "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__core",
   "repository": {
@@ -17,13 +17,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-core.js",
-      "require": "./dist/remirror-core.cjs"
+      "import": "./dist/rme-sdk-core.js",
+      "require": "./dist/rme-sdk-core.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-core.cjs",
-  "module": "./dist/remirror-core.js",
+  "main": "./dist/rme-sdk-core.cjs",
+  "module": "./dist/rme-sdk-core.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -35,35 +35,35 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core-constants": "workspace:*",
-    "@remirror/core-helpers": "workspace:*",
-    "@remirror/core-types": "workspace:*",
-    "@remirror/core-utils": "workspace:*",
-    "@remirror/icons": "workspace:*",
-    "@remirror/messages": "workspace:*",
+    "@rme-sdk/core-constants": "workspace:*",
+    "@rme-sdk/core-helpers": "workspace:*",
+    "@rme-sdk/core-types": "workspace:*",
+    "@rme-sdk/core-utils": "workspace:*",
+    "@rme-sdk/icons": "workspace:*",
+    "@rme-sdk/messages": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "nanoevents": "^5.1.13",
-    "tiny-warning": "^1.0.3",
-    "@remirror/pm": "workspace:*"
+    "tiny-warning": "^1.0.3"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*"
+    "@rme-sdk/cli": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-core.d.ts",
-        "import": "./dist/remirror-core.js",
-        "require": "./dist/remirror-core.cjs"
+        "types": "./dist/rme-sdk-core.d.ts",
+        "import": "./dist/rme-sdk-core.js",
+        "require": "./dist/rme-sdk-core.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-core.cjs",
-    "module": "./dist/remirror-core.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-core.d.ts"
+    "main": "./dist/rme-sdk-core.cjs",
+    "module": "./dist/rme-sdk-core.js",
+    "types": "./dist/rme-sdk-core.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "40 KB",
     "tsconfigs": {
       "src": {

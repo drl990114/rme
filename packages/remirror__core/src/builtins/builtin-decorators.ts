@@ -1,16 +1,16 @@
-import type { ExtensionPriority } from '@remirror/core-constants';
+import type { ExtensionPriority } from '@rme-sdk/core-constants';
 import type {
-  AnyFunction,
-  CommandFunction,
-  I18nFormatter,
-  KeyBindingCommandFunction,
-  Listable,
-  LiteralUnion,
-  NonChainableCommandFunction,
-  ProsemirrorAttributes,
-  Shape,
-} from '@remirror/core-types';
-import type { CoreIcon } from '@remirror/icons';
+    AnyFunction,
+    CommandFunction,
+    I18nFormatter,
+    KeyBindingCommandFunction,
+    Listable,
+    LiteralUnion,
+    NonChainableCommandFunction,
+    ProsemirrorAttributes,
+    Shape,
+} from '@rme-sdk/core-types';
+import type { CoreIcon } from '@rme-sdk/icons';
 
 import type { AnyExtension, HelperAnnotation } from '../extension';
 import type { GetOptions } from '../types';
@@ -24,7 +24,7 @@ import type { GetOptions } from '../types';
  * your methods with the following type signature.
  *
  * ```ts
- * import { Helper } from '@remirror/core';
+ * import { Helper } from '@rme-sdk/core';
  *
  * type Signature = (...args: any[]) => Helper<SomeReturnType>;
  * ```
@@ -32,7 +32,7 @@ import type { GetOptions } from '../types';
  * The following is an example of how this can be used within your extension.
  *
  * ```ts
- * import { helper, Helper } from '@remirror/core';
+ * import { helper, Helper } from '@rme-sdk/core';
  *
  * class MyExtension {
  *   get name() {
@@ -49,7 +49,7 @@ import type { GetOptions } from '../types';
  * The above helper can now be used within your editor instance.
  *
  * ```tsx
- * import { useRemirrorContext } from '@remirror/react';
+ * import { useRemirrorContext } from '@rme-sdk/react';
  *
  * const MyEditorButton = () => {
  *   const { helpers } = useRemirrorContext();
@@ -91,7 +91,7 @@ export function helper(options: HelperDecoratorOptions = {}) {
  * your methods with the following type signature.
  *
  * ```ts
- * import { Helper } from '@remirror/core';
+ * import { Helper } from '@rme-sdk/core';
  *
  * type Signature = (...args: any[]) => Helper<SomeReturnType>;
  * ```
@@ -99,7 +99,7 @@ export function helper(options: HelperDecoratorOptions = {}) {
  * The following is an example of how this can be used within your extension.
  *
  * ```ts
- * import { legacyHelper, Helper } from '@remirror/core';
+ * import { legacyHelper, Helper } from '@rme-sdk/core';
  *
  * class MyExtension {
  *   get name() {
@@ -116,7 +116,7 @@ export function helper(options: HelperDecoratorOptions = {}) {
  * The above helper can now be used within your editor instance.
  *
  * ```tsx
- * import { useRemirrorContext } from '@remirror/react';
+ * import { useRemirrorContext } from '@rme-sdk/react';
  *
  * const MyEditorButton = () => {
  *   const { helpers } = useRemirrorContext();
@@ -156,7 +156,7 @@ export function legacyHelper(options: HelperDecoratorOptions = {}) {
  * the following type signature.
  *
  * ```ts
- * import { CommandFunction } from '@remirror/core';
+ * import { CommandFunction } from '@rme-sdk/core';
  *
  * type Signature = (...args: any[]) => CommandFunction;
  * ```
@@ -164,7 +164,7 @@ export function legacyHelper(options: HelperDecoratorOptions = {}) {
  * The following is an example of how this can be used within your extension.
  *
  * ```ts
- * import { command, CommandFunction } from '@remirror/core';
+ * import { command, CommandFunction } from '@rme-sdk/core';
  *
  * class MyExtension {
  *   get name() {
@@ -184,7 +184,7 @@ export function legacyHelper(options: HelperDecoratorOptions = {}) {
  * The above command can now be used within your editor instance.
  *
  * ```tsx
- * import { useRemirrorContext } from '@remirror/react';
+ * import { useRemirrorContext } from '@rme-sdk/react';
  *
  * const MyEditorButton = () => {
  *   const { commands } = useRemirrorContext();
@@ -235,7 +235,7 @@ export function command(
  * the following type signature.
  *
  * ```ts
- * import { CommandFunction } from '@remirror/core';
+ * import { CommandFunction } from '@rme-sdk/core';
  *
  * type Signature = (...args: any[]) => CommandFunction;
  * ```
@@ -243,7 +243,7 @@ export function command(
  * The following is an example of how this can be used within your extension.
  *
  * ```ts
- * import { legacyCommand, CommandFunction } from '@remirror/core';
+ * import { legacyCommand, CommandFunction } from '@rme-sdk/core';
  *
  * class MyExtension {
  *   get name() {
@@ -263,7 +263,7 @@ export function command(
  * The above command can now be used within your editor instance.
  *
  * ```tsx
- * import { useRemirrorContext } from '@remirror/react';
+ * import { useRemirrorContext } from '@rme-sdk/react';
  *
  * const MyEditorButton = () => {
  *   const { commands } = useRemirrorContext();

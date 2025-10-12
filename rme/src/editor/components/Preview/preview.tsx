@@ -1,10 +1,10 @@
-import { WysiwygThemeWrapper } from '../../theme'
-import { type Node } from '@remirror/pm/model'
-import { EditorProps } from '../Editor'
-import { createWysiwygDelegate } from '../WysiwygEditor'
+import { type Node } from '@rme-sdk/pm/model'
 import { useEffect, useState } from 'react'
 import { Icon } from 'zens'
+import { WysiwygThemeWrapper } from '../../theme'
 import { rmeProsemirrorNodeToHtml } from '../../utils/prosemirrorNodeToHtml'
+import { EditorProps } from '../Editor'
+import { createWysiwygDelegate } from '../WysiwygEditor'
 
 interface PreviewProps {
   doc: Node | string

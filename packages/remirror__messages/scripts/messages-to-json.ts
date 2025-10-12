@@ -1,10 +1,10 @@
 /* eslint-env node */
 
+import { kebabCase } from '@rme-sdk/core-helpers';
+import { RemirrorMessage } from '@rme-sdk/core-types';
 import { writeFile } from 'node:fs/promises';
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { kebabCase } from '@remirror/core-helpers';
-import { RemirrorMessage } from '@remirror/core-types';
 
 import * as messageGroups from '../src';
 

@@ -1,12 +1,12 @@
-import { I18nFormatter, range, RemirrorMessage } from '@remirror/core';
-import { ExtensionTextColorMessages as Messages } from '@remirror/messages';
+import { I18nFormatter, range, RemirrorMessage } from '@rme-sdk/core';
+import { ExtensionTextColorMessages as Messages } from '@rme-sdk/messages';
 
 import {
-  ColorPalette,
-  ColorWithLabel,
-  ColorWithLabelTuple,
-  HuePalette,
-  HuePaletteMap,
+    ColorPalette,
+    ColorWithLabel,
+    ColorWithLabelTuple,
+    HuePalette,
+    HuePaletteMap,
 } from './text-color-types';
 
 export const setTextColorOptions: Remirror.CommandDecoratorOptions = {

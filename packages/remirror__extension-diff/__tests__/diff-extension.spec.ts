@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals';
+import { entries, GetHandler } from '@rme-sdk/core';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
-import { entries, GetHandler } from '@remirror/core';
 
 import { DiffExtension, DiffOptions } from '../';
 

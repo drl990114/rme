@@ -1,22 +1,22 @@
 import type {
-  ApplySchemaAttributes,
-  CustomHandler,
-  CustomHandlerKeyList,
-  Handler,
-  HandlerKeyList,
-  Static,
-} from '@remirror/core-types';
+    ApplySchemaAttributes,
+    CustomHandler,
+    CustomHandlerKeyList,
+    Handler,
+    HandlerKeyList,
+    Static,
+} from '@rme-sdk/core-types';
 
 import type { AddCustomHandler } from '../';
 import {
-  AnyExtension,
-  AnyMarkExtension,
-  AnyNodeExtension,
-  DefaultExtensionOptions,
-  MarkExtension,
-  NodeExtension,
-  NodeExtensionSpec,
-  PlainExtension,
+    AnyExtension,
+    AnyMarkExtension,
+    AnyNodeExtension,
+    DefaultExtensionOptions,
+    MarkExtension,
+    NodeExtension,
+    NodeExtensionSpec,
+    PlainExtension,
 } from '../';
 
 const anyExtensionTester = <Extension extends AnyExtension>(extension: Extension) => {};

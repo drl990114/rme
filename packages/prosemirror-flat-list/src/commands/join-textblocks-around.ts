@@ -1,8 +1,8 @@
 /* eslint-disable prefer-const */
 
-import { type ResolvedPos, Slice } from '@remirror/pm/model'
-import { TextSelection, type Transaction } from '@remirror/pm/state'
-import { replaceStep, ReplaceStep } from '@remirror/pm/transform'
+import { type ResolvedPos, Slice } from '@rme-sdk/pm/model'
+import { TextSelection, type Transaction } from '@rme-sdk/pm/state'
+import { replaceStep, ReplaceStep } from '@rme-sdk/pm/transform'
 
 // prettier-ignore
 function joinTextblocksAround(tr: Transaction, $cut: ResolvedPos, dispatch?: (tr: Transaction) => void) {

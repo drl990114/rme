@@ -1,7 +1,7 @@
-import { Resizable } from '../../components/Resizable'
-import type { NodeViewComponentProps } from '@remirror/react'
+import type { NodeViewComponentProps } from '@rme-sdk/react'
 import { useRef } from 'react'
 import { Popover } from 'zens'
+import { Resizable } from '../../components/Resizable'
 
 export function IframeNodeView(props: NodeViewComponentProps) {
   const { node, selected } = props

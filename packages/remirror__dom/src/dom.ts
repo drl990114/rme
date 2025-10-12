@@ -1,6 +1,6 @@
-import type { AnyExtension, BuiltinPreset } from '@remirror/core';
-import { isArray, RemirrorManager } from '@remirror/core';
-import { CorePreset, createCoreManager, CreateCoreManagerOptions } from '@remirror/preset-core';
+import type { AnyExtension, BuiltinPreset } from '@rme-sdk/core';
+import { isArray, RemirrorManager } from '@rme-sdk/core';
+import { CorePreset, createCoreManager, CreateCoreManagerOptions } from '@rme-sdk/preset-core';
 
 import { DomFramework, DomFrameworkOutput, DomFrameworkProps } from './dom-framework';
 

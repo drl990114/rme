@@ -1,15 +1,15 @@
 import * as _svgmoji from '@ocavue/svgmoji-cjs';
-import type { FlatEmoji, Moji } from 'svgmoji';
 import type {
-  AcceptUndefined,
-  FromToProps,
-  Handler,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-  Static,
-} from '@remirror/core';
-import { defaultImport } from '@remirror/core';
-import type { Suggester } from '@remirror/pm/suggest';
+    AcceptUndefined,
+    FromToProps,
+    Handler,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+    Static,
+} from '@rme-sdk/core';
+import { defaultImport } from '@rme-sdk/core';
+import type { Suggester } from '@rme-sdk/pm/suggest';
+import type { FlatEmoji, Moji } from 'svgmoji';
 
 const svgmoji = defaultImport(_svgmoji);
 const { Blobmoji, Notomoji, Openmoji, Twemoji } = svgmoji;

@@ -1,19 +1,19 @@
-import type { ExtensionPriority } from '@remirror/core-constants';
+import type { ExtensionPriority } from '@rme-sdk/core-constants';
 import type {
-  AnyConstructor,
-  AnyFunction,
-  CommandFunction,
-  EditorState,
-  EditorStateProps,
-  GetDynamic,
-  GetFixedDynamic,
-  GetPartialDynamic,
-  PrimitiveSelection,
-  RemoveAnnotations,
-  Transaction,
-  ValidOptions,
-} from '@remirror/core-types';
-import type { PluginSpec } from '@remirror/pm/state';
+    AnyConstructor,
+    AnyFunction,
+    CommandFunction,
+    EditorState,
+    EditorStateProps,
+    GetDynamic,
+    GetFixedDynamic,
+    GetPartialDynamic,
+    PrimitiveSelection,
+    RemoveAnnotations,
+    Transaction,
+    ValidOptions,
+} from '@rme-sdk/core-types';
+import type { PluginSpec } from '@rme-sdk/pm/state';
 
 type Changes<Type> =
   | {
@@ -147,7 +147,7 @@ export interface CommandShape<Parameter extends any[] = []> {
    * optionally define custom `isActive` checker.
    *
    * This is used for checking if `centerAlign` is active from the
-   * `@remirror/extension-node-formatting`.
+   * `@rme-sdk/extension-node-formatting`.
    */
   active?: () => boolean;
 

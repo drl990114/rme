@@ -39,7 +39,7 @@
     "@babel/runtime": "^7.27.0"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.0",
     "react": "^18.3.1"
@@ -68,7 +68,7 @@
     "type": "module",
     "types": "./dist/create-context-state.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "2 KB"
   }
 }

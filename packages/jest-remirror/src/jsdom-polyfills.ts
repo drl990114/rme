@@ -1,6 +1,6 @@
+import { environment, isFunction, noop } from '@rme-sdk/core';
 import sanitizeHtml from 'sanitize-html';
 import warning from 'tiny-warning';
-import { environment, isFunction, noop } from '@remirror/core';
 
 /**
  * Polyfill DOMElement.innerText because JSDOM lacks support for it. See

@@ -1,4 +1,4 @@
-import { ExtensionHorizontalRuleMessages as Messages } from '@remirror/messages';
+import { ExtensionHorizontalRuleMessages as Messages } from '@rme-sdk/messages';
 
 export const insertHorizontalRuleOptions: Remirror.CommandDecoratorOptions = {
   icon: 'separator',

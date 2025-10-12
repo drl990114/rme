@@ -1,4 +1,4 @@
-import { GetMarkRange, getMarkRange } from '@remirror/core';
+import { GetMarkRange, getMarkRange } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 

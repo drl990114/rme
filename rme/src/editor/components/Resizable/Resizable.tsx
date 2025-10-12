@@ -1,4 +1,4 @@
-import type { NodeViewComponentProps } from '@remirror/react'
+import type { NodeViewComponentProps } from '@rme-sdk/react'
 import { memo, useCallback, useEffect, useRef, useState, type FC } from 'react'
 import styled from 'styled-components'
 import { ResizableHandle, ResizableHandleType } from './ResizableHandle'

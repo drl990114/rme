@@ -1,4 +1,4 @@
-import type { Node } from '@remirror/pm/model'
+import type { Node } from '@rme-sdk/pm/model'
 import { isOrderedListNode } from '../extensions'
 
 export type NodeSerializerOptions = {

@@ -1,5 +1,5 @@
-import { pick } from '@remirror/core-helpers'
-import type { GetStaticAndDynamic, ValueOf } from '@remirror/core-types'
+import { pick } from '@rme-sdk/core-helpers'
+import type { GetStaticAndDynamic, ValueOf } from '@rme-sdk/core-types'
 
 import { AttributesExtension } from './attributes-extension'
 import { CommandsExtension } from './commands-extension'

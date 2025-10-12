@@ -17,7 +17,7 @@ export enum ErrorConstant {
   CUSTOM = 'RMR0003',
 
   /**
-   * An error occurred in a function called from the `@remirror/core-helpers`
+   * An error occurred in a function called from the `@rme-sdk/core-helpers`
    * library.
    */
   CORE_HELPERS = 'RMR0004',

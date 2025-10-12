@@ -1,5 +1,5 @@
+import { htmlToProsemirrorNode, prosemirrorNodeToHtml } from '@rme-sdk/core';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
-import { htmlToProsemirrorNode, prosemirrorNodeToHtml } from '@remirror/core';
 
 import { BlockquoteExtension } from '../';
 

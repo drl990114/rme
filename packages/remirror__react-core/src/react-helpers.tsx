@@ -1,6 +1,6 @@
-import { AnyExtension, getLazyArray, isRemirrorManager, RemirrorManager } from '@remirror/core';
-import { corePreset } from '@remirror/preset-core';
-import { ReactExtension } from '@remirror/preset-react';
+import { AnyExtension, getLazyArray, isRemirrorManager, RemirrorManager } from '@rme-sdk/core';
+import { corePreset } from '@rme-sdk/preset-core';
+import { ReactExtension } from '@rme-sdk/preset-react';
 
 import type { CreateReactManagerOptions, ReactExtensions } from './react-types';
 

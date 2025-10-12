@@ -1,14 +1,14 @@
 {
   "type": "module",
+  "main": "./dist/rme-sdk-main-extensions.cjs",
+  "module": "./dist/rme-sdk-main-extensions.js",
+  "types": "./dist/rme-sdk-main-extensions.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-extensions.d.ts",
-      "import": "./dist/remirror-extensions.js",
-      "require": "./dist/remirror-extensions.cjs"
+      "types": "./dist/rme-sdk-main-extensions.d.ts",
+      "import": "./dist/rme-sdk-main-extensions.js",
+      "require": "./dist/rme-sdk-main-extensions.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-extensions.cjs",
-  "module": "./dist/remirror-extensions.js",
-  "types": "./dist/remirror-extensions.d.ts"
+  }
 }

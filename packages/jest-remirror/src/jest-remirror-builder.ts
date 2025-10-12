@@ -1,27 +1,27 @@
 import {
-  EditorSchema,
-  findMatches,
-  flattenArray,
-  hasOwnProperty,
-  invariant,
-  isArray,
-  isInstanceOf,
-  isProsemirrorNode,
-  isString,
-  keys,
-  object,
-  SchemaProps,
-} from '@remirror/core';
-import { Fragment, Mark, Node as ProsemirrorNode, Slice } from '@remirror/pm/model';
+    EditorSchema,
+    findMatches,
+    flattenArray,
+    hasOwnProperty,
+    invariant,
+    isArray,
+    isInstanceOf,
+    isProsemirrorNode,
+    isString,
+    keys,
+    object,
+    SchemaProps,
+} from '@rme-sdk/core';
+import { Fragment, Mark, Node as ProsemirrorNode, Slice } from '@rme-sdk/pm/model';
 
 import {
-  BaseFactoryProps,
-  TaggedContent,
-  TaggedContentItem,
-  TaggedContentWithText,
-  TaggedProsemirrorNode,
-  Tags,
-  TagTracker,
+    BaseFactoryProps,
+    TaggedContent,
+    TaggedContentItem,
+    TaggedContentWithText,
+    TaggedProsemirrorNode,
+    Tags,
+    TagTracker,
 } from './jest-remirror-types';
 
 /**

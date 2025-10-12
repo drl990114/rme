@@ -1,6 +1,6 @@
-import { HorizontalRuleExtension } from 'remirror/extensions'
+import { HorizontalRuleExtension } from '@rme-sdk/main/extensions'
 
-import { ExtensionCommandReturn, setBlockType } from 'remirror'
+import { ExtensionCommandReturn, setBlockType } from '@rme-sdk/main'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 

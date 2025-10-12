@@ -1,36 +1,27 @@
 {
-  "name": "remirror-extension-flat-list",
+  "name": "@rme-sdk/extension-flat-list",
   "type": "module",
-  "version": "3.0.0",
+  "version": "1.1.0",
   "description": "A Remirror extension based on prosemirror-flat-list",
-  "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/ocavue",
-  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__extension-flat-list",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/remirror/remirror.git",
-    "directory": "packages/remirror__extension-flat-list"
-  },
-  "bugs": "https://github.com/ocavue/prosemirror-flat-list/issues",
   "keywords": [
     "ProseMirror",
     "Remirror",
     "list"
   ],
   "sideEffects": false,
-  "main": "./dist/remirror-extension-flat-list.cjs",
-  "module": "./dist/remirror-extension-flat-list.js",
+  "main": "./dist/rme-sdk-extension-flat-list.cjs",
+  "module": "./dist/rme-sdk-extension-flat-list.js",
   "types": "./dist-types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-flat-list.js",
-      "require": "./dist/remirror-extension-flat-list.cjs"
+      "import": "./dist/rme-sdk-extension-flat-list.js",
+      "require": "./dist/rme-sdk-extension-flat-list.cjs"
     },
     "./dist/style.css": "./dist/style.css",
-    "./style.css": "./dist/style.css",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist",
@@ -45,16 +36,16 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@remirror/core": "workspace:*",
-    "prosemirror-flat-list": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/prosemirror-flat-list": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/preset-core": "workspace:*",
-    "@remirror/react": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/preset-core": "workspace:*",
+    "@rme-sdk/react": "workspace:*",
     "@types/dedent": "^0.7.2",
     "@types/node": "^20.17.5",
     "@types/react": "^18.3.23",
@@ -74,7 +65,7 @@
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
-    "remirror": "workspace:*",
+    "@rme-sdk/main": "workspace:*",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "unified": "^11.0.5",
@@ -89,9 +80,9 @@
   "publishConfig": {
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-flat-list.d.ts",
-        "import": "./dist/remirror-extension-flat-list.js",
-        "require": "./dist/remirror-extension-flat-list.cjs"
+        "types": "./dist/rme-sdk-extension-flat-list.d.ts",
+        "import": "./dist/rme-sdk-extension-flat-list.js",
+        "require": "./dist/rme-sdk-extension-flat-list.cjs"
       },
       "./dist/style.css": "./dist/style.css",
       "./package.json": "./package.json",
@@ -99,8 +90,14 @@
     },
     "access": "public",
     "type": "module",
-    "main": "./dist/remirror-extension-flat-list.cjs",
-    "module": "./dist/remirror-extension-flat-list.js",
-    "types": "./dist/remirror-extension-flat-list.d.ts"
+    "main": "./dist/rme-sdk-extension-flat-list.cjs",
+    "module": "./dist/rme-sdk-extension-flat-list.js",
+    "types": "./dist/rme-sdk-extension-flat-list.d.ts"
+  },
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__extension-flat-list",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/remirror__extension-flat-list"
   }
 }

@@ -1,21 +1,21 @@
 import type {
-  ApplySchemaAttributes,
-  CommandFunction,
-  Fragment,
-  KeyBindings,
-  NodeSpecOverride,
-} from '@remirror/core'
-import { findParentNodeOfType } from '@remirror/core'
-import type { TableSchemaSpec } from '@remirror/extension-tables'
+    ApplySchemaAttributes,
+    CommandFunction,
+    Fragment,
+    KeyBindings,
+    NodeSpecOverride,
+} from '@rme-sdk/core'
+import { findParentNodeOfType } from '@rme-sdk/core'
+import type { TableSchemaSpec } from '@rme-sdk/extension-tables'
 import {
-  TableCellExtension,
-  TableExtension,
-  TableHeaderCellExtension,
-  TableRowExtension,
-} from '@remirror/extension-tables'
-import { TextSelection } from '@remirror/pm/state'
+    TableCellExtension,
+    TableExtension,
+    TableHeaderCellExtension,
+    TableRowExtension,
+} from '@rme-sdk/extension-tables'
+import { TextSelection } from '@rme-sdk/pm/state'
 
-import { TableMap } from '@remirror/pm/tables'
+import { TableMap } from '@rme-sdk/pm/tables'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import { buildBlockEnterKeymap } from '../../utils/build-block-enter-keymap'

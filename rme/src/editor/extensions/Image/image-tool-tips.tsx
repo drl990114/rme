@@ -1,4 +1,4 @@
-import type { NodeViewComponentProps } from '@remirror/react'
+import type { NodeViewComponentProps } from '@rme-sdk/react'
 import { t } from 'i18next'
 import { useState, type FC } from 'react'
 import styled from 'styled-components'

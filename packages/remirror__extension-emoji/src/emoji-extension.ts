@@ -1,29 +1,29 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionTag,
-  FromToProps,
-  GetAttributes,
-  getMatchString,
-  getTextSelection,
-  InputRule,
-  isElementDomNode,
-  isString,
-  keyBinding,
-  KeyBindingProps,
-  LEAF_NODE_REPLACING_CHARACTER,
-  NodeExtension,
-  NodeExtensionSpec,
-  nodeInputRule,
-  NodeSpecOverride,
-  omitExtraAttributes,
-  plainInputRule,
-  PrimitiveSelection,
-  ShouldSkipFunction,
-} from '@remirror/core';
-import { DEFAULT_SUGGESTER, Suggester } from '@remirror/pm/suggest';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionTag,
+    FromToProps,
+    GetAttributes,
+    getMatchString,
+    getTextSelection,
+    InputRule,
+    isElementDomNode,
+    isString,
+    keyBinding,
+    KeyBindingProps,
+    LEAF_NODE_REPLACING_CHARACTER,
+    NodeExtension,
+    NodeExtensionSpec,
+    nodeInputRule,
+    NodeSpecOverride,
+    omitExtraAttributes,
+    plainInputRule,
+    PrimitiveSelection,
+    ShouldSkipFunction,
+} from '@rme-sdk/core';
+import { DEFAULT_SUGGESTER, Suggester } from '@rme-sdk/pm/suggest';
 import EMOJI_REGEX from 'emojibase-regex/emoji.js';
 import EMOTICON_REGEX from 'emojibase-regex/emoticon.js';
 import SHORTCODE_REGEX from 'emojibase-regex/shortcode.js';
@@ -31,11 +31,11 @@ import escapeStringRegex from 'escape-string-regexp';
 import type { Moji } from 'svgmoji';
 
 import {
-  AddEmojiCommandOptions,
-  DefaultMoji,
-  EMOJI_DATA_ATTRIBUTE,
-  EmojiAttributes,
-  EmojiOptions,
+    AddEmojiCommandOptions,
+    DefaultMoji,
+    EMOJI_DATA_ATTRIBUTE,
+    EmojiAttributes,
+    EmojiOptions,
 } from './emoji-utils';
 
 @extension<EmojiOptions>({

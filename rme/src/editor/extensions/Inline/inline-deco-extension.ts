@@ -1,12 +1,12 @@
-import type { CreateExtensionPlugin } from '@remirror/core'
-import { isTextSelection, PlainExtension } from '@remirror/core'
-import type { Node as ProsemirrorNode } from '@remirror/pm/model'
-import type { EditorState } from '@remirror/pm/state'
-import { Decoration, DecorationSet } from '@remirror/pm/view'
+import type { CreateExtensionPlugin } from '@rme-sdk/core'
+import { isTextSelection, PlainExtension } from '@rme-sdk/core'
+import type { Node as ProsemirrorNode } from '@rme-sdk/pm/model'
+import type { EditorState } from '@rme-sdk/pm/state'
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view'
 
+import { excludeHtmlInlineNodes } from '../../transform/markdown-it-html-inline'
 import type { LineMarkAttrs } from './inline-mark-extensions'
 import { isAutoHideMark } from './inline-mark-extensions'
-import { excludeHtmlInlineNodes } from '../../transform/markdown-it-html-inline'
 
 type TextAttrs = Partial<LineMarkAttrs & { isAutoHideMark?: boolean }>
 

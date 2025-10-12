@@ -1,7 +1,7 @@
 {
-  "name": "@remirror/react-core",
-  "version": "3.0.3",
-  "description": "The core `React` library which can be used if you want to create a specialized bundle without the extra hooks and components available via `@remirror/react`.",
+  "name": "@rme-sdk/react-core",
+  "version": "1.1.0",
+  "description": "The core `React` library which can be used if you want to create a specialized bundle without the extra hooks and components available via `@rme-sdk/react`.",
   "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__react-core",
   "repository": {
     "type": "git",
@@ -17,13 +17,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-react-core.js",
-      "require": "./dist/remirror-react-core.cjs"
+      "import": "./dist/rme-sdk-react-core.js",
+      "require": "./dist/rme-sdk-react-core.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-react-core.cjs",
-  "module": "./dist/remirror-react-core.js",
+  "main": "./dist/rme-sdk-react-core.cjs",
+  "module": "./dist/rme-sdk-react-core.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -34,21 +34,21 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/extension-positioner": "workspace:*",
-    "@remirror/extension-react-component": "workspace:*",
-    "@remirror/preset-core": "workspace:*",
-    "@remirror/preset-react": "workspace:*",
-    "@remirror/react-renderer": "workspace:*",
-    "@remirror/react-utils": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/extension-positioner": "workspace:*",
+    "@rme-sdk/extension-react-component": "workspace:*",
+    "@rme-sdk/preset-core": "workspace:*",
+    "@rme-sdk/preset-react": "workspace:*",
+    "@rme-sdk/react-renderer": "workspace:*",
+    "@rme-sdk/react-utils": "workspace:*",
     "@seznam/compose-react-refs": "^1.0.6",
     "fast-deep-equal": "^3.1.3",
     "resize-observer-polyfill": "^1.5.1",
     "tiny-warning": "^1.0.3"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "@types/jsdom": "^16.2.15",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
@@ -57,7 +57,7 @@
     "react-dom": "^18.3.1"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "@types/react": "^16.14.0 || ^17 || ^18",
     "@types/react-dom": "^16.9.0 || ^17 || ^18",
     "react": "^16.14.0 || ^17 || ^18",
@@ -72,21 +72,21 @@
     }
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-react-core.d.ts",
-        "import": "./dist/remirror-react-core.js",
-        "require": "./dist/remirror-react-core.cjs"
+        "types": "./dist/rme-sdk-react-core.d.ts",
+        "import": "./dist/rme-sdk-react-core.js",
+        "require": "./dist/rme-sdk-react-core.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-react-core.cjs",
-    "module": "./dist/remirror-react-core.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-react-core.d.ts"
+    "main": "./dist/rme-sdk-react-core.cjs",
+    "module": "./dist/rme-sdk-react-core.js",
+    "types": "./dist/rme-sdk-react-core.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "tsconfigs": {
       "src": {
         "compilerOptions": {

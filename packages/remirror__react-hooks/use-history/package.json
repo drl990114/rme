@@ -1,14 +1,14 @@
 {
   "type": "module",
+  "main": "./dist/rme-sdk-react-hooks-use-history.cjs",
+  "module": "./dist/rme-sdk-react-hooks-use-history.js",
+  "types": "./dist/rme-sdk-react-hooks-use-history.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-react-hooks-use-history.d.ts",
-      "import": "./dist/remirror-react-hooks-use-history.js",
-      "require": "./dist/remirror-react-hooks-use-history.cjs"
+      "types": "./dist/rme-sdk-react-hooks-use-history.d.ts",
+      "import": "./dist/rme-sdk-react-hooks-use-history.js",
+      "require": "./dist/rme-sdk-react-hooks-use-history.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-react-hooks-use-history.cjs",
-  "module": "./dist/remirror-react-hooks-use-history.js",
-  "types": "./dist/remirror-react-hooks-use-history.d.ts"
+  }
 }

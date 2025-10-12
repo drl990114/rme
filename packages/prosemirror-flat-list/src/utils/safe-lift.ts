@@ -1,6 +1,6 @@
-import type { NodeRange } from '@remirror/pm/model'
-import type { Transaction } from '@remirror/pm/state'
-import { liftTarget } from '@remirror/pm/transform'
+import type { NodeRange } from '@rme-sdk/pm/model'
+import type { Transaction } from '@rme-sdk/pm/state'
+import { liftTarget } from '@rme-sdk/pm/transform'
 
 export function safeLift(tr: Transaction, range: NodeRange): boolean {
   const target = liftTarget(range)

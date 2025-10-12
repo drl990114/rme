@@ -1,23 +1,23 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionTag,
-  IdentifierSchemaAttributes,
-  isElementDomNode,
-  joinStyles,
-  LiteralUnion,
-  NodeExtension,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  omitExtraAttributes,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-  SchemaAttributesObject,
-  Static,
-} from '@remirror/core';
-import { ExtensionColumnsMessages as Messages } from '@remirror/messages';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionTag,
+    IdentifierSchemaAttributes,
+    isElementDomNode,
+    joinStyles,
+    LiteralUnion,
+    NodeExtension,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    omitExtraAttributes,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+    SchemaAttributesObject,
+    Static,
+} from '@rme-sdk/core';
+import { ExtensionColumnsMessages as Messages } from '@rme-sdk/messages';
 
 export const toggleColumnsOptions: Remirror.CommandDecoratorOptions = {
   icon: ({ attrs }) => ({

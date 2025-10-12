@@ -1,11 +1,11 @@
-import { ErrorConstant } from '@remirror/core-constants';
-import { invariant, object } from '@remirror/core-helpers';
+import { ErrorConstant } from '@rme-sdk/core-constants';
+import { invariant, object } from '@rme-sdk/core-helpers';
 
 import type { EditorState, Transaction } from '../state';
 import type {
-  CommandFunction,
-  NonChainableCommandFunction,
-  ProsemirrorCommandFunction,
+    CommandFunction,
+    NonChainableCommandFunction,
+    ProsemirrorCommandFunction,
 } from './pm-types';
 
 /**

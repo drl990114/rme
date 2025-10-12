@@ -1,47 +1,47 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 
 import {
-  __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
-  ErrorConstant,
-  ExtensionPriority,
-  RemirrorIdentifier,
-} from '@remirror/core-constants';
+    __INTERNAL_REMIRROR_IDENTIFIER_KEY__,
+    ErrorConstant,
+    ExtensionPriority,
+    RemirrorIdentifier,
+} from '@rme-sdk/core-constants';
 import {
-  deepMerge,
-  invariant,
-  isEmptyArray,
-  isFunction,
-  keys,
-  noop,
-  object,
-  omit,
-  sort,
-} from '@remirror/core-helpers';
+    deepMerge,
+    invariant,
+    isEmptyArray,
+    isFunction,
+    keys,
+    noop,
+    object,
+    omit,
+    sort,
+} from '@rme-sdk/core-helpers';
 import type {
-  AnyFunction,
-  Dispose,
-  EmptyShape,
-  GetAcceptUndefined,
-  GetConstructorProps,
-  GetCustomHandler,
-  GetFixed,
-  GetFixedDynamic,
-  GetHandler,
-  GetMappedHandler,
-  GetPartialDynamic,
-  GetStatic,
-  IfNoRequiredProperties,
-  LiteralUnion,
-  MakeUndefined,
-  Primitive,
-  RemoveAnnotations,
-  Replace,
-  Shape,
-  StringKey,
-  UndefinedFlipPartialAndRequired,
-  ValidOptions,
-} from '@remirror/core-types';
-import { environment } from '@remirror/core-utils';
+    AnyFunction,
+    Dispose,
+    EmptyShape,
+    GetAcceptUndefined,
+    GetConstructorProps,
+    GetCustomHandler,
+    GetFixed,
+    GetFixedDynamic,
+    GetHandler,
+    GetMappedHandler,
+    GetPartialDynamic,
+    GetStatic,
+    IfNoRequiredProperties,
+    LiteralUnion,
+    MakeUndefined,
+    Primitive,
+    RemoveAnnotations,
+    Replace,
+    Shape,
+    StringKey,
+    UndefinedFlipPartialAndRequired,
+    ValidOptions,
+} from '@rme-sdk/core-types';
+import { environment } from '@rme-sdk/core-utils';
 
 import { getChangedOptions } from '../helpers';
 import type { OnSetOptionsProps } from '../types';

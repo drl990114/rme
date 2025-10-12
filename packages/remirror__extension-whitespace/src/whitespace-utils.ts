@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {
-  FromToProps,
-  isNodeOfType,
-  NodeWithPosition,
-  ProsemirrorNode,
-  textBetween,
-} from '@remirror/core';
-import { ExtensionWhitespaceMessages } from '@remirror/messages';
-import { Decoration, DecorationSet } from '@remirror/pm/view';
+    FromToProps,
+    isNodeOfType,
+    NodeWithPosition,
+    ProsemirrorNode,
+    textBetween,
+} from '@rme-sdk/core';
+import { ExtensionWhitespaceMessages } from '@rme-sdk/messages';
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view';
 
 import {
-  WhitespaceDecorator,
-  WhitespaceDecoratorSettings,
-  WhitespaceRange,
+    WhitespaceDecorator,
+    WhitespaceDecoratorSettings,
+    WhitespaceRange,
 } from './whitespace-types';
 
 interface GenerateDecorationsProps extends FromToProps {

@@ -1,4 +1,4 @@
-import type { RemirrorMessage } from '@remirror/core-types';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
 
 export const ESCAPE_KEY: RemirrorMessage = /*i18n*/ {
   id: 'keyboard.shortcut.escape',

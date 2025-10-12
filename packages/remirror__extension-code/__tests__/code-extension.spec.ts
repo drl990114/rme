@@ -1,7 +1,7 @@
+import { htmlToProsemirrorNode, prosemirrorNodeToHtml } from '@rme-sdk/core';
 import { pmBuild } from 'jest-prosemirror';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
 import { createCoreManager } from 'remirror/extensions';
-import { htmlToProsemirrorNode, prosemirrorNodeToHtml } from '@remirror/core';
 
 import { CodeExtension } from '../';
 

@@ -1,6 +1,6 @@
 {
-  "name": "remirror",
-  "version": "3.0.3",
+  "name": "@rme-sdk/main",
+  "version": "1.1.0",
   "description": "One editing package to rule them all, one editing package to bind them.",
   "keywords": [
     "prosemirror",
@@ -26,29 +26,29 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror.js",
-      "require": "./dist/remirror.cjs"
+      "import": "./dist/rme-sdk-main.js",
+      "require": "./dist/rme-sdk-main.cjs"
     },
     "./dom": {
       "types": "./dist-types/dom.d.ts",
-      "import": "./dom/dist/remirror-dom.js",
-      "require": "./dom/dist/remirror-dom.cjs"
+      "import": "./dom/dist/rme-sdk-main-dom.js",
+      "require": "./dom/dist/rme-sdk-main-dom.cjs"
     },
     "./extensions": {
       "types": "./dist-types/extensions.d.ts",
-      "import": "./extensions/dist/remirror-extensions.js",
-      "require": "./extensions/dist/remirror-extensions.cjs"
+      "import": "./extensions/dist/rme-sdk-main-extensions.js",
+      "require": "./extensions/dist/rme-sdk-main-extensions.cjs"
     },
     "./icons": {
       "types": "./dist-types/icons.d.ts",
-      "import": "./icons/dist/remirror-icons.js",
-      "require": "./icons/dist/remirror-icons.cjs"
+      "import": "./icons/dist/rme-sdk-main-icons.js",
+      "require": "./icons/dist/rme-sdk-main-icons.cjs"
     },
     "./package.json": "./package.json",
     "./styles/*": "./styles/*"
   },
-  "main": "./dist/remirror.cjs",
-  "module": "./dist/remirror.js",
+  "main": "./dist/rme-sdk-main.cjs",
+  "module": "./dist/rme-sdk-main.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -63,55 +63,55 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/core-constants": "workspace:*",
-    "@remirror/core-helpers": "workspace:*",
-    "@remirror/core-types": "workspace:*",
-    "@remirror/core-utils": "workspace:*",
-    "@remirror/dom": "workspace:*",
-    "@remirror/extension-annotation": "workspace:*",
-    "@remirror/extension-bidi": "workspace:*",
-    "@remirror/extension-blockquote": "workspace:*",
-    "@remirror/extension-bold": "workspace:*",
-    "@remirror/extension-code": "workspace:*",
-    "@remirror/extension-columns": "workspace:*",
-    "@remirror/extension-diff": "workspace:*",
-    "@remirror/extension-doc": "workspace:*",
-    "@remirror/extension-drop-cursor": "workspace:*",
-    "@remirror/extension-emoji": "workspace:*",
-    "@remirror/extension-epic-mode": "workspace:*",
-    "@remirror/extension-events": "workspace:*",
-    "@remirror/extension-font-size": "workspace:*",
-    "@remirror/extension-gap-cursor": "workspace:*",
-    "@remirror/extension-hard-break": "workspace:*",
-    "@remirror/extension-heading": "workspace:*",
-    "@remirror/extension-history": "workspace:*",
-    "@remirror/extension-horizontal-rule": "workspace:*",
-    "@remirror/extension-italic": "workspace:*",
-    "@remirror/extension-link": "workspace:*",
-    "@remirror/extension-node-formatting": "workspace:*",
-    "@remirror/extension-paragraph": "workspace:*",
-    "@remirror/extension-placeholder": "workspace:*",
-    "@remirror/extension-positioner": "workspace:*",
-    "@remirror/extension-shortcuts": "workspace:*",
-    "@remirror/extension-tables": "workspace:*",
-    "@remirror/extension-text": "workspace:*",
-    "@remirror/extension-text-color": "workspace:*",
-    "@remirror/extension-text-highlight": "workspace:*",
-    "@remirror/extension-trailing-node": "workspace:*",
-    "@remirror/extension-underline": "workspace:*",
-    "@remirror/extension-whitespace": "workspace:*",
-    "@remirror/icons": "workspace:*",
-    "@remirror/preset-core": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/core-constants": "workspace:*",
+    "@rme-sdk/core-helpers": "workspace:*",
+    "@rme-sdk/core-types": "workspace:*",
+    "@rme-sdk/core-utils": "workspace:*",
+    "@rme-sdk/dom": "workspace:*",
+    "@rme-sdk/extension-annotation": "workspace:*",
+    "@rme-sdk/extension-bidi": "workspace:*",
+    "@rme-sdk/extension-blockquote": "workspace:*",
+    "@rme-sdk/extension-bold": "workspace:*",
+    "@rme-sdk/extension-code": "workspace:*",
+    "@rme-sdk/extension-columns": "workspace:*",
+    "@rme-sdk/extension-diff": "workspace:*",
+    "@rme-sdk/extension-doc": "workspace:*",
+    "@rme-sdk/extension-drop-cursor": "workspace:*",
+    "@rme-sdk/extension-emoji": "workspace:*",
+    "@rme-sdk/extension-epic-mode": "workspace:*",
+    "@rme-sdk/extension-events": "workspace:*",
+    "@rme-sdk/extension-font-size": "workspace:*",
+    "@rme-sdk/extension-gap-cursor": "workspace:*",
+    "@rme-sdk/extension-hard-break": "workspace:*",
+    "@rme-sdk/extension-heading": "workspace:*",
+    "@rme-sdk/extension-history": "workspace:*",
+    "@rme-sdk/extension-horizontal-rule": "workspace:*",
+    "@rme-sdk/extension-italic": "workspace:*",
+    "@rme-sdk/extension-link": "workspace:*",
+    "@rme-sdk/extension-node-formatting": "workspace:*",
+    "@rme-sdk/extension-paragraph": "workspace:*",
+    "@rme-sdk/extension-placeholder": "workspace:*",
+    "@rme-sdk/extension-positioner": "workspace:*",
+    "@rme-sdk/extension-shortcuts": "workspace:*",
+    "@rme-sdk/extension-tables": "workspace:*",
+    "@rme-sdk/extension-text": "workspace:*",
+    "@rme-sdk/extension-text-color": "workspace:*",
+    "@rme-sdk/extension-text-highlight": "workspace:*",
+    "@rme-sdk/extension-trailing-node": "workspace:*",
+    "@rme-sdk/extension-underline": "workspace:*",
+    "@rme-sdk/extension-whitespace": "workspace:*",
+    "@rme-sdk/icons": "workspace:*",
+    "@rme-sdk/preset-core": "workspace:*",
     "@types/refractor": "^3.0.2",
     "refractor": "^3.6.0"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "prettier": "^3.2.5"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "prettier": "^3.2.0"
   },
   "peerDependenciesMeta": {
@@ -120,37 +120,37 @@
     }
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror.d.ts",
-        "import": "./dist/remirror.js",
-        "require": "./dist/remirror.cjs"
+        "types": "./dist/rme-sdk-main.d.ts",
+        "import": "./dist/rme-sdk-main.js",
+        "require": "./dist/rme-sdk-main.cjs"
       },
       "./dom": {
-        "types": "./dom/dist/remirror-dom.d.ts",
-        "import": "./dom/dist/remirror-dom.js",
-        "require": "./dom/dist/remirror-dom.cjs"
+        "types": "./dom/dist/rme-sdk-main-dom.d.ts",
+        "import": "./dom/dist/rme-sdk-main-dom.js",
+        "require": "./dom/dist/rme-sdk-main-dom.cjs"
       },
       "./extensions": {
-        "types": "./extensions/dist/remirror-extensions.d.ts",
-        "import": "./extensions/dist/remirror-extensions.js",
-        "require": "./extensions/dist/remirror-extensions.cjs"
+        "types": "./extensions/dist/rme-sdk-main-extensions.d.ts",
+        "import": "./extensions/dist/rme-sdk-main-extensions.js",
+        "require": "./extensions/dist/rme-sdk-main-extensions.cjs"
       },
       "./icons": {
-        "types": "./icons/dist/remirror-icons.d.ts",
-        "import": "./icons/dist/remirror-icons.js",
-        "require": "./icons/dist/remirror-icons.cjs"
+        "types": "./icons/dist/rme-sdk-main-icons.d.ts",
+        "import": "./icons/dist/rme-sdk-main-icons.js",
+        "require": "./icons/dist/rme-sdk-main-icons.cjs"
       },
       "./package.json": "./package.json",
       "./styles/*": "./styles/*"
     },
-    "main": "./dist/remirror.cjs",
-    "module": "./dist/remirror.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror.d.ts"
+    "main": "./dist/rme-sdk-main.cjs",
+    "module": "./dist/rme-sdk-main.js",
+    "types": "./dist/rme-sdk-main.d.ts"
   },
-  "@remirror": {},
+  "@rme-sdk": {},
   "preconstruct": {
     "entrypoints": [
       "index.ts",

@@ -1,15 +1,15 @@
-import type { ReactNode, Ref } from 'react';
 import type {
-  AnyExtension,
-  BuiltinPreset,
-  FrameworkOutput,
-  GetStaticAndDynamic,
-  RemirrorEventListener,
-  Shape,
-} from '@remirror/core';
-import type { PortalContainer } from '@remirror/extension-react-component';
-import type { CorePreset, CreateCoreManagerOptions } from '@remirror/preset-core';
-import type { ReactExtension, ReactExtensionOptions } from '@remirror/preset-react';
+    AnyExtension,
+    BuiltinPreset,
+    FrameworkOutput,
+    GetStaticAndDynamic,
+    RemirrorEventListener,
+    Shape,
+} from '@rme-sdk/core';
+import type { PortalContainer } from '@rme-sdk/extension-react-component';
+import type { CorePreset, CreateCoreManagerOptions } from '@rme-sdk/preset-core';
+import type { ReactExtension, ReactExtensionOptions } from '@rme-sdk/preset-react';
+import type { ReactNode, Ref } from 'react';
 
 /**
  * Use this to build your own extension union type which extends from the
@@ -75,9 +75,9 @@ export interface ReactFrameworkOutput<Extension extends AnyExtension>
    * **Example with indirectly nested components**
    *
    * ```tsx
-   * import { Remirror } from '@remirror/react';
-   * import { PresetCore } from '@remirror/preset-core';
-   * import { BoldExtension } from '@remirror/extension-bold';
+   * import { Remirror } from '@rme-sdk/react';
+   * import { PresetCore } from '@rme-sdk/preset-core';
+   * import { BoldExtension } from '@rme-sdk/extension-bold';
    *
    * const InnerEditor = () => {
    *   const { getRootProps } = useRemirror();
@@ -129,7 +129,7 @@ export interface CreateReactManagerOptions extends CreateCoreManagerOptions {
  * method.
  *
  * ```ts
- * import { useRemirror, UseRemirrorContextType } from '@remirror/react';
+ * import { useRemirror, UseRemirrorContextType } from '@rme-sdk/react';
  * import { SocialPreset } from 'remirror/extensions'
  *
  * const useSocialRemirror = useRemirror as UseRemirrorContextType<SocialPreset>;

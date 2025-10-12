@@ -1,16 +1,16 @@
 import type {
-  EditorSchema,
-  EditorState,
-  EditorView,
-  Mark,
-  MarkType,
-  NodeType,
-  ProsemirrorNode,
-  ResolvedPos,
-  Selection,
-  Transaction,
-} from '@remirror/pm';
-import type { ProsemirrorAttributes } from '@remirror/types';
+    EditorSchema,
+    EditorState,
+    EditorView,
+    Mark,
+    MarkType,
+    NodeType,
+    ProsemirrorNode,
+    ResolvedPos,
+    Selection,
+    Transaction,
+} from '@rme-sdk/pm';
+import type { ProsemirrorAttributes } from '@rme-sdk/types';
 
 /**
  * A parameter builder interface containing the `view` property.

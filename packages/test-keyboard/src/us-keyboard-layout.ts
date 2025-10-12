@@ -1,4 +1,4 @@
-import { isString } from '@remirror/core-helpers';
+import { isString } from '@rme-sdk/core-helpers';
 
 /**
  * See

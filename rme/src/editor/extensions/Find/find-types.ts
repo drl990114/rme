@@ -1,4 +1,4 @@
-import type { FromToProps } from '@remirror/core';
+import type { FromToProps } from '@rme-sdk/core';
 
 export interface FindResult {
   /**

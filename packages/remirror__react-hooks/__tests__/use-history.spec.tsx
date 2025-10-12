@@ -1,10 +1,10 @@
 import { jest } from '@jest/globals';
+import type { RemirrorManager } from '@rme-sdk/core';
+import type { HistoryExtension } from '@rme-sdk/extension-history';
+import { createReactManager, ReactExtensions, Remirror } from '@rme-sdk/react-core';
 import { RemirrorTestChain } from 'jest-remirror';
 import React, { FC } from 'react';
 import { act, DefaultEditor, strictRender } from 'testing/react';
-import type { RemirrorManager } from '@remirror/core';
-import type { HistoryExtension } from '@remirror/extension-history';
-import { createReactManager, ReactExtensions, Remirror } from '@remirror/react-core';
 
 import { useHistory } from '../src/use-history';
 

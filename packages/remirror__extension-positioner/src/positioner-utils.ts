@@ -1,15 +1,15 @@
 import {
-  EditorState,
-  EditorStateProps,
-  getStyle,
-  hasTransactionChanged,
-  isElementDomNode,
-  Transaction,
-  TransactionProps,
-  within,
-} from '@remirror/core';
+    EditorState,
+    EditorStateProps,
+    getStyle,
+    hasTransactionChanged,
+    isElementDomNode,
+    Transaction,
+    TransactionProps,
+    within,
+} from '@rme-sdk/core';
 
-export { isEmptyBlockNode } from '@remirror/core';
+export { isEmptyBlockNode } from '@rme-sdk/core';
 
 interface HasChangedProps extends EditorStateProps, Partial<TransactionProps> {
   previousState: EditorState | undefined;

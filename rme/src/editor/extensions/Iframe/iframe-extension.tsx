@@ -1,25 +1,25 @@
+import type {
+    ApplySchemaAttributes,
+    CommandFunction,
+    InputRule,
+    LiteralUnion,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    ProsemirrorAttributes
+} from '@rme-sdk/core'
+import {
+    cx,
+    extension,
+    ExtensionTag,
+    NodeExtension,
+    nodeInputRule,
+    omitExtraAttributes
+} from '@rme-sdk/core'
+import type { NodeViewComponentProps } from '@rme-sdk/react'
+import type { ComponentType } from 'react'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import { buildHtmlStringFromAst, getAttrsBySignalHtmlContent } from '../../utils/html'
-import type {
-  ApplySchemaAttributes,
-  CommandFunction,
-  InputRule,
-  LiteralUnion,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  ProsemirrorAttributes
-} from '@remirror/core'
-import {
-  cx,
-  extension,
-  ExtensionTag,
-  NodeExtension,
-  nodeInputRule,
-  omitExtraAttributes
-} from '@remirror/core'
-import type { NodeViewComponentProps } from '@remirror/react'
-import type { ComponentType } from 'react'
 import { IframeNodeView } from './Iframe-nodeview'
 import type { IframeOptions } from './iframe-types'
 

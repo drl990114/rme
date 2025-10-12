@@ -1,51 +1,51 @@
-import { ExtensionPriority, ExtensionTag, NamedShortcut } from '@remirror/core-constants'
+import { ExtensionPriority, ExtensionTag, NamedShortcut } from '@rme-sdk/core-constants'
 import {
-  entries,
-  includes,
-  isArray,
-  isEmptyArray,
-  isFunction,
-  isString,
-  isUndefined,
-  object,
-  sort,
-  values,
-} from '@remirror/core-helpers'
+    entries,
+    includes,
+    isArray,
+    isEmptyArray,
+    isFunction,
+    isString,
+    isUndefined,
+    object,
+    sort,
+    values,
+} from '@rme-sdk/core-helpers'
 import type {
-  CommandFunction,
-  CustomHandler,
-  Dispose,
-  EditorView,
-  KeyBindingProps,
-  KeyBindings,
-  ProsemirrorPlugin,
-  Shape,
-} from '@remirror/core-types'
+    CommandFunction,
+    CustomHandler,
+    Dispose,
+    EditorView,
+    KeyBindingProps,
+    KeyBindings,
+    ProsemirrorPlugin,
+    Shape,
+} from '@rme-sdk/core-types'
 import {
-  chainKeyBindingCommands,
-  convertCommand,
-  environment,
-  findParentNodeOfType,
-  isDefaultBlockNode,
-  isEmptyBlockNode,
-  isEndOfTextBlock,
-  isStartOfDoc,
-  isStartOfTextBlock,
-  mergeProsemirrorKeyBindings,
-} from '@remirror/core-utils'
+    chainKeyBindingCommands,
+    convertCommand,
+    environment,
+    findParentNodeOfType,
+    isDefaultBlockNode,
+    isEmptyBlockNode,
+    isEndOfTextBlock,
+    isStartOfDoc,
+    isStartOfTextBlock,
+    mergeProsemirrorKeyBindings,
+} from '@rme-sdk/core-utils'
 // @ts-ignore
-import { baseKeymap, pmChainCommands, selectParentNode } from '@remirror/pm/commands'
-import { undoInputRule } from '@remirror/pm/inputrules'
-import { keydownHandler } from '@remirror/pm/keymap'
-import { Plugin } from '@remirror/pm/state'
+import { baseKeymap, pmChainCommands, selectParentNode } from '@rme-sdk/pm/commands'
+import { undoInputRule } from '@rme-sdk/pm/inputrules'
+import { keydownHandler } from '@rme-sdk/pm/keymap'
+import { Plugin } from '@rme-sdk/pm/state'
 import { AnyExtension, extension, Helper, PlainExtension } from '../extension'
 import type { AddCustomHandler } from '../extension/base-class'
 import type { OnSetOptionsProps } from '../types'
 import {
-  helper,
-  keyBinding,
-  KeybindingDecoratorOptions,
-  KeyboardShortcut,
+    helper,
+    keyBinding,
+    KeybindingDecoratorOptions,
+    KeyboardShortcut,
 } from './builtin-decorators'
 import { CommandsExtension } from './commands-extension'
 

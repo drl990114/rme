@@ -1,15 +1,15 @@
 import { jest } from '@jest/globals';
 import createMockRaf from '@react-spring/mock-raf';
-import diff from 'jest-diff';
 import {
-  AnyRemirrorManager,
-  EditorState,
-  EditorView,
-  Framework,
-  PrimitiveSelection,
-  RemirrorContentType,
-} from '@remirror/core';
-import { createEditorView } from '@remirror/react';
+    AnyRemirrorManager,
+    EditorState,
+    EditorView,
+    Framework,
+    PrimitiveSelection,
+    RemirrorContentType,
+} from '@rme-sdk/core';
+import { createEditorView } from '@rme-sdk/react';
+import diff from 'jest-diff';
 
 export const initialJson = {
   type: 'doc',
@@ -102,8 +102,9 @@ export function createFramework(manager: AnyRemirrorManager): TestFramework {
   });
 }
 
-export { diff };
-export * from './object-nodes';
 export type { FrameRequestCallback, MockRaf } from '@react-spring/mock-raf';
 export { default as delay } from 'delay';
 export { default as minDocument } from 'min-document';
+export * from './object-nodes';
+export { diff };
+

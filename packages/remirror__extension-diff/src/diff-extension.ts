@@ -1,27 +1,27 @@
 import {
-  command,
-  CommandFunction,
-  CreateExtensionPlugin,
-  EditorState,
-  EditorView,
-  extension,
-  FromToProps,
-  Handler,
-  hasTransactionChanged,
-  Helper,
-  helper,
-  invariant,
-  isDomNode,
-  isEmptyArray,
-  isEqual,
-  isNumber,
-  isString,
-  PlainExtension,
-  Static,
-  Transaction,
-} from '@remirror/core';
-import { Mapping, StepMap } from '@remirror/pm/transform';
-import { Decoration, DecorationSet } from '@remirror/pm/view';
+    command,
+    CommandFunction,
+    CreateExtensionPlugin,
+    EditorState,
+    EditorView,
+    extension,
+    FromToProps,
+    Handler,
+    hasTransactionChanged,
+    Helper,
+    helper,
+    invariant,
+    isDomNode,
+    isEmptyArray,
+    isEqual,
+    isNumber,
+    isString,
+    PlainExtension,
+    Static,
+    Transaction,
+} from '@rme-sdk/core';
+import { Mapping, StepMap } from '@rme-sdk/pm/transform';
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view';
 
 import { Commit, Span, TrackState } from './diff-utils';
 

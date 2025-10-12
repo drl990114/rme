@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-drop-cursor",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-drop-cursor",
+  "version": "1.1.0",
   "description": "A cursor for the ages. Drag and drop content in your editor with class.",
   "keywords": [
     "remirror",
@@ -24,13 +24,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-drop-cursor.js",
-      "require": "./dist/remirror-extension-drop-cursor.cjs"
+      "import": "./dist/rme-sdk-extension-drop-cursor.js",
+      "require": "./dist/rme-sdk-extension-drop-cursor.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-drop-cursor.cjs",
-  "module": "./dist/remirror-extension-drop-cursor.js",
+  "main": "./dist/rme-sdk-extension-drop-cursor.cjs",
+  "module": "./dist/rme-sdk-extension-drop-cursor.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -41,32 +41,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-drop-cursor.d.ts",
-        "import": "./dist/remirror-extension-drop-cursor.js",
-        "require": "./dist/remirror-extension-drop-cursor.cjs"
+        "types": "./dist/rme-sdk-extension-drop-cursor.d.ts",
+        "import": "./dist/rme-sdk-extension-drop-cursor.js",
+        "require": "./dist/rme-sdk-extension-drop-cursor.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-drop-cursor.cjs",
-    "module": "./dist/remirror-extension-drop-cursor.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-drop-cursor.d.ts"
+    "main": "./dist/rme-sdk-extension-drop-cursor.cjs",
+    "module": "./dist/rme-sdk-extension-drop-cursor.js",
+    "types": "./dist/rme-sdk-extension-drop-cursor.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

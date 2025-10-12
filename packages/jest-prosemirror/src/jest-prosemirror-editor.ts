@@ -1,38 +1,38 @@
-import { object, pick } from '@remirror/core-helpers';
+import { object, pick } from '@rme-sdk/core-helpers';
 import type {
-  AnchorHeadProps,
-  CommandFunction,
-  EditorState,
-  EditorStateProps,
-  InputRule,
-  PosProps,
-  PrimitiveSelection,
-  ProsemirrorCommandFunction,
-  ProsemirrorNode,
-  ProsemirrorPlugin,
-  ResolvedPos,
-  SelectionProps,
-  Shape,
-  TextProps,
-} from '@remirror/core-types';
+    AnchorHeadProps,
+    CommandFunction,
+    EditorState,
+    EditorStateProps,
+    InputRule,
+    PosProps,
+    PrimitiveSelection,
+    ProsemirrorCommandFunction,
+    ProsemirrorNode,
+    ProsemirrorPlugin,
+    ResolvedPos,
+    SelectionProps,
+    Shape,
+    TextProps,
+} from '@rme-sdk/core-types';
 import {
-  findElementAtPosition,
-  getTextSelection,
-  isElementDomNode,
-  isProsemirrorNode,
-  isTextDomNode,
-  prosemirrorNodeToHtml,
-} from '@remirror/core-utils';
-import { inputRules } from '@remirror/pm/inputrules';
-import { Schema, Slice } from '@remirror/pm/model';
-import { AllSelection, NodeSelection, Selection, TextSelection } from '@remirror/pm/state';
-import { cellAround, CellSelection } from '@remirror/pm/tables';
+    findElementAtPosition,
+    getTextSelection,
+    isElementDomNode,
+    isProsemirrorNode,
+    isTextDomNode,
+    prosemirrorNodeToHtml,
+} from '@rme-sdk/core-utils';
+import { inputRules } from '@rme-sdk/pm/inputrules';
+import { Schema, Slice } from '@rme-sdk/pm/model';
+import { AllSelection, NodeSelection, Selection, TextSelection } from '@rme-sdk/pm/state';
+import { cellAround, CellSelection } from '@rme-sdk/pm/tables';
 import {
-  // @ts-expect-error: __parseFromClipboard is not typed
-  __parseFromClipboard,
-  DirectEditorProps,
-  EditorView,
-} from '@remirror/pm/view';
+    // @ts-expect-error: __parseFromClipboard is not typed
+    __parseFromClipboard,
+    DirectEditorProps,
+    EditorView,
+} from '@rme-sdk/pm/view';
 import { fireEvent, prettyDOM } from '@testing-library/dom';
 import { Keyboard } from 'test-keyboard';
 

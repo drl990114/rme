@@ -1,4 +1,4 @@
-import type { Value } from '@remirror/core-types';
+import type { Value } from '@rme-sdk/core-types';
 
 export const SPECIAL_KEYS = [
   'Tab',

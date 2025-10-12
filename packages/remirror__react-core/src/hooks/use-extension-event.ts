@@ -1,12 +1,12 @@
-import { useCallback } from 'react';
 import {
-  AnyExtensionConstructor,
-  CustomHandler,
-  GetCustomHandler,
-  GetHandler,
-  Handler,
-  OptionsOfConstructor,
-} from '@remirror/core';
+    AnyExtensionConstructor,
+    CustomHandler,
+    GetCustomHandler,
+    GetHandler,
+    Handler,
+    OptionsOfConstructor,
+} from '@rme-sdk/core';
+import { useCallback } from 'react';
 
 import { useExtension, UseExtensionCallback } from './use-extension';
 
@@ -25,7 +25,7 @@ import { useExtension, UseExtensionCallback } from './use-extension';
  * ```tsx
  * import { useCallback } from 'react';
  * import { HistoryExtension } from 'remirror/extensions';
- * import { useExtensionEvent } from '@remirror/react';
+ * import { useExtensionEvent } from '@rme-sdk/react';
  *
  * const RedoLogger = () => {
  *   useExtensionEvent(

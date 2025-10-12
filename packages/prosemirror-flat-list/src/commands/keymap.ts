@@ -1,13 +1,13 @@
 import {
-  deleteSelection,
-  joinTextblockBackward,
-  joinTextblockForward,
-  pmChainCommands,
-  selectNodeBackward,
-  selectNodeForward,
-} from '@remirror/pm/commands'
+    deleteSelection,
+    joinTextblockBackward,
+    joinTextblockForward,
+    pmChainCommands,
+    selectNodeBackward,
+    selectNodeForward,
+} from '@rme-sdk/pm/commands'
 
-import { Command } from '@remirror/pm/state'
+import { Command } from '@rme-sdk/pm/state'
 import { createDedentListCommand } from './dedent-list'
 import { createIndentListCommand } from './indent-list'
 import { joinCollapsedListBackward } from './join-collapsed-backward'

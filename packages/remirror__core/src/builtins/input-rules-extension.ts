@@ -1,7 +1,7 @@
-import { ExtensionPriority, ExtensionTag } from '@remirror/core-constants';
-import type { Handler, ProsemirrorPlugin } from '@remirror/core-types';
-import type { ShouldSkipFunction, SkippableInputRule } from '@remirror/core-utils';
-import { InputRule, inputRules } from '@remirror/pm/inputrules';
+import { ExtensionPriority, ExtensionTag } from '@rme-sdk/core-constants';
+import type { Handler, ProsemirrorPlugin } from '@rme-sdk/core-types';
+import type { ShouldSkipFunction, SkippableInputRule } from '@rme-sdk/core-utils';
+import { InputRule, inputRules } from '@rme-sdk/pm/inputrules';
 
 import { extension, PlainExtension } from '../extension';
 

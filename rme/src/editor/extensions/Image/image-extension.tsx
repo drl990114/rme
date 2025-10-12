@@ -1,34 +1,34 @@
 /* eslint-disable @typescript-eslint/no-shadow */
+import type {
+    ApplySchemaAttributes,
+    CommandFunction,
+    DelayedPromiseCreator,
+    EditorView,
+    InputRule,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+} from '@rme-sdk/core'
+import {
+    ErrorConstant,
+    extension,
+    ExtensionTag,
+    getTextSelection,
+    invariant,
+    isElementDomNode,
+    isNumber,
+    NodeExtension,
+    nodeInputRule,
+    omitExtraAttributes
+} from '@rme-sdk/core'
+import type { PasteRule } from '@rme-sdk/pm/paste-rules'
+import { insertPoint } from '@rme-sdk/pm/transform'
+import type { ComponentType } from 'react'
+import type { ExtensionsOptions } from '..'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import { buildHtmlStringFromAst, getAttrsBySignalHtmlContent } from '../../utils/html'
-import type {
-  ApplySchemaAttributes,
-  CommandFunction,
-  DelayedPromiseCreator,
-  EditorView,
-  InputRule,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-} from '@remirror/core'
-import {
-  ErrorConstant,
-  extension,
-  ExtensionTag,
-  getTextSelection,
-  invariant,
-  isElementDomNode,
-  isNumber,
-  NodeExtension,
-  nodeInputRule,
-  omitExtraAttributes
-} from '@remirror/core'
-import type { PasteRule } from '@remirror/pm/paste-rules'
-import { insertPoint } from '@remirror/pm/transform'
-import type { ComponentType } from 'react'
-import type { ExtensionsOptions } from '..'
 import type { ImageNodeViewProps } from './image-nodeview'
 import { ImageNodeView } from './image-nodeview'
 

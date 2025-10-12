@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-diff",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-diff",
+  "version": "1.1.0",
   "description": "Track diffs between your json documents.",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-diff.js",
-      "require": "./dist/remirror-extension-diff.cjs"
+      "import": "./dist/rme-sdk-extension-diff.js",
+      "require": "./dist/rme-sdk-extension-diff.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-diff.cjs",
-  "module": "./dist/remirror-extension-diff.js",
+  "main": "./dist/rme-sdk-extension-diff.cjs",
+  "module": "./dist/rme-sdk-extension-diff.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,32 +38,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-diff.d.ts",
-        "import": "./dist/remirror-extension-diff.js",
-        "require": "./dist/remirror-extension-diff.cjs"
+        "types": "./dist/rme-sdk-extension-diff.d.ts",
+        "import": "./dist/rme-sdk-extension-diff.js",
+        "require": "./dist/rme-sdk-extension-diff.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-diff.cjs",
-    "module": "./dist/remirror-extension-diff.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-diff.d.ts"
+    "main": "./dist/rme-sdk-extension-diff.cjs",
+    "module": "./dist/rme-sdk-extension-diff.js",
+    "types": "./dist/rme-sdk-extension-diff.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

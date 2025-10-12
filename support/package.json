@@ -11,10 +11,10 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@remirror/core-helpers": "4.0.0",
+    "@rme-sdk/core-helpers": "4.0.0",
     "diffable-html": "^5.0.0"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "tsconfigs": {
       "src": false,
       "./": {

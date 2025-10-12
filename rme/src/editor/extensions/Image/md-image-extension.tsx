@@ -1,32 +1,32 @@
 /* eslint-disable @typescript-eslint/no-shadow */
+import type {
+    ApplySchemaAttributes,
+    CommandFunction,
+    DelayedPromiseCreator,
+    EditorView,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+} from '@rme-sdk/core'
+import {
+    ErrorConstant,
+    extension,
+    ExtensionTag,
+    getTextSelection,
+    invariant,
+    isElementDomNode,
+    NodeExtension,
+    nodeInputRule,
+    omitExtraAttributes
+} from '@rme-sdk/core'
+import { InputRule } from '@rme-sdk/pm/inputrules'
+import type { ComponentType } from 'react'
+import type { ExtensionsOptions } from '..'
 import { getMdImageInputRule } from '../../inline-input-regex'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import { buildHtmlStringFromAst, buildMarkdownTextFromNode } from '../../utils/html'
-import type {
-  ApplySchemaAttributes,
-  CommandFunction,
-  DelayedPromiseCreator,
-  EditorView,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-} from '@remirror/core'
-import {
-  ErrorConstant,
-  extension,
-  ExtensionTag,
-  getTextSelection,
-  invariant,
-  isElementDomNode,
-  NodeExtension,
-  nodeInputRule,
-  omitExtraAttributes
-} from '@remirror/core'
-import { InputRule } from '@remirror/pm/inputrules'
-import type { ComponentType } from 'react'
-import type { ExtensionsOptions } from '..'
 import type { ImageNodeViewProps } from './image-nodeview'
 import { ImageNodeView } from './image-nodeview'
 

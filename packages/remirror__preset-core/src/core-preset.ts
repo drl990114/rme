@@ -1,18 +1,18 @@
 import {
-  AnyExtension,
-  BuiltinPreset,
-  getLazyArray,
-  GetStaticAndDynamic,
-  RemirrorManager,
-  Static,
-} from '@remirror/core';
-import { DocExtension, DocOptions } from '@remirror/extension-doc';
-import { EventsExtension } from '@remirror/extension-events';
-import { GapCursorExtension } from '@remirror/extension-gap-cursor';
-import { HistoryExtension, HistoryOptions } from '@remirror/extension-history';
-import { ParagraphExtension } from '@remirror/extension-paragraph';
-import { PositionerExtension, PositionerOptions } from '@remirror/extension-positioner';
-import { TextExtension } from '@remirror/extension-text';
+    AnyExtension,
+    BuiltinPreset,
+    getLazyArray,
+    GetStaticAndDynamic,
+    RemirrorManager,
+    Static,
+} from '@rme-sdk/core';
+import { DocExtension, DocOptions } from '@rme-sdk/extension-doc';
+import { EventsExtension } from '@rme-sdk/extension-events';
+import { GapCursorExtension } from '@rme-sdk/extension-gap-cursor';
+import { HistoryExtension, HistoryOptions } from '@rme-sdk/extension-history';
+import { ParagraphExtension } from '@rme-sdk/extension-paragraph';
+import { PositionerExtension, PositionerOptions } from '@rme-sdk/extension-positioner';
+import { TextExtension } from '@rme-sdk/extension-text';
 
 /**
  * The options for the core preset.
@@ -41,7 +41,7 @@ const defaultOptions = {
 
 /**
  * The core preset is included by default when creating an editor with
- * `@remirror/react`.
+ * `@rme-sdk/react`.
  *
  * It comes with the the following extensions.
  *

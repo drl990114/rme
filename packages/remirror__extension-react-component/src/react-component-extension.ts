@@ -1,12 +1,12 @@
+import { AnyExtension, extension, isNodeExtension, PlainExtension } from '@rme-sdk/core';
+import { entries, object } from '@rme-sdk/core-helpers';
+import { NodeViewMethod } from '@rme-sdk/core-types';
 import type { ComponentType } from 'react';
-import { AnyExtension, extension, isNodeExtension, PlainExtension } from '@remirror/core';
-import { entries, object } from '@remirror/core-helpers';
-import { NodeViewMethod } from '@remirror/core-types';
 
 import type {
-  NodeViewComponentProps,
-  ReactComponentEnvironment,
-  ReactComponentOptions,
+    NodeViewComponentProps,
+    ReactComponentEnvironment,
+    ReactComponentOptions,
 } from './node-view-types';
 import { PortalContainer } from './portals';
 import { ReactNodeView } from './react-node-view';
@@ -70,6 +70,8 @@ import { ReactNodeView } from './react-node-view';
     stopEvent: null,
   },
   staticKeys: ['defaultBlockNode', 'defaultInlineNode', 'defaultContentNode', 'defaultEnvironment'],
+  handlerKeys: [],
+  customHandlerKeys: []
 })
 export class ReactComponentExtension extends PlainExtension<ReactComponentOptions> {
   /**

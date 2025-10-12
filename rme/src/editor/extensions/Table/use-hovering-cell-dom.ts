@@ -1,7 +1,7 @@
-import { ProsemirrorNode } from "@remirror/core"
-import { useEditorView } from "@remirror/react-core"
+import { ProsemirrorNode } from "@rme-sdk/core";
+import { useEditorView } from "@rme-sdk/react-core";
 
-import { useHoveringCell } from "./use-hovering-cell"
+import { useHoveringCell } from "./use-hovering-cell";
 
 /**
  * A hook which returns the table cell node, its position and its HTML element

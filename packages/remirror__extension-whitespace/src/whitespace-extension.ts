@@ -9,28 +9,28 @@
  */
 
 import {
-  ApplyStateLifecycleProps,
-  command,
-  CommandFunction,
-  EditorState,
-  extension,
-  getChangedRanges,
-  getDocRange,
-  Helper,
-  helper,
-  isEmptyObject,
-  isString,
-  OnSetOptionsProps,
-  PlainExtension,
-  ProsemirrorNode,
-} from '@remirror/core';
-import { DecorationSet } from '@remirror/pm/view';
+    ApplyStateLifecycleProps,
+    command,
+    CommandFunction,
+    EditorState,
+    extension,
+    getChangedRanges,
+    getDocRange,
+    Helper,
+    helper,
+    isEmptyObject,
+    isString,
+    OnSetOptionsProps,
+    PlainExtension,
+    ProsemirrorNode,
+} from '@rme-sdk/core';
+import { DecorationSet } from '@rme-sdk/pm/view';
 
 import { WhitespaceDecorator, WhitespaceOptions } from './whitespace-types';
 import {
-  createDefaultWhitespaceDecorators,
-  generateDecorations,
-  toggleWhitespaceOptions,
+    createDefaultWhitespaceDecorators,
+    generateDecorations,
+    toggleWhitespaceOptions,
 } from './whitespace-utils';
 
 /**

@@ -1,5 +1,5 @@
+import { object } from '@rme-sdk/core';
 import { useCallback, useState } from 'react';
-import { object } from '@remirror/core';
 
 /**
  * Returning a new object reference guarantees that a before-and-after

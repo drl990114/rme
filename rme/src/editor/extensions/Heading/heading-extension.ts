@@ -4,12 +4,12 @@ import type {
   KeyBindings,
   NodeExtensionSpec,
   NodeSpecOverride
-} from '@remirror/core'
-import { convertCommand, findParentNodeOfType } from '@remirror/core'
-import { setBlockType } from '@remirror/pm/commands'
-import type { Schema } from '@remirror/pm/model'
+} from '@rme-sdk/core'
+import { convertCommand, findParentNodeOfType } from '@rme-sdk/core'
+import { HeadingExtension } from '@rme-sdk/main/extensions'
+import { setBlockType } from '@rme-sdk/pm/commands'
+import type { Schema } from '@rme-sdk/pm/model'
 import type Token from 'markdown-it/lib/token.mjs'
-import { HeadingExtension } from 'remirror/extensions'
 
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'

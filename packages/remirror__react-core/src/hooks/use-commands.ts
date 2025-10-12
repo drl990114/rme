@@ -1,4 +1,4 @@
-import { AnyExtension, CommandsFromExtensions } from '@remirror/core';
+import { AnyExtension, CommandsFromExtensions } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 
@@ -6,7 +6,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * A core hook which provides the commands for usage in your editor.
  *
  * ```tsx
- * import { useCommands } from '@remirror/react';
+ * import { useCommands } from '@rme-sdk/react';
  *
  * const EditorButton = () => {
  *   const commands = useCommands();

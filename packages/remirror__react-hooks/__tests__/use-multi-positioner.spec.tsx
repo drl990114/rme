@@ -1,6 +1,6 @@
+import { createReactManager, Remirror } from '@rme-sdk/react-core';
 import React, { FC } from 'react';
 import { strictRender } from 'testing/react';
-import { createReactManager, Remirror } from '@remirror/react-core';
 
 import { useMultiPositioner } from '../src/use-multi-positioner';
 

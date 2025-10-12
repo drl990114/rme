@@ -1,4 +1,4 @@
-import type { Static } from '@remirror/core'
+import type { Static } from '@rme-sdk/core';
 
 export interface IframeOptions {
   /**

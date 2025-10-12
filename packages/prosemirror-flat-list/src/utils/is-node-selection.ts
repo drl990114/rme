@@ -1,4 +1,4 @@
-import type { NodeSelection, Selection } from '@remirror/pm/state'
+import type { NodeSelection, Selection } from '@rme-sdk/pm/state'
 
 export function isNodeSelection(
   selection: Selection,

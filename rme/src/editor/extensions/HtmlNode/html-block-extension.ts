@@ -1,17 +1,17 @@
-import { needSplitInlineHtmlTokenTags } from '../../transform/markdown-it-html-inline';
 import type {
-  ApplySchemaAttributes,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  NodeViewMethod,
-  PrioritizedKeyBindings,
-} from '@remirror/core';
-import { NodeExtension, extension, isElementDomNode, nodeInputRule } from '@remirror/core';
-import type { InputRule } from '@remirror/pm/inputrules';
-import { TextSelection } from '@remirror/pm/state';
+    ApplySchemaAttributes,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    NodeViewMethod,
+    PrioritizedKeyBindings,
+} from '@rme-sdk/core';
+import { NodeExtension, extension, isElementDomNode, nodeInputRule } from '@rme-sdk/core';
+import type { InputRule } from '@rme-sdk/pm/inputrules';
+import { TextSelection } from '@rme-sdk/pm/state';
 import block_names from 'markdown-it/lib/common/html_blocks.mjs';
 import type { NodeSerializerOptions } from '../../transform';
 import { ParserRuleType } from '../../transform';
+import { needSplitInlineHtmlTokenTags } from '../../transform/markdown-it-html-inline';
 import { arrayExclude } from '../../utils/common';
 import { arrowHandler } from '../CodeMirror/codemirror-utils';
 import type { LineHtmlBlockExtensionOptions } from './html-block-types';

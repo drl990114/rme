@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-text-highlight",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-text-highlight",
+  "version": "1.1.0",
   "description": "Add a color background to the selected text (or text within a specified range).",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-text-highlight.js",
-      "require": "./dist/remirror-extension-text-highlight.cjs"
+      "import": "./dist/rme-sdk-extension-text-highlight.js",
+      "require": "./dist/rme-sdk-extension-text-highlight.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-text-highlight.cjs",
-  "module": "./dist/remirror-extension-text-highlight.js",
+  "main": "./dist/rme-sdk-extension-text-highlight.cjs",
+  "module": "./dist/rme-sdk-extension-text-highlight.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,33 +38,33 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/extension-text-color": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/extension-text-color": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-text-highlight.d.ts",
-        "import": "./dist/remirror-extension-text-highlight.js",
-        "require": "./dist/remirror-extension-text-highlight.cjs"
+        "types": "./dist/rme-sdk-extension-text-highlight.d.ts",
+        "import": "./dist/rme-sdk-extension-text-highlight.js",
+        "require": "./dist/rme-sdk-extension-text-highlight.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-text-highlight.cjs",
-    "module": "./dist/remirror-extension-text-highlight.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-text-highlight.d.ts"
+    "main": "./dist/rme-sdk-extension-text-highlight.cjs",
+    "module": "./dist/rme-sdk-extension-text-highlight.js",
+    "types": "./dist/rme-sdk-extension-text-highlight.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

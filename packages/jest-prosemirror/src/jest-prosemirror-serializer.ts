@@ -1,6 +1,6 @@
-import { object } from '@remirror/core-helpers';
-import { isEditorSchema, isEditorState, isProsemirrorNode } from '@remirror/core-utils';
-import { MarkSpec, NodeSpec } from '@remirror/pm/model';
+import { object } from '@rme-sdk/core-helpers';
+import { isEditorSchema, isEditorState, isProsemirrorNode } from '@rme-sdk/core-utils';
+import { MarkSpec, NodeSpec } from '@rme-sdk/pm/model';
 /**
  * Jest serializer for prosemirror nodes and the editor state.
  */

@@ -1,6 +1,6 @@
+import { RemirrorJSON } from '@rme-sdk/core';
 import React from 'react';
 import { strictRender } from 'testing/react';
-import { RemirrorJSON } from '@remirror/core';
 
 import { CodeBlock } from '../';
 

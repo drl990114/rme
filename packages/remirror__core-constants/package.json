@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/core-constants",
-  "version": "3.0.0",
+  "name": "@rme-sdk/core-constants",
+  "version": "1.1.0",
   "description": "The core constants used throughout the remirror codebase",
   "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/remirror__core-constants",
   "repository": {
@@ -17,13 +17,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-core-constants.js",
-      "require": "./dist/remirror-core-constants.cjs"
+      "import": "./dist/rme-sdk-core-constants.js",
+      "require": "./dist/rme-sdk-core-constants.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-core-constants.cjs",
-  "module": "./dist/remirror-core-constants.js",
+  "main": "./dist/rme-sdk-core-constants.cjs",
+  "module": "./dist/rme-sdk-core-constants.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -32,26 +32,25 @@
   "scripts": {
     "build": "remirror-cli build"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@remirror/cli": "workspace:*"
+    "@rme-sdk/cli": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-core-constants.d.ts",
-        "import": "./dist/remirror-core-constants.js",
-        "require": "./dist/remirror-core-constants.cjs"
+        "types": "./dist/rme-sdk-core-constants.d.ts",
+        "import": "./dist/rme-sdk-core-constants.js",
+        "require": "./dist/rme-sdk-core-constants.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-core-constants.cjs",
-    "module": "./dist/remirror-core-constants.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-core-constants.d.ts"
+    "main": "./dist/rme-sdk-core-constants.cjs",
+    "module": "./dist/rme-sdk-core-constants.js",
+    "types": "./dist/rme-sdk-core-constants.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "2 KB"
   }
 }

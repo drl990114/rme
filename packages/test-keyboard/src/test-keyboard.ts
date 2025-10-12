@@ -1,21 +1,21 @@
-import { includes, object, take } from '@remirror/core-helpers';
+import { includes, object, take } from '@rme-sdk/core-helpers';
 
 import type {
-  KeyboardConstructorProps,
-  KeyboardEventName,
-  ModifierInformation,
-  OptionsProps,
-  OptionsWithTypingProps,
-  TextInputProps,
-  TypingInputProps,
+    KeyboardConstructorProps,
+    KeyboardEventName,
+    ModifierInformation,
+    OptionsProps,
+    OptionsWithTypingProps,
+    TextInputProps,
+    TypingInputProps,
 } from './test-keyboard-types';
 import { cleanKey, createKeyboardEvent, getModifierInformation } from './test-keyboard-utils';
 import {
-  isUSKeyboardCharacter,
-  noKeyPress,
-  noKeyUp,
-  SupportedCharacters,
-  usKeyboardLayout,
+    isUSKeyboardCharacter,
+    noKeyPress,
+    noKeyUp,
+    SupportedCharacters,
+    usKeyboardLayout,
 } from './us-keyboard-layout';
 
 export interface BatchedKeyboardAction {

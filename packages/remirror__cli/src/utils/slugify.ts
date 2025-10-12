@@ -1,7 +1,7 @@
 /**
  * Slugify a string.
  *
- * Exmaple: "@remirror/extension-file" -> "remirror-extension-file"
+ * Exmaple: "@rme-sdk/extension-file" -> "remirror-extension-file"
  */
 export function slugify(str: string) {
   return str

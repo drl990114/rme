@@ -3,12 +3,12 @@ import {
   // BulletListExtension,
   // CodeBlockExtension,
   DropCursorExtension,
-} from 'remirror/extensions'
+} from '@rme-sdk/main/extensions'
 import { LineTableCellExtension, LineTableHeaderCellExtension } from './Table/table-extension'
 // import data from 'svgmoji/emoji.json'
-import { CountExtension } from '@remirror/extension-count'
-import { corePreset } from '@remirror/preset-core'
-import { ReactComponentExtension } from '@remirror/react'
+import { CountExtension } from '@rme-sdk/extension-count'
+import { corePreset } from '@rme-sdk/preset-core'
+import { ReactComponentExtension } from '@rme-sdk/react'
 import { AIExtension } from './Ai'
 import { AIOptions } from './Ai/ai-types'
 import { LineBlockquoteExtension } from './BlockQuote'

@@ -1,9 +1,9 @@
+import type { RemirrorManager } from '@rme-sdk/core';
+import { EventsExtension } from '@rme-sdk/extension-events';
+import { createReactManager, ReactExtensions, Remirror } from '@rme-sdk/react-core';
 import { RemirrorTestChain } from 'jest-remirror';
 import React, { FC } from 'react';
 import { act, DefaultEditor, fireEvent, strictRender } from 'testing/react';
-import type { RemirrorManager } from '@remirror/core';
-import { EventsExtension } from '@remirror/extension-events';
-import { createReactManager, ReactExtensions, Remirror } from '@remirror/react-core';
 
 import { useEditorFocus } from '../src/use-editor-focus';
 

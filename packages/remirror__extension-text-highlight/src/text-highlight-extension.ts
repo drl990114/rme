@@ -1,24 +1,24 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionPriority,
-  ExtensionTag,
-  isElementDomNode,
-  isString,
-  joinStyles,
-  Mark,
-  MarkExtension,
-  MarkExtensionSpec,
-  MarkSpecOverride,
-  omitExtraAttributes,
-  PrimitiveSelection,
-  Static,
-} from '@remirror/core';
-import { Palette, palette } from '@remirror/extension-text-color';
-import { ExtensionTextHighlightMessages as Messages } from '@remirror/messages';
-import type { StyleParseRule, TagParseRule } from '@remirror/pm/model';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionPriority,
+    ExtensionTag,
+    isElementDomNode,
+    isString,
+    joinStyles,
+    Mark,
+    MarkExtension,
+    MarkExtensionSpec,
+    MarkSpecOverride,
+    omitExtraAttributes,
+    PrimitiveSelection,
+    Static,
+} from '@rme-sdk/core';
+import { Palette, palette } from '@rme-sdk/extension-text-color';
+import { ExtensionTextHighlightMessages as Messages } from '@rme-sdk/messages';
+import type { StyleParseRule, TagParseRule } from '@rme-sdk/pm/model';
 
 const setTextHighlightOptions: Remirror.CommandDecoratorOptions = {
   icon: 'markPenLine',

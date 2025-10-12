@@ -1,13 +1,13 @@
 {
   "type": "module",
-  "main": "./dist/remirror-pm-inputrules.cjs",
-  "module": "./dist/remirror-pm-inputrules.js",
-  "types": "./dist/remirror-pm-inputrules.d.ts",
+  "main": "./dist/rme-sdk-pm-inputrules.cjs",
+  "module": "./dist/rme-sdk-pm-inputrules.js",
+  "types": "./dist/rme-sdk-pm-inputrules.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-pm-inputrules.d.ts",
-      "import": "./dist/remirror-pm-inputrules.js",
-      "require": "./dist/remirror-pm-inputrules.cjs"
+      "types": "./dist/rme-sdk-pm-inputrules.d.ts",
+      "import": "./dist/rme-sdk-pm-inputrules.js",
+      "require": "./dist/rme-sdk-pm-inputrules.cjs"
     },
     "./package.json": "./package.json"
   }

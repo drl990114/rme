@@ -1,8 +1,7 @@
-export { ListExtension } from './extension'
 export type {
   DedentListOptions,
-  IndentListOptions,
-  ToggleCollapsedOptions,
-  ListAttributes,
-  ListKind,
-} from 'prosemirror-flat-list'
+  IndentListOptions, ListAttributes,
+  ListKind, ToggleCollapsedOptions
+} from '@rme-sdk/prosemirror-flat-list'
+export { ListExtension } from './extension'
+

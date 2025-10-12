@@ -5,9 +5,9 @@
  * https://github.com/WordPress/gutenberg/blob/5bbda3656a530616a7a78c0a101d6ec2d8fa6a7a/packages/e2e-test-utils/src/press-key-with-modifier.js
  */
 
+import { take } from '@rme-sdk/core';
 import delay from 'delay';
 import { Page } from 'playwright';
-import { take } from '@remirror/core';
 
 /**
  * Keycode for ALT key.

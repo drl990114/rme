@@ -1,15 +1,15 @@
-import { createNanoEvents, Unsubscribe } from 'nanoevents';
 import {
-  AnyFunction,
-  EditorState,
-  EditorViewProps,
-  ErrorConstant,
-  Except,
-  invariant,
-  isFunction,
-  StateUpdateLifecycleProps,
-} from '@remirror/core';
-import type { HoverEventHandlerState, MouseEventHandlerState } from '@remirror/extension-events';
+    AnyFunction,
+    EditorState,
+    EditorViewProps,
+    ErrorConstant,
+    Except,
+    invariant,
+    isFunction,
+    StateUpdateLifecycleProps,
+} from '@rme-sdk/core';
+import type { HoverEventHandlerState, MouseEventHandlerState } from '@rme-sdk/extension-events';
+import { createNanoEvents, Unsubscribe } from 'nanoevents';
 
 /**
  * The events that can trigger a positioner update.

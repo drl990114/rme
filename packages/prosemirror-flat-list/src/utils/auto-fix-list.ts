@@ -1,5 +1,5 @@
-import type { Command, Transaction } from '@remirror/pm/state'
-import { canJoin, canSplit } from '@remirror/pm/transform'
+import type { Command, Transaction } from '@rme-sdk/pm/state'
+import { canJoin, canSplit } from '@rme-sdk/pm/transform'
 
 import type { ProsemirrorNode } from '../types'
 

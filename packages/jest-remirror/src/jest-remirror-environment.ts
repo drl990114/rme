@@ -1,4 +1,4 @@
-import { environment } from '@remirror/core';
+import { environment } from '@rme-sdk/core';
 
 import { remirrorMatchers } from './jest-remirror-matchers';
 import { jsdomPolyfill } from './jsdom-polyfills';

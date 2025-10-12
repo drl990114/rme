@@ -1,6 +1,6 @@
-import type { CommandDecoratorMessageProps, CommandUiIcon } from '@remirror/core'
-import type { CoreIcon } from '@remirror/icons'
-import { useHelpers } from '@remirror/react-core'
+import type { CommandDecoratorMessageProps, CommandUiIcon } from '@rme-sdk/core'
+import type { CoreIcon } from '@rme-sdk/icons'
+import { useHelpers } from '@rme-sdk/react-core'
 import { useMemo } from 'react'
 
 import { t } from 'i18next'

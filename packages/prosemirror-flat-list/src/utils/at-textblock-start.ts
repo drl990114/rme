@@ -1,6 +1,6 @@
-import type { ResolvedPos } from '@remirror/pm/model'
-import type { EditorState, TextSelection } from '@remirror/pm/state'
-import type { EditorView } from '@remirror/pm/view'
+import type { ResolvedPos } from '@rme-sdk/pm/model'
+import type { EditorState, TextSelection } from '@rme-sdk/pm/state'
+import type { EditorView } from '@rme-sdk/pm/view'
 
 export function atTextblockStart(
   state: EditorState,

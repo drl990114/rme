@@ -1,12 +1,12 @@
-import { createContext, useContext, useEffect, useRef } from 'react';
 import {
-  AnyExtension,
-  ErrorConstant,
-  invariant,
-  isFunction,
-  isPlainObject,
-  RemirrorEventListener,
-} from '@remirror/core';
+    AnyExtension,
+    ErrorConstant,
+    invariant,
+    isFunction,
+    isPlainObject,
+    RemirrorEventListener,
+} from '@rme-sdk/core';
+import { createContext, useContext, useEffect, useRef } from 'react';
 
 import type { ReactFrameworkOutput } from '../react-types';
 import { useForceUpdate } from './use-force-update';

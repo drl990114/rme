@@ -1,5 +1,5 @@
+import type { RemirrorJSON } from '@rme-sdk/core';
 import { useCallback } from 'react';
-import type { RemirrorJSON } from '@remirror/core';
 
 import { useDocChanged, useHelpers } from './hooks';
 

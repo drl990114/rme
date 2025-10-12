@@ -1,14 +1,14 @@
-import { RefCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { omitUndefined } from '@remirror/core';
+import { omitUndefined } from '@rme-sdk/core';
 import {
-  defaultAbsolutePosition,
-  ElementsAddedProps,
-  getPositioner,
-  PositionerExtension,
-  PositionerParam,
-  PositionerPosition,
-} from '@remirror/extension-positioner';
-import { useExtension } from '@remirror/react-core';
+    defaultAbsolutePosition,
+    ElementsAddedProps,
+    getPositioner,
+    PositionerExtension,
+    PositionerParam,
+    PositionerPosition,
+} from '@rme-sdk/extension-positioner';
+import { useExtension } from '@rme-sdk/react-core';
+import { RefCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 import { usePrevious } from './use-previous';
 
@@ -42,7 +42,7 @@ export interface UseMultiPositionerReturn<Data = any> extends PositionerPosition
  *
  * ```ts
  * import { Positioner } from 'remirror/extensions';
- * import { useMultiPositioner } from '@remirror/react';
+ * import { useMultiPositioner } from '@rme-sdk/react';
  *
  * const positioner = Positioner.create({
  *   ...config, // custom config

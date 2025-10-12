@@ -1,41 +1,41 @@
 import { jest } from '@jest/globals';
+import { omit } from '@rme-sdk/core-helpers';
+import { NodeSelection, Selection, TextSelection } from '@rme-sdk/pm/state';
 import {
-  atomBlock,
-  atomContainer,
-  atomInline,
-  blockquote,
-  createEditor,
-  doc,
-  h2,
-  p,
-  schema,
-  table,
-  td,
-  tdCursor,
-  tdEmpty,
-  tr as row,
+    atomBlock,
+    atomContainer,
+    atomInline,
+    blockquote,
+    createEditor,
+    doc,
+    h2,
+    p,
+    tr as row,
+    schema,
+    table,
+    td,
+    tdCursor,
+    tdEmpty,
 } from 'jest-prosemirror';
 import { renderEditor } from 'jest-remirror';
 import { BoldExtension, createCoreManager, HeadingExtension } from 'remirror/extensions';
-import { omit } from '@remirror/core-helpers';
-import { NodeSelection, Selection, TextSelection } from '@remirror/pm/state';
 
 import {
-  cloneTransaction,
-  composeTransactionSteps,
-  containsAttributes,
-  findElementAtPosition,
-  findNodeAtSelection,
-  findParentNode,
-  findParentNodeOfType,
-  findPositionOfNodeAfter,
-  findSelectedNodeOfType,
-  hasTransactionChanged,
-  isNodeActive,
-  isNodeOfType,
-  isSelectionEmpty,
-  removeNodeAtPosition,
-  schemaToJSON,
+    cloneTransaction,
+    composeTransactionSteps,
+    containsAttributes,
+    findElementAtPosition,
+    findNodeAtSelection,
+    findParentNode,
+    findParentNodeOfType,
+    findPositionOfNodeAfter,
+    findSelectedNodeOfType,
+    hasTransactionChanged,
+    isNodeActive,
+    isNodeOfType,
+    isSelectionEmpty,
+    removeNodeAtPosition,
+    schemaToJSON,
 } from '../';
 
 describe('isNodeOfType', () => {

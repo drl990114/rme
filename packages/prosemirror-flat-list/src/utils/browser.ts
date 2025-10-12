@@ -1,4 +1,4 @@
-// Copied from https://github.com/prosemirror/@remirror/pm/view/blob/1.30.1/src/browser.ts
+// Copied from https://github.com/prosemirror/@rme-sdk/pm/view/blob/1.30.1/src/browser.ts
 
 const nav = typeof navigator != 'undefined' ? navigator : null
 const agent = (nav && nav.userAgent) || ''

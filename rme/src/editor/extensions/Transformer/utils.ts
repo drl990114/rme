@@ -1,4 +1,4 @@
-import { EditorView } from 'remirror'
+import { EditorView } from '@rme-sdk/main'
 import { TransformerMenuState } from './transformer-extension'
 
 export const getTransformerByView = (view: EditorView): Partial<TransformerMenuState> => {

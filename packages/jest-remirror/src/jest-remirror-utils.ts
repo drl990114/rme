@@ -1,12 +1,12 @@
-import type { TestEditorViewProps } from 'jest-prosemirror';
 import {
-  isNumber,
-  isObject,
-  isProsemirrorNode,
-  ProsemirrorNode,
-  SchemaProps,
-} from '@remirror/core';
-import { AllSelection, NodeSelection, Selection, TextSelection } from '@remirror/pm/state';
+    isNumber,
+    isObject,
+    isProsemirrorNode,
+    ProsemirrorNode,
+    SchemaProps,
+} from '@rme-sdk/core';
+import { AllSelection, NodeSelection, Selection, TextSelection } from '@rme-sdk/pm/state';
+import type { TestEditorViewProps } from 'jest-prosemirror';
 
 import { coerce, offsetTags } from './jest-remirror-builder';
 import type { TaggedProsemirrorNode, Tags } from './jest-remirror-types';

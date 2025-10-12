@@ -1,31 +1,31 @@
 import {
-  assert,
-  command,
-  CommandFunction,
-  CreateExtensionPlugin,
-  environment,
-  extension,
-  ExtensionPriority,
-  getTextSelection,
-  Helper,
-  helper,
-  isEmptyObject,
-  OnSetOptionsProps,
-  PlainExtension,
-  PrimitiveSelection,
-  within,
-} from '@remirror/core';
-import type { EditorState } from '@remirror/pm/state';
+    assert,
+    command,
+    CommandFunction,
+    CreateExtensionPlugin,
+    environment,
+    extension,
+    ExtensionPriority,
+    getTextSelection,
+    Helper,
+    helper,
+    isEmptyObject,
+    OnSetOptionsProps,
+    PlainExtension,
+    PrimitiveSelection,
+    within,
+} from '@rme-sdk/core';
+import type { EditorState } from '@rme-sdk/pm/state';
 
 import { AnnotationStore } from '.';
 import { ActionType, UpdateAnnotationAction } from './annotation-actions';
 import { AnnotationState } from './annotation-plugin';
 import { MapLikeAnnotationStore } from './annotation-store';
 import type {
-  Annotation,
-  AnnotationOptions,
-  OmitText,
-  OmitTextAndPosition,
+    Annotation,
+    AnnotationOptions,
+    OmitText,
+    OmitTextAndPosition,
 } from './annotation-types';
 
 /**

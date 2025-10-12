@@ -1,13 +1,13 @@
 import { jest } from '@jest/globals';
+import { AnyExtension, PlainExtension, prosemirrorNodeToHtml } from '@rme-sdk/core';
+import { NodeSelection } from '@rme-sdk/pm/state';
 import {
-  BlockquoteExtension,
-  BoldExtension,
-  HeadingExtension,
-  LinkExtension,
+    BlockquoteExtension,
+    BoldExtension,
+    HeadingExtension,
+    LinkExtension,
 } from 'remirror/extensions';
 import { cleanup } from 'testing/react';
-import { AnyExtension, PlainExtension, prosemirrorNodeToHtml } from '@remirror/core';
-import { NodeSelection } from '@remirror/pm/state';
 
 import { renderEditor } from '../';
 

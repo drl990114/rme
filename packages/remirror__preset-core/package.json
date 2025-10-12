@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/preset-core",
-  "version": "3.0.2",
+  "name": "@rme-sdk/preset-core",
+  "version": "1.1.0",
   "description": "The core preset providing the functionality you need and want.",
   "keywords": [
     "remirror",
@@ -23,13 +23,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-preset-core.js",
-      "require": "./dist/remirror-preset-core.cjs"
+      "import": "./dist/rme-sdk-preset-core.js",
+      "require": "./dist/rme-sdk-preset-core.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-preset-core.cjs",
-  "module": "./dist/remirror-preset-core.js",
+  "main": "./dist/rme-sdk-preset-core.cjs",
+  "module": "./dist/rme-sdk-preset-core.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -40,38 +40,38 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/extension-doc": "workspace:*",
-    "@remirror/extension-events": "workspace:*",
-    "@remirror/extension-gap-cursor": "workspace:*",
-    "@remirror/extension-history": "workspace:*",
-    "@remirror/extension-paragraph": "workspace:*",
-    "@remirror/extension-positioner": "workspace:*",
-    "@remirror/extension-text": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/extension-doc": "workspace:*",
+    "@rme-sdk/extension-events": "workspace:*",
+    "@rme-sdk/extension-gap-cursor": "workspace:*",
+    "@rme-sdk/extension-history": "workspace:*",
+    "@rme-sdk/extension-paragraph": "workspace:*",
+    "@rme-sdk/extension-positioner": "workspace:*",
+    "@rme-sdk/extension-text": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-preset-core.d.ts",
-        "import": "./dist/remirror-preset-core.js",
-        "require": "./dist/remirror-preset-core.cjs"
+        "types": "./dist/rme-sdk-preset-core.d.ts",
+        "import": "./dist/rme-sdk-preset-core.js",
+        "require": "./dist/rme-sdk-preset-core.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-preset-core.cjs",
-    "module": "./dist/remirror-preset-core.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-preset-core.d.ts"
+    "main": "./dist/rme-sdk-preset-core.cjs",
+    "module": "./dist/rme-sdk-preset-core.js",
+    "types": "./dist/rme-sdk-preset-core.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

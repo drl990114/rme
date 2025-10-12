@@ -1,13 +1,13 @@
-import { useMemo } from 'react';
 import {
-  ExtensionPriority,
-  KeyBindingCommandFunction,
-  KeyBindingNames,
-  KeyBindingsTuple,
-  KeymapExtension,
-  LiteralUnion,
-} from '@remirror/core';
-import { useExtensionCustomEvent } from '@remirror/react-core';
+    ExtensionPriority,
+    KeyBindingCommandFunction,
+    KeyBindingNames,
+    KeyBindingsTuple,
+    KeymapExtension,
+    LiteralUnion,
+} from '@rme-sdk/core';
+import { useExtensionCustomEvent } from '@rme-sdk/react-core';
+import { useMemo } from 'react';
 
 /**
  * Add custom keyboard bindings to the editor instance.
@@ -17,7 +17,7 @@ import { useExtensionCustomEvent } from '@remirror/react-core';
  * ```tsx
  * import { useCallback } from 'react';
  * import { BoldExtension } from 'remirror/extensions';
- * import { Remirror, useHelpers, useKeymap, useRemirror, useRemirrorContext } from '@remirror/react';
+ * import { Remirror, useHelpers, useKeymap, useRemirror, useRemirrorContext } from '@rme-sdk/react';
  *
  * const hooks = [
  *   () => {

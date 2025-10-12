@@ -1,19 +1,19 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  ExtensionTag,
-  InputRule,
-  keyBinding,
-  KeyBindingProps,
-  NodeExtension,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  toggleWrap,
-} from '@remirror/core';
-import { ExtensionBlockquoteMessages as Messages } from '@remirror/messages';
-import { wrappingInputRule } from '@remirror/pm/inputrules';
-import type { PasteRule } from '@remirror/pm/paste-rules';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    ExtensionTag,
+    InputRule,
+    keyBinding,
+    KeyBindingProps,
+    NodeExtension,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    toggleWrap,
+} from '@rme-sdk/core';
+import { ExtensionBlockquoteMessages as Messages } from '@rme-sdk/messages';
+import { wrappingInputRule } from '@rme-sdk/pm/inputrules';
+import type { PasteRule } from '@rme-sdk/pm/paste-rules';
 
 /**
  * Add the blockquote block to the editor.

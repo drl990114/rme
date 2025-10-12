@@ -1,4 +1,4 @@
-import { AnyExtension, ChainedFromExtensions } from '@remirror/core';
+import { AnyExtension, ChainedFromExtensions } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 
@@ -6,7 +6,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * A core hook which provides the chainable commands for usage in your editor.
  *
  * ```tsx
- * import { useChainedCommands } from '@remirror/react';
+ * import { useChainedCommands } from '@rme-sdk/react';
  *
  * const EditorButton = () => {
  *   const chain = useChainedCommands();

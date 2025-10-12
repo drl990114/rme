@@ -1,6 +1,6 @@
-import { isArray } from '@remirror/core-helpers';
-import type { ProsemirrorPlugin } from '@remirror/core-types';
-import { PasteRule, pasteRules } from '@remirror/pm/paste-rules';
+import { isArray } from '@rme-sdk/core-helpers';
+import type { ProsemirrorPlugin } from '@rme-sdk/core-types';
+import { PasteRule, pasteRules } from '@rme-sdk/pm/paste-rules';
 
 import { PlainExtension } from '../extension';
 

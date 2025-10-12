@@ -1,13 +1,13 @@
-import { DependencyList, useEffect, useMemo } from 'react';
 import {
-  AddHandler,
-  AnyExtensionConstructor,
-  CustomHandlerMethod,
-  Dispose,
-  DynamicOptionsOfConstructor,
-  isFunction,
-  OptionsOfConstructor,
-} from '@remirror/core';
+    AddHandler,
+    AnyExtensionConstructor,
+    CustomHandlerMethod,
+    Dispose,
+    DynamicOptionsOfConstructor,
+    isFunction,
+    OptionsOfConstructor,
+} from '@rme-sdk/core';
+import { DependencyList, useEffect, useMemo } from 'react';
 
 import { useRemirrorContext } from './use-remirror-context';
 
@@ -29,7 +29,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * **Get the extension instance**
  *
  * ```tsx
- * import { useExtension } from '@remirror/react';
+ * import { useExtension } from '@rme-sdk/react';
  * import { BoldExtension } from 'remirror/extensions';
  *
  * const Editor = () => {
@@ -44,7 +44,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * **Update the extension properties**
  *
  * ```tsx
- * import { useExtension } from '@remirror/react';
+ * import { useExtension } from '@rme-sdk/react';
  * import { PlaceholderExtension } from 'remirror/extensions';
  *
  * const EditorPlaceholder = ({ placeholder = 'Your magnum opus' }) => {
@@ -59,7 +59,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * ```tsx
  * import { useCallback } from 'react';
  * import { HistoryExtension, HistoryOptions } from 'remirror/extensions';
- * import { useExtension } from '@remirror/react';
+ * import { useExtension } from '@rme-sdk/react';
  *
  * const Editor = ({ placeholder = 'Your magnum opus' }) => {
  *   useExtension(

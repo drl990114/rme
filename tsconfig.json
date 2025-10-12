@@ -33,9 +33,6 @@
       "path": "packages/prosemirror-paste-rules/src"
     },
     {
-      "path": "packages/prosemirror-resizable-view/src"
-    },
-    {
       "path": "packages/prosemirror-suggest/__tests__"
     },
     {

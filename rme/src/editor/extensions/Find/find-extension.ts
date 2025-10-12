@@ -1,15 +1,15 @@
 import {
-  CommandFunction,
-  CreateExtensionPlugin,
-  DispatchFunction,
-  extension,
-  FromToProps,
-  Helper,
-  PlainExtension,
-  ProsemirrorNode,
-  Transaction
-} from '@remirror/core'
-import { Decoration, DecorationAttrs, DecorationSet } from '@remirror/pm/view'
+    CommandFunction,
+    CreateExtensionPlugin,
+    DispatchFunction,
+    extension,
+    FromToProps,
+    Helper,
+    PlainExtension,
+    ProsemirrorNode,
+    Transaction
+} from '@rme-sdk/core'
+import { Decoration, DecorationAttrs, DecorationSet } from '@rme-sdk/pm/view'
 import escapeStringRegex from 'escape-string-regexp'
 // @ts-ignore
 import matchAll from 'string.prototype.matchall'

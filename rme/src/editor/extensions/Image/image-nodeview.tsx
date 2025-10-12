@@ -1,9 +1,9 @@
-import { Resizable } from '../../components/Resizable'
-import type { NodeViewComponentProps } from '@remirror/react'
+import type { NodeViewComponentProps } from '@rme-sdk/react'
 import { useCallback, useEffect, useRef } from 'react'
 import type { PopoverStore } from 'zens'
 import { Popover, Image as ZensImage } from 'zens'
 import type { ExtensionsOptions } from '..'
+import { Resizable } from '../../components/Resizable'
 import { ImageToolTips } from './image-tool-tips'
 
 export interface ImageNodeViewProps extends NodeViewComponentProps {

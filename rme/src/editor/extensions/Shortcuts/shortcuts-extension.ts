@@ -1,6 +1,6 @@
-import { EditorView, extension, PlainExtension } from '@remirror/core'
+import { EditorView, extension, PlainExtension } from '@rme-sdk/core'
+import { keymap } from '@rme-sdk/pm/keymap'
 import { ShortcutManager } from './configs/shortcuts'
-import { keymap } from '@remirror/pm/keymap'
 
 type ShortcutsExtensionOptions = {
   shortcuts?: { [key: string]: string }

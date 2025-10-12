@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-emoji",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-emoji",
+  "version": "1.1.0",
   "description": "Add flavor to your editor with emoji's that make the heart sing.",
   "keywords": [
     "remirror",
@@ -25,13 +25,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-emoji.js",
-      "require": "./dist/remirror-extension-emoji.cjs"
+      "import": "./dist/rme-sdk-extension-emoji.js",
+      "require": "./dist/rme-sdk-extension-emoji.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-emoji.cjs",
-  "module": "./dist/remirror-extension-emoji.js",
+  "main": "./dist/rme-sdk-extension-emoji.cjs",
+  "module": "./dist/rme-sdk-extension-emoji.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "apple",
@@ -45,8 +45,8 @@
   "dependencies": {
     "@babel/runtime": "^7.27.0",
     "@ocavue/svgmoji-cjs": "^0.1.1",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*",
     "emojibase": "^6.1.0",
     "emojibase-data": "^6.2.0",
     "emojibase-regex": "^6.0.1",
@@ -54,28 +54,28 @@
     "svgmoji": "^3.2.0"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-emoji.d.ts",
-        "import": "./dist/remirror-extension-emoji.js",
-        "require": "./dist/remirror-extension-emoji.cjs"
+        "types": "./dist/rme-sdk-extension-emoji.d.ts",
+        "import": "./dist/rme-sdk-extension-emoji.js",
+        "require": "./dist/rme-sdk-extension-emoji.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-emoji.cjs",
-    "module": "./dist/remirror-extension-emoji.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-emoji.d.ts"
+    "main": "./dist/rme-sdk-extension-emoji.cjs",
+    "module": "./dist/rme-sdk-extension-emoji.js",
+    "types": "./dist/rme-sdk-extension-emoji.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "60 KB"
   }
 }

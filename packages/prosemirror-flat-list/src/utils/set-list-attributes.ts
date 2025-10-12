@@ -1,4 +1,4 @@
-import type { Transaction } from '@remirror/pm/state'
+import type { Transaction } from '@rme-sdk/pm/state'
 
 import type { ListAttributes } from '../types'
 

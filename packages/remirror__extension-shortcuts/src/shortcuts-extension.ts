@@ -1,4 +1,4 @@
-import { extension, InputRule, PlainExtension, plainInputRule } from '@remirror/core';
+import { extension, InputRule, PlainExtension, plainInputRule } from '@rme-sdk/core';
 
 export interface ShortcutsOptions {}
 

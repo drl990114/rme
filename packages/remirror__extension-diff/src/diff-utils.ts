@@ -1,5 +1,5 @@
-import { assertGet, isEmptyArray } from '@remirror/core';
-import type { Step, StepMap, Transform } from '@remirror/pm/transform';
+import { assertGet, isEmptyArray } from '@rme-sdk/core';
+import type { Step, StepMap, Transform } from '@rme-sdk/pm/transform';
 
 interface SpanConstructorProps {
   from: number;

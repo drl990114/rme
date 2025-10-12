@@ -1,4 +1,4 @@
-import { Slice } from '@remirror/pm/model'
+import { Slice } from '@rme-sdk/pm/model'
 
 import { isListNode } from './is-list-node'
 

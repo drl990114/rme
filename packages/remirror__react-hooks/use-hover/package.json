@@ -1,14 +1,14 @@
 {
   "type": "module",
+  "main": "./dist/rme-sdk-react-hooks-use-hover.cjs",
+  "module": "./dist/rme-sdk-react-hooks-use-hover.js",
+  "types": "./dist/rme-sdk-react-hooks-use-hover.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-react-hooks-use-hover.d.ts",
-      "import": "./dist/remirror-react-hooks-use-hover.js",
-      "require": "./dist/remirror-react-hooks-use-hover.cjs"
+      "types": "./dist/rme-sdk-react-hooks-use-hover.d.ts",
+      "import": "./dist/rme-sdk-react-hooks-use-hover.js",
+      "require": "./dist/rme-sdk-react-hooks-use-hover.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-react-hooks-use-hover.cjs",
-  "module": "./dist/remirror-react-hooks-use-hover.js",
-  "types": "./dist/remirror-react-hooks-use-hover.d.ts"
+  }
 }

@@ -1,4 +1,4 @@
-import type { Command } from '@remirror/pm/state'
+import type { Command } from '@rme-sdk/pm/state'
 
 import type { ListAttributes, ProsemirrorNode } from '../types'
 import { isListNode } from '../utils/is-list-node'

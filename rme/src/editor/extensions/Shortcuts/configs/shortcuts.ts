@@ -1,6 +1,6 @@
-import { Command } from '@remirror/pm/state'
+import { ExtensionStore } from '@rme-sdk/main'
+import { Command } from '@rme-sdk/pm/state'
 import pkg from 'lodash'
-import { ExtensionStore } from 'remirror'
 import { rmeDefaultKeymap } from './keymap'
 const { cloneDeep } = pkg
 

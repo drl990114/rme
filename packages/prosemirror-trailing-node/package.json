@@ -33,11 +33,11 @@
     "build": "remirror-cli build"
   },
   "dependencies": {
-    "@remirror/core-constants": "workspace:*",
+    "@rme-sdk/core-constants": "workspace:*",
     "escape-string-regexp": "^4.0.0"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "prosemirror-model": "^1.25.1",
     "prosemirror-state": "^1.4.3",
     "prosemirror-view": "^1.39.2"
@@ -63,7 +63,7 @@
     "type": "module",
     "types": "./dist/prosemirror-trailing-node.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

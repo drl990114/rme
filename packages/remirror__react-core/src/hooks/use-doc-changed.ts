@@ -1,5 +1,5 @@
-import type { GetHandler } from '@remirror/core';
-import { DocChangedExtension, DocChangedOptions } from '@remirror/core';
+import type { GetHandler } from '@rme-sdk/core';
+import { DocChangedExtension, DocChangedOptions } from '@rme-sdk/core';
 
 import { useExtensionEvent } from './use-extension-event';
 

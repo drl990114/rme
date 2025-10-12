@@ -1,5 +1,5 @@
-import type { Node, NodeType, Schema } from '@remirror/pm/model'
-import { Mark } from '@remirror/pm/model'
+import type { Node, NodeType, Schema } from '@rme-sdk/pm/model'
+import { Mark } from '@rme-sdk/pm/model'
 import MarkdownIt from 'markdown-it'
 
 import MarkdownItListCheckbox from './markdown-it-list-checkbox'
@@ -10,12 +10,12 @@ import MarkdownItImage from './markdown-it-image'
 import MarkdownItMath from './markdown-it-math'
 import MarkdownItMermaid from './markdown-it-mermaid'
 import type {
-  BlockParserRule,
-  ContextParserRule,
-  InlineParserRule,
-  ParserRule,
-  ParserRuleContext,
-  TextParserRule,
+    BlockParserRule,
+    ContextParserRule,
+    InlineParserRule,
+    ParserRule,
+    ParserRuleContext,
+    TextParserRule,
 } from './parser-type'
 import { ParserRuleType } from './parser-type'
 

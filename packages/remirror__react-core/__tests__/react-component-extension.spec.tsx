@@ -1,16 +1,16 @@
+import {
+    ApplySchemaAttributes,
+    ExtensionTag,
+    NodeExtension,
+    NodeExtensionSpec,
+    setBlockType,
+} from '@rme-sdk/core';
+import type { NodeViewComponentProps } from '@rme-sdk/extension-react-component';
+import { ReactComponentExtension } from '@rme-sdk/extension-react-component';
 import { extensionValidityTest, RemirrorTestChain } from 'jest-remirror';
 import React, { ComponentType } from 'react';
 import { command, CommandFunction } from 'remirror';
 import { act, render, strictRender } from 'testing/react';
-import {
-  ApplySchemaAttributes,
-  ExtensionTag,
-  NodeExtension,
-  NodeExtensionSpec,
-  setBlockType,
-} from '@remirror/core';
-import type { NodeViewComponentProps } from '@remirror/extension-react-component';
-import { ReactComponentExtension } from '@remirror/extension-react-component';
 
 import { createReactManager, Remirror } from '../';
 

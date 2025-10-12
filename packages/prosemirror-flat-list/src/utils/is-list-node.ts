@@ -1,4 +1,4 @@
-import type { Node as ProsemirrorNode } from '@remirror/pm/model'
+import type { Node as ProsemirrorNode } from '@rme-sdk/pm/model'
 
 import { isListType } from './is-list-type'
 

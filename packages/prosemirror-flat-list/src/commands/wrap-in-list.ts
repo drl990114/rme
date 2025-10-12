@@ -1,6 +1,6 @@
-import { NodeRange } from '@remirror/pm/model'
-import type { Command } from '@remirror/pm/state'
-import { findWrapping } from '@remirror/pm/transform'
+import { NodeRange } from '@rme-sdk/pm/model'
+import type { Command } from '@rme-sdk/pm/state'
+import { findWrapping } from '@rme-sdk/pm/transform'
 
 import type { ListAttributes } from '../types'
 import { getListType } from '../utils/get-list-type'

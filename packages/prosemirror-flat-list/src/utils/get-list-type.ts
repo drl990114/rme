@@ -1,4 +1,4 @@
-import type { NodeType, Schema } from '@remirror/pm/model'
+import type { NodeType, Schema } from '@rme-sdk/pm/model'
 
 import { getListTypeName } from './get-list-type-name'
 

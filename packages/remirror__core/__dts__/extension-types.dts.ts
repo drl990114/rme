@@ -1,20 +1,20 @@
+import { object } from '@rme-sdk/core-helpers';
+import type { CommandFunction } from '@rme-sdk/core-types';
+import { nonChainable } from '@rme-sdk/core-utils';
 import {
-  AnyExtension,
-  ChainedFromExtensions,
-  CommandsFromExtensions,
-  GetExtensions,
-  PlainExtension,
-  RemoveAny,
+    AnyExtension,
+    ChainedFromExtensions,
+    CommandsFromExtensions,
+    GetExtensions,
+    PlainExtension,
+    RemoveAny,
 } from 'remirror';
 import {
-  DocExtension,
-  EventsExtension,
-  HistoryExtension,
-  ParagraphExtension,
+    DocExtension,
+    EventsExtension,
+    HistoryExtension,
+    ParagraphExtension,
 } from 'remirror/extensions';
-import { object } from '@remirror/core-helpers';
-import type { CommandFunction } from '@remirror/core-types';
-import { nonChainable } from '@remirror/core-utils';
 
 class FirstExtension extends PlainExtension {
   get name() {

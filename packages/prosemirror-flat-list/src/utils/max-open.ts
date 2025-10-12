@@ -1,6 +1,6 @@
-import type { Fragment, Node as ProsemirrorNode } from '@remirror/pm/model'
+import type { Fragment, Node as ProsemirrorNode } from '@rme-sdk/pm/model'
 
-// Copy from https://github.com/prosemirror/@remirror/pm/model/blob/1.19.0/src/replace.ts#L88-L95
+// Copy from https://github.com/prosemirror/@rme-sdk/pm/model/blob/1.19.0/src/replace.ts#L88-L95
 export function maxOpenStart(
   fragment: Fragment | ProsemirrorNode,
   openIsolating = true,
@@ -16,7 +16,7 @@ export function maxOpenStart(
   return openStart
 }
 
-// Copy from https://github.com/prosemirror/@remirror/pm/model/blob/1.19.0/src/replace.ts#L88-L95
+// Copy from https://github.com/prosemirror/@rme-sdk/pm/model/blob/1.19.0/src/replace.ts#L88-L95
 export function maxOpenEnd(
   fragment: Fragment | ProsemirrorNode,
   openIsolating = true,

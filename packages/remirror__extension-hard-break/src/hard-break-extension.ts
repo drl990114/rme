@@ -1,18 +1,18 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  convertCommand,
-  extension,
-  ExtensionPriority,
-  ExtensionTag,
-  KeyBindings,
-  NodeExtension,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-} from '@remirror/core';
-import { chainCommands } from '@remirror/pm';
-import { exitCode } from '@remirror/pm/commands';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    convertCommand,
+    extension,
+    ExtensionPriority,
+    ExtensionTag,
+    KeyBindings,
+    NodeExtension,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+} from '@rme-sdk/core';
+import { chainCommands } from '@rme-sdk/pm';
+import { exitCode } from '@rme-sdk/pm/commands';
 
 export interface HardBreakOptions {
   /**

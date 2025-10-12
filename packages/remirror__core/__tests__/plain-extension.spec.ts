@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals';
+import { ExtensionPriority } from '@rme-sdk/core-constants';
+import type { Handler } from '@rme-sdk/core-types';
 import { BoldExtension } from 'remirror/extensions';
-import { ExtensionPriority } from '@remirror/core-constants';
-import type { Handler } from '@remirror/core-types';
 
 import { extension, PlainExtension } from '../';
 

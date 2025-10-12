@@ -1,4 +1,4 @@
-import type { Command } from '@remirror/pm/state'
+import type { Command } from '@rme-sdk/pm/state'
 
 import { isCollapsedListNode } from '../utils/is-collapsed-list-node'
 

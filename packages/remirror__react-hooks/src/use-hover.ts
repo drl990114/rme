@@ -1,4 +1,4 @@
-import { HoverEventHandler } from '@remirror/extension-events';
+import { HoverEventHandler } from '@rme-sdk/extension-events';
 
 import { useEditorEvent } from './use-editor-event';
 

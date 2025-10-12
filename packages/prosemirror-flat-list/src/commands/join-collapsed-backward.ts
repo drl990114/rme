@@ -1,5 +1,5 @@
-import type { ResolvedPos } from '@remirror/pm/model'
-import { type Command, TextSelection } from '@remirror/pm/state'
+import type { ResolvedPos } from '@rme-sdk/pm/model'
+import { type Command, TextSelection } from '@rme-sdk/pm/state'
 
 import type { ListAttributes } from '../types'
 import { atTextblockStart } from '../utils/at-textblock-start'

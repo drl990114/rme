@@ -1,6 +1,6 @@
-import type { GetHandler, StringKey } from '@remirror/core';
-import { EventsExtension, EventsOptions } from '@remirror/extension-events';
-import { useExtensionEvent } from '@remirror/react-core';
+import type { GetHandler, StringKey } from '@rme-sdk/core';
+import { EventsExtension, EventsOptions } from '@rme-sdk/extension-events';
+import { useExtensionEvent } from '@rme-sdk/react-core';
 
 /**
  * A hook for subscribing to events from the editor.

@@ -1,4 +1,4 @@
-import type { RemirrorMessage } from '@remirror/core-types';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
 
 export const SET_COLOR_LABEL: RemirrorMessage = /*i18n*/ {
   id: 'extension.command.set-text-color.label',

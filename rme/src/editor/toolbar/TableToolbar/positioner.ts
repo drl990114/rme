@@ -1,9 +1,9 @@
-import type { ResolvedPos, Selection } from '@remirror/core-types'
-import type { PositionerPosition } from '@remirror/extension-positioner'
-import { Positioner, hasStateChanged, isPositionVisible } from '@remirror/extension-positioner'
-import type { ActiveCellColumnPositionerData } from '@remirror/extension-tables'
-import type { FindProsemirrorNodeResult, Shape } from 'remirror'
-import { findParentNodeOfType, isElementDomNode } from 'remirror'
+import type { ResolvedPos, Selection } from '@rme-sdk/core-types'
+import type { PositionerPosition } from '@rme-sdk/extension-positioner'
+import { Positioner, hasStateChanged, isPositionVisible } from '@rme-sdk/extension-positioner'
+import type { ActiveCellColumnPositionerData } from '@rme-sdk/extension-tables'
+import type { FindProsemirrorNodeResult, Shape } from '@rme-sdk/main'
+import { findParentNodeOfType, isElementDomNode } from '@rme-sdk/main'
 
 export interface PositionerIllustrationProps {
   positioner: Positioner

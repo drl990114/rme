@@ -1,27 +1,27 @@
-import direction from 'direction';
 import type {
-  AcceptUndefined,
-  CommandFunction,
-  CreateExtensionPlugin,
-  IdentifierSchemaAttributes,
-  OnSetOptionsProps,
-  PrimitiveSelection,
-  ProsemirrorAttributes,
-  SchemaAttributesObject,
-  Selection,
-  Static,
-} from '@remirror/core';
+    AcceptUndefined,
+    CommandFunction,
+    CreateExtensionPlugin,
+    IdentifierSchemaAttributes,
+    OnSetOptionsProps,
+    PrimitiveSelection,
+    ProsemirrorAttributes,
+    SchemaAttributesObject,
+    Selection,
+    Static,
+} from '@rme-sdk/core';
 import {
-  command,
-  extension,
-  ExtensionTag,
-  findParentNode,
-  getTextSelection,
-  hasTransactionChanged,
-  isString,
-  PlainExtension,
-} from '@remirror/core';
-import { ExtensionBidiMessages } from '@remirror/messages';
+    command,
+    extension,
+    ExtensionTag,
+    findParentNode,
+    getTextSelection,
+    hasTransactionChanged,
+    isString,
+    PlainExtension,
+} from '@rme-sdk/core';
+import { ExtensionBidiMessages } from '@rme-sdk/messages';
+import direction from 'direction';
 
 const setTextDirectionOptions: Remirror.CommandDecoratorOptions = {
   icon: ({ attrs }) => (attrs?.dir === 'ltr' ? 'textDirectionL' : 'textDirectionR'),

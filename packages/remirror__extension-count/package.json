@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-count",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-count",
+  "version": "1.1.0",
   "description": "Count characters or words in your editor, and set a soft max length",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-count.js",
-      "require": "./dist/remirror-extension-count.cjs"
+      "import": "./dist/rme-sdk-extension-count.js",
+      "require": "./dist/rme-sdk-extension-count.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-count.cjs",
-  "module": "./dist/remirror-extension-count.js",
+  "main": "./dist/rme-sdk-extension-count.cjs",
+  "module": "./dist/rme-sdk-extension-count.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,31 +38,31 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*"
+    "@rme-sdk/core": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-count.d.ts",
-        "import": "./dist/remirror-extension-count.js",
-        "require": "./dist/remirror-extension-count.cjs"
+        "types": "./dist/rme-sdk-extension-count.d.ts",
+        "import": "./dist/rme-sdk-extension-count.js",
+        "require": "./dist/rme-sdk-extension-count.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-count.cjs",
-    "module": "./dist/remirror-extension-count.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-count.d.ts"
+    "main": "./dist/rme-sdk-extension-count.cjs",
+    "module": "./dist/rme-sdk-extension-count.js",
+    "types": "./dist/rme-sdk-extension-count.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

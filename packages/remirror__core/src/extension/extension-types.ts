@@ -1,23 +1,23 @@
 import type {
-  AnyFunction,
-  CommandFunction,
-  ConditionalPick,
-  ConditionalReturnPick,
-  Flavoring,
-  LiteralUnion,
-  NonChainableCommandFunction,
-  ProsemirrorAttributes,
-  StringKey,
-  Transaction,
-  UnionToIntersection,
-} from '@remirror/core-types';
+    AnyFunction,
+    CommandFunction,
+    ConditionalPick,
+    ConditionalReturnPick,
+    Flavoring,
+    LiteralUnion,
+    NonChainableCommandFunction,
+    ProsemirrorAttributes,
+    StringKey,
+    Transaction,
+    UnionToIntersection,
+} from '@rme-sdk/core-types';
 
 import type { CommandShape, GetCommands, GetHelpers } from '../types';
 import type {
-  AnyExtension,
-  AnyMarkExtension,
-  AnyNodeExtension,
-  AnyPlainExtension,
+    AnyExtension,
+    AnyMarkExtension,
+    AnyNodeExtension,
+    AnyPlainExtension,
 } from './extension';
 
 export interface ExtensionListProps<Extension extends AnyExtension = AnyExtension> {

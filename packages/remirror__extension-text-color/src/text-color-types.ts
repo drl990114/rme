@@ -1,4 +1,4 @@
-import { I18nFormatter, PrimitiveSelection, Static, TupleOf } from '@remirror/core';
+import { I18nFormatter, PrimitiveSelection, Static, TupleOf } from '@rme-sdk/core';
 
 export interface TextColorAttributes {
   /**

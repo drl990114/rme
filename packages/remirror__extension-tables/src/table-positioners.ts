@@ -1,18 +1,18 @@
 import {
-  FindProsemirrorNodeResult,
-  isElementDomNode,
-  mergeDOMRects,
-  NodeWithPosition,
-  ProsemirrorNode,
-  Selection,
-} from '@remirror/core';
+    FindProsemirrorNodeResult,
+    isElementDomNode,
+    mergeDOMRects,
+    NodeWithPosition,
+    ProsemirrorNode,
+    Selection,
+} from '@rme-sdk/core';
 import {
-  defaultAbsolutePosition,
-  hasStateChanged,
-  isPositionVisible,
-  Positioner,
-} from '@remirror/extension-positioner';
-import { CellSelection, isCellSelection, TableMap } from '@remirror/pm/tables';
+    defaultAbsolutePosition,
+    hasStateChanged,
+    isPositionVisible,
+    Positioner,
+} from '@rme-sdk/extension-positioner';
+import { CellSelection, isCellSelection, TableMap } from '@rme-sdk/pm/tables';
 
 import { findCellClosestToPos, findTable } from './table-utils';
 

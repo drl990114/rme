@@ -1,9 +1,9 @@
 import { languages } from '@codemirror/language-data'
-import type { EditorView, FindProsemirrorNodeResult } from 'remirror'
-import { fakeIndentedLanguage } from './codemirror-extension'
-import Fuse from 'fuse.js'
 import { computePosition } from '@floating-ui/dom'
+import type { EditorView, FindProsemirrorNodeResult } from '@rme-sdk/core'
+import Fuse from 'fuse.js'
 import { t } from 'i18next'
+import { fakeIndentedLanguage } from './codemirror-extension'
 
 interface CodeMirrorMenuDecorations {
   create: (view: EditorView, getPos: () => number | undefined) => HTMLElement

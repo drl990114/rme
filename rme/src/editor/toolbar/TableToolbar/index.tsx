@@ -1,8 +1,8 @@
-import { PositionerPortal, useCommands, useMultiPositioner } from '@remirror/react'
+import { PositionerPortal, useCommands, useMultiPositioner } from '@rme-sdk/react'
 import { useEffect } from 'react'
 import ActiveCellMenu from './ActiveCellMenu'
 import TitleBar from './TableBar'
-import type { PositionerIllustrationProps} from './positioner'
+import type { PositionerIllustrationProps } from './positioner'
 import { activeCellColumnAndRowPositioner } from './positioner'
 
 const MultiPositionerIllustration = ({ positioner }: PositionerIllustrationProps) => {

@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-history",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-history",
+  "version": "1.1.0",
   "description": "Add undo and redo history to your editor.",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-history.js",
-      "require": "./dist/remirror-extension-history.cjs"
+      "import": "./dist/rme-sdk-extension-history.js",
+      "require": "./dist/rme-sdk-extension-history.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-history.cjs",
-  "module": "./dist/remirror-extension-history.js",
+  "main": "./dist/rme-sdk-extension-history.cjs",
+  "module": "./dist/rme-sdk-extension-history.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,32 +38,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-history.d.ts",
-        "import": "./dist/remirror-extension-history.js",
-        "require": "./dist/remirror-extension-history.cjs"
+        "types": "./dist/rme-sdk-extension-history.d.ts",
+        "import": "./dist/rme-sdk-extension-history.js",
+        "require": "./dist/rme-sdk-extension-history.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-history.cjs",
-    "module": "./dist/remirror-extension-history.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-history.d.ts"
+    "main": "./dist/rme-sdk-extension-history.cjs",
+    "module": "./dist/rme-sdk-extension-history.js",
+    "types": "./dist/rme-sdk-extension-history.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

@@ -1,4 +1,4 @@
-import type { AcceptUndefined } from '@remirror/core';
+import type { AcceptUndefined } from '@rme-sdk/core';
 
 export interface MapLike<K extends string, V> {
   clear?: () => void;

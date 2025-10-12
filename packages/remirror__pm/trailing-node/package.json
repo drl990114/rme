@@ -1,14 +1,14 @@
 {
   "type": "module",
+  "main": "./dist/rme-sdk-pm-trailing-node.cjs",
+  "module": "./dist/rme-sdk-pm-trailing-node.js",
+  "types": "./dist/rme-sdk-pm-trailing-node.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-pm-trailing-node.d.ts",
-      "import": "./dist/remirror-pm-trailing-node.js",
-      "require": "./dist/remirror-pm-trailing-node.cjs"
+      "types": "./dist/rme-sdk-pm-trailing-node.d.ts",
+      "import": "./dist/rme-sdk-pm-trailing-node.js",
+      "require": "./dist/rme-sdk-pm-trailing-node.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-pm-trailing-node.cjs",
-  "module": "./dist/remirror-pm-trailing-node.js",
-  "types": "./dist/remirror-pm-trailing-node.d.ts"
+  }
 }

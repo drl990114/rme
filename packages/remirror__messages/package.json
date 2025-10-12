@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/messages",
-  "version": "3.0.0",
+  "name": "@rme-sdk/messages",
+  "version": "1.1.0",
   "description": "Internalization strings which are used throughout the remirror core codebase.",
   "keywords": [
     "remirror"
@@ -40,13 +40,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core-helpers": "workspace:*",
-    "@remirror/core-types": "workspace:*"
+    "@rme-sdk/core-helpers": "workspace:*",
+    "@rme-sdk/core-types": "workspace:*"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
     "@babel/preset-typescript": "^7.27.0",
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "babel-plugin-macros": "^3.1.0",
     "rollup": "^3.23.0",
     "tsx": "^4.6.2"
@@ -67,7 +67,7 @@
     "type": "module",
     "types": "./dist/remirror-messages.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "50 KB",
     "tsconfigs": {
       "src": false,

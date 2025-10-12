@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-react-component",
-  "version": "3.0.3",
+  "name": "@rme-sdk/extension-react-component",
+  "version": "1.1.0",
   "description": "Create prosemirror node views from your react components",
   "keywords": [
     "remirror",
@@ -22,13 +22,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-react-component.js",
-      "require": "./dist/remirror-extension-react-component.cjs"
+      "import": "./dist/rme-sdk-extension-react-component.js",
+      "require": "./dist/rme-sdk-extension-react-component.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-react-component.cjs",
-  "module": "./dist/remirror-extension-react-component.js",
+  "main": "./dist/rme-sdk-extension-react-component.cjs",
+  "module": "./dist/rme-sdk-extension-react-component.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -39,24 +39,24 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/core-constants": "workspace:*",
-    "@remirror/core-helpers": "workspace:*",
-    "@remirror/core-types": "workspace:*",
-    "@remirror/core-utils": "workspace:*",
-    "@remirror/messages": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/core-constants": "workspace:*",
+    "@rme-sdk/core-helpers": "workspace:*",
+    "@rme-sdk/core-types": "workspace:*",
+    "@rme-sdk/core-utils": "workspace:*",
+    "@rme-sdk/messages": "workspace:*",
     "nanoevents": "^5.1.13"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "@types/react": "^16.14.0 || ^17 || ^18",
     "@types/react-dom": "^16.9.0 || ^17 || ^18",
     "react": "^16.14.0 || ^17 || ^18",
@@ -71,21 +71,21 @@
     }
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-react-component.d.ts",
-        "import": "./dist/remirror-extension-react-component.js",
-        "require": "./dist/remirror-extension-react-component.cjs"
+        "types": "./dist/rme-sdk-extension-react-component.d.ts",
+        "import": "./dist/rme-sdk-extension-react-component.js",
+        "require": "./dist/rme-sdk-extension-react-component.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-react-component.cjs",
-    "module": "./dist/remirror-extension-react-component.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-react-component.d.ts"
+    "main": "./dist/rme-sdk-extension-react-component.cjs",
+    "module": "./dist/rme-sdk-extension-react-component.js",
+    "types": "./dist/rme-sdk-extension-react-component.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

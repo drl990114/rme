@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-text",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-text",
+  "version": "1.1.0",
   "description": "Enable text in your text-editor, an oxymoron of sorts.",
   "keywords": [
     "remirror",
@@ -23,13 +23,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-text.js",
-      "require": "./dist/remirror-extension-text.cjs"
+      "import": "./dist/rme-sdk-extension-text.js",
+      "require": "./dist/rme-sdk-extension-text.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-text.cjs",
-  "module": "./dist/remirror-extension-text.js",
+  "main": "./dist/rme-sdk-extension-text.cjs",
+  "module": "./dist/rme-sdk-extension-text.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -40,32 +40,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-text.d.ts",
-        "import": "./dist/remirror-extension-text.js",
-        "require": "./dist/remirror-extension-text.cjs"
+        "types": "./dist/rme-sdk-extension-text.d.ts",
+        "import": "./dist/rme-sdk-extension-text.js",
+        "require": "./dist/rme-sdk-extension-text.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-text.cjs",
-    "module": "./dist/remirror-extension-text.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-text.d.ts"
+    "main": "./dist/rme-sdk-extension-text.cjs",
+    "module": "./dist/rme-sdk-extension-text.js",
+    "types": "./dist/rme-sdk-extension-text.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

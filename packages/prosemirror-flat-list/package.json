@@ -1,35 +1,26 @@
 {
-  "name": "prosemirror-flat-list",
+  "name": "@rme-sdk/prosemirror-flat-list",
   "type": "module",
-  "version": "3.0.0",
+  "version": "1.1.0",
   "description": "Powerful list support for ProseMirror",
-  "author": "ocavue <ocavue@gmail.com>",
   "license": "MIT",
-  "funding": "https://github.com/sponsors/ocavue",
-  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/prosemirror-flat-list",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/remirror/remirror.git",
-    "directory": "packages/prosemirror-flat-list"
-  },
-  "bugs": "https://github.com/ocavue/prosemirror-flat-list/issues",
   "keywords": [
     "ProseMirror",
     "list"
   ],
   "sideEffects": false,
-  "main": "./dist/prosemirror-flat-list.cjs",
-  "module": "./dist/prosemirror-flat-list.js",
+  "main": "./dist/rme-sdk-prosemirror-flat-list.cjs",
+  "module": "./dist/rme-sdk-prosemirror-flat-list.js",
   "types": "./dist-types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/prosemirror-flat-list.js",
-      "require": "./dist/prosemirror-flat-list.cjs"
+      "import": "./dist/rme-sdk-prosemirror-flat-list.js",
+      "require": "./dist/rme-sdk-prosemirror-flat-list.cjs"
     },
     "./dist/style.css": "./dist/style.css",
-    "./style.css": "./dist/style.css",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist",
@@ -42,14 +33,14 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@remirror/core": "workspace:*",
-    "@remirror/pm": "workspace:*",
-    "@remirror/preset-core": "workspace:*",
-    "remirror": "workspace:*",
-    "prosemirror-safari-ime-span": "^1.0.2"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
+    "@rme-sdk/preset-core": "workspace:*",
+    "prosemirror-safari-ime-span": "^1.0.2",
+    "@rme-sdk/main": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
     "@types/dedent": "^0.7.2",
     "@types/node": "^20.17.5",
     "@vitest/coverage-v8": "^3.1.4",
@@ -75,9 +66,9 @@
   "publishConfig": {
     "exports": {
       ".": {
-        "types": "./dist/prosemirror-flat-list.d.ts",
-        "import": "./dist/prosemirror-flat-list.js",
-        "require": "./dist/prosemirror-flat-list.cjs"
+        "types": "./dist/rme-sdk-prosemirror-flat-list.d.ts",
+        "import": "./dist/rme-sdk-prosemirror-flat-list.js",
+        "require": "./dist/rme-sdk-prosemirror-flat-list.cjs"
       },
       "./dist/style.css": "./dist/style.css",
       "./package.json": "./package.json",
@@ -85,8 +76,14 @@
     },
     "access": "public",
     "type": "module",
-    "main": "./dist/prosemirror-flat-list.cjs",
-    "module": "./dist/prosemirror-flat-list.js",
-    "types": "./dist/prosemirror-flat-list.d.ts"
+    "main": "./dist/rme-sdk-prosemirror-flat-list.cjs",
+    "module": "./dist/rme-sdk-prosemirror-flat-list.js",
+    "types": "./dist/rme-sdk-prosemirror-flat-list.d.ts"
+  },
+  "homepage": "https://github.com/remirror/remirror/tree/HEAD/packages/prosemirror-flat-list",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remirror/remirror.git",
+    "directory": "packages/prosemirror-flat-list"
   }
 }

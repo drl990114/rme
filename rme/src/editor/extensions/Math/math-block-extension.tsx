@@ -1,14 +1,14 @@
+import type {
+    ApplySchemaAttributes,
+    InputRule,
+    NodeExtensionSpec,
+    NodeSpecOverride,
+    NodeViewMethod,
+    PrioritizedKeyBindings,
+} from '@rme-sdk/core'
+import { extension, ExtensionTag, NodeExtension, nodeInputRule } from '@rme-sdk/core'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
-import type {
-  ApplySchemaAttributes,
-  InputRule,
-  NodeExtensionSpec,
-  NodeSpecOverride,
-  NodeViewMethod,
-  PrioritizedKeyBindings,
-} from '@remirror/core'
-import { extension, ExtensionTag, NodeExtension, nodeInputRule } from '@remirror/core'
 import { arrowHandler } from '../CodeMirror/codemirror-utils'
 import { MathBlockView } from './math-block-nodeview'
 

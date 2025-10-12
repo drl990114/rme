@@ -1,57 +1,57 @@
 import {
-  ErrorConstant,
-  ExtensionPriority,
-  ExtensionTag,
-  ExtensionTagType,
-} from '@remirror/core-constants';
+    ErrorConstant,
+    ExtensionPriority,
+    ExtensionTag,
+    ExtensionTagType,
+} from '@rme-sdk/core-constants';
 import {
-  assertGet,
-  entries,
-  invariant,
-  isArray,
-  isFunction,
-  isNullOrUndefined,
-  isPlainObject,
-  isString,
-  object,
-  toString,
-} from '@remirror/core-helpers';
+    assertGet,
+    entries,
+    invariant,
+    isArray,
+    isFunction,
+    isNullOrUndefined,
+    isPlainObject,
+    isString,
+    object,
+    toString,
+} from '@rme-sdk/core-helpers';
 import type {
-  ApplySchemaAttributes,
-  DynamicAttributeCreator,
-  EditorSchema,
-  JsonPrimitive,
-  Mark,
-  MarkExtensionSpec,
-  MarkSpecOverride,
-  NodeExtensionSpec,
-  NodeMarkOptions,
-  NodeSpecOverride,
-  ProsemirrorAttributes,
-  ProsemirrorNode,
-  SchemaAttributes,
-  SchemaAttributesObject,
-  Static,
-  Transaction,
-} from '@remirror/core-types';
+    ApplySchemaAttributes,
+    DynamicAttributeCreator,
+    EditorSchema,
+    JsonPrimitive,
+    Mark,
+    MarkExtensionSpec,
+    MarkSpecOverride,
+    NodeExtensionSpec,
+    NodeMarkOptions,
+    NodeSpecOverride,
+    ProsemirrorAttributes,
+    ProsemirrorNode,
+    SchemaAttributes,
+    SchemaAttributesObject,
+    Static,
+    Transaction,
+} from '@rme-sdk/core-types';
 import {
-  getDefaultBlockNode,
-  getMarkRange,
-  isElementDomNode,
-  isProsemirrorMark,
-  isProsemirrorNode,
-} from '@remirror/core-utils';
-import { MarkSpec, NodeSpec, Schema } from '@remirror/pm/model';
-import { ignoreUpdateForSuggest } from '@remirror/pm/suggest';
+    getDefaultBlockNode,
+    getMarkRange,
+    isElementDomNode,
+    isProsemirrorMark,
+    isProsemirrorNode,
+} from '@rme-sdk/core-utils';
+import { MarkSpec, NodeSpec, Schema } from '@rme-sdk/pm/model';
+import { ignoreUpdateForSuggest } from '@rme-sdk/pm/suggest';
 
 import {
-  AnyExtension,
-  extension,
-  GetMarkNameUnion,
-  GetNodeNameUnion,
-  isMarkExtension,
-  isNodeExtension,
-  PlainExtension,
+    AnyExtension,
+    extension,
+    GetMarkNameUnion,
+    GetNodeNameUnion,
+    isMarkExtension,
+    isNodeExtension,
+    PlainExtension,
 } from '../extension';
 import type { CreateExtensionPlugin } from '../types';
 import type { CombinedTags } from './tags-extension';
@@ -1076,7 +1076,7 @@ declare global {
        * Allows the extension to create an extra attributes array that will be
        * added to the extra attributes.
        *
-       * For example the `@remirror/extension-bidi` adds a `dir` attribute to
+       * For example the `@rme-sdk/extension-bidi` adds a `dir` attribute to
        * all node extensions which allows them to automatically infer whether
        * the text direction should be right-to-left, or left-to-right.
        */

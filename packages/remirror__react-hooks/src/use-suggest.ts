@@ -1,26 +1,26 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
 import {
-  ApplyStateLifecycleProps,
-  BuiltinPreset,
-  Except,
-  isEmptyObject,
-  PluginsExtension,
-  SuggestExtension,
-} from '@remirror/core';
-import { hasStateChanged } from '@remirror/extension-positioner';
+    ApplyStateLifecycleProps,
+    BuiltinPreset,
+    Except,
+    isEmptyObject,
+    PluginsExtension,
+    SuggestExtension,
+} from '@rme-sdk/core';
+import { hasStateChanged } from '@rme-sdk/extension-positioner';
 import type {
-  ChangeReason,
-  ExitReason,
-  SuggestChangeHandler,
-  SuggestChangeHandlerProps,
-  Suggester,
-  SuggestState,
-} from '@remirror/pm/suggest';
+    ChangeReason,
+    ExitReason,
+    SuggestChangeHandler,
+    SuggestChangeHandlerProps,
+    Suggester,
+    SuggestState,
+} from '@rme-sdk/pm/suggest';
 import {
-  useExtensionCustomEvent,
-  useExtensionEvent,
-  useRemirrorContext,
-} from '@remirror/react-core';
+    useExtensionCustomEvent,
+    useExtensionEvent,
+    useRemirrorContext,
+} from '@rme-sdk/react-core';
+import { useCallback, useMemo, useRef, useState } from 'react';
 
 /**
  * This hook allows you to dynamically create a suggester which can respond to

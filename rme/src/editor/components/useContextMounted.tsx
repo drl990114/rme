@@ -1,4 +1,4 @@
-import { useRemirrorContext } from '@remirror/react-core'
+import { useRemirrorContext } from '@rme-sdk/react-core'
 import { useEffect } from 'react'
 import { EditorContext } from '../types'
 

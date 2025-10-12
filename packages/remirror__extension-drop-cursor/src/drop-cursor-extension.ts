@@ -1,5 +1,5 @@
-import { extension, PlainExtension, ProsemirrorPlugin } from '@remirror/core';
-import { dropCursor } from '@remirror/pm/dropcursor';
+import { extension, PlainExtension, ProsemirrorPlugin } from '@rme-sdk/core';
+import { dropCursor } from '@rme-sdk/pm/dropcursor';
 
 export interface DropCursorOptions {
   /**

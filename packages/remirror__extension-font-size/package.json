@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-font-size",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-font-size",
+  "version": "1.1.0",
   "description": "Add font size to the selected text, or text within the provided range.",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-font-size.js",
-      "require": "./dist/remirror-extension-font-size.cjs"
+      "import": "./dist/rme-sdk-extension-font-size.js",
+      "require": "./dist/rme-sdk-extension-font-size.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-font-size.cjs",
-  "module": "./dist/remirror-extension-font-size.js",
+  "main": "./dist/rme-sdk-extension-font-size.cjs",
+  "module": "./dist/rme-sdk-extension-font-size.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,33 +38,33 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/messages": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/messages": "workspace:*",
     "round": "^2.0.1"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-font-size.d.ts",
-        "import": "./dist/remirror-extension-font-size.js",
-        "require": "./dist/remirror-extension-font-size.cjs"
+        "types": "./dist/rme-sdk-extension-font-size.d.ts",
+        "import": "./dist/rme-sdk-extension-font-size.js",
+        "require": "./dist/rme-sdk-extension-font-size.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-font-size.cjs",
-    "module": "./dist/remirror-extension-font-size.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-font-size.d.ts"
+    "main": "./dist/rme-sdk-extension-font-size.cjs",
+    "module": "./dist/rme-sdk-extension-font-size.js",
+    "types": "./dist/rme-sdk-extension-font-size.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

@@ -1,4 +1,4 @@
-import type { Transaction } from '@remirror/pm/state'
+import type { Transaction } from '@rme-sdk/pm/state'
 
 /**
  * Split the node at the given position, and optionally, if `depth` is greater

@@ -1,5 +1,5 @@
 import { autoUpdate, useFloating, VirtualElement } from '@floating-ui/react'
-import { useCommands } from '@remirror/react'
+import { useCommands } from '@rme-sdk/react'
 import React, { useCallback, useEffect } from 'react'
 
 import type { LineTableCellExtension } from './table-extension'

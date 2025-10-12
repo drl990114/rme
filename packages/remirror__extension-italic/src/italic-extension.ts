@@ -1,22 +1,22 @@
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  extension,
-  ExtensionTag,
-  InputRule,
-  keyBinding,
-  KeyBindingProps,
-  KeyBindings,
-  MarkExtension,
-  MarkExtensionSpec,
-  markInputRule,
-  MarkSpecOverride,
-  NamedShortcut,
-  PrimitiveSelection,
-  toggleMark,
-} from '@remirror/core';
-import { MarkPasteRule } from '@remirror/pm/paste-rules';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    extension,
+    ExtensionTag,
+    InputRule,
+    keyBinding,
+    KeyBindingProps,
+    KeyBindings,
+    MarkExtension,
+    MarkExtensionSpec,
+    markInputRule,
+    MarkSpecOverride,
+    NamedShortcut,
+    PrimitiveSelection,
+    toggleMark,
+} from '@rme-sdk/core';
+import { MarkPasteRule } from '@rme-sdk/pm/paste-rules';
 
 import { toggleItalicOptions } from './italic-utils';
 

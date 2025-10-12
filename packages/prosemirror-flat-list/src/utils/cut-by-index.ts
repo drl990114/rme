@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 
-import type { Fragment } from '@remirror/pm/model'
+import type { Fragment } from '@rme-sdk/pm/model'
 
 export function cutByIndex(
   fragment: Fragment,

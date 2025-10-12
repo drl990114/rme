@@ -1,5 +1,5 @@
-import { omit } from '@remirror/core-helpers';
-import type { Shape } from '@remirror/core-types';
+import { omit } from '@rme-sdk/core-helpers';
+import type { Shape } from '@rme-sdk/core-types';
 
 import type { KeyboardEventName, ModifierInformation } from './test-keyboard-types';
 import { KeyDefinition, SupportedCharacters, usKeyboardLayout } from './us-keyboard-layout';

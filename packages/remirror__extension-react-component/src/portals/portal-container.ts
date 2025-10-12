@@ -1,6 +1,6 @@
+import { uniqueId } from '@rme-sdk/core-helpers';
 import { createNanoEvents, Unsubscribe } from 'nanoevents';
 import type { FunctionComponent } from 'react';
-import { uniqueId } from '@remirror/core-helpers';
 
 export interface RenderProps {
   /**

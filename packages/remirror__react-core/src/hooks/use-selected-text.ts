@@ -1,4 +1,4 @@
-import { isTextSelection } from '@remirror/core';
+import { isTextSelection } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 
@@ -6,7 +6,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * A core hook which provides the the currently selected text.
  *
  * ```tsx
- * import { useSelectedText } from '@remirror/react';
+ * import { useSelectedText } from '@rme-sdk/react';
  *
  * const RandomSpan = () => {
  *   const text = useSelectedText();

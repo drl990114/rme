@@ -1,4 +1,4 @@
-import { EditorView } from '@remirror/core';
+import { EditorView } from '@rme-sdk/core';
 
 /**
  * A port of `view.posAtDOM` without throwing error when the dom node is not

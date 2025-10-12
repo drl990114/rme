@@ -1,9 +1,8 @@
-import type { Node, Schema } from '@remirror/pm/model'
-import { Fragment, Mark, NodeRange, Slice } from '@remirror/pm/model'
-import { Step, StepResult } from '@remirror/pm/transform'
+import type { Node, Schema } from '@rme-sdk/pm/model'
+import { Fragment, Mark, NodeRange, Slice } from '@rme-sdk/pm/model'
+import { Step, StepResult } from '@rme-sdk/pm/transform'
 
 import { ReplaceDocStep } from "./replace-doc-step"
-import { excludeHtmlInlineNodes } from '@/editor/transform/markdown-it-html-inline'
 
 export type MarkChunk = [from: number, to: number, marks: Mark[]]
 

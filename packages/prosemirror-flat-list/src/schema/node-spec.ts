@@ -1,4 +1,4 @@
-import type { DOMOutputSpec, NodeSpec } from '@remirror/pm/model'
+import type { DOMOutputSpec, NodeSpec } from '@rme-sdk/pm/model'
 
 import { createParseDomRules } from './parse-dom'
 import { listToDOM } from './to-dom'

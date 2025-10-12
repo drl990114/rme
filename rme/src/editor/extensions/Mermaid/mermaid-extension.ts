@@ -4,11 +4,11 @@ import type {
     NodeSpecOverride,
     NodeViewMethod,
     PrioritizedKeyBindings,
-} from '@remirror/core'
-import { NodeExtension, extension, isElementDomNode, nodeInputRule } from '@remirror/core'
-import type { ProsemirrorNode } from '@remirror/pm'
-import type { InputRule } from '@remirror/pm/inputrules'
-import { TextSelection } from '@remirror/pm/state'
+} from '@rme-sdk/core'
+import { NodeExtension, extension, isElementDomNode, nodeInputRule } from '@rme-sdk/core'
+import type { ProsemirrorNode } from '@rme-sdk/pm'
+import type { InputRule } from '@rme-sdk/pm/inputrules'
+import { TextSelection } from '@rme-sdk/pm/state'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
 import { CustomCopyFunction } from '../CodeMirror/codemirror-types'

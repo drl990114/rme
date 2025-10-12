@@ -1,19 +1,19 @@
-import { ExtensionPriority } from '@remirror/core-constants';
-import { isNumber, isString, uniqueArray, uniqueId } from '@remirror/core-helpers';
+import { ExtensionPriority } from '@rme-sdk/core-constants';
+import { isNumber, isString, uniqueArray, uniqueId } from '@rme-sdk/core-helpers';
 import type {
-  AcceptUndefined,
-  CommandFunction,
-  CommandFunctionProps,
-  EditorState,
-  EditorView,
-  FromToProps,
-  Handler,
-  MakeRequired,
-  Static,
-  Transaction,
-} from '@remirror/core-types';
-import { findNodeAtPosition, isNodeSelection } from '@remirror/core-utils';
-import { Decoration, DecorationSet } from '@remirror/pm/view';
+    AcceptUndefined,
+    CommandFunction,
+    CommandFunctionProps,
+    EditorState,
+    EditorView,
+    FromToProps,
+    Handler,
+    MakeRequired,
+    Static,
+    Transaction,
+} from '@rme-sdk/core-types';
+import { findNodeAtPosition, isNodeSelection } from '@rme-sdk/core-utils';
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view';
 
 import { DelayedCommand, DelayedPromiseCreator } from '../commands';
 import { extension, Helper, PlainExtension } from '../extension';
@@ -26,7 +26,7 @@ export interface DecorationsOptions {
    * used to preserve the marker for the selection when the editor loses focus.
    *
    * You can set it as `'selection'` to match the default styles provided by
-   * `@remirror/styles`.
+   * `@rme-sdk/styles`.
    *
    * @defaultValue undefined
    */

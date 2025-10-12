@@ -1,9 +1,8 @@
+import type { ApplySchemaAttributes, InputRule, NodeExtensionSpec, NodeSpecOverride, NodeViewMethod, ProsemirrorAttributes } from '@rme-sdk/core'
+import { extension, ExtensionTag, NodeExtension, nodeInputRule, omitExtraAttributes } from '@rme-sdk/core'
 import { getInlineMathInputRule } from '../../inline-input-regex'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
-import type { ApplySchemaAttributes, InputRule, NodeExtensionSpec, NodeSpecOverride, ProsemirrorAttributes } from '@remirror/core'
-import { extension, ExtensionTag, NodeExtension, nodeInputRule, omitExtraAttributes } from '@remirror/core'
-import type { NodeViewMethod } from 'remirror'
 import { MathInlineView } from './math-inline-nodeview'
 
 export interface MathInlineAttributes {

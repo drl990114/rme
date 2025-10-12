@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/preset-react",
-  "version": "3.0.3",
+  "name": "@rme-sdk/preset-react",
+  "version": "1.1.0",
   "description": "The core preset providing the functionality you need and want.",
   "keywords": [
     "remirror",
@@ -24,13 +24,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-preset-react.js",
-      "require": "./dist/remirror-preset-react.cjs"
+      "import": "./dist/rme-sdk-preset-react.js",
+      "require": "./dist/rme-sdk-preset-react.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-preset-react.cjs",
-  "module": "./dist/remirror-preset-react.js",
+  "main": "./dist/rme-sdk-preset-react.cjs",
+  "module": "./dist/rme-sdk-preset-react.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -41,21 +41,21 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/extension-placeholder": "workspace:*",
-    "@remirror/extension-react-component": "workspace:*",
-    "@remirror/react-utils": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/extension-placeholder": "workspace:*",
+    "@rme-sdk/extension-react-component": "workspace:*",
+    "@rme-sdk/react-utils": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "@types/react": "^16.14.0 || ^17 || ^18",
     "@types/react-dom": "^16.9.0 || ^17 || ^18",
     "react": "^16.14.0 || ^17 || ^18",
@@ -70,21 +70,21 @@
     }
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-preset-react.d.ts",
-        "import": "./dist/remirror-preset-react.js",
-        "require": "./dist/remirror-preset-react.cjs"
+        "types": "./dist/rme-sdk-preset-react.d.ts",
+        "import": "./dist/rme-sdk-preset-react.js",
+        "require": "./dist/rme-sdk-preset-react.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-preset-react.cjs",
-    "module": "./dist/remirror-preset-react.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-preset-react.d.ts"
+    "main": "./dist/rme-sdk-preset-react.cjs",
+    "module": "./dist/rme-sdk-preset-react.js",
+    "types": "./dist/rme-sdk-preset-react.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "20 KB"
   }
 }

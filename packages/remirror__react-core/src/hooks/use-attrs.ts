@@ -1,4 +1,4 @@
-import type { AnyExtension, AttrsFromExtensions } from '@remirror/core';
+import type { AnyExtension, AttrsFromExtensions } from '@rme-sdk/core';
 
 import { useRemirrorContext } from './use-remirror-context';
 
@@ -7,7 +7,7 @@ import { useRemirrorContext } from './use-remirror-context';
  * editor.
  *
  * ```tsx
- * import { useAttrs } from '@remirror/react';
+ * import { useAttrs } from '@rme-sdk/react';
  *
  * const EditorButton = () => {
  *   const attrs = useAttrs();

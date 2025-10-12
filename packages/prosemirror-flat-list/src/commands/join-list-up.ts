@@ -1,5 +1,5 @@
-import { NodeRange, type ResolvedPos } from '@remirror/pm/model'
-import type { Command, EditorState, Transaction } from '@remirror/pm/state'
+import { NodeRange, type ResolvedPos } from '@rme-sdk/pm/model'
+import type { Command, EditorState, Transaction } from '@rme-sdk/pm/state'
 
 import { atTextblockStart } from '../utils/at-textblock-start'
 import { isListNode } from '../utils/is-list-node'

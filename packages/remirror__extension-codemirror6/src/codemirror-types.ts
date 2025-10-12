@@ -1,6 +1,6 @@
 import type { LanguageDescription } from '@codemirror/language';
 import { Extension as CodeMirrorExtension } from '@codemirror/state';
-import { ProsemirrorAttributes } from '@remirror/core';
+import { ProsemirrorAttributes } from '@rme-sdk/core';
 
 export interface CodeMirrorExtensionOptions {
   /**

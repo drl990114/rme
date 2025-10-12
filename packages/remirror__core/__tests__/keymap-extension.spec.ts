@@ -1,8 +1,8 @@
 import { jest } from '@jest/globals';
+import { TextSelection } from '@rme-sdk/pm/state';
 import { extensionValidityTest, renderEditor } from 'jest-remirror';
 import { ExtensionPriority } from 'remirror';
 import { CodeExtension, HeadingExtension } from 'remirror/extensions';
-import { TextSelection } from '@remirror/pm/state';
 
 import { KeymapExtension } from '../';
 

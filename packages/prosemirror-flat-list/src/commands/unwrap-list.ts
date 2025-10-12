@@ -1,5 +1,5 @@
-import type { NodeRange } from '@remirror/pm/model'
-import type { Command } from '@remirror/pm/state'
+import type { NodeRange } from '@rme-sdk/pm/model'
+import type { Command } from '@rme-sdk/pm/state'
 
 import type { ListAttributes, ProsemirrorNode } from '../types'
 import { isListNode } from '../utils/is-list-node'

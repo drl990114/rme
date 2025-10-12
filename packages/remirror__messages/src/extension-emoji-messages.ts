@@ -1,4 +1,4 @@
-import type { RemirrorMessage } from '@remirror/core-types';
+import type { RemirrorMessage } from '@rme-sdk/core-types';
 
 export const INSERT_EMOJI_LABEL: RemirrorMessage = /*i18n*/ {
   id: 'extension.command.insert-emoji.label',

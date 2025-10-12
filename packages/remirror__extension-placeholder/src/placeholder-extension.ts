@@ -1,15 +1,15 @@
 import {
-  CreateExtensionPlugin,
-  extension,
-  isDefaultDocNode,
-  ManagerPhase,
-  OnSetOptionsProps,
-  PlainExtension,
-  ProsemirrorAttributes,
-  Transaction,
-} from '@remirror/core';
-import type { EditorState } from '@remirror/pm/state';
-import { Decoration, DecorationSet } from '@remirror/pm/view';
+    CreateExtensionPlugin,
+    extension,
+    isDefaultDocNode,
+    ManagerPhase,
+    OnSetOptionsProps,
+    PlainExtension,
+    ProsemirrorAttributes,
+    Transaction,
+} from '@rme-sdk/core';
+import type { EditorState } from '@rme-sdk/pm/state';
+import { Decoration, DecorationSet } from '@rme-sdk/pm/view';
 
 export interface PlaceholderOptions {
   /**

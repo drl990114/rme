@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-link",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-link",
+  "version": "1.1.0",
   "description": "Add links to your text editor.",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-link.js",
-      "require": "./dist/remirror-extension-link.cjs"
+      "import": "./dist/rme-sdk-extension-link.js",
+      "require": "./dist/rme-sdk-extension-link.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-link.cjs",
-  "module": "./dist/remirror-extension-link.js",
+  "main": "./dist/rme-sdk-extension-link.cjs",
+  "module": "./dist/rme-sdk-extension-link.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,36 +38,36 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/extension-events": "workspace:*",
-    "@remirror/messages": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/extension-events": "workspace:*",
+    "@rme-sdk/messages": "workspace:*",
     "extract-domain": "2.2.1"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*",
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*",
     "@types/extract-domain": "2.3.1",
     "linkifyjs": "^3.0.5"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-link.d.ts",
-        "import": "./dist/remirror-extension-link.js",
-        "require": "./dist/remirror-extension-link.cjs"
+        "types": "./dist/rme-sdk-extension-link.d.ts",
+        "import": "./dist/rme-sdk-extension-link.js",
+        "require": "./dist/rme-sdk-extension-link.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-link.cjs",
-    "module": "./dist/remirror-extension-link.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-link.d.ts"
+    "main": "./dist/rme-sdk-extension-link.cjs",
+    "module": "./dist/rme-sdk-extension-link.js",
+    "types": "./dist/rme-sdk-extension-link.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

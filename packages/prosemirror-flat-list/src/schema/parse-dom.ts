@@ -1,4 +1,4 @@
-import type { TagParseRule } from '@remirror/pm/model'
+import type { TagParseRule } from '@rme-sdk/pm/model'
 
 import type { ListAttributes, ListKind } from '../types'
 import { parseInteger } from '../utils/parse-integer'

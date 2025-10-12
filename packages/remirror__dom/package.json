@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/dom",
-  "version": "3.0.2",
+  "name": "@rme-sdk/dom",
+  "version": "1.1.0",
   "description": "Use remirror directly in the dom.",
   "keywords": [
     "remirror",
@@ -21,13 +21,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-dom.js",
-      "require": "./dist/remirror-dom.cjs"
+      "import": "./dist/rme-sdk-dom.js",
+      "require": "./dist/rme-sdk-dom.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-dom.cjs",
-  "module": "./dist/remirror-dom.js",
+  "main": "./dist/rme-sdk-dom.cjs",
+  "module": "./dist/rme-sdk-dom.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -38,32 +38,32 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/preset-core": "workspace:*"
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/preset-core": "workspace:*"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-dom.d.ts",
-        "import": "./dist/remirror-dom.js",
-        "require": "./dist/remirror-dom.cjs"
+        "types": "./dist/rme-sdk-dom.d.ts",
+        "import": "./dist/rme-sdk-dom.js",
+        "require": "./dist/rme-sdk-dom.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-dom.cjs",
-    "module": "./dist/remirror-dom.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-dom.d.ts"
+    "main": "./dist/rme-sdk-dom.cjs",
+    "module": "./dist/rme-sdk-dom.js",
+    "types": "./dist/rme-sdk-dom.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

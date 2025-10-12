@@ -1,16 +1,16 @@
-import { cx } from '@remirror/core'
-import { EditorState } from '@remirror/pm'
-import { isCellSelection, TableMap } from '@remirror/pm/tables'
-import { Decoration, DecorationSet, EditorView } from '@remirror/pm/view'
+import { cx } from '@rme-sdk/core'
+import { EditorState } from '@rme-sdk/pm'
+import { isCellSelection, TableMap } from '@rme-sdk/pm/tables'
+import { Decoration, DecorationSet, EditorView } from '@rme-sdk/pm/view'
 import { createElement as h } from '../../utils/dom'
 import { selectColumn, selectRow, selectTable } from './table-helpers'
 import {
-  findTable,
-  getCellSelectionRect,
-  getCellSelectionType,
-  getCellsInColumn,
-  getCellsInRect,
-  getCellsInRow,
+    findTable,
+    getCellSelectionRect,
+    getCellSelectionType,
+    getCellsInColumn,
+    getCellsInRect,
+    getCellsInRow,
 } from './table-utils'
 
 export const DATA_TABLE_SELECTOR_TYPE = 'data-table-selector-type'

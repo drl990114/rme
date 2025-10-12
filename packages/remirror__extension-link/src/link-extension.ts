@@ -1,49 +1,49 @@
-import extractDomain from 'extract-domain';
 import {
-  ApplySchemaAttributes,
-  command,
-  CommandFunction,
-  composeTransactionSteps,
-  CreateExtensionPlugin,
-  EditorState,
-  extension,
-  ExtensionPriority,
-  ExtensionTag,
-  findMatches,
-  FromToProps,
-  getChangedRanges,
-  GetMarkRange,
-  getMarkRange,
-  getMatchString,
-  getSelectedWord,
-  Handler,
-  includes,
-  isAllSelection,
-  isElementDomNode,
-  isMarkActive,
-  isSelectionEmpty,
-  isTextSelection,
-  keyBinding,
-  KeyBindingProps,
-  last,
-  LiteralUnion,
-  MarkExtension,
-  MarkExtensionSpec,
-  MarkSpecOverride,
-  NamedShortcut,
-  NodeWithPosition,
-  omitExtraAttributes,
-  ProsemirrorAttributes,
-  ProsemirrorNode,
-  removeMark,
-  Static,
-  updateMark,
-} from '@remirror/core';
-import type { CreateEventHandlers } from '@remirror/extension-events';
-import { undoDepth } from '@remirror/pm/history';
-import { MarkPasteRule } from '@remirror/pm/paste-rules';
-import { Selection } from '@remirror/pm/state';
-import { ReplaceAroundStep, ReplaceStep } from '@remirror/pm/transform';
+    ApplySchemaAttributes,
+    command,
+    CommandFunction,
+    composeTransactionSteps,
+    CreateExtensionPlugin,
+    EditorState,
+    extension,
+    ExtensionPriority,
+    ExtensionTag,
+    findMatches,
+    FromToProps,
+    getChangedRanges,
+    GetMarkRange,
+    getMarkRange,
+    getMatchString,
+    getSelectedWord,
+    Handler,
+    includes,
+    isAllSelection,
+    isElementDomNode,
+    isMarkActive,
+    isSelectionEmpty,
+    isTextSelection,
+    keyBinding,
+    KeyBindingProps,
+    last,
+    LiteralUnion,
+    MarkExtension,
+    MarkExtensionSpec,
+    MarkSpecOverride,
+    NamedShortcut,
+    NodeWithPosition,
+    omitExtraAttributes,
+    ProsemirrorAttributes,
+    ProsemirrorNode,
+    removeMark,
+    Static,
+    updateMark,
+} from '@rme-sdk/core';
+import type { CreateEventHandlers } from '@rme-sdk/extension-events';
+import { undoDepth } from '@rme-sdk/pm/history';
+import { MarkPasteRule } from '@rme-sdk/pm/paste-rules';
+import { Selection } from '@rme-sdk/pm/state';
+import { ReplaceAroundStep, ReplaceStep } from '@rme-sdk/pm/transform';
+import extractDomain from 'extract-domain';
 
 import { TOP_50_TLDS } from './link-extension-utils';
 
@@ -288,6 +288,7 @@ export type LinkAttributes = ProsemirrorAttributes<{
   handlerKeyOptions: { onClick: { earlyReturnValue: true } },
   handlerKeys: ['onActivateLink', 'onShortcut', 'onUpdateLink', 'onClick'],
   defaultPriority: ExtensionPriority.Medium,
+  customHandlerKeys: []
 })
 export class LinkExtension extends MarkExtension<LinkOptions> {
   get name() {

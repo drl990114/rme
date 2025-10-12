@@ -1,5 +1,5 @@
-import { BoldExtension } from '@remirror/extension-bold';
-import { useActive, useCommands } from '@remirror/react-core';
+import { BoldExtension } from '@rme-sdk/extension-bold';
+import { useActive, useCommands } from '@rme-sdk/react-core';
 import { FC, useCallback } from 'react';
 
 import { t } from 'i18next';

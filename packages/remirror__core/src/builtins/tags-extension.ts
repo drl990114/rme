@@ -1,23 +1,23 @@
 import {
-  ErrorConstant,
-  ExtensionPriority,
-  ExtensionTag,
-  ExtensionTagType,
-} from '@remirror/core-constants';
-import { includes, invariant, object, values } from '@remirror/core-helpers';
-import type { UseDefault } from '@remirror/core-types';
+    ErrorConstant,
+    ExtensionPriority,
+    ExtensionTag,
+    ExtensionTagType,
+} from '@rme-sdk/core-constants';
+import { includes, invariant, object, values } from '@rme-sdk/core-helpers';
+import type { UseDefault } from '@rme-sdk/core-types';
 
 import {
-  AnyExtension,
-  extension,
-  GetMarkNameUnion,
-  GetNameUnion,
-  GetNodeNameUnion,
-  GetPlainNameUnion,
-  isMarkExtension,
-  isNodeExtension,
-  isPlainExtension,
-  PlainExtension,
+    AnyExtension,
+    extension,
+    GetMarkNameUnion,
+    GetNameUnion,
+    GetNodeNameUnion,
+    GetPlainNameUnion,
+    isMarkExtension,
+    isNodeExtension,
+    isPlainExtension,
+    PlainExtension,
 } from '../extension';
 
 /**

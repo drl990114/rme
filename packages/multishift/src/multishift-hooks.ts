@@ -1,25 +1,25 @@
+import { isEmptyArray } from '@rme-sdk/core-helpers';
 import { setStatus } from 'a11y-status';
 import type { DependencyList, Dispatch, EffectCallback, MutableRefObject } from 'react';
 import { useEffect, useReducer, useRef } from 'react';
-import { isEmptyArray } from '@remirror/core-helpers';
 
 import { multishiftReducer } from './multishift-reducer';
 import type {
-  A11yStatusMessageProps,
-  GetA11yStatusMessage,
-  ItemsToString,
-  MultishiftA11yIdProps,
-  MultishiftProps,
-  MultishiftRootActions,
-  MultishiftState,
+    A11yStatusMessageProps,
+    GetA11yStatusMessage,
+    ItemsToString,
+    MultishiftA11yIdProps,
+    MultishiftProps,
+    MultishiftRootActions,
+    MultishiftState,
 } from './multishift-types';
 import {
-  callChangeHandlers,
-  defaultItemsToString,
-  GetElementIds,
-  getElementIds,
-  getInitialStateProps,
-  isOrContainsNode,
+    callChangeHandlers,
+    defaultItemsToString,
+    GetElementIds,
+    getElementIds,
+    getInitialStateProps,
+    isOrContainsNode,
 } from './multishift-utils';
 import { useId } from './use-id';
 

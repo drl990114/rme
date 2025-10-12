@@ -1,4 +1,4 @@
-import { DomSizeUnit, ParsedDomSize, Static } from '@remirror/core';
+import { DomSizeUnit, ParsedDomSize, Static } from '@rme-sdk/core';
 
 export interface FontSizeOptions {
   /**

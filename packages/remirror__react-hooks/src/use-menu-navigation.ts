@@ -4,16 +4,16 @@
  * Create menu navigation handlers when showing popup menus inside the editor.
  */
 
+import { KeyBindingCommandFunction, KeyBindingNames, KeyBindings } from '@rme-sdk/core';
 import {
-  MultishiftHelpers,
-  MultishiftPropGetters,
-  MultishiftState,
-  Type,
-  useMultishift,
-} from 'multishift';
+    MultishiftHelpers,
+    MultishiftPropGetters,
+    MultishiftState,
+    Type,
+    useMultishift,
+} from '@rme-sdk/multishift';
+import { useCommands } from '@rme-sdk/react-core';
 import { useCallback, useMemo, useState } from 'react';
-import { KeyBindingCommandFunction, KeyBindingNames, KeyBindings } from '@remirror/core';
-import { useCommands } from '@remirror/react-core';
 
 import { indexFromArrowPress } from './react-hook-utils';
 import { useKeymap } from './use-keymap';

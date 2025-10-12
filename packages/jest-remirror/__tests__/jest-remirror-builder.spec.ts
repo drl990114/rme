@@ -1,5 +1,5 @@
+import { clone, keys } from '@rme-sdk/core';
 import { schema } from 'jest-prosemirror';
-import { clone, keys } from '@remirror/core';
 
 import { markFactory, nodeFactory, sequence, text } from '../src/jest-remirror-builder';
 import { TagTracker } from '../src/jest-remirror-types';

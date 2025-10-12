@@ -1,9 +1,9 @@
-import { extension, ExtensionPriority, OnSetOptionsProps, PlainExtension } from '@remirror/core';
-import { PlaceholderExtension, PlaceholderOptions } from '@remirror/extension-placeholder';
+import { extension, ExtensionPriority, OnSetOptionsProps, PlainExtension } from '@rme-sdk/core';
+import { PlaceholderExtension, PlaceholderOptions } from '@rme-sdk/extension-placeholder';
 import {
-  ReactComponentExtension,
-  ReactComponentOptions,
-} from '@remirror/extension-react-component';
+    ReactComponentExtension,
+    ReactComponentOptions,
+} from '@rme-sdk/extension-react-component';
 
 const DEFAULT_OPTIONS = {
   ...PlaceholderExtension.defaultOptions,
@@ -24,6 +24,8 @@ export interface ReactExtensionOptions extends PlaceholderOptions, ReactComponen
 @extension<ReactExtensionOptions>({
   defaultOptions: DEFAULT_OPTIONS,
   staticKeys: STATIC_KEYS as any,
+  handlerKeys: [],
+  customHandlerKeys: []
 })
 export class ReactExtension extends PlainExtension<ReactExtensionOptions> {
   get name() {

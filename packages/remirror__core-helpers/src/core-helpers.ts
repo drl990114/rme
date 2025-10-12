@@ -1,20 +1,19 @@
+import type {
+    AnyConstructor,
+    AnyFunction,
+    ConditionalExcept,
+    JsonPrimitive,
+    Nullable,
+    Primitive,
+    Shape,
+    UnknownShape,
+} from '@rme-sdk/types';
 import { ClassValue, clsx } from 'clsx';
 import deepmerge from 'deepmerge';
 import fastDeepEqual from 'fast-deep-equal';
 import { BaseError } from 'make-error';
 import omit from 'object.omit';
 import pick from 'object.pick';
-import { __INTERNAL_REMIRROR_IDENTIFIER_KEY__ } from '@remirror/core-constants';
-import type {
-  AnyConstructor,
-  AnyFunction,
-  ConditionalExcept,
-  JsonPrimitive,
-  Nullable,
-  Primitive,
-  Shape,
-  UnknownShape,
-} from '@remirror/types';
 
 type TupleRange<Size extends number> = Size extends Size
   ? number extends Size
@@ -926,7 +925,7 @@ function makeFunctionForUniqueBy<Item extends Shape = Shape>(value: string | str
  * than from the end
  *
  * ```ts
- * import { uniqueBy } from '@remirror/core-helpers';
+ * import { uniqueBy } from '@rme-sdk/core-helpers';
  *
  * const values = uniqueBy([{ id: 'a', value: 'Awesome' }, { id: 'a', value: 'ignored' }], item => item.id);
  * log(values) // => [{id: 'a', value: 'Awesome'}]
@@ -1040,18 +1039,19 @@ export function cx(...classes: ClassName[]): string {
 // like this since these libraries are used multiple times within the codebase.
 
 export {
-  camelCase,
-  capitalCase,
-  constantCase,
-  kebabCase,
-  pascalCase,
-  pathCase,
-  snakeCase,
-  spaceCase,
+    camelCase,
+    capitalCase,
+    constantCase,
+    kebabCase,
+    pascalCase,
+    pathCase,
+    snakeCase,
+    spaceCase
 } from 'case-anything';
-export type {
-  debounce as DebouncedFunction,
-  throttle as ThrottledFunction,
-} from 'throttle-debounce';
 export { debounce, throttle } from 'throttle-debounce';
+export type {
+    debounce as DebouncedFunction,
+    throttle as ThrottledFunction
+} from 'throttle-debounce';
 export { omit, pick };
+

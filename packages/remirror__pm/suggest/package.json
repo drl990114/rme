@@ -1,14 +1,14 @@
 {
   "type": "module",
+  "main": "./dist/rme-sdk-pm-suggest.cjs",
+  "module": "./dist/rme-sdk-pm-suggest.js",
+  "types": "./dist/rme-sdk-pm-suggest.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/remirror-pm-suggest.d.ts",
-      "import": "./dist/remirror-pm-suggest.js",
-      "require": "./dist/remirror-pm-suggest.cjs"
+      "types": "./dist/rme-sdk-pm-suggest.d.ts",
+      "import": "./dist/rme-sdk-pm-suggest.js",
+      "require": "./dist/rme-sdk-pm-suggest.cjs"
     },
     "./package.json": "./package.json"
-  },
-  "main": "./dist/remirror-pm-suggest.cjs",
-  "module": "./dist/remirror-pm-suggest.js",
-  "types": "./dist/remirror-pm-suggest.d.ts"
+  }
 }

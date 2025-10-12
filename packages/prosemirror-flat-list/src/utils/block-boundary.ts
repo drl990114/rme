@@ -1,4 +1,4 @@
-import type { ResolvedPos } from '@remirror/pm/model'
+import type { ResolvedPos } from '@rme-sdk/pm/model'
 
 export function atStartBlockBoundary(
   $pos: ResolvedPos,

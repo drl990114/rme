@@ -1,5 +1,5 @@
-import { isFunction, object } from '@remirror/core-helpers';
-import type { NodeViewMethod } from '@remirror/core-types';
+import { isFunction, object } from '@rme-sdk/core-helpers';
+import type { NodeViewMethod } from '@rme-sdk/core-types';
 
 import { PlainExtension } from '../extension';
 import type { CreateExtensionPlugin } from '../types';

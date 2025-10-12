@@ -1,5 +1,5 @@
+import { isString, ObjectMark, RemirrorJSON } from '@rme-sdk/core';
 import React, { FC, Fragment } from 'react';
-import { isString, ObjectMark, RemirrorJSON } from '@remirror/core';
 
 import { MarkMap } from '../types';
 

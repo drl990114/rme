@@ -1,8 +1,8 @@
+import { useRemirrorContext } from '@rme-sdk/react';
 import { render as originalRender, RenderOptions, RenderResult } from '@testing-library/react';
 import * as hooks from '@testing-library/react-hooks';
 import React, { FC, ReactElement, StrictMode } from 'react';
 import TestRenderer from 'react-test-renderer';
-import { useRemirrorContext } from '@remirror/react';
 
 /**
  * Render the component in `StrictMode`
@@ -29,3 +29,4 @@ export const DefaultEditor: FC = () => {
 
 export * from '@testing-library/react';
 export { hooks, TestRenderer };
+

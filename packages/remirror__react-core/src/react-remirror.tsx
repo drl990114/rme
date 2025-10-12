@@ -1,5 +1,5 @@
-import { AnyExtension, isNullOrUndefined, RemirrorManager } from '@remirror/core'
-import { RemirrorPortals, usePortals } from '@remirror/extension-react-component'
+import { AnyExtension, isNullOrUndefined, RemirrorManager } from '@rme-sdk/core'
+import { RemirrorPortals, usePortals } from '@rme-sdk/extension-react-component'
 import type { ReactElement, ReactNode } from 'react'
 import React from 'react'
 

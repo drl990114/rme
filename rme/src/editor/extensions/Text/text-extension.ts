@@ -1,5 +1,5 @@
+import { TextExtension } from '@rme-sdk/main/extensions'
 import type Token from 'markdown-it/lib/token.mjs'
-import { TextExtension } from 'remirror/extensions'
 
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'

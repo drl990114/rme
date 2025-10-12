@@ -1,9 +1,9 @@
 import { jest } from '@jest/globals';
+import { ExtensionPriority, prosemirrorNodeToHtml } from '@rme-sdk/core';
+import { createReactManager, Remirror, useRemirror } from '@rme-sdk/react-core';
 import { RemirrorTestChain } from 'jest-remirror';
 import React from 'react';
 import { act, strictRender } from 'testing/react';
-import { ExtensionPriority, prosemirrorNodeToHtml } from '@remirror/core';
-import { createReactManager, Remirror, useRemirror } from '@remirror/react-core';
 
 import { useKeymaps } from '../src/use-keymaps';
 

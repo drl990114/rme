@@ -1,7 +1,7 @@
-import { TextSelection, type Transaction } from '@remirror/pm/state'
-import type { EditorView } from '@remirror/pm/view'
+import { TextSelection, type Transaction } from '@rme-sdk/pm/state'
+import type { EditorView } from '@rme-sdk/pm/view'
 
-import { PlainExtension } from 'remirror'
+import { PlainExtension } from '@rme-sdk/main'
 import { applySelectionMarks } from './inline-mark-helpers'
 
 export class LineInlineMarkExtension extends PlainExtension {

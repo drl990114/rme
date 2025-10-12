@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { type Node } from '@remirror/pm/model'
+import { prosemirrorNodeToHtml, type Extension, type RemirrorEventListenerProps } from '@rme-sdk/main'
+import { type Node } from '@rme-sdk/pm/model'
 import { forwardRef, memo, useImperativeHandle, useMemo, useState } from 'react'
-import { prosemirrorNodeToHtml, type Extension, type RemirrorEventListenerProps } from 'remirror'
 import {
   EditorViewType,
   HTMLAstNode,

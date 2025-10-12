@@ -1,12 +1,12 @@
+import { ExtensionTag } from '@rme-sdk/core-constants';
+import { MarkSpec, NodeSpec, Schema } from '@rme-sdk/pm/model';
+import {
+    bulletList as baseBulletList,
+    listItem as baseListItem,
+    orderedList as baseOrderedList,
+} from '@rme-sdk/pm/schema-list';
 import { marks, nodes } from 'prosemirror-schema-basic';
 import { tableNodes } from 'prosemirror-tables';
-import { ExtensionTag } from '@remirror/core-constants';
-import { MarkSpec, NodeSpec, Schema } from '@remirror/pm/model';
-import {
-  bulletList as baseBulletList,
-  listItem as baseListItem,
-  orderedList as baseOrderedList,
-} from '@remirror/pm/schema-list';
 
 const {
   doc,

@@ -288,9 +288,6 @@ importers:
       prettier-plugin-packagejson:
         specifier: ^2.4.3
         version: 2.5.19(prettier@3.3.3)
-      remirror:
-        specifier: 3.0.3
-        version: 3.0.3(@remirror/extension-react-tables@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)(prettier@3.3.3)
       rimraf:
         specifier: ^4.4.1
         version: 4.4.1
@@ -325,7 +322,7 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
@@ -335,7 +332,7 @@ importers:
         specifier: ^7.27.0
         version: 7.28.4
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@testing-library/react':
@@ -353,19 +350,19 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
-      '@remirror/core-utils':
+      '@rme-sdk/core-utils':
         specifier: workspace:*
         version: link:../remirror__core-utils
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@testing-library/dom':
@@ -394,9 +391,9 @@ importers:
         version: 3.3.0
       test-keyboard:
         specifier: 2.0.7
-        version: 2.0.7(@remirror/pm@packages+remirror__pm)
+        version: 2.0.7(@remirror/pm@3.0.1)
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       jest:
@@ -408,16 +405,16 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/dom':
+      '@rme-sdk/dom':
         specifier: workspace:*
         version: link:../remirror__dom
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
-      '@remirror/preset-core':
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../remirror__preset-core
       '@testing-library/dom':
@@ -436,7 +433,7 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@types/node':
@@ -451,10 +448,10 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
       '@seznam/compose-react-refs':
@@ -473,7 +470,7 @@ importers:
         specifier: ^2.2.7
         version: 2.2.8
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@testing-library/react':
@@ -488,23 +485,23 @@ importers:
 
   packages/prosemirror-flat-list:
     dependencies:
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/pm':
+      '@rme-sdk/main':
+        specifier: workspace:*
+        version: link:../remirror
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
-      '@remirror/preset-core':
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../remirror__preset-core
       prosemirror-safari-ime-span:
         specifier: ^1.0.2
         version: 1.0.2
-      remirror:
-        specifier: workspace:*
-        version: link:../remirror
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@types/dedent':
@@ -576,17 +573,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
       escape-string-regexp:
         specifier: ^4.0.0
         version: 4.0.0
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       prosemirror-model:
@@ -599,47 +596,25 @@ importers:
         specifier: ^1.39.2
         version: 1.41.2
 
-  packages/prosemirror-resizable-view:
-    dependencies:
-      '@babel/runtime':
-        specifier: ^7.27.0
-        version: 7.28.4
-      '@remirror/core-helpers':
-        specifier: workspace:*
-        version: link:../remirror__core-helpers
-      '@remirror/core-utils':
-        specifier: workspace:*
-        version: link:../remirror__core-utils
-      prosemirror-model:
-        specifier: ^1.25.1
-        version: 1.25.3
-      prosemirror-view:
-        specifier: ^1.39.2
-        version: 1.41.2
-    devDependencies:
-      '@remirror/cli':
-        specifier: workspace:*
-        version: link:../remirror__cli
-
   packages/prosemirror-suggest:
     dependencies:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/types':
+      '@rme-sdk/types':
         specifier: workspace:*
         version: link:../remirror__types
       escape-string-regexp:
         specifier: ^4.0.0
         version: 4.0.0
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       prosemirror-model:
@@ -654,14 +629,14 @@ importers:
 
   packages/prosemirror-trailing-node:
     dependencies:
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
       escape-string-regexp:
         specifier: ^4.0.0
         version: 4.0.0
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       prosemirror-model:
@@ -679,127 +654,127 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
-      '@remirror/core-utils':
+      '@rme-sdk/core-utils':
         specifier: workspace:*
         version: link:../remirror__core-utils
-      '@remirror/dom':
+      '@rme-sdk/dom':
         specifier: workspace:*
         version: link:../remirror__dom
-      '@remirror/extension-annotation':
+      '@rme-sdk/extension-annotation':
         specifier: workspace:*
         version: link:../remirror__extension-annotation
-      '@remirror/extension-bidi':
+      '@rme-sdk/extension-bidi':
         specifier: workspace:*
         version: link:../remirror__extension-bidi
-      '@remirror/extension-blockquote':
+      '@rme-sdk/extension-blockquote':
         specifier: workspace:*
         version: link:../remirror__extension-blockquote
-      '@remirror/extension-bold':
+      '@rme-sdk/extension-bold':
         specifier: workspace:*
         version: link:../remirror__extension-bold
-      '@remirror/extension-code':
+      '@rme-sdk/extension-code':
         specifier: workspace:*
         version: link:../remirror__extension-code
-      '@remirror/extension-columns':
+      '@rme-sdk/extension-columns':
         specifier: workspace:*
         version: link:../remirror__extension-columns
-      '@remirror/extension-diff':
+      '@rme-sdk/extension-diff':
         specifier: workspace:*
         version: link:../remirror__extension-diff
-      '@remirror/extension-doc':
+      '@rme-sdk/extension-doc':
         specifier: workspace:*
         version: link:../remirror__extension-doc
-      '@remirror/extension-drop-cursor':
+      '@rme-sdk/extension-drop-cursor':
         specifier: workspace:*
         version: link:../remirror__extension-drop-cursor
-      '@remirror/extension-emoji':
+      '@rme-sdk/extension-emoji':
         specifier: workspace:*
         version: link:../remirror__extension-emoji
-      '@remirror/extension-epic-mode':
+      '@rme-sdk/extension-epic-mode':
         specifier: workspace:*
         version: link:../remirror__extension-epic-mode
-      '@remirror/extension-events':
+      '@rme-sdk/extension-events':
         specifier: workspace:*
         version: link:../remirror__extension-events
-      '@remirror/extension-font-size':
+      '@rme-sdk/extension-font-size':
         specifier: workspace:*
         version: link:../remirror__extension-font-size
-      '@remirror/extension-gap-cursor':
+      '@rme-sdk/extension-gap-cursor':
         specifier: workspace:*
         version: link:../remirror__extension-gap-cursor
-      '@remirror/extension-hard-break':
+      '@rme-sdk/extension-hard-break':
         specifier: workspace:*
         version: link:../remirror__extension-hard-break
-      '@remirror/extension-heading':
+      '@rme-sdk/extension-heading':
         specifier: workspace:*
         version: link:../remirror__extension-heading
-      '@remirror/extension-history':
+      '@rme-sdk/extension-history':
         specifier: workspace:*
         version: link:../remirror__extension-history
-      '@remirror/extension-horizontal-rule':
+      '@rme-sdk/extension-horizontal-rule':
         specifier: workspace:*
         version: link:../remirror__extension-horizontal-rule
-      '@remirror/extension-italic':
+      '@rme-sdk/extension-italic':
         specifier: workspace:*
         version: link:../remirror__extension-italic
-      '@remirror/extension-link':
+      '@rme-sdk/extension-link':
         specifier: workspace:*
         version: link:../remirror__extension-link
-      '@remirror/extension-node-formatting':
+      '@rme-sdk/extension-node-formatting':
         specifier: workspace:*
         version: link:../remirror__extension-node-formatting
-      '@remirror/extension-paragraph':
+      '@rme-sdk/extension-paragraph':
         specifier: workspace:*
         version: link:../remirror__extension-paragraph
-      '@remirror/extension-placeholder':
+      '@rme-sdk/extension-placeholder':
         specifier: workspace:*
         version: link:../remirror__extension-placeholder
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/extension-shortcuts':
+      '@rme-sdk/extension-shortcuts':
         specifier: workspace:*
         version: link:../remirror__extension-shortcuts
-      '@remirror/extension-tables':
+      '@rme-sdk/extension-tables':
         specifier: workspace:*
         version: link:../remirror__extension-tables
-      '@remirror/extension-text':
+      '@rme-sdk/extension-text':
         specifier: workspace:*
         version: link:../remirror__extension-text
-      '@remirror/extension-text-color':
+      '@rme-sdk/extension-text-color':
         specifier: workspace:*
         version: link:../remirror__extension-text-color
-      '@remirror/extension-text-highlight':
+      '@rme-sdk/extension-text-highlight':
         specifier: workspace:*
         version: link:../remirror__extension-text-highlight
-      '@remirror/extension-trailing-node':
+      '@rme-sdk/extension-trailing-node':
         specifier: workspace:*
         version: link:../remirror__extension-trailing-node
-      '@remirror/extension-underline':
+      '@rme-sdk/extension-underline':
         specifier: workspace:*
         version: link:../remirror__extension-underline
-      '@remirror/extension-whitespace':
+      '@rme-sdk/extension-whitespace':
         specifier: workspace:*
         version: link:../remirror__extension-whitespace
-      '@remirror/icons':
+      '@rme-sdk/icons':
         specifier: workspace:*
         version: link:../remirror__icons
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
-      '@remirror/preset-core':
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../remirror__preset-core
       '@types/refractor':
@@ -809,7 +784,7 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       prettier:
@@ -891,25 +866,25 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
-      '@remirror/core-utils':
+      '@rme-sdk/core-utils':
         specifier: workspace:*
         version: link:../remirror__core-utils
-      '@remirror/icons':
+      '@rme-sdk/icons':
         specifier: workspace:*
         version: link:../remirror__icons
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       nanoevents:
@@ -919,22 +894,22 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
   packages/remirror__core-constants:
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
   packages/remirror__core-helpers:
     dependencies:
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/types':
+      '@rme-sdk/types':
         specifier: workspace:*
         version: link:../remirror__types
       '@types/object.omit':
@@ -974,23 +949,23 @@ importers:
         specifier: ^3.0.1
         version: 3.0.1
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
   packages/remirror__core-types:
     dependencies:
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/types':
+      '@rme-sdk/types':
         specifier: workspace:*
         version: link:../remirror__types
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -999,16 +974,16 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       '@types/min-document':
@@ -1027,10 +1002,10 @@ importers:
         specifier: ^3.1.8
         version: 3.1.8
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@types/jsdom':
@@ -1048,17 +1023,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/react-core':
+      '@rme-sdk/react-core':
         specifier: workspace:*
         version: link:../remirror__react-core
       prosemirror-dev-toolkit:
         specifier: ^1.1.8
         version: 1.1.8(svelte@5.39.8)
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@testing-library/react':
@@ -1082,17 +1057,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/preset-core':
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../remirror__preset-core
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1101,20 +1076,20 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1123,10 +1098,10 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       '@types/direction':
@@ -1136,10 +1111,10 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1148,17 +1123,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1167,17 +1142,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1186,17 +1161,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1214,14 +1189,14 @@ importers:
       '@codemirror/view':
         specifier: ^6.38.4
         version: 6.38.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1230,17 +1205,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1249,14 +1224,14 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1265,17 +1240,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1284,17 +1259,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1303,17 +1278,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1325,10 +1300,10 @@ importers:
       '@ocavue/svgmoji-cjs':
         specifier: ^0.1.1
         version: 0.1.1
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       emojibase:
@@ -1347,10 +1322,10 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1359,17 +1334,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1378,39 +1353,42 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
   packages/remirror__extension-flat-list:
     dependencies:
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
-      prosemirror-flat-list:
+      '@rme-sdk/prosemirror-flat-list':
         specifier: workspace:*
         version: link:../prosemirror-flat-list
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/preset-core':
+      '@rme-sdk/main':
+        specifier: workspace:*
+        version: link:../remirror
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../remirror__preset-core
-      '@remirror/react':
+      '@rme-sdk/react':
         specifier: workspace:*
         version: link:../remirror__react
       '@types/dedent':
@@ -1470,9 +1448,6 @@ importers:
       remark-rehype:
         specifier: ^11.1.2
         version: 11.1.2
-      remirror:
-        specifier: workspace:*
-        version: link:../remirror
       tsup:
         specifier: 8.1.2
         version: 8.1.2(@microsoft/api-extractor@7.37.0(@types/node@20.19.19))(@swc/core@1.13.5)(jiti@2.6.1)(postcss@8.5.6)(tsx@4.20.6)(typescript@5.0.4)(yaml@2.5.1)
@@ -1494,20 +1469,20 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       round:
         specifier: ^2.0.1
         version: 2.0.1
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1516,17 +1491,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1535,17 +1510,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1554,17 +1529,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1573,17 +1548,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1592,17 +1567,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1611,17 +1586,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1630,23 +1605,23 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-events':
+      '@rme-sdk/extension-events':
         specifier: workspace:*
         version: link:../remirror__extension-events
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       extract-domain:
         specifier: 2.2.1
         version: 2.2.1
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@types/extract-domain':
@@ -1661,17 +1636,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1680,17 +1655,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1699,17 +1674,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1718,23 +1693,23 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-events':
+      '@rme-sdk/extension-events':
         specifier: workspace:*
         version: link:../remirror__extension-events
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       nanoevents:
         specifier: ^5.1.13
         version: 5.1.13
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1743,32 +1718,32 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
-      '@remirror/core-utils':
+      '@rme-sdk/core-utils':
         specifier: workspace:*
         version: link:../remirror__core-utils
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       nanoevents:
         specifier: ^5.1.13
         version: 5.1.13
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@types/react':
@@ -1789,14 +1764,14 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1805,23 +1780,23 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-events':
+      '@rme-sdk/extension-events':
         specifier: workspace:*
         version: link:../remirror__extension-events
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1830,17 +1805,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1849,20 +1824,20 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
       color2k:
         specifier: ^2.0.2
         version: 2.0.3
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1871,20 +1846,20 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-text-color':
+      '@rme-sdk/extension-text-color':
         specifier: workspace:*
         version: link:../remirror__extension-text-color
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1893,17 +1868,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1912,17 +1887,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1931,17 +1906,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -1950,11 +1925,11 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
@@ -1963,10 +1938,10 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
     devDependencies:
@@ -1976,7 +1951,7 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.27.0
         version: 7.27.1(@babel/core@7.28.4)
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       babel-plugin-macros:
@@ -1994,10 +1969,10 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
       prosemirror-collab:
@@ -2049,7 +2024,7 @@ importers:
         specifier: ^1.39.2
         version: 1.41.2
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
@@ -2058,35 +2033,35 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-doc':
+      '@rme-sdk/extension-doc':
         specifier: workspace:*
         version: link:../remirror__extension-doc
-      '@remirror/extension-events':
+      '@rme-sdk/extension-events':
         specifier: workspace:*
         version: link:../remirror__extension-events
-      '@remirror/extension-gap-cursor':
+      '@rme-sdk/extension-gap-cursor':
         specifier: workspace:*
         version: link:../remirror__extension-gap-cursor
-      '@remirror/extension-history':
+      '@rme-sdk/extension-history':
         specifier: workspace:*
         version: link:../remirror__extension-history
-      '@remirror/extension-paragraph':
+      '@rme-sdk/extension-paragraph':
         specifier: workspace:*
         version: link:../remirror__extension-paragraph
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/extension-text':
+      '@rme-sdk/extension-text':
         specifier: workspace:*
         version: link:../remirror__extension-text
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
 
@@ -2095,23 +2070,23 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-placeholder':
+      '@rme-sdk/extension-placeholder':
         specifier: workspace:*
         version: link:../remirror__extension-placeholder
-      '@remirror/extension-react-component':
+      '@rme-sdk/extension-react-component':
         specifier: workspace:*
         version: link:../remirror__extension-react-component
-      '@remirror/react-utils':
+      '@rme-sdk/react-utils':
         specifier: workspace:*
         version: link:../remirror__react-utils
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@types/react':
@@ -2132,35 +2107,35 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/extension-placeholder':
+      '@rme-sdk/extension-placeholder':
         specifier: workspace:*
         version: link:../remirror__extension-placeholder
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/extension-react-component':
+      '@rme-sdk/extension-react-component':
         specifier: workspace:*
         version: link:../remirror__extension-react-component
-      '@remirror/preset-react':
+      '@rme-sdk/preset-react':
         specifier: workspace:*
         version: link:../remirror__preset-react
-      '@remirror/react-components':
+      '@rme-sdk/react-components':
         specifier: workspace:*
         version: link:../remirror__react-components
-      '@remirror/react-core':
+      '@rme-sdk/react-core':
         specifier: workspace:*
         version: link:../remirror__react-core
-      '@remirror/react-hooks':
+      '@rme-sdk/react-hooks':
         specifier: workspace:*
         version: link:../remirror__react-hooks
-      '@remirror/react-renderer':
+      '@rme-sdk/react-renderer':
         specifier: workspace:*
         version: link:../remirror__react-renderer
-      '@remirror/react-utils':
+      '@rme-sdk/react-utils':
         specifier: workspace:*
         version: link:../remirror__react-utils
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@types/react':
@@ -2184,25 +2159,28 @@ importers:
       '@floating-ui/react':
         specifier: ^0.24.3
         version: 0.24.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/icons':
+      '@rme-sdk/icons':
         specifier: workspace:*
         version: link:../remirror__icons
-      '@remirror/messages':
+      '@rme-sdk/messages':
         specifier: workspace:*
         version: link:../remirror__messages
-      '@remirror/react-core':
+      '@rme-sdk/multishift':
+        specifier: workspace:*
+        version: link:../multishift
+      '@rme-sdk/react-core':
         specifier: workspace:*
         version: link:../remirror__react-core
-      '@remirror/react-hooks':
+      '@rme-sdk/react-hooks':
         specifier: workspace:*
         version: link:../remirror__react-hooks
-      '@remirror/react-utils':
+      '@rme-sdk/react-utils':
         specifier: workspace:*
         version: link:../remirror__react-utils
       '@seznam/compose-react-refs':
@@ -2217,17 +2195,14 @@ importers:
       match-sorter:
         specifier: ^6.3.1
         version: 6.4.0
-      multishift:
-        specifier: 2.0.10
-        version: 2.0.10(@remirror/pm@packages+remirror__pm)(@types/react@18.3.25)(react@18.3.1)
       react-color:
         specifier: ^2.19.3
         version: 2.19.3(react@18.3.1)
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@types/react':
@@ -2248,25 +2223,25 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/extension-react-component':
+      '@rme-sdk/extension-react-component':
         specifier: workspace:*
         version: link:../remirror__extension-react-component
-      '@remirror/preset-core':
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../remirror__preset-core
-      '@remirror/preset-react':
+      '@rme-sdk/preset-react':
         specifier: workspace:*
         version: link:../remirror__preset-react
-      '@remirror/react-renderer':
+      '@rme-sdk/react-renderer':
         specifier: workspace:*
         version: link:../remirror__react-renderer
-      '@remirror/react-utils':
+      '@rme-sdk/react-utils':
         specifier: workspace:*
         version: link:../remirror__react-utils
       '@seznam/compose-react-refs':
@@ -2282,10 +2257,10 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@types/jsdom':
@@ -2312,36 +2287,36 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/extension-emoji':
+      '@rme-sdk/extension-emoji':
         specifier: workspace:*
         version: link:../remirror__extension-emoji
-      '@remirror/extension-events':
+      '@rme-sdk/extension-events':
         specifier: workspace:*
         version: link:../remirror__extension-events
-      '@remirror/extension-history':
+      '@rme-sdk/extension-history':
         specifier: workspace:*
         version: link:../remirror__extension-history
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../remirror__extension-positioner
-      '@remirror/react-core':
+      '@rme-sdk/multishift':
+        specifier: workspace:*
+        version: link:../multishift
+      '@rme-sdk/react-core':
         specifier: workspace:*
         version: link:../remirror__react-core
-      '@remirror/react-utils':
+      '@rme-sdk/react-utils':
         specifier: workspace:*
         version: link:../remirror__react-utils
-      multishift:
-        specifier: 2.0.10
-        version: 2.0.10(@remirror/pm@packages+remirror__pm)(@types/react@18.3.25)(react@18.3.1)
       use-isomorphic-layout-effect:
         specifier: ^1.1.2
         version: 1.2.1(@types/react@18.3.25)(react@18.3.1)
@@ -2349,10 +2324,10 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(@types/react@18.3.25)(react@18.3.1)
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
       '@types/react':
@@ -2376,11 +2351,11 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@types/react':
@@ -2395,17 +2370,17 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-constants':
+      '@rme-sdk/core-constants':
         specifier: workspace:*
         version: link:../remirror__core-constants
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@types/react':
@@ -2421,7 +2396,7 @@ importers:
         specifier: ^3.10.0
         version: 3.13.1
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
@@ -2430,14 +2405,14 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.28.4
-      '@remirror/core-helpers':
+      '@rme-sdk/core-helpers':
         specifier: workspace:*
         version: link:../remirror__core-helpers
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../remirror__core-types
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
 
@@ -2455,16 +2430,16 @@ importers:
       '@react-spring/mock-raf':
         specifier: ^1.1.1
         version: 1.1.1
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../remirror__core
-      '@remirror/pm':
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../remirror__pm
-      '@remirror/preset-core':
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../remirror__preset-core
-      '@remirror/react':
+      '@rme-sdk/react':
         specifier: workspace:*
         version: link:../remirror__react
       '@testing-library/react':
@@ -2538,9 +2513,9 @@ importers:
         version: 3.0.7
       test-keyboard:
         specifier: 2.0.7
-        version: 2.0.7(@remirror/pm@packages+remirror__pm)
+        version: 2.0.7(@remirror/pm@3.0.1)
     devDependencies:
-      '@remirror/cli':
+      '@rme-sdk/cli':
         specifier: workspace:*
         version: link:../remirror__cli
       '@types/react':
@@ -2612,52 +2587,61 @@ importers:
       '@mui/material':
         specifier: 6.1.6
         version: 6.1.6(@emotion/react@11.14.0(@types/react@18.3.25)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.25)(react@18.3.1))(@types/react@18.3.25)(react@18.3.1))(@types/react@18.3.25)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/core':
+      '@rme-sdk/core':
         specifier: workspace:*
         version: link:../packages/remirror__core
-      '@remirror/core-utils':
+      '@rme-sdk/core-utils':
         specifier: workspace:*
         version: link:../packages/remirror__core-utils
-      '@remirror/dev':
+      '@rme-sdk/dev':
         specifier: workspace:*
         version: link:../packages/remirror__dev
-      '@remirror/extension-codemirror6':
+      '@rme-sdk/extension-codemirror6':
         specifier: workspace:*
         version: link:../packages/remirror__extension-codemirror6
-      '@remirror/extension-count':
+      '@rme-sdk/extension-count':
         specifier: workspace:*
         version: link:../packages/remirror__extension-count
-      '@remirror/extension-hard-break':
+      '@rme-sdk/extension-flat-list':
+        specifier: workspace:*
+        version: link:../packages/remirror__extension-flat-list
+      '@rme-sdk/extension-hard-break':
         specifier: workspace:*
         version: link:../packages/remirror__extension-hard-break
-      '@remirror/extension-heading':
+      '@rme-sdk/extension-heading':
         specifier: workspace:*
         version: link:../packages/remirror__extension-heading
-      '@remirror/extension-positioner':
+      '@rme-sdk/extension-positioner':
         specifier: workspace:*
         version: link:../packages/remirror__extension-positioner
-      '@remirror/extension-tables':
+      '@rme-sdk/extension-tables':
         specifier: workspace:*
         version: link:../packages/remirror__extension-tables
-      '@remirror/icons':
+      '@rme-sdk/icons':
         specifier: workspace:*
         version: link:../packages/remirror__icons
-      '@remirror/pm':
+      '@rme-sdk/main':
+        specifier: workspace:*
+        version: link:../packages/remirror
+      '@rme-sdk/pm':
         specifier: workspace:*
         version: link:../packages/remirror__pm
-      '@remirror/preset-core':
+      '@rme-sdk/preset-core':
         specifier: workspace:*
         version: link:../packages/remirror__preset-core
-      '@remirror/react':
+      '@rme-sdk/prosemirror-flat-list':
+        specifier: workspace:*
+        version: link:../packages/prosemirror-flat-list
+      '@rme-sdk/react':
         specifier: workspace:*
         version: link:../packages/remirror__react
-      '@remirror/react-components':
+      '@rme-sdk/react-components':
         specifier: workspace:*
         version: link:../packages/remirror__react-components
-      '@remirror/react-core':
+      '@rme-sdk/react-core':
         specifier: workspace:*
         version: link:../packages/remirror__react-core
-      '@remirror/types':
+      '@rme-sdk/types':
         specifier: workspace:*
         version: link:../packages/remirror__types
       '@uiw/react-codemirror':
@@ -2729,9 +2713,6 @@ importers:
       prosemirror-commands:
         specifier: ^1.7.1
         version: 1.7.1
-      prosemirror-flat-list:
-        specifier: workspace:*
-        version: link:../packages/prosemirror-flat-list
       prosemirror-inputrules:
         specifier: ^1.5.0
         version: 1.5.0
@@ -2753,12 +2734,6 @@ importers:
       react-popper:
         specifier: ^2.3.0
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      remirror:
-        specifier: workspace:*
-        version: link:../packages/remirror
-      remirror-extension-flat-list:
-        specifier: workspace:*
-        version: link:../packages/remirror__extension-flat-list
       remixicon:
         specifier: ^4.5.0
         version: 4.6.0
@@ -2790,7 +2765,7 @@ importers:
       '@hyrious/esbuild-plugin-commonjs':
         specifier: ^0.2.4
         version: 0.2.6(cjs-module-lexer@1.4.3)(esbuild@0.24.2)
-      '@remirror/core-types':
+      '@rme-sdk/core-types':
         specifier: workspace:*
         version: link:../packages/remirror__core-types
       '@rollup/plugin-alias':
@@ -5099,9 +5074,6 @@ packages:
   '@microsoft/tsdoc@0.15.1':
     resolution: {integrity: sha512-4aErSrCR/On/e5G2hDP0wjooqDdauzEbIq8hIkIe5pXV0rtWJZvdCEKL0ykZxex+IxIwBp0eGeV48hQN07dXtw==}
 
-  '@mixmark-io/domino@2.2.0':
-    resolution: {integrity: sha512-Y28PR25bHXUg88kCV7nivXrP2Nj2RueZ3/l/jdx6J9f8J4nsEGcgX0Qe6lt7Pa+J79+kPiJU3LguR6O/6zrLOw==}
-
   '@mrmlnc/readdir-enhanced@2.2.1':
     resolution: {integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==}
     engines: {node: '>=4'}
@@ -5342,87 +5314,8 @@ packages:
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
-  '@remirror/extension-annotation@3.0.2':
-    resolution: {integrity: sha512-Cyd9jKPesqdmWoOH8CBi67zKVZ0zHLcZjm/V9f6ZjArRTrKgT8JchxnRwuLU+BH3WCU/JChONmhO4rarBoq7SA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-bidi@3.0.2':
-    resolution: {integrity: sha512-8FQwfV2HAlPTYhL46CfKu3cU2OLEHOdXzE5vXRkkeVeqpMda3hW7154rBiv+j4+oOP3re0IC55z4+BTvj3jhMg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-blockquote@3.0.2':
-    resolution: {integrity: sha512-+lLFLJ24krmAgC/CaHrsMkfqNALpNo9qLGYYwA4xxDadEm+sAU0KDHee+dpV92xQ6xfgQO6OOhzjet/S3B+M+A==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-bold@3.0.2':
-    resolution: {integrity: sha512-Ls50mPBtGJMbvE4FfcMSOxGglXaEntYIhDGKls5MVqdVnzAfyhCKPIkZTOuf3rfKPvtIMsXvo5dKvyDIpPV91w==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-callout@3.0.2':
-    resolution: {integrity: sha512-t8UpInA3rgw1GD3t8mMhXNNr9fq7PokQa10CPoPU/PJnjXalP1Pt+z8DUKGLjTaD/iBMH85+wrb5K1RBU4pZig==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-code-block@3.0.2':
-    resolution: {integrity: sha512-hVSqsVhHrWTXuk6eI/mEIuGJsThxEtc5M30SlXsbwChlzgEYJzg3MNeZM8sX81F2s/BwOhb057xLdVCWSdZSSw==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      prettier: ^3.2.0
-    peerDependenciesMeta:
-      prettier:
-        optional: true
-
-  '@remirror/extension-code@3.0.2':
-    resolution: {integrity: sha512-05foCVffhtGTVoyP5wNGYI803ujLqvmEqn73L1PJk/qVxubMYHyakKcIRgPxAKrdHv68fyuyOJ+M1bjMuL8hfw==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-collaboration@3.0.2':
-    resolution: {integrity: sha512-MuTkbpKiaRLyZOYJyt0x73LC5hQE0iSaLOaFBT0RmDGY7kQ2HjSumCAw3e/MoNmrF8GbpHOFmeOVVssbf6SEsw==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-columns@3.0.2':
-    resolution: {integrity: sha512-E/Reb7wGbZSyakYeMJ4puWfrq73d8AQCaVdBh3OrsquSLcxdNXmJyXcMRb+Hfrn+2lyaS8oMvFIk+y/HurpfMw==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-diff@3.0.2':
-    resolution: {integrity: sha512-0SkZ3Krn/4nUk0H0N6Jph8hZslfGRxNQnmA8Cvip5ExKr55VSRtpPClDjsVzoPzq8dNLuEo9DNKhO7JcBrMzGw==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
   '@remirror/extension-doc@3.0.2':
     resolution: {integrity: sha512-/UU5wJtYlz4I3xft9WMhgyxifDjVL5HiusEScyfiezEuFaWEqujJC5RfoqggF+ATZ1Yd6gvvJFAL5rljwZ0FkQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-drop-cursor@3.0.2':
-    resolution: {integrity: sha512-IZi/ogfXAGt35by5vOTRvBX6aEPsddnrYjjSsz516vlj5hK/YPa5iv+a20ODya5QYBOHds7kZngC5FooXWoOoQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-embed@3.0.2':
-    resolution: {integrity: sha512-iAPwDJRv3QCHHXSyaMxbDBl1hw/VRi3N8baKeNlzANpIebnChrZ0kQdQ2Ljzg7Wgnjtb2kd6kr5o0EBjLajpbg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-emoji@3.0.2':
-    resolution: {integrity: sha512-itTqNf0NF9ncI3f5q+hkLTSPpmaKGrWGJFrbexZtik9SfbPlkb+TXFS+svM74ZNu4VYqUJrp5BocsFpG9pCG5A==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-entity-reference@3.0.2':
-    resolution: {integrity: sha512-mQehQVmkaM3yFEObp3uuzJXs410llSovP5FBRaTCWSh8st4t9Xf5NvykJGRlpXSZc+FKSRVbiMn4Uk4/A0voBw==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-epic-mode@3.0.2':
-    resolution: {integrity: sha512-vlSlBKokYIke789qxJ0AuM81nZ7qKNlEY/SDKlAPgWeXfTGEJd7jL944fyFWwZWuQr+yDQzutX4k0M6K8i5Nvg==}
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
@@ -5431,33 +5324,8 @@ packages:
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
-  '@remirror/extension-find@1.0.2':
-    resolution: {integrity: sha512-m0rHkbPNpCI2OAatWmvq7xaUbiWZmYiYig46BrvhVxgoT+r3W15kOne7SA9NbI3a+s7TAL28XJhn524mHfIEsA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-font-family@3.0.2':
-    resolution: {integrity: sha512-l0mRi9mdnkS+1bJOo42VjKthDPfP7p992ogcsFEcU3mc72LClNcj1OItD71Wazb+5Zs7WChn+gdaUZ1JLbU08Q==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-font-size@3.0.2':
-    resolution: {integrity: sha512-EWu02TeIi1Cep2bgpkND5HOqTmHlNsV3JhvhjOeQXfScZPGUHOig4/aMFi1nXcD/E63ZYoJlVawGC2+/bnsuQQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
   '@remirror/extension-gap-cursor@3.0.2':
     resolution: {integrity: sha512-gTxLugLj+GWtKpm2vFQsT8nJxfx3lFppZsb6rKGRrVNy3JHi9A+lZyJ+EmQmdplypDIYm1G7nfT7moIwK88dpA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-hard-break@3.0.2':
-    resolution: {integrity: sha512-aUb+48POGva2FAuFFpKzH8hbTh8cjb4DYKgC7FCCAJS0YDCRhWWvDjtOtsCTJAr8tgFzmtZTjGWz/4SlSzMsqQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-heading@3.0.2':
-    resolution: {integrity: sha512-+eB1u/QLdX/+LGk9/Jjrma778wYni38yth+aFkouJo5DtFdC0dOd1pyEFWBOsp6fzYbG4gh6mGfjYrQwaVBt2w==}
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
@@ -5466,62 +5334,8 @@ packages:
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
-  '@remirror/extension-horizontal-rule@3.0.2':
-    resolution: {integrity: sha512-WuKN4xssGN2jFtSYf/8sGIWInBRGfX9Rc5OXzvbIm6lzjqErgqpH9X03QDkGOR0SQKcVSZq4et44kyyynjwZwg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-image@3.0.2':
-    resolution: {integrity: sha512-X90WvBdVnhKaNyOHWCESFEDxZjMU2gf1VscMYJZaI9St+kldBr9eCFELGWYndgVt3jKuCJaLzxwbKvs72bpaRg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-italic@3.0.2':
-    resolution: {integrity: sha512-VcGoFww3PEx+JdAKfLRfBGdqQC9QcM80QQzl9jqok8Qo1dLJTLVEYY4DBBtaSCfFOorCVNt2LZ+0w+cRWGC3DQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-link@3.0.2':
-    resolution: {integrity: sha512-C2gMv7P1cXMh55b+GtFI2ZwfSpe7TuEFsN+LbwltXIO0WduLKzvH2vYzh+dCnv6oFU5wpDhNQ+hYG3eohfCgyQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-list@3.0.2':
-    resolution: {integrity: sha512-xz1ewNdbMdwn2vZDtTYKmAKyDVXD4R4sMEho7iY9dmdlF47Wc/nIos7/9ihS+zrlomdmw5o+zXry355x0rzFXA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-markdown@3.0.3':
-    resolution: {integrity: sha512-YtHA7Znb5pyjYQhgOaf1xDFhyckJaRSNj/yzzmZQF3uND1TXMuQ4fwbXcu1Wt7Ht3kJxp93oXv6aB9Ah4aiu3g==}
-    peerDependencies:
-      '@remirror/extension-react-tables': 3.0.3
-      '@remirror/pm': ^3.0.1
-    peerDependenciesMeta:
-      '@remirror/extension-react-tables':
-        optional: true
-
-  '@remirror/extension-mention-atom@3.0.2':
-    resolution: {integrity: sha512-/C//SGkvK59FmmWnGIVB6PVkwTVRco4QeUj1xf3OWAufMSI3l2AcEULu1/K9XPLi8ZSPFq5e46W//gcZZAls7w==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-mention@3.0.2':
-    resolution: {integrity: sha512-BPlUHGoGbDqh+H1ZycJdP/WjvRn2yffR1pc5jUiLtajN8Z6E/slAB4wHsT/n8pnRk1EOwnCrapYD/i3AK1PaFg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-node-formatting@3.0.2':
-    resolution: {integrity: sha512-t+mrqmJELSj/CVL5p854TuhaxFqU9VyGColNk28KGSyXyoiUxlWj0lwdxpq5KaLxo/o6VdHIfVbTqLLb4cypDg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
   '@remirror/extension-paragraph@3.0.2':
     resolution: {integrity: sha512-m3LzbJASQmMu5HM25VjmeLjDNhS/fkGtCIivnkdQGtIf9tnUmXaclcJ9AN51kh5m8Sqx/YGpvbW5b1HIik+PlA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-placeholder@3.0.2':
-    resolution: {integrity: sha512-BsdF0PSLw2JLtGIwedqqvOt8WPaRJRHlfR5uT4eJNfZ7M6UIoa7SV4I3kxE8+eqPe6sofXeRh5+pvRuvdVveiA==}
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
@@ -5530,89 +5344,8 @@ packages:
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
-  '@remirror/extension-react-component@3.0.3':
-    resolution: {integrity: sha512-nu9nM3tCQdhvVMyAhBDfA3Ciwcz8GN+q0ABmaMWkMCfhFlsE59ymbsrGQaV+xnyQvpKdXr89ZgHP+k6dKjG8FQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      '@types/react': ^16.14.0 || ^17 || ^18
-      '@types/react-dom': ^16.9.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-      react-dom: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
-
-  '@remirror/extension-react-tables@3.0.3':
-    resolution: {integrity: sha512-tTvdZ2ij2f7HKrLcphUccQRXf9IKfOXguT4ftbQ/ZAGoRrL9ORT9g7rTYJfYdUYFPpTNjwghZwlD9TiroSmcBQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      react: ^16.14.0 || ^17 || ^18
-      react-dom: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
-  '@remirror/extension-shortcuts@3.0.2':
-    resolution: {integrity: sha512-1I2Z5s9cjoHg9PVSFyVBtbsc2u/mk17xNtibKLCSm5Mb+0muxX8roi6IPdBTiOnyvthEAmddNzNT7C2QlY/qow==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-strike@3.0.2':
-    resolution: {integrity: sha512-aSdlGxXnoPD7dMhCElY7jGamVoAz6VEQMn++CTGEG8tYXO/sovy47X0tZrvPQ8mcO/mq4JeSAS8KkwcZ28IpRg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-sub@3.0.2':
-    resolution: {integrity: sha512-vZoMvdVpVFH34lnRQBD1qKJbJeUwe48hFRJOi0i7u+l3JMVTHGuaus022ccL3FhYAhV10c1iABpGkF2fgvc2lQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-sup@3.0.2':
-    resolution: {integrity: sha512-Rk3fjMpEhkTzA3pJWPuLQd6H2oU19vqeTn2PRR7v4ZcW+/5IwXyTjUNkmbhby4UjxKc7iPzsOup0mbxsmC1KJQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-tables@3.0.2':
-    resolution: {integrity: sha512-IVuvQRz2lDmpID/PhG01nZqJ7nxoBx4NcJRG1MsdiBhzdlReWndERIDZ6nXhaY9snsGIpNzX43OYbb/90NKjUQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-text-case@3.0.2':
-    resolution: {integrity: sha512-S+WXdFxgXN/r4Nmm2YcBsOPZDh2vwd+rQRP57DVe2fU55b7MWEzsNZy9di1Wf5JxKK+kJdUfYdz2aFIH3iQdXg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-text-color@3.0.2':
-    resolution: {integrity: sha512-B90ZJnyzDxlwfYGpjJkOnWOfpiTUPbcjWLU+IaNNIMjlXnSH4Lg7Wsqj1+JxWko2wPNbsC5lgDEql0dKyPNxeg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-text-highlight@3.0.2':
-    resolution: {integrity: sha512-a/l8rpxWoksYP9TDqkd4VyJ/kQFDfQtek9/Z8JugF9MZAxpPSfYvUgzA94g+OQxTq9xlGvHUUWyA/VP3zNYWHA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
   '@remirror/extension-text@3.0.2':
     resolution: {integrity: sha512-VtdYnT2oF2cBj1f0SF7lIkoGlrXzwCUqjC8bh8Ppi9mzkcnz+DrEjSpyN4BYsw4WUWStIUIR2jxFgENhZ3trmg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-trailing-node@3.0.2':
-    resolution: {integrity: sha512-uVLvbKvQ8dCKEnUICdIC7FU6GI74hGH2oIKMMObADYjk9aHLKQJOxev7QGMJ/BKA94pqiXCBFpMe2NB9L4COBA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-underline@3.0.2':
-    resolution: {integrity: sha512-FJwjnRYKk8VmfbU/zcE0PVPsaqA6ZYrDMsIIBbywhLU5c9MP/EGw6K1Ps4hPFhmyHgc6IZNE8hLR4Ej7ZbYagQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/extension-whitespace@3.0.2':
-    resolution: {integrity: sha512-uVV8t7YKecIEUjou1GRhBgDr3Pwah598LkT9NIEOuYG3BjdtQdJgh1K1gAzBA1og72BWfzEPFFjvYbfaBsQHAw==}
     peerDependencies:
       '@remirror/pm': ^3.0.1
 
@@ -5629,94 +5362,6 @@ packages:
     resolution: {integrity: sha512-VYRGiudl8bE/DVO2YBx/kE0rWKNWG9qQwZbK63x8TXZY19eS5P97G87MGxAAoxv90U+IZbrIfOy1K6aVW4KeGA==}
     peerDependencies:
       '@remirror/pm': ^3.0.1
-
-  '@remirror/preset-formatting@3.0.2':
-    resolution: {integrity: sha512-oyC7nof7RLK+1rINtlWmtQi73kdv3YbmkUCE+ck7iM6nQILsbysPF09gD3/BwAyQ0i4XzIDhhlMdjNGrovUPgA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/preset-react@3.0.3':
-    resolution: {integrity: sha512-VdwnUuAz1UIXWaExXyggfuuSYIn9V2lMMyhTPdpjnEBwjpAgnfpxFRmwfbdWTCTq3BPFFTZp48Lz+1fw2fuwWg==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      '@types/react': ^16.14.0 || ^17 || ^18
-      '@types/react-dom': ^16.9.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-      react-dom: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
-
-  '@remirror/preset-wysiwyg@3.0.2':
-    resolution: {integrity: sha512-w2gzEfl/J4kj1h5FhYfhc6CAzWL2t8KKI/q8EAeBZ1+x+Bd1uZg4cVKkrDktbmwSWYCuVUX97uVFUJTU7195TA==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-
-  '@remirror/react-components@3.0.3':
-    resolution: {integrity: sha512-PymiL2E9hnE77J7OMg8vr0J7giFG1U1dWxB9J1dGbc7RPUlQpeBDp6xTrz1HiW5AQEs/D1EwKG6T5HOY7rDrww==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      '@types/react': ^16.14.0 || ^17 || ^18
-      '@types/react-dom': ^16.9.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-      react-dom: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
-
-  '@remirror/react-core@3.0.3':
-    resolution: {integrity: sha512-N8bgKcbGO4G/ViKWNFRsYoo9wBr4i5Pd0j4KxUb2bPAs9XdoDM0/4IyP8Vf5d4kjmB0iKXaHtmL+mvZSq6v1TQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      '@types/react': ^16.14.0 || ^17 || ^18
-      '@types/react-dom': ^16.9.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-      react-dom: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
-
-  '@remirror/react-hooks@3.0.3':
-    resolution: {integrity: sha512-Cf7qXF9H+QgA2tRngV5jfJhQ6SWEEC6G7/3JLGQOx2q6Wh/KAlAEol6hZfmJGM27ZR1H1IwKFQoUTHy7Dz0QtQ==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      '@types/react': ^16.14.0 || ^17 || ^18
-      '@types/react-dom': ^16.9.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-      react-dom: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
-  '@remirror/react-renderer@3.0.2':
-    resolution: {integrity: sha512-jmu7nwXfHR+WhNpvY3EsLbFcYIYwnvmR3554JNYteiE+OOVwDAOlK/ijOuNgCGKvoLi8+Srr4nFaBXQm7CboGQ==}
-    peerDependencies:
-      '@types/react': ^16.14.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
-  '@remirror/react-utils@3.0.0':
-    resolution: {integrity: sha512-9v+Mhup4n4tajJEnqsTBJKvyC7kHwsuTRe5Z7NXKN1O5WOMJyT+sOfAis8cOn4oPco3adVBEvbm54JSIwZXQEA==}
-    peerDependencies:
-      '@types/react': ^16.14.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
 
   '@remirror/theme@3.0.0':
     resolution: {integrity: sha512-TJkcpOV3iR8A80NjYczzsGcDfkBXR24cElH9vnuF57LUqZwsgX9QHfZG1QaBJIVy9Zl/hFWMBcSzQqj0+P4NnA==}
@@ -6414,9 +6059,6 @@ packages:
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
 
-  '@types/marked@4.3.2':
-    resolution: {integrity: sha512-a79Yc3TOk6dGdituy8hmTTJXjOkZ7zsFYV10L337ttq/rec8lRMDBpV7fL3uLx6TgbFCa5DU/h8FmIBQPSbU0w==}
-
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
 
@@ -6481,9 +6123,6 @@ packages:
   '@types/q@1.5.8':
     resolution: {integrity: sha512-hroOstUScF6zhIi+5+x0dzqrHA1EJi+Irri6b1fxolMTqqHIV/Cg77EtnQcZqZCu8hR3mX2BzIxN4/GzI68Kfw==}
 
-  '@types/querystringify@2.0.2':
-    resolution: {integrity: sha512-7d6OQK6pJ//zE32XLK3vI6GHYhBDcYooaRco9cKFGNu59GVatL5+u7rkiAViq44DxDTd/7QQNBWSDHfJGBz/Pw==}
-
   '@types/react-color@3.0.13':
     resolution: {integrity: sha512-2c/9FZ4ixC5T3JzN0LP5Cke2Mf0MKOP2Eh0NPDPWmuVH3NjPyhEjqNMQpN1Phr5m74egAy+p2lYNAFrX1z9Yrg==}
     peerDependencies:
@@ -6540,9 +6179,6 @@ packages:
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
 
-  '@types/string.prototype.matchall@4.0.4':
-    resolution: {integrity: sha512-E0KMS5FrWafbfKTGsoTZgrPHxBVknPeBxUTNwJima3t5KLdOlY285sisQC0mkVPTNNBc4nxza5ldly/ct+ISrQ==}
-
   '@types/stringify-object@3.3.1':
     resolution: {integrity: sha512-bpCBW0O+QrMLNFBY/+rkZtGzcYRmc2aTD8qYHOMNUmednqETfEZtFcGEA11l9xqbIeiT1PgXG0eq3zqayVzZSQ==}
 
@@ -6563,9 +6199,6 @@ packages:
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
-
-  '@types/turndown@5.0.5':
-    resolution: {integrity: sha512-TL2IgGgc7B5j78rIccBtlYAnkuv8nUQqhQc+DSYV5j9Be9XOcm/SKOVRuA47xAVI3680Tk9B1d8flK2GWT2+4w==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -10954,11 +10587,6 @@ packages:
     engines: {node: '>= 20'}
     hasBin: true
 
-  marked@4.3.0:
-    resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
-    engines: {node: '>= 12'}
-    hasBin: true
-
   match-sorter@6.4.0:
     resolution: {integrity: sha512-d4664ahzdL1QTTvmK1iI0JsrxWeJ6gn33qkYtnPg3mcn+naBLtXSgSPOe+X2vUgtgGwaAk3eiaj7gwKjjMAq+Q==}
     deprecated: This was arguably a breaking change. Not in API, but more results can be returned. Upgrade to the next major when you are ready for that
@@ -11323,15 +10951,6 @@ packages:
 
   multimap@1.1.0:
     resolution: {integrity: sha512-0ZIR9PasPxGXmRsEF8jsDzndzHDj7tIav+JUmvIFB/WHswliFnquxECT/De7GR4yg99ky/NlRKJT82G1y271bw==}
-
-  multishift@2.0.10:
-    resolution: {integrity: sha512-zXNW/JXDHsl9VYc4ch/qQmA7XsbS1G77IjDCL1x1Q651S16DZBGw4Gus5XFwbPoD14TYKE/OfhtaW2W/74q+PA==}
-    peerDependencies:
-      '@types/react': ^16.14.0 || ^17 || ^18
-      react: ^16.14.0 || ^17 || ^18
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
 
   mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
@@ -12268,9 +11887,6 @@ packages:
       prosemirror-state: ^1.4.2
       prosemirror-view: ^1.33.8
 
-  prosemirror-resizable-view@3.0.0:
-    resolution: {integrity: sha512-xIy2fU7B7z46oH8zW6aC0i4EhwieuW1HtWwwSJ8PB3dDq/AJGR7EBce+1Jn/Fmeu1zPd5CWoCJbvAlEs8cQV4A==}
-
   prosemirror-safari-ime-span@1.0.2:
     resolution: {integrity: sha512-QJqD8s1zE/CuK56kDsUhndh5hiHh/gFnAuPOA9ytva2s85/ZEt2tNWeALTJN48DtWghSKOmiBsvVn2OlnJ5H2w==}
 
@@ -12619,15 +12235,6 @@ packages:
 
   remark-stringify@11.0.0:
     resolution: {integrity: sha512-1OSmLd3awB/t8qdoEOMazZkNsfVTeY4fTsgzcQFdXNq8ToTN4ZGwrMnlda4K6smTFKD+GRV6O48i6Z4iKgPPpw==}
-
-  remirror@3.0.3:
-    resolution: {integrity: sha512-YmooU9OCR99uNnDI0HuhIpVYIQyP915NXppljZyM2+U31bJdtLDX+xU+JLi6sJS9pJYYsH2lhWIK5tRp3Oay1A==}
-    peerDependencies:
-      '@remirror/pm': ^3.0.1
-      prettier: ^3.2.0
-    peerDependenciesMeta:
-      prettier:
-        optional: true
 
   remixicon@4.6.0:
     resolution: {integrity: sha512-bKM5odjqE1yzVxEZGJE7F79WHhNrJFIKHXR+GG+P1IWXn8AnJZhl8SbIRDJsNAvIqx4VPkNwjuHfc42tutMDpQ==}
@@ -13698,12 +13305,6 @@ packages:
   turbo@2.5.8:
     resolution: {integrity: sha512-5c9Fdsr9qfpT3hA0EyYSFRZj1dVVsb6KIWubA9JBYZ/9ZEAijgUEae0BBR/Xl/wekt4w65/lYLTFaP3JmwSO8w==}
     hasBin: true
-
-  turndown-plugin-gfm@1.0.2:
-    resolution: {integrity: sha512-vwz9tfvF7XN/jE0dGoBei3FXWuvll78ohzCZQuOb+ZjWrs3a0XhQVomJEb2Qh4VHTPNRO4GPZh0V7VRbiWwkRg==}
-
-  turndown@7.2.1:
-    resolution: {integrity: sha512-7YiPJw6rLClQL3oUKN3KgMaXeJJ2lAyZItclgKDurqnH61so4k4IH/qwmMva0zpuJc/FhRExBBnk7EbeFANlgQ==}
 
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -17057,8 +16658,6 @@ snapshots:
 
   '@microsoft/tsdoc@0.15.1': {}
 
-  '@mixmark-io/domino@2.2.0': {}
-
   '@mrmlnc/readdir-enhanced@2.2.1':
     dependencies:
       call-me-maybe: 1.0.2
@@ -17360,12 +16959,6 @@ snapshots:
       '@remirror/pm': 3.0.1
       '@remirror/types': 2.0.0
 
-  '@remirror/core-types@3.0.0(@remirror/pm@packages+remirror__pm)':
-    dependencies:
-      '@remirror/core-constants': 3.0.0
-      '@remirror/pm': link:packages/remirror__pm
-      '@remirror/types': 2.0.0
-
   '@remirror/core-utils@3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
     dependencies:
       '@babel/runtime': 7.28.4
@@ -17411,185 +17004,7 @@ snapshots:
       - jsdom
       - supports-color
 
-  '@remirror/extension-annotation@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-bidi@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@types/direction': 1.0.0
-      direction: 1.0.4
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-blockquote@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-bold@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-callout@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-code-block@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)(prettier@3.3.3)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-      '@types/refractor': 3.4.1
-      refractor: 3.6.0
-    optionalDependencies:
-      prettier: 3.3.3
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-code@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-collaboration@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-columns@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-diff@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
   '@remirror/extension-doc@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-drop-cursor@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-embed@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@types/querystringify': 2.0.2
-      prosemirror-resizable-view: 3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      querystringify: 2.2.0
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-emoji@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@ocavue/svgmoji-cjs': 0.1.1
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-      emojibase: 6.1.0
-      emojibase-data: 6.2.0(emojibase@6.1.0)
-      emojibase-regex: 6.0.1
-      escape-string-regexp: 4.0.0
-      svgmoji: 3.2.0
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-entity-reference@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-epic-mode@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
@@ -17609,59 +17024,7 @@ snapshots:
       - '@types/node'
       - jsdom
 
-  '@remirror/extension-find@1.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/pm': 3.0.1
-      '@types/string.prototype.matchall': 4.0.4
-      escape-string-regexp: 4.0.0
-      string.prototype.matchall: 4.0.12
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-font-family@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-font-size@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      round: 2.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
   '@remirror/extension-gap-cursor@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-hard-break@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-heading@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
@@ -17681,116 +17044,6 @@ snapshots:
       - '@types/node'
       - jsdom
 
-  '@remirror/extension-horizontal-rule@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-image@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-      prosemirror-resizable-view: 3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-italic@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-link@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      extract-domain: 2.2.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-list@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-markdown@3.0.3(@remirror/extension-react-tables@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@types/marked': 4.3.2
-      '@types/turndown': 5.0.5
-      marked: 4.3.0
-      turndown: 7.2.1
-      turndown-plugin-gfm: 1.0.2
-    optionalDependencies:
-      '@remirror/extension-react-tables': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-mention-atom@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-mention@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      escape-string-regexp: 4.0.0
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-node-formatting@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
   '@remirror/extension-paragraph@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
     dependencies:
       '@babel/runtime': 7.28.4
@@ -17800,18 +17053,6 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
       - jsdom
-
-  '@remirror/extension-placeholder@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
 
   '@remirror/extension-positioner@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
     dependencies:
@@ -17827,173 +17068,7 @@ snapshots:
       - jsdom
       - supports-color
 
-  '@remirror/extension-react-component@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/core-constants': 3.0.0
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/core-types': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/core-utils': 3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      nanoevents: 5.1.13
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.25
-      '@types/react-dom': 18.3.7(@types/react@18.3.25)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-    optional: true
-
-  '@remirror/extension-react-tables@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@emotion/css': 11.13.5
-      '@linaria/core': 4.2.10
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/core-utils': 3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-tables': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/icons': 3.0.0
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/react-components': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/react-core': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/react-hooks': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-    optionalDependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - '@types/react'
-      - '@types/react-dom'
-      - jsdom
-      - supports-color
-    optional: true
-
-  '@remirror/extension-shortcuts@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-strike@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-sub@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-sup@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-tables@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-text-case@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-text-color@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-      color2k: 2.0.3
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/extension-text-highlight@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text-color': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
   '@remirror/extension-text@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-trailing-node@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-underline@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-
-  '@remirror/extension-whitespace@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
@@ -18054,193 +17129,6 @@ snapshots:
       - '@types/node'
       - jsdom
       - supports-color
-
-  '@remirror/preset-formatting@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-bold': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-columns': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-font-size': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-heading': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-italic': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-node-formatting': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-strike': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-sub': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-sup': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text-case': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text-color': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text-highlight': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-underline': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-whitespace': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/pm': 3.0.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-
-  '@remirror/preset-react@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-placeholder': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-react-component': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/react-utils': 3.0.0(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.25
-      '@types/react-dom': 18.3.7(@types/react@18.3.25)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-    optional: true
-
-  '@remirror/preset-wysiwyg@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)(prettier@3.3.3)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-bidi': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-blockquote': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-bold': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-code': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-code-block': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)(prettier@3.3.3)
-      '@remirror/extension-drop-cursor': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-embed': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-find': 1.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-gap-cursor': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-hard-break': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-heading': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-horizontal-rule': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-image': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-italic': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-link': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-list': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-shortcuts': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-strike': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-trailing-node': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-underline': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/preset-core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - prettier
-      - supports-color
-
-  '@remirror/react-components@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@floating-ui/react': 0.24.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/icons': 3.0.0
-      '@remirror/messages': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/react-core': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/react-hooks': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/react-utils': 3.0.0(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1)
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-      '@seznam/compose-react-refs': 1.0.6
-      '@types/react-color': 3.0.13(@types/react@18.3.25)
-      create-context-state: 2.0.3(@types/react@18.3.25)(react@18.3.1)
-      match-sorter: 6.4.0
-      multishift: 2.0.10(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1)
-      react: 18.3.1
-      react-color: 2.19.3(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.25
-      '@types/react-dom': 18.3.7(@types/react@18.3.25)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-    optional: true
-
-  '@remirror/react-core@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-react-component': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/preset-core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/preset-react': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/react-renderer': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react@18.3.25)(jsdom@25.0.1)(react@18.3.1)
-      '@remirror/react-utils': 3.0.0(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1)
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-      '@seznam/compose-react-refs': 1.0.6
-      fast-deep-equal: 3.1.3
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      resize-observer-polyfill: 1.5.1
-      tiny-warning: 1.0.3
-    optionalDependencies:
-      '@types/react': 18.3.25
-      '@types/react-dom': 18.3.7(@types/react@18.3.25)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-    optional: true
-
-  '@remirror/react-hooks@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/core-constants': 3.0.0
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/extension-emoji': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-history': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-mention': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-mention-atom': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/pm': 3.0.1
-      '@remirror/react-core': 3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@remirror/react-utils': 3.0.0(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1)
-      multishift: 2.0.10(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1)
-      use-isomorphic-layout-effect: 1.2.1(@types/react@18.3.25)(react@18.3.1)
-      use-previous: 1.2.0(@types/react@18.3.25)(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.25
-      '@types/react-dom': 18.3.7(@types/react@18.3.25)
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    transitivePeerDependencies:
-      - '@types/node'
-      - jsdom
-      - supports-color
-    optional: true
-
-  '@remirror/react-renderer@3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react@18.3.25)(jsdom@25.0.1)(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      react: 18.3.1
-    optionalDependencies:
-      '@types/react': 18.3.25
-    transitivePeerDependencies:
-      - '@remirror/pm'
-      - '@types/node'
-      - jsdom
-    optional: true
-
-  '@remirror/react-utils@3.0.0(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core-constants': 3.0.0
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/core-types': 3.0.0(@remirror/pm@3.0.1)
-      react: 18.3.1
-    optionalDependencies:
-      '@types/react': 18.3.25
-    transitivePeerDependencies:
-      - '@remirror/pm'
-    optional: true
 
   '@remirror/theme@3.0.0(@remirror/pm@3.0.1)':
     dependencies:
@@ -18984,8 +17872,6 @@ snapshots:
       '@types/linkify-it': 5.0.0
       '@types/mdurl': 2.0.0
 
-  '@types/marked@4.3.2': {}
-
   '@types/mdast@3.0.15':
     dependencies:
       '@types/unist': 2.0.11
@@ -19040,8 +17926,6 @@ snapshots:
 
   '@types/q@1.5.8': {}
 
-  '@types/querystringify@2.0.2': {}
-
   '@types/react-color@3.0.13(@types/react@18.3.25)':
     dependencies:
       '@types/react': 18.3.25
@@ -19094,8 +17978,6 @@ snapshots:
 
   '@types/stack-utils@2.0.3': {}
 
-  '@types/string.prototype.matchall@4.0.4': {}
-
   '@types/stringify-object@3.3.1': {}
 
   '@types/stylis@4.2.5': {}
@@ -19114,8 +17996,6 @@ snapshots:
 
   '@types/trusted-types@2.0.7':
     optional: true
-
-  '@types/turndown@5.0.5': {}
 
   '@types/unist@2.0.11': {}
 
@@ -24825,8 +23705,6 @@ snapshots:
 
   marked@16.3.0: {}
 
-  marked@4.3.0: {}
-
   match-sorter@6.4.0:
     dependencies:
       '@babel/runtime': 7.28.4
@@ -25520,39 +24398,6 @@ snapshots:
   ms@2.1.3: {}
 
   multimap@1.1.0: {}
-
-  multishift@2.0.10(@remirror/pm@3.0.1)(@types/react@18.3.25)(react@18.3.1):
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/core-types': 3.0.0(@remirror/pm@3.0.1)
-      '@seznam/compose-react-refs': 1.0.6
-      a11y-status: 2.0.2
-      compute-scroll-into-view: 1.0.20
-      react: 18.3.1
-      tiny-warning: 1.0.3
-      w3c-keyname: 2.2.8
-    optionalDependencies:
-      '@types/react': 18.3.25
-    transitivePeerDependencies:
-      - '@remirror/pm'
-    optional: true
-
-  multishift@2.0.10(@remirror/pm@packages+remirror__pm)(@types/react@18.3.25)(react@18.3.1):
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/core-types': 3.0.0(@remirror/pm@packages+remirror__pm)
-      '@seznam/compose-react-refs': 1.0.6
-      a11y-status: 2.0.2
-      compute-scroll-into-view: 1.0.20
-      react: 18.3.1
-      tiny-warning: 1.0.3
-      w3c-keyname: 2.2.8
-    optionalDependencies:
-      '@types/react': 18.3.25
-    transitivePeerDependencies:
-      - '@remirror/pm'
 
   mz@2.7.0:
     dependencies:
@@ -26512,18 +25357,6 @@ snapshots:
       prosemirror-state: 1.4.3
       prosemirror-view: 1.41.2
 
-  prosemirror-resizable-view@3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1):
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/core-utils': 3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      prosemirror-model: 1.25.3
-      prosemirror-view: 1.41.2
-    transitivePeerDependencies:
-      - '@remirror/pm'
-      - '@types/node'
-      - jsdom
-
   prosemirror-safari-ime-span@1.0.2:
     dependencies:
       prosemirror-state: 1.4.3
@@ -26980,79 +25813,6 @@ snapshots:
       '@types/mdast': 4.0.4
       mdast-util-to-markdown: 2.1.2
       unified: 11.0.5
-
-  remirror@3.0.3(@remirror/extension-react-tables@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)(prettier@3.3.3):
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/core-constants': 3.0.0
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/core-types': 3.0.0(@remirror/pm@3.0.1)
-      '@remirror/core-utils': 3.0.0(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/dom': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-annotation': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-bidi': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-blockquote': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-bold': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-callout': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-code': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-code-block': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)(prettier@3.3.3)
-      '@remirror/extension-collaboration': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-columns': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-diff': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-doc': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-drop-cursor': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-embed': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-emoji': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-entity-reference': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-epic-mode': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-events': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-find': 1.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-font-family': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-font-size': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-gap-cursor': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-hard-break': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-heading': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-history': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-horizontal-rule': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-image': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-italic': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-link': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-list': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-markdown': 3.0.3(@remirror/extension-react-tables@3.0.3(@remirror/pm@3.0.1)(@types/node@16.18.126)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(jsdom@25.0.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-mention': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-mention-atom': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-node-formatting': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-paragraph': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-placeholder': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-positioner': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-shortcuts': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-strike': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-sub': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-sup': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-tables': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text-case': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text-color': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-text-highlight': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-trailing-node': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-underline': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/extension-whitespace': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/icons': 3.0.0
-      '@remirror/pm': 3.0.1
-      '@remirror/preset-core': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/preset-formatting': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)
-      '@remirror/preset-wysiwyg': 3.0.2(@remirror/pm@3.0.1)(@types/node@16.18.126)(jsdom@25.0.1)(prettier@3.3.3)
-      '@remirror/theme': 3.0.0(@remirror/pm@3.0.1)
-      '@types/refractor': 3.4.1
-      refractor: 3.6.0
-    optionalDependencies:
-      prettier: 3.3.3
-    transitivePeerDependencies:
-      - '@remirror/extension-react-tables'
-      - '@types/node'
-      - jsdom
-      - supports-color
 
   remixicon@4.6.0: {}
 
@@ -28028,14 +26788,6 @@ snapshots:
     transitivePeerDependencies:
       - '@remirror/pm'
 
-  test-keyboard@2.0.7(@remirror/pm@packages+remirror__pm):
-    dependencies:
-      '@babel/runtime': 7.28.4
-      '@remirror/core-helpers': 4.0.0
-      '@remirror/core-types': 3.0.0(@remirror/pm@packages+remirror__pm)
-    transitivePeerDependencies:
-      - '@remirror/pm'
-
   testing@0.0.4:
     dependencies:
       async: 3.2.6
@@ -28328,12 +27080,6 @@ snapshots:
       turbo-linux-arm64: 2.5.8
       turbo-windows-64: 2.5.8
       turbo-windows-arm64: 2.5.8
-
-  turndown-plugin-gfm@1.0.2: {}
-
-  turndown@7.2.1:
-    dependencies:
-      '@mixmark-io/domino': 2.2.0
 
   type-check@0.4.0:
     dependencies:

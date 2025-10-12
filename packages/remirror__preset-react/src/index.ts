@@ -1,2 +1,3 @@
+export * from '@rme-sdk/extension-placeholder';
 export * from './react-extension';
-export * from '@remirror/extension-placeholder';
+

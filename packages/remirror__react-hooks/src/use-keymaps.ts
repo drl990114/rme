@@ -1,7 +1,7 @@
+import type { KeyBindings, KeyBindingsTuple } from '@rme-sdk/core';
+import { ExtensionPriority, KeymapExtension } from '@rme-sdk/core';
+import { useExtensionCustomEvent } from '@rme-sdk/react-core';
 import { useMemo } from 'react';
-import type { KeyBindings, KeyBindingsTuple } from '@remirror/core';
-import { ExtensionPriority, KeymapExtension } from '@remirror/core';
-import { useExtensionCustomEvent } from '@remirror/react-core';
 
 /**
  * Add custom keyboard bindings to the editor instance.
@@ -9,7 +9,7 @@ import { useExtensionCustomEvent } from '@remirror/react-core';
  * @remarks
  *
  * ```tsx
- * import { Remirror, useRemirror, useRemirrorContext, useKeymaps  } from '@remirror/react';
+ * import { Remirror, useRemirror, useRemirrorContext, useKeymaps  } from '@rme-sdk/react';
  *
  * const Editor = () => {
  *   const { manager } = useRemirror({ extensions: () => [] });

@@ -1,18 +1,18 @@
-import { Dispatch, ReactNode, Ref, SetStateAction } from 'react';
 import {
-  AnyExtension,
-  ErrorConstant,
-  Framework,
-  FrameworkOptions,
-  FrameworkProps,
-  invariant,
-  object,
-  STATE_OVERRIDE,
-  UpdateStateProps,
-} from '@remirror/core';
-import type { EditorState } from '@remirror/pm/state';
-import { EditorView } from '@remirror/pm/view';
-import { PlaceholderExtension } from '@remirror/preset-react';
+    AnyExtension,
+    ErrorConstant,
+    Framework,
+    FrameworkOptions,
+    FrameworkProps,
+    invariant,
+    object,
+    STATE_OVERRIDE,
+    UpdateStateProps,
+} from '@rme-sdk/core';
+import type { EditorState } from '@rme-sdk/pm/state';
+import { EditorView } from '@rme-sdk/pm/view';
+import { PlaceholderExtension } from '@rme-sdk/preset-react';
+import { Dispatch, ReactNode, Ref, SetStateAction } from 'react';
 
 import { composeRefs } from './commonjs-packages/seznam-compose-react-refs';
 import type { GetRootPropsConfig, ReactFrameworkOutput, RefKeyRootProps } from './react-types';

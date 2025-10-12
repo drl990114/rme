@@ -1,6 +1,6 @@
 {
-  "name": "@remirror/extension-positioner",
-  "version": "3.0.2",
+  "name": "@rme-sdk/extension-positioner",
+  "version": "1.1.0",
   "description": "Reposition your elements with every state update.",
   "keywords": [
     "remirror",
@@ -23,13 +23,13 @@
   "exports": {
     ".": {
       "types": "./dist-types/index.d.ts",
-      "import": "./dist/remirror-extension-positioner.js",
-      "require": "./dist/remirror-extension-positioner.cjs"
+      "import": "./dist/rme-sdk-extension-positioner.js",
+      "require": "./dist/rme-sdk-extension-positioner.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/remirror-extension-positioner.cjs",
-  "module": "./dist/remirror-extension-positioner.js",
+  "main": "./dist/rme-sdk-extension-positioner.cjs",
+  "module": "./dist/rme-sdk-extension-positioner.js",
   "types": "./dist-types/index.d.ts",
   "files": [
     "dist",
@@ -40,34 +40,34 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
-    "@remirror/core": "workspace:*",
-    "@remirror/extension-events": "workspace:*",
-    "@remirror/messages": "workspace:*",
+    "@rme-sdk/core": "workspace:*",
+    "@rme-sdk/extension-events": "workspace:*",
+    "@rme-sdk/messages": "workspace:*",
     "nanoevents": "^5.1.13"
   },
   "devDependencies": {
-    "@remirror/cli": "workspace:*",
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/cli": "workspace:*",
+    "@rme-sdk/pm": "workspace:*"
   },
   "peerDependencies": {
-    "@remirror/pm": "workspace:*"
+    "@rme-sdk/pm": "workspace:*"
   },
   "publishConfig": {
-    "access": "public",
     "exports": {
       ".": {
-        "types": "./dist/remirror-extension-positioner.d.ts",
-        "import": "./dist/remirror-extension-positioner.js",
-        "require": "./dist/remirror-extension-positioner.cjs"
+        "types": "./dist/rme-sdk-extension-positioner.d.ts",
+        "import": "./dist/rme-sdk-extension-positioner.js",
+        "require": "./dist/rme-sdk-extension-positioner.cjs"
       },
       "./package.json": "./package.json"
     },
-    "main": "./dist/remirror-extension-positioner.cjs",
-    "module": "./dist/remirror-extension-positioner.js",
+    "access": "public",
     "type": "module",
-    "types": "./dist/remirror-extension-positioner.d.ts"
+    "main": "./dist/rme-sdk-extension-positioner.cjs",
+    "module": "./dist/rme-sdk-extension-positioner.js",
+    "types": "./dist/rme-sdk-extension-positioner.d.ts"
   },
-  "@remirror": {
+  "@rme-sdk": {
     "sizeLimit": "10 KB"
   }
 }

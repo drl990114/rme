@@ -4,7 +4,7 @@ import type {
     Mark,
     NodeType,
     Node as ProsemirrorNode,
-} from '@remirror/pm/model'
+} from '@rme-sdk/pm/model'
 
 export function createAndFill(
   type: NodeType,

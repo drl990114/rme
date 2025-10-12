@@ -1,27 +1,27 @@
-import { assertGet, isEmptyArray, object } from '@remirror/core-helpers';
+import { assertGet, isEmptyArray, object } from '@rme-sdk/core-helpers';
 
 import { MultishiftActionTypes } from './multishift-constants';
 import type {
-  MultishiftProps,
-  MultishiftRootActions,
-  MultishiftState,
-  MultishiftStateProps,
+    MultishiftProps,
+    MultishiftRootActions,
+    MultishiftState,
+    MultishiftStateProps,
 } from './multishift-types';
 import {
-  addItems,
-  defaultGetItemId,
-  getChangesFromInputKeyDown,
-  getChangesFromItemClick,
-  getChangesFromMenuKeyDown,
-  getChangesFromToggleButtonKeyDown,
-  getDefaultState,
-  getHighlightedIndexes,
-  getHighlightedIndexOnOpen,
-  getHighlightReset,
-  getItemIndexesByJumpText,
-  omitUnchangedState,
-  removeItems,
-  warnIfInternalType,
+    addItems,
+    defaultGetItemId,
+    getChangesFromInputKeyDown,
+    getChangesFromItemClick,
+    getChangesFromMenuKeyDown,
+    getChangesFromToggleButtonKeyDown,
+    getDefaultState,
+    getHighlightedIndexes,
+    getHighlightedIndexOnOpen,
+    getHighlightReset,
+    getItemIndexesByJumpText,
+    omitUnchangedState,
+    removeItems,
+    warnIfInternalType,
 } from './multishift-utils';
 
 export const multishiftReducer = <Item = any>(

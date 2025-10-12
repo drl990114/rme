@@ -1,7 +1,7 @@
 import type * as All from './all-icons';
 
 /**
- * All the available icons via `@remirror/icons/all`.
+ * All the available icons via `@rme-sdk/icons/all`.
  */
 export type AllIcons = keyof typeof All;
 
