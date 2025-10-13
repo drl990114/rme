@@ -878,11 +878,15 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
     }
   }
 
-  .remirror-is-empty::before {
-    position: absolute;
-    pointer-events: none;
-    height: 0;
-    content: attr(data-placeholder);
+  p[data-placeholder] {
+    &::before {
+      position: absolute;
+      pointer-events: none;
+      color: #aaa;
+      height: 0;
+      font-style: italic;
+      content: attr(data-placeholder);
+    }
   }
 
   .remirror-editor {
