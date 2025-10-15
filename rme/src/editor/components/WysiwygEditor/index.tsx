@@ -9,7 +9,7 @@ import TableToolbar from '../../toolbar/TableToolbar'
 import { WysiwygToolbar } from '../../toolbar/toolbar'
 import { defaultStyleToken, type EditorProps } from '../Editor'
 import ErrorBoundary from '../ErrorBoundary'
-import Text from '../Text'
+import Text from './Text'
 import { createWysiwygDelegate } from './delegate'
 
 const WysiwygEditor: FC<EditorProps> = (props) => {
@@ -22,6 +22,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
     editable = true,
     wysiwygToolBarOptions,
     styleToken = defaultStyleToken,
+    textContainerProps = {},
   } = props
 
   const editorDelegate = useMemo(() => delegate ?? createWysiwygDelegate(), [delegate])
@@ -49,7 +50,6 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
         }),
       )
     }
-
   }, [editorDelegate])
 
   let initialContent
@@ -69,8 +69,10 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
           editable={editable}
           onChange={handleChange}
         >
-          {wysiwygToolBarOptions?.enable ? <WysiwygToolbar {...wysiwygToolBarOptions?.compProps} /> : null}
-          <Text />
+          {wysiwygToolBarOptions?.enable ? (
+            <WysiwygToolbar {...wysiwygToolBarOptions?.compProps} />
+          ) : null}
+          <Text {...textContainerProps} />
           <TableToolbar />
           <SlashMenu />
           {wysiwygToolBar || null}

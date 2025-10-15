@@ -7,7 +7,7 @@ import { SourceCodeThemeWrapper } from '../../theme'
 import type { EditorDelegate } from '../../types'
 import { defaultStyleToken, type EditorProps } from '../Editor'
 import ErrorBoundary from '../ErrorBoundary'
-import Text from '../Text'
+import Text from './Text'
 import { createSourceCodeDelegate } from './delegate'
 
 type Context = Props
@@ -27,11 +27,12 @@ const [SourceEditorProvider, useSourceCodeEditor] = createContextState<Context, 
 const SourceCodeEditorCore = memo(
   (props: {
     styleToken?: EditorProps['styleToken']
+    textContainerProps?: EditorProps['textContainerProps']
     markdownToolBar?: React.ReactNode[]
     onChange: RemirrorEventListener<Extension>
     errorHandler?: EditorProps['errorHandler']
   }) => {
-    const { markdownToolBar, styleToken } = props
+    const { markdownToolBar, styleToken, textContainerProps = {} } = props
     const { content, markText, hooks, isTesting, editable } = useSourceCodeEditor()
 
     let initialCntent
@@ -39,7 +40,7 @@ const SourceCodeEditorCore = memo(
     try {
       initialCntent = markText.stringToDoc(content!)
     } catch (error) {
-      return <ErrorBoundary hasError error={error} {...(props.errorHandler || {})}/>
+      return <ErrorBoundary hasError error={error} {...(props.errorHandler || {})} />
     }
 
     return (
@@ -52,7 +53,7 @@ const SourceCodeEditorCore = memo(
             editable={editable}
             onChange={props.onChange}
           >
-            <Text />
+            <Text {...textContainerProps} />
             {markdownToolBar || null}
             {isTesting ? <ProsemirrorDevTools /> : null}
           </Remirror>
@@ -73,6 +74,7 @@ const SourceEditor: React.FC<EditorProps> = (props) => {
     hooks,
     markdownToolBar,
     styleToken = defaultStyleToken,
+    textContainerProps = {}
   } = props
 
   const editorDelegate = useMemo(() => delegate ?? createSourceCodeDelegate(), [delegate])
@@ -98,6 +100,7 @@ const SourceEditor: React.FC<EditorProps> = (props) => {
     >
       <SourceCodeEditorCore
         styleToken={styleToken}
+        textContainerProps={textContainerProps}
         markdownToolBar={markdownToolBar}
         onChange={handleChange}
         errorHandler={props.errorHandler}

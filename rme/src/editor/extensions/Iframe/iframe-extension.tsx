@@ -1,19 +1,19 @@
 import type {
-    ApplySchemaAttributes,
-    CommandFunction,
-    InputRule,
-    LiteralUnion,
-    NodeExtensionSpec,
-    NodeSpecOverride,
-    ProsemirrorAttributes
+  ApplySchemaAttributes,
+  CommandFunction,
+  InputRule,
+  LiteralUnion,
+  NodeExtensionSpec,
+  NodeSpecOverride,
+  ProsemirrorAttributes,
 } from '@rme-sdk/core'
 import {
-    cx,
-    extension,
-    ExtensionTag,
-    NodeExtension,
-    nodeInputRule,
-    omitExtraAttributes
+  cx,
+  extension,
+  ExtensionTag,
+  NodeExtension,
+  nodeInputRule,
+  omitExtraAttributes,
 } from '@rme-sdk/core'
 import type { NodeViewComponentProps } from '@rme-sdk/react'
 import type { ComponentType } from 'react'
@@ -24,13 +24,13 @@ import { IframeNodeView } from './Iframe-nodeview'
 import type { IframeOptions } from './iframe-types'
 
 export type IframeAttributes = ProsemirrorAttributes<{
-  src: string;
-  frameBorder?: number | string;
-  allowFullScreen?: 'true' | boolean;
-  width?: number;
-  height?: number;
-  type?: LiteralUnion<'youtube', string>;
-}>;
+  src: string
+  frameBorder?: number | string
+  allowFullScreen?: 'true' | boolean
+  width?: number
+  height?: number
+  type?: LiteralUnion<'youtube', string>
+}>
 
 /**
  * An extension for the remirror editor.
@@ -43,7 +43,7 @@ export type IframeAttributes = ProsemirrorAttributes<{
   },
   staticKeys: ['defaultSource', 'class'],
   handlerKeys: [],
-  customHandlerKeys: []
+  customHandlerKeys: [],
 })
 export class IframeExtension extends NodeExtension<IframeOptions> {
   get name() {
@@ -55,7 +55,7 @@ export class IframeExtension extends NodeExtension<IframeOptions> {
   }
 
   ReactComponent: ComponentType<NodeViewComponentProps> | undefined = (props) => {
-    return  <IframeNodeView {...props}/>
+    return <IframeNodeView {...props} />
   }
 
   createNodeSpec(extra: ApplySchemaAttributes, override: NodeSpecOverride): NodeExtensionSpec {
@@ -119,7 +119,7 @@ export class IframeExtension extends NodeExtension<IframeOptions> {
     }
   }
 
-  addIframe(attributes: IframeAttributes): CommandFunction {
+  addIframe = (attributes: IframeAttributes): CommandFunction => {
     return ({ tr, dispatch }) => {
       dispatch?.(tr.replaceSelectionWith(this.type.create(attributes)))
 
@@ -129,7 +129,7 @@ export class IframeExtension extends NodeExtension<IframeOptions> {
 
   createCommands() {
     return {
-      addIframe: this.addIframe
+      addIframe: this.addIframe,
     }
   }
 

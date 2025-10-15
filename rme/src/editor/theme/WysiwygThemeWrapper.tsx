@@ -31,7 +31,6 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   color: ${(props) => props.theme.primaryFontColor};
   word-wrap: break-word;
   white-space: pre-wrap;
-  padding: 0 20px;
   padding-bottom: 1em;
   box-sizing: border-box;
   outline: none;
@@ -1115,54 +1114,4 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
       color-scheme: dark;
     `}
 
-  ${(props) => {
-    const style = css`
-      position: absolute;
-      left: -20px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: normal;
-      color: ${props.theme.primaryFontColor};
-    `
-    return css`
-      & h1 {
-        &::before {
-          content: 'h1';
-          ${style}
-        }
-      }
-      & h2 {
-        &::before {
-          content: 'h2';
-          ${style}
-        }
-      }
-      & h3 {
-        &::before {
-          content: 'h3';
-          ${style}
-        }
-      }
-      & h4 {
-        &::before {
-          content: 'h4';
-          ${style}
-        }
-      }
-      & h5 {
-        &::before {
-          content: 'h5';
-          ${style}
-        }
-      }
-      & h6 {
-        &::before {
-          content: 'h6';
-          ${style}
-        }
-      }
-    `
-  }}
 `

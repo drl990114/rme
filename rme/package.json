@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.2.5-alpha.4",
+  "version": "0.2.5-alpha.9",
   "type": "module",
   "scripts": {
     "build": "pnpm clear && pnpm build-esbuild && pnpm types",

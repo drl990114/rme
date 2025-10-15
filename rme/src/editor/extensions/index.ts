@@ -38,8 +38,6 @@ import { LineTableExtension, LineTableRowExtension } from './Table'
 import { LineTextExtension } from './Text'
 import { TransformerExtension } from './Transformer/transformer-extension'
 
-// import { TableExtension } from './ReactTables';
-
 export * from './List'
 
 export type ExtensionsOptions = {

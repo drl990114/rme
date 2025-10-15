@@ -147,7 +147,7 @@ export class ClipboardExtension extends PlainExtension<ClipboardExtensionOptions
 
   createCommands() {
     return {
-      copy(): CommandFunction {
+      copy: (): CommandFunction =>{
         return (props) => {
           if (props.tr.selection.empty) {
             return false

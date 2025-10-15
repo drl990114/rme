@@ -2,17 +2,16 @@ import { useRemirrorContext } from '@rme-sdk/react'
 import type { CSSProperties, FC } from 'react'
 import React, { memo } from 'react'
 
-interface ITextProps {
+export interface ITextProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
   className?: string
   style?: CSSProperties
-  codeEditor?: boolean
 }
 
 const Text: FC<ITextProps> = memo(({ children, ...props }) => {
   const { getRootProps } = useRemirrorContext()
 
-  const { key, ...rootProps} = getRootProps()
+  const { key, ...rootProps } = getRootProps()
 
   const style = Object.assign(
     {
@@ -22,7 +21,7 @@ const Text: FC<ITextProps> = memo(({ children, ...props }) => {
   )
 
   return (
-    <div {...props} {...rootProps} style={style} spellCheck={false} >
+    <div {...rootProps} spellCheck={false} {...props} style={style}>
       {children}
     </div>
   )

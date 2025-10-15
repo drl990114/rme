@@ -18,6 +18,7 @@ import WysiwygEditor, { createWysiwygDelegate } from './WysiwygEditor'
 import HTML from 'html-parse-stringify'
 import { nanoid } from 'nanoid'
 import { ErrorBoundaryProps } from './ErrorBoundary'
+import { ITextProps } from './WysiwygEditor/Text'
 
 export const Editor = memo(
   forwardRef<EditorRef, EditorProps>((props, ref) => {
@@ -134,6 +135,7 @@ export interface EditorProps {
     rootLineHeight?: string
   }
   content: string
+  textContainerProps?: ITextProps
   isTesting?: boolean
   editable?: boolean
   delegateOptions?: CreateWysiwygDelegateOptions

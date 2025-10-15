@@ -1,13 +1,13 @@
 import {
-    CommandFunction,
-    CreateExtensionPlugin,
-    DispatchFunction,
-    extension,
-    FromToProps,
-    Helper,
-    PlainExtension,
-    ProsemirrorNode,
-    Transaction
+  CommandFunction,
+  CreateExtensionPlugin,
+  DispatchFunction,
+  extension,
+  FromToProps,
+  Helper,
+  PlainExtension,
+  ProsemirrorNode,
+  Transaction,
 } from '@rme-sdk/core'
 import { Decoration, DecorationAttrs, DecorationSet } from '@rme-sdk/pm/view'
 import escapeStringRegex from 'escape-string-regexp'
@@ -69,7 +69,7 @@ export class FindExtension extends PlainExtension<FindOptions> {
   /**
    * Find and highlight the search result in the editor.
    */
-  find({ query, activeIndex, caseSensitive }: FindProps): CommandFunction {
+  find = ({ query, activeIndex, caseSensitive }: FindProps): CommandFunction => {
     if (!query) {
       return this.stopFind()
     }
@@ -82,7 +82,7 @@ export class FindExtension extends PlainExtension<FindOptions> {
   /**
    * Stop find and remove all highlight.
    */
-  stopFind(): CommandFunction {
+  stopFind = (): CommandFunction => {
     return ({ tr, dispatch }) => {
       this._query = ''
       this._activeIndex = undefined
@@ -93,12 +93,12 @@ export class FindExtension extends PlainExtension<FindOptions> {
   /**
    * Find and replace one search result.
    */
-  findAndReplace({
+  findAndReplace = ({
     query,
     caseSensitive,
     replacement,
     index,
-  }: FindAndReplaceProps): CommandFunction {
+  }: FindAndReplaceProps): CommandFunction => {
     return (props) => {
       this.setProps({ query, caseSensitive })
 
@@ -123,11 +123,11 @@ export class FindExtension extends PlainExtension<FindOptions> {
   /**
    * Find and replace all search results.
    */
-  findAndReplaceAll({
+  findAndReplaceAll = ({
     query,
     caseSensitive,
     replacement,
-  }: FindAndReplaceAllProps): CommandFunction {
+  }: FindAndReplaceAllProps): CommandFunction => {
     return (props) => {
       this.setProps({ query, caseSensitive })
 
@@ -146,7 +146,7 @@ export class FindExtension extends PlainExtension<FindOptions> {
   /**
    * Find and highlight the search result in the editor. Returns search results.
    */
-  findRanges(options: FindProps): Helper<FindResult> {
+  findRanges = (options: FindProps): Helper<FindResult> => {
     this.store.commands.find(options)
     return {
       activeIndex: this._activeIndex,
