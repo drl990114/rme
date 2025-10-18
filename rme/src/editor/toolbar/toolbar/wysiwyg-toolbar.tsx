@@ -52,6 +52,7 @@ const ToolBar = styled(Ariakit.Toolbar)`
   max-width: 100%;
   align-items: center;
   gap: 0.25rem;
+  height: 26px;
   font-size: ${(props) => props.theme.fontSize};
   color: ${(props) => props.theme.primaryFontColor};
   background-color: ${(props) => props.theme.editorToolbarBgColor};

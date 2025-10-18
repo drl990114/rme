@@ -4,12 +4,12 @@ import { history, redo, undo } from '@rme-sdk/pm/history'
 import { keymap } from '@rme-sdk/pm/keymap'
 import { Node as ProseNode } from '@rme-sdk/pm/model'
 import {
-    Command,
-    EditorState,
-    Plugin,
-    Selection,
-    TextSelection,
-    Transaction,
+  Command,
+  EditorState,
+  Plugin,
+  Selection,
+  TextSelection,
+  Transaction,
 } from '@rme-sdk/pm/state'
 import { Decoration, EditorView, NodeView } from '@rme-sdk/pm/view'
 import katex from 'katex'
@@ -104,7 +104,7 @@ export class MathBlockView implements NodeView {
     this.dom.addEventListener('click', () => this.ensureFocus())
 
     if ((node.attrs as any).fromInput) {
-      setTimeout(() => this.openEditor())
+      this.openEditor()
     } else {
       this.renderTex()
     }
@@ -138,15 +138,6 @@ export class MathBlockView implements NodeView {
     this._node = node
     if (!this._isEditing) this.renderTex()
     return true
-  }
-
-  selectNode() {
-    if (!this._outerView.editable) return
-    if (!this._isEditing) this.openEditor()
-  }
-
-  deselectNode() {
-    if (this._isEditing) this.closeEditor()
   }
 
   setSelection(): void {

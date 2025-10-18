@@ -1,7 +1,7 @@
 {
   "name": "@rme-sdk/prosemirror-flat-list",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Powerful list support for ProseMirror",
   "license": "MIT",
   "keywords": [

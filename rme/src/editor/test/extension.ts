@@ -26,7 +26,6 @@ export class ListExtension extends NodeExtension {
   }
 
   createNodeSpec(): NodeExtensionSpec {
-    // @ts-expect-error: incompatible type
     return createListSpec()
   }
 

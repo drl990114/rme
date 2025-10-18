@@ -96,19 +96,6 @@ export class HtmlNodeView implements NodeView {
   }
 
   // == Events ===================================== //
-
-  selectNode() {
-    if (!this.mfCodemirrorView?.updating) {
-      this.openEditor()
-    }
-  }
-
-  deselectNode() {
-    if (this.mfCodemirrorView?.updating) {
-      this.closeEditor()
-    }
-  }
-
   handleMouseEnter = () => {
     this.dom.classList.add('node-enter')
   }

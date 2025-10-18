@@ -1,7 +1,7 @@
 import type { DOMOutputSpec, NodeSpec } from '@rme-sdk/pm/model'
 
 import { createParseDomRules } from './parse-dom'
-import { listToDOM } from './to-dom'
+import { listToDOM, ListToDOMOptions } from './to-dom'
 
 /**
  * The default group name for list nodes. This is used to find the list node
@@ -16,7 +16,7 @@ export const flatListGroup = 'flatList'
  *
  *  @public  Schema
  */
-export function createListSpec(): NodeSpec {
+export function createListSpec(options: { toDomParams: ListToDOMOptions }): NodeSpec {
   return {
     content: 'block+',
     group: `${flatListGroup} block`,
@@ -37,7 +37,7 @@ export function createListSpec(): NodeSpec {
       },
     },
     toDOM: (node): DOMOutputSpec => {
-      return listToDOM({ node })
+      return listToDOM({...(options.toDomParams || {}), node })
     },
 
     parseDOM: createParseDomRules(),

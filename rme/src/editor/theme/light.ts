@@ -11,6 +11,9 @@ export const styledLightTheme = {
   successColor: '#00c853',
   boxShadowColor: 'rgba(0, 0, 0, 0.08)',
 
+
+  nodeSelectedColor: '#3988ff33',
+
   // node & mark
   markBgColor: '#fff8c5',
   markFontColor: '#24292f',

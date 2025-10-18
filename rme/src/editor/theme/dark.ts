@@ -11,6 +11,9 @@ export const styledDarkTheme = {
   successColor: '#00c853',
   boxShadowColor: 'rgba(255, 255, 255, 0.04)',
 
+
+  nodeSelectedColor: '#193048',
+
   // node & mark
   markBgColor: '#fff8c5',
   markFontColor: '#000',

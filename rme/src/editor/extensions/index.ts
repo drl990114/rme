@@ -31,6 +31,7 @@ import { LineInlineDecorationExtension, LineInlineMarkExtension, markExtensions 
 import { LineListExtension } from './List'
 import { MathBlockExtension, MathInlineExtension } from './Math'
 import { MermaidBlockExtension } from './Mermaid'
+import { NodeIndicatorExtension } from './NodeIndicator'
 import { LineParagraphExtension } from './Paragraph'
 import { PlaceholderExtension } from './Placeholder'
 import { SlashMenuExtension } from './SlashMenu'
@@ -117,7 +118,9 @@ function extensions(options: ExtensionsOptions): any[] {
     }),
 
     new ReactComponentExtension({}),
-    new DropCursorExtension({}),
+    new DropCursorExtension({
+      className: 'rme-drop-cursor'
+    }),
 
     new SlashMenuExtension(),
     new LineInlineMarkExtension(),
@@ -126,11 +129,8 @@ function extensions(options: ExtensionsOptions): any[] {
     new MathBlockExtension({}),
     new MathInlineExtension({}),
 
-    // new ShortcutsExtension({
-    //   disableAllBuildInShortcuts: options.disableAllBuildInShortcuts,
-    // }),
-
     new TransformerExtension({}),
+    new NodeIndicatorExtension()
   ]
 
   if (options.ai) {

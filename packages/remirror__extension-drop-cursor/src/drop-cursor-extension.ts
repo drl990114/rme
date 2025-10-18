@@ -1,5 +1,5 @@
-import { extension, PlainExtension, ProsemirrorPlugin } from '@rme-sdk/core';
-import { dropCursor } from '@rme-sdk/pm/dropcursor';
+import { extension, PlainExtension, ProsemirrorPlugin } from '@rme-sdk/core'
+import { dropCursor } from '@rme-sdk/pm/dropcursor'
 
 export interface DropCursorOptions {
   /**
@@ -7,14 +7,16 @@ export interface DropCursorOptions {
    *
    * @defaultValue 'black'
    */
-  color?: string;
+  color?: string
 
   /**
    * Set the precise width of the cursor in pixels.
    *
    * @defaultValue 1
    */
-  width?: number;
+  width?: number
+
+  className?: string
 }
 
 /**
@@ -27,27 +29,31 @@ export interface DropCursorOptions {
   defaultOptions: {
     color: 'black',
     width: 1,
+    className: '',
   },
+  staticKeys: [],
+  handlerKeys: [],
+  customHandlerKeys: []
 })
 export class DropCursorExtension extends PlainExtension<DropCursorOptions> {
   get name() {
-    return 'dropCursor' as const;
+    return 'dropCursor' as const
   }
 
   /**
    * Use the dropCursor plugin with provided options.
    */
   public createExternalPlugins(): ProsemirrorPlugin[] {
-    const { color, width } = this.options;
+    const { color, width, className } = this.options
 
-    return [dropCursor({ color, width })];
+    return [dropCursor({ color, width, class: className })]
   }
 }
 
 declare global {
   namespace Remirror {
     interface AllExtensions {
-      dropCursor: DropCursorExtension;
+      dropCursor: DropCursorExtension
     }
   }
 }

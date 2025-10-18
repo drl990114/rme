@@ -1,7 +1,5 @@
 import type { InputRule, ProsemirrorNode } from '@rme-sdk/core'
 import { isString } from '@rme-sdk/core'
-import type { ListAttributes } from '@rme-sdk/extension-flat-list'
-import { ListExtension } from '@rme-sdk/extension-flat-list'
 import type Token from 'markdown-it/lib/token.mjs'
 import type {
   MarkdownParseState,
@@ -17,9 +15,108 @@ export abstract class MarkdownNodeExtension {
   abstract toMarkdown: NodeSerializerSpec
 }
 
-export class LineListExtension extends ListExtension implements MarkdownNodeExtension {
+import {
+  convertCommand,
+  ExtensionTag,
+  type KeyBindings,
+  NodeExtension,
+  type NodeExtensionSpec,
+  type ProsemirrorPlugin,
+} from '@rme-sdk/core'
+import type { NodeRange } from '@rme-sdk/pm/model'
+import {
+  createDedentListCommand,
+  createIndentListCommand,
+  createListPlugins,
+  createListSpec,
+  createMoveListCommand,
+  createSplitListCommand,
+  createToggleCollapsedCommand,
+  createToggleListCommand,
+  createUnwrapListCommand,
+  createWrapInListCommand,
+  type DedentListOptions,
+  type IndentListOptions,
+  listKeymap,
+  protectCollapsed,
+  type ToggleCollapsedOptions,
+  type UnwrapListOptions,
+} from '@rme-sdk/prosemirror-flat-list'
+import { defaultMarkerGetter } from './input-rule/schema/to-dom'
+import { ListAttributes } from './input-rule/types'
+
+/**
+ * A Remirror extension for creating lists. It's a simple wrapper around the API from `prosemirror-flat-list`.
+ *
+ * @public
+ */
+export class LineListExtension extends NodeExtension {
+  static disableExtraAttributes = true
+
+  get name() {
+    return 'list' as const
+  }
+
   createInputRules(): InputRule[] {
     return listInputRules
+  }
+
+  createTags() {
+    return [ExtensionTag.Block]
+  }
+
+  createNodeSpec(): NodeExtensionSpec {
+    // @ts-expect-error: incompatible type
+    return createListSpec({ toDomParams: { nativeList: false, getMarkers: defaultMarkerGetter } })
+  }
+
+  createKeymap(): KeyBindings {
+    const bindings: KeyBindings = {}
+    for (const [key, command] of Object.entries(listKeymap)) {
+      bindings[key] = convertCommand(command)
+    }
+    bindings['Tab'] = alwaysTrue(bindings['Mod-]'])
+    bindings['Shift-Tab'] = alwaysTrue(bindings['Mod-['])
+    return bindings
+  }
+
+  createExternalPlugins(): ProsemirrorPlugin[] {
+    return createListPlugins({ schema: this.store.schema })
+  }
+
+  createCommands() {
+    return {
+      indentList: (props?: IndentListOptions) => {
+        return convertCommand(createIndentListCommand(props))
+      },
+      dedentList: (props?: DedentListOptions) => {
+        return convertCommand(createDedentListCommand(props))
+      },
+
+      unwrapList: (options?: UnwrapListOptions) => {
+        return convertCommand(createUnwrapListCommand(options))
+      },
+
+      wrapInList: (getAttrs: ListAttributes | ((range: NodeRange) => ListAttributes | null)) => {
+        return convertCommand(createWrapInListCommand<ListAttributes>(getAttrs))
+      },
+
+      moveList: (direction: 'up' | 'down') => {
+        return convertCommand(createMoveListCommand(direction))
+      },
+
+      splitList: () => convertCommand(createSplitListCommand()),
+
+      protectCollapsed: () => convertCommand(protectCollapsed),
+
+      toggleCollapsed: (props?: ToggleCollapsedOptions) => {
+        return convertCommand(createToggleCollapsedCommand(props))
+      },
+
+      toggleList: (attrs: ListAttributes) => {
+        return convertCommand(createToggleListCommand(attrs))
+      },
+    } as const
   }
 
   public fromMarkdown() {
@@ -88,6 +185,22 @@ export class LineListExtension extends ListExtension implements MarkdownNodeExte
     state.wrapBlock(' '.repeat(firstDelim.length), firstDelim, node, () =>
       state.renderContent(node),
     )
+  }
+}
+
+/**
+ * Wrap the giving command function so that it always returns `true`. This is
+ * useful when we want pressing `Tab` and `Shift-Tab` won't blur the editor even
+ * if the keybinding command returns `false`
+ *
+ * @public
+ */
+export function alwaysTrue<T extends unknown[]>(
+  func: (...args: T) => boolean,
+): (...args: T) => boolean {
+  return (...args) => {
+    func(...args)
+    return true
   }
 }
 

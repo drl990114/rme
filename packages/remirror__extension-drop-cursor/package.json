@@ -1,6 +1,6 @@
 {
   "name": "@rme-sdk/extension-drop-cursor",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A cursor for the ages. Drag and drop content in your editor with class.",
   "keywords": [
     "remirror",

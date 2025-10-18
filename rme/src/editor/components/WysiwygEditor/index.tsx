@@ -4,6 +4,7 @@ import { Remirror } from '@rme-sdk/react'
 import { memo, useCallback, useEffect, useMemo, type FC } from 'react'
 import { TransformerExtension } from '../../extensions/Transformer/transformer-extension'
 import { WysiwygThemeWrapper } from '../../theme'
+import { BlockHandler } from '../../toolbar/BlockHandler'
 import { SlashMenu } from '../../toolbar/SlashMenu'
 import TableToolbar from '../../toolbar/TableToolbar'
 import { WysiwygToolbar } from '../../toolbar/toolbar'
@@ -74,6 +75,7 @@ const WysiwygEditor: FC<EditorProps> = (props) => {
           ) : null}
           <Text {...textContainerProps} />
           <TableToolbar />
+          <BlockHandler />
           <SlashMenu />
           {wysiwygToolBar || null}
           {isTesting ? <ProsemirrorDevTools /> : null}

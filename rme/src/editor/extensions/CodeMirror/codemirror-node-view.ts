@@ -67,10 +67,6 @@ export class CodeMirror6NodeView implements NodeView {
     this.mfCodemirrorView.setSelection(anchor, head)
   }
 
-  selectNode(): void {
-    this.focus()
-  }
-
   focus(): void {
     this.cm.focus()
     this.mfCodemirrorView.forwardSelection()

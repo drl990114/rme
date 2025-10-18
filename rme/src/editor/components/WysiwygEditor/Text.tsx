@@ -16,7 +16,7 @@ const Text: FC<ITextProps> = memo(({ children, ...props }) => {
   const style = Object.assign(
     {
       position: 'relative',
-      padding: '0 12px'
+      padding: '0 40px'
     },
     props.style,
   )

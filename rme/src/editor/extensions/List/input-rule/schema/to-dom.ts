@@ -96,7 +96,7 @@ export function defaultMarkerGetter(
     case 'toggle':
       return []
     default:
-      return null
+      return []
   }
 }
 
