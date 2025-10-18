@@ -4,16 +4,13 @@ import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 import { Input, Space } from 'zens'
 import { isSlashKey } from '../../extensions/SlashMenu/utils'
-import { darken } from '../../theme/darken-colors'
 import { getModEventKey, getModKeyIconName } from '../../utils/getOS'
 import TablePanel from './TablePanel'
 
 type SlashMenuRootProps = {
   rootRef: React.RefObject<HTMLDivElement>
   commands: CommandsFromExtensions<AnyExtension>
-  closeMenu: (config?: {
-    insertSlash?: boolean
-  }) => void
+  closeMenu: (config?: { insertSlash?: boolean }) => void
 }
 
 export enum ChildrenHandlerNext {
@@ -515,9 +512,7 @@ const MenuPanel = styled.div.attrs<MenuPanelProps>((p) => p)`
   flex-direction: column;
   overscroll-behavior: contain;
   background-color: ${(props) =>
-    props.active
-      ? darken(props.theme.contextMenuBgColorHover, 0.2)
-      : props.theme.contextMenuBgColorHover};
+    props.active ? props.theme.contextMenuBgColorActive : props.theme.contextMenuBgColor};
   padding: ${(props) => props.theme.spaceXs};
   color: ${(props) => props.theme.primaryFontColor};
   font-size: ${(props) => props.theme.fontXs};
