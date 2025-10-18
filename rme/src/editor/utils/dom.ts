@@ -145,3 +145,23 @@ export function injectStyle(container: HTMLElement, styleText: string): void {
   style.textContent = styleText
   container.appendChild(style)
 }
+
+export function addLabelToDom(
+  dom: HTMLElement,
+  params: {
+    iconName?: string
+    labelName: string
+  },
+) {
+  const { iconName = 'ri-expand-left-right-line', labelName = '' } = params
+  const iconCls = ['cm-render-node-label-icon', iconName].join(' ')
+
+  const label = document.createElement('span')
+  label.innerHTML = `<i class="${iconCls}"></i>${labelName}`
+  label.classList.add('cm-render-node-label')
+
+  dom.appendChild(label)
+  dom.classList.add('cm-render-node')
+
+  return label
+}

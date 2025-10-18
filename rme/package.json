@@ -1,6 +1,6 @@
 {
   "name": "rme",
-  "version": "0.2.5-alpha.24",
+  "version": "0.2.5-alpha.25",
   "type": "module",
   "scripts": {
     "build": "pnpm clear && pnpm build-esbuild && pnpm types",
@@ -154,6 +154,7 @@
     "@rme-sdk/react-core": "workspace:*",
     "@rme-sdk/types": "workspace:*",
     "@uiw/react-codemirror": "^4.23.6",
+    "codemirror-lang-latex": "^0.2.0",
     "color": "^4.2.3",
     "create-context-state": "^2.0.3",
     "escape-string-regexp": "^4.0.0",

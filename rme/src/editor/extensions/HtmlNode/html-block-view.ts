@@ -7,10 +7,11 @@ import type { EditorView } from '@rme-sdk/pm/view'
 import type { Node as ProseNode } from 'prosemirror-model'
 import type { NodeView } from 'prosemirror-view'
 import { MfCodemirrorView } from '../../codemirror/codemirror'
+import { addLabelToDom } from '../../utils/dom'
 import { minimalSetup } from '../CodeMirror/setup'
 import { LineHtmlBlockExtensionOptions } from './html-block-types'
 
-function removeNewlines(str: string) {
+export function removeNewlines(str: string) {
   return str.replace(/\n+|\t/g, '')
 }
 
@@ -52,11 +53,10 @@ export class HtmlNodeView implements NodeView {
     this._htmlRenderElt.textContent = ''
     this._htmlRenderElt.classList.add('html-node-render')
 
-    const label = document.createElement('span')
-    label.innerHTML = `<i class="ri-expand-left-right-line"></i> HTML`
-    label.classList.add('html-node-label')
-
-    this.dom.appendChild(label)
+    const labelDom = addLabelToDom(this.dom, {
+      labelName: 'HTML',
+    })
+    labelDom.addEventListener('click', () => this.ensureFocus())
 
     this.dom.appendChild(this._htmlRenderElt)
 
@@ -66,10 +66,6 @@ export class HtmlNodeView implements NodeView {
     this.languageConf = new Compartment()
 
     this.dom.appendChild(this._htmlSrcElt)
-
-    label.addEventListener('click', () => this.ensureFocus())
-    this.dom.addEventListener('mouseenter', this.handleMouseEnter)
-    this.dom.addEventListener('mouseleave', this.handleMouseLeave)
 
     this.renderHtml()
   }
@@ -96,14 +92,6 @@ export class HtmlNodeView implements NodeView {
   }
 
   // == Events ===================================== //
-  handleMouseEnter = () => {
-    this.dom.classList.add('node-enter')
-  }
-
-  handleMouseLeave = () => {
-    this.dom.classList.remove('node-enter')
-  }
-
   stopEvent(): boolean {
     return true
   }
@@ -169,7 +157,7 @@ export class HtmlNodeView implements NodeView {
         copyButton: {
           enabled: true,
           customCopyFunction: this.options?.customCopyFunction,
-        }
+        },
       },
     })
 
@@ -205,8 +193,6 @@ export class HtmlNodeView implements NodeView {
       this._htmlSrcElt = null // fix for the error
     }
 
-    this.dom.removeEventListener('mouseenter', this.handleMouseEnter)
-    this.dom.removeEventListener('mouseleave', this.handleMouseLeave)
     this.dom.remove()
   }
 

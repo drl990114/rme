@@ -80,7 +80,7 @@ export default function MarkdownItMath(md: MarkdownIt) {
       const tex = state.src.slice(start, end)
       const originalContent = state.src.slice(pos, end + 1) // 包含$标签的原始内容
       token.attrs = { tex } as any
-      token.content = originalContent
+      token.content = tex
     }
     state.pos = end + 1
     return true
@@ -123,7 +123,7 @@ export default function MarkdownItMath(md: MarkdownIt) {
 
     const token = state.push('math_block', 'div', 0)
     token.block = true
-    token.content = originalContent
+    token.content = content
     token.attrs = [['tex', content]]
     token.map = [startLine, nextLine + 1]
     state.line = nextLine + 1

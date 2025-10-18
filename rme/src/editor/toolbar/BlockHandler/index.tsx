@@ -123,7 +123,7 @@ const Container = styled.div`
   border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 4px;
   font-size: 14px;
-  z-index: 1000;
+  z-index: 10;
 
   .rme-draggable-handler {
     display: flex;

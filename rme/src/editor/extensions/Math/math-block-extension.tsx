@@ -1,21 +1,25 @@
 import type {
-    ApplySchemaAttributes,
-    InputRule,
-    NodeExtensionSpec,
-    NodeSpecOverride,
-    NodeViewMethod,
-    PrioritizedKeyBindings,
+  ApplySchemaAttributes,
+  InputRule,
+  NodeExtensionSpec,
+  NodeSpecOverride,
+  NodeViewMethod,
+  PrioritizedKeyBindings,
 } from '@rme-sdk/core'
 import { extension, ExtensionTag, NodeExtension, nodeInputRule } from '@rme-sdk/core'
 import type { NodeSerializerOptions } from '../../transform'
 import { ParserRuleType } from '../../transform'
+import { CustomCopyFunction } from '../CodeMirror/codemirror-types'
 import { arrowHandler } from '../CodeMirror/codemirror-utils'
 import { MathBlockView } from './math-block-nodeview'
 
+export interface MathBlockExtensionOptions {
+  customCopyFunction?: CustomCopyFunction
+}
 @extension({
   defaultOptions: {},
 })
-export class MathBlockExtension extends NodeExtension {
+export class MathBlockExtension extends NodeExtension<MathBlockExtensionOptions> {
   get name() {
     return 'math_block' as const
   }
@@ -50,7 +54,7 @@ export class MathBlockExtension extends NodeExtension {
   }
 
   createNodeViews(): NodeViewMethod | Record<string, NodeViewMethod> {
-    return (node, view, getPos) => new MathBlockView(node, view, getPos)
+    return (node, view, getPos) => new MathBlockView(node, view, getPos as () => number)
   }
 
   createInputRules(): InputRule[] {
@@ -90,7 +94,7 @@ export class MathBlockExtension extends NodeExtension {
 
   public toMarkdown({ state, node }: NodeSerializerOptions) {
     state.write('$$\n')
-    const tex = node.attrs.tex || ''
+    const tex = node.textContent || node.attrs.tex || ''
     state.text(tex, false)
 
     if (!tex.endsWith('\n')) {

@@ -680,6 +680,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
 
   .node-show {
     display: block;
+    margin-bottom: 0;
     transition: all 0.3s;
   }
 
@@ -723,10 +724,8 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   .math-block-nodeview {
     position: relative;
     margin: 0;
-
-    br {
-      display: none;
-    }
+    min-height: 40px;
+    transition: all 0.3s;
   }
 
   .math-block-render {
@@ -735,9 +734,10 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
     align-items: center;
     padding: 1em 0;
     border-radius: 0.2em;
+    border: 1px solid transparent;
 
     &:hover {
-      border: 1px solid ${(props) => props.theme.borderColor};
+      border-color: ${(props) => props.theme.borderColor};
     }
   }
 
@@ -760,29 +760,42 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   .html-node {
     position: relative;
     min-height: 40px;
-    transition: all 0.3s;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
 
     &:hover {
-      background-color: ${({ theme }) => theme.tipsBgColor};
+      border-color: ${(props) => props.theme.borderColor};
     }
   }
 
   .html-src {
     outline: none;
+
+    .cm-editor {
+      margin: 0;
+    }
   }
 
   .mermaid-node {
     position: relative;
+    padding: 0;
+    margin: 0;
     min-height: 40px;
     transition: all 0.3s;
+    border: 1px solid transparent;
 
     &:hover {
-      background-color: ${({ theme }) => theme.tipsBgColor};
+      border-color: ${(props) => props.theme.borderColor};
     }
   }
 
   .mermaid-src {
     outline: none;
+
+    .cm-editor {
+      margin: 0;
+    }
   }
 
   & .ProseMirror-focused {
@@ -793,16 +806,33 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
     display: flex;
   }
 
-  .html-node-label {
+  .cm-render-node {
+    position: relative;
+
+    &:hover {
+      .cm-render-node-label {
+        opacity: 1;
+      }
+    }
+  }
+
+  .cm-render-node-label {
     position: absolute;
     top: 6px;
     right: 6px;
     padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
     opacity: 0;
     transition: all 0.3s;
-    font-size: small;
+    font-size: 12px;
     cursor: pointer;
     color: ${(props) => props.theme.labelFontColor};
+
+    &-icon {
+      font-size: 16px;
+    }
 
     &:hover {
       background-color: ${(props) => props.theme.hoverColor};
@@ -810,11 +840,7 @@ export const WysiwygThemeWrapper = styled.div.attrs<WrapperProps>((p) => ({
   }
 
   .node-enter {
-    & .html-node-render {
-      background-color: ${({ theme }) => theme.tipsBgColor};
-    }
-
-    & .html-node-label {
+    & .cm-render-node-label {
       opacity: 1;
     }
   }

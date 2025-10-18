@@ -7,6 +7,7 @@ import mermaid from 'mermaid'
 import type { Node as ProseNode } from 'prosemirror-model'
 import type { NodeView } from 'prosemirror-view'
 import { MfCodemirrorView } from '../../codemirror/codemirror'
+import { addLabelToDom } from '../../utils/dom'
 import { eventBus } from '../../utils/eventbus'
 import { minimalSetup } from '../CodeMirror/setup'
 import { MermaidExtensionOptions } from './mermaid-extension'
@@ -51,11 +52,12 @@ export class MermaidNodeView implements NodeView {
     this._htmlRenderElt.textContent = ''
     this._htmlRenderElt.classList.add('html-node-render')
 
-    const label = document.createElement('span')
-    label.innerHTML = `<i class="ri-expand-left-right-line"></i> mermaid`
-    label.classList.add('html-node-label')
+    const labelDom = addLabelToDom(this.dom, {
+      labelName: 'Mermaid',
+    })
+    labelDom.addEventListener('click', () => this.ensureFocus())
 
-    this.dom.appendChild(label)
+    this.dom.appendChild(this._htmlRenderElt)
 
     this.dom.appendChild(this._htmlRenderElt)
 
@@ -65,12 +67,6 @@ export class MermaidNodeView implements NodeView {
     this.languageConf = new Compartment()
 
     this.dom.appendChild(this._htmlSrcElt)
-
-    label.addEventListener('click', () => this.ensureFocus())
-    // this.dom.addEventListener('click', () => this.ensureFocus())
-    label.addEventListener('click', () => this.ensureFocus())
-    this.dom.addEventListener('mouseenter', this.handleMouseEnter)
-    this.dom.addEventListener('mouseleave', this.handleMouseLeave)
 
     this.renderHtml()
     eventBus.on('change-theme', this.changeTheme)
@@ -94,15 +90,6 @@ export class MermaidNodeView implements NodeView {
   }
 
   // == Events ===================================== //
-
-  handleMouseEnter = () => {
-    this.dom.classList.add('node-enter')
-  }
-
-  handleMouseLeave = () => {
-    this.dom.classList.remove('node-enter')
-  }
-
   stopEvent(): boolean {
     return true
   }
@@ -208,8 +195,6 @@ export class MermaidNodeView implements NodeView {
       this._htmlSrcElt = null // fix for the error
     }
 
-    this.dom.removeEventListener('mouseenter', this.handleMouseEnter)
-    this.dom.removeEventListener('mouseleave', this.handleMouseLeave)
     this.dom.remove()
 
     eventBus.detach('change-theme', this.changeTheme)

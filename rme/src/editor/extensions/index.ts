@@ -58,7 +58,16 @@ export type ExtensionsOptions = {
 }
 
 function extensions(options: ExtensionsOptions): any[] {
-  const { handleViewImgSrcUrl, imageHostingHandler, imageCopyHandler } = options
+  const defaultCopyFunction = (code) => {
+    navigator.clipboard.writeText(code)
+    return true
+  }
+  const {
+    handleViewImgSrcUrl,
+    imageHostingHandler,
+    imageCopyHandler,
+    customCopyFunction = defaultCopyFunction,
+  } = options
 
   const res: any[] = [
     ...corePreset({ excludeExtensions: ['paragraph', 'text'] }),
@@ -94,13 +103,13 @@ function extensions(options: ExtensionsOptions): any[] {
     new LineCodeMirrorExtension({
       extensions: [minimalSetup],
       useProsemirrorHistoryKey: true,
-      customCopyFunction: options.customCopyFunction,
+      customCopyFunction,
     }),
     new LineHtmlBlockExtension({
-      customCopyFunction: options.customCopyFunction,
+      customCopyFunction,
     }),
     new MermaidBlockExtension({
-      customCopyFunction: options.customCopyFunction,
+      customCopyFunction,
     }),
     new LineTableExtension({ resizable: false }),
     new LineTableRowExtension(),
@@ -119,18 +128,20 @@ function extensions(options: ExtensionsOptions): any[] {
 
     new ReactComponentExtension({}),
     new DropCursorExtension({
-      className: 'rme-drop-cursor'
+      className: 'rme-drop-cursor',
     }),
 
     new SlashMenuExtension(),
     new LineInlineMarkExtension(),
     new LineInlineDecorationExtension(),
 
-    new MathBlockExtension({}),
+    new MathBlockExtension({
+      customCopyFunction,
+    }),
     new MathInlineExtension({}),
 
     new TransformerExtension({}),
-    new NodeIndicatorExtension()
+    new NodeIndicatorExtension(),
   ]
 
   if (options.ai) {

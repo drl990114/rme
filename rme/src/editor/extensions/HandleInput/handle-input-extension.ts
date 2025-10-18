@@ -18,6 +18,7 @@ export interface InputRule {
   getContent?: (match: RegExpMatchArray, schema: any) => ProsemirrorNode | ProsemirrorNode[] | null
 }
 
+export const excludeNodeName = ['math_block', 'codeMirror']
 export class HandleInputExtension extends PlainExtension {
   private inputRules: InputRule[] = [
     ...getMdImageInputRule<string>('md_image'),
@@ -59,7 +60,7 @@ export class HandleInputExtension extends PlainExtension {
           stepMap.forEach((oldStart, oldEnd, newStart, newEnd) => {
             // 检查变更范围内是否包含 codeMirror 节点
             newState.doc.nodesBetween(newStart, newEnd, (node, pos) => {
-              if (node.type.name === 'codeMirror') {
+              if (excludeNodeName.includes(node.type.name)) {
                 involvesCodeMirror = true
                 return false // 停止遍历
               }
@@ -92,7 +93,7 @@ export class HandleInputExtension extends PlainExtension {
 
             newState.doc.nodesBetween(searchFrom, searchTo, (node, pos) => {
               // 跳过 CodeMirror 节点内部的内容
-              if (node.type.name === 'codeMirror') {
+              if (excludeNodeName.includes(node.type.name)) {
                 return false // 不处理 CodeMirror 节点内部
               }
 

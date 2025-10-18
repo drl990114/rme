@@ -1,93 +1,29 @@
-// prosemirror imports
-import { exitCode } from '@rme-sdk/pm/commands'
-import { history, redo, undo } from '@rme-sdk/pm/history'
-import { keymap } from '@rme-sdk/pm/keymap'
+import { MfCodemirrorView } from '@/editor/codemirror'
+import type { EditorView as CodeMirrorEditorView } from '@codemirror/view'
 import { Node as ProseNode } from '@rme-sdk/pm/model'
-import {
-  Command,
-  EditorState,
-  Plugin,
-  Selection,
-  TextSelection,
-  Transaction,
-} from '@rme-sdk/pm/state'
 import { Decoration, EditorView, NodeView } from '@rme-sdk/pm/view'
+import { latex } from 'codemirror-lang-latex'
 import katex from 'katex'
-
-/**
- * Create a ProseMirror command to collapse the inner editor selection back to the outer view.
- */
-function collapseCmd(
-  outerView: EditorView,
-  dir: 1 | -1,
-  requireOnBorder: boolean,
-  requireEmptySelection: boolean = true,
-  getPos?: () => number | undefined,
-  node?: ProseNode,
-): Command {
-  return (innerState: EditorState, dispatch) => {
-    const outerState = outerView.state
-    const { to: innerTo, from: innerFrom } = innerState.selection
-
-    if (requireEmptySelection && innerTo !== innerFrom) return false
-
-    const currentPos = dir > 0 ? innerTo : innerFrom
-    if (requireOnBorder) {
-      const nodeSize = innerState.doc.nodeSize - 2
-      if (dir > 0 && currentPos < nodeSize) return false
-      if (dir < 0 && currentPos > 0) return false
-    }
-
-    if (dispatch) {
-      // 获取数学块节点的位置
-      const pos = getPos?.()
-      if (pos === undefined || !node) return false
-
-      // 根据方向计算目标位置
-      let targetPos: number
-      if (dir > 0) {
-        // 向右/向下：移动到数学块节点之后
-        targetPos = pos + node.nodeSize
-      } else {
-        // 向左/向上：移动到数学块节点之前
-        targetPos = pos
-      }
-
-      if (targetPos < 0 || targetPos > outerState.doc.content.size) {
-        return false
-      }
-
-      if (dir === 1 && exitCode(outerView.state, outerView.dispatch)) {
-        outerView.focus()
-      } else {
-        const selection = Selection.near(outerState.doc.resolve(targetPos), dir)
-        const tr = outerView.state.tr.setSelection(selection).scrollIntoView()
-        outerView.dispatch(tr)
-        outerView.focus()
-      }
-      return true
-    }
-
-    return true
-  }
-}
+import { addLabelToDom } from '../../utils/dom'
+import { minimalSetup } from '../CodeMirror/setup'
+import { MathBlockExtensionOptions } from './math-block-extension'
 
 export class MathBlockView implements NodeView {
   private _node: ProseNode
   private _outerView: EditorView
-  private _getPos: () => number | undefined
+  private _getPos: () => number
 
   dom: HTMLElement
   private _renderElt: HTMLElement | undefined
   private _srcElt: HTMLElement | undefined
-  private _innerView: EditorView | undefined
-  private _isEditing: boolean
+  private _innerView: CodeMirrorEditorView | undefined
+  mfCodemirrorView?: MfCodemirrorView
+  options?: MathBlockExtensionOptions
 
-  constructor(node: ProseNode, view: EditorView, getPos: () => number | undefined) {
+  constructor(node: ProseNode, view: EditorView, getPos: () => number) {
     this._node = node
     this._outerView = view
     this._getPos = getPos
-    this._isEditing = false
 
     this.dom = document.createElement('div')
     this.dom.classList.add('math-block-nodeview')
@@ -97,11 +33,14 @@ export class MathBlockView implements NodeView {
     this.dom.appendChild(this._renderElt)
 
     this._srcElt = document.createElement('div')
-    this._srcElt.spellcheck = false
-    this._srcElt.style.display = 'none'
+    this._srcElt.classList.add('html-src', 'node-hide')
+
+    const labelDom = addLabelToDom(this.dom, {
+      labelName: 'LaTex'
+    })
     this.dom.appendChild(this._srcElt)
 
-    this.dom.addEventListener('click', () => this.ensureFocus())
+    labelDom.addEventListener('click', () => this.ensureFocus())
 
     if ((node.attrs as any).fromInput) {
       this.openEditor()
@@ -111,15 +50,18 @@ export class MathBlockView implements NodeView {
   }
 
   destroy() {
+    // close the inner editor without rendering
     this.closeEditor(false)
+    // clean up dom elements
     if (this._renderElt) {
       this._renderElt.remove()
       delete this._renderElt
     }
     if (this._srcElt) {
       this._srcElt.remove()
-      delete this._srcElt
+      this._srcElt = undefined
     }
+
     this.dom.remove()
   }
 
@@ -134,16 +76,16 @@ export class MathBlockView implements NodeView {
   }
 
   update(node: ProseNode, _decorations: readonly Decoration[]) {
-    if (!node.sameMarkup(this._node)) return false
     this._node = node
-    if (!this._isEditing) this.renderTex()
-    return true
+    return !!this.mfCodemirrorView?.update(node)
   }
 
-  setSelection(): void {
+  setSelection(anchor: number, head: number): void {
     if (!this._innerView) {
       this.openEditor()
+      this.mfCodemirrorView!.setSelection(anchor, head)
     } else {
+      this.mfCodemirrorView?.setSelection(anchor, head)
     }
   }
 
@@ -157,8 +99,9 @@ export class MathBlockView implements NodeView {
 
   private renderTex(preview = false) {
     if (!this._renderElt) return
-    const raw = this._innerView?.state.doc.textContent ?? (this._node.attrs as any).tex ?? ''
-    const tex: string = raw.replace(/\u200b/g, '').trim()
+    const content = this.mfCodemirrorView?.content || this._node.textContent
+
+    const tex: string = content.trim()
 
     try {
       while (this._renderElt.firstChild) {
@@ -182,7 +125,6 @@ export class MathBlockView implements NodeView {
       this._renderElt.replaceWith(newRenderEl)
       this._renderElt = newRenderEl
 
-      console.log('this.renderElt', this._renderElt.outerHTML)
       this.dom.appendChild(this._renderElt)
 
       if (preview) {
@@ -198,109 +140,59 @@ export class MathBlockView implements NodeView {
     }
   }
 
-  private dispatchInner(tr: Transaction) {
-    if (!this._innerView) return
-
-    // 使用正确的方式应用事务
-    const newState = this._innerView.state.apply(tr)
-    this._innerView.updateState(newState)
-    this.renderTex(true)
-  }
-
   private openEditor = () => {
     if (this._innerView) return
 
     const currentTex: string = ((this._node.attrs as any).tex ?? '') as string
 
-    this._innerView = new EditorView(this._srcElt!, {
-      state: EditorState.create({
-        doc: this._outerView.state.schema.node(
-          'paragraph',
-          null,
-          currentTex
-            ? [this._outerView.state.schema.text(currentTex)]
-            : [this._outerView.state.schema.text('\u200b')],
-        ),
-        plugins: [
-          history(),
-          keymap({
-            Tab: (state, dispatch) => {
-              if (dispatch) dispatch(state.tr.insertText('\t'))
-              return true
-            },
-            ArrowLeft: collapseCmd(this._outerView, -1, true, true, this._getPos, this._node),
-            ArrowRight: collapseCmd(this._outerView, +1, true, true, this._getPos, this._node),
-            ArrowUp: collapseCmd(this._outerView, -1, true, true, this._getPos, this._node),
-            ArrowDown: collapseCmd(this._outerView, +1, true, true, this._getPos, this._node),
-            'Mod-z': (state, dispatch, view) => undo(state, dispatch, view),
-            'Shift-Mod-z': (state, dispatch, view) => redo(state, dispatch, view),
-            Backspace: (state, dispatch) => {
-              const { from, to } = state.selection
-              if (from === 0 && to === state.doc.content.size) {
-                // If the inner editor is empty, delete the whole math block node
-                const pos = this._getPos()
-                if (pos !== undefined) {
-                  const tr = this._outerView.state.tr.delete(pos, pos + this._node.nodeSize)
-                  this._outerView.dispatch(tr)
-                  this._outerView.focus()
-                  return true
-                }
-              }
-              return false
-            },
-          }),
-          new Plugin({
-            props: {
-              handleDOMEvents: {
-                blur: () => {
-                  const pos = this._getPos()
-                  if (pos !== undefined) {
-                    const text = (this._innerView?.state.doc.textContent || '').replace(
-                      /\u200b/g,
-                      '',
-                    )
-                    const tr = this._outerView.state.tr
-                    tr.setNodeAttribute(pos, 'fromInput', false)
-                    tr.setNodeAttribute(pos, 'tex', text)
-                    this._outerView.dispatch(tr)
-                  }
-                  this.closeEditor()
-                  return true
-                },
-              },
-            },
-          }),
-        ],
-      }),
-      dispatchTransaction: this.dispatchInner.bind(this),
+    this.mfCodemirrorView = new MfCodemirrorView({
+      view: this._outerView,
+      node: this._node,
+      getPos: this._getPos,
+      languageName: 'LaTeX',
+      extensions: [minimalSetup, latex()],
+      options: {
+        useProsemirrorHistoryKey: true,
+        codemirrorEditorViewConfig: {
+          parent: this._srcElt!,
+        },
+        copyButton: {
+          enabled: true,
+          customCopyFunction: this.options?.customCopyFunction,
+        },
+      },
     })
 
-    this._innerView.dom.classList.add('inline-input-src')
-    this._innerView.dom.classList.remove('ProseMirror')
-    this._srcElt!.style.display = 'inline'
+    this._srcElt!.classList.remove('node-hide')
+    this._innerView = this.mfCodemirrorView.cm
+    this._renderElt?.classList.add('node-hide')
 
-    const innerState = this._innerView.state
+    console.log('currentTex', currentTex, this._node.textContent)
+    const prevCursorPos: number = this._node.textContent.length || 0
+
+    this.setSelection(prevCursorPos, prevCursorPos)
+
     this._innerView.focus()
-    const innerPos = innerState.doc.textContent.length || 0
-    this._innerView.dispatch(
-      innerState.tr.setSelection(TextSelection.create(innerState.doc, innerPos)),
-    )
 
-    this._renderElt?.classList.add('math-block-preview')
-    this._isEditing = true
+    this._innerView.contentDOM.addEventListener('blur', () => {
+      this.closeEditor(true)
+    })
+
+    this.mfCodemirrorView.forwardSelection()
   }
 
   private closeEditor = (render: boolean = true) => {
-    if (this._srcElt) {
-      this._srcElt.style.display = 'none'
-    }
     if (this._innerView) {
       this._innerView.destroy()
       this._innerView = undefined
     }
+    if (this.mfCodemirrorView) {
+      this.mfCodemirrorView.destroy()
+      this.mfCodemirrorView = undefined
+    }
+
     if (render) {
       this.renderTex()
     }
-    this._isEditing = false
   }
 }
